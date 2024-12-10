@@ -14,9 +14,9 @@ function Navbar() {
                     <li>Services</li>
                     <li>Work</li>
                     <li>Contact</li>
-
                 </ul>
             </div>
+            <a>Download CV</a>
         </div>
     </div>
   )
