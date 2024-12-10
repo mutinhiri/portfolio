@@ -10,7 +10,7 @@ function Navbar() {
         {id: 1, text: 'About'},
         {id: 2, text: 'Services'},
         {id: 3, text: 'Work'},
-        {id: 4, text: 'Contact'}
+        {id: 4, text: 'Contact', to: 'about'}
     ]
   return (
     <div>
@@ -21,10 +21,9 @@ function Navbar() {
             </div>
             <div className="abot">
                 <ul className='hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white'>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Work</li>
-                    <li>Contact</li>
+                    { items.map(({id, text}) => (
+                        <li key={id}>{text}</li>
+                    ))}
                 </ul>
             </div>
             <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
@@ -41,6 +40,17 @@ function Navbar() {
                     {/* <HiOutlineMenuAlt3 />
                     <MdCloseFullscreen /> */}
                     </div>
+                    { menu && (
+                        <div>
+                            <ul>
+                            { items.map(({id, text}) => (
+                                <li key={id}>{text}</li>
+                                  ))}
+                    
+ 
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
