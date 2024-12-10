@@ -2,9 +2,16 @@ import React, { useState } from 'react'
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { MdCloseFullscreen } from "react-icons/md";
 
-const menu = useState(false)
+
 
 function Navbar() {
+    const [menu, setMenu] = useState(false)
+    const items = [
+        {id: 1, text: 'About'},
+        {id: 2, text: 'Services'},
+        {id: 3, text: 'Work'},
+        {id: 4, text: 'Contact'}
+    ]
   return (
     <div>
         <div className="container mx-auto hidden md:flex justify-between items-center py-6">
@@ -22,9 +29,11 @@ function Navbar() {
             </div>
             <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
         </div>
-        <div className='flex md:'>
+        <div className='flex md:hidden justify-between'>
             <div>
-                <div className='bg-red-900'>
+                <div 
+                onClick={() => setMenu((prev) => !prev )}
+                className='bg-white 2-2/3 h-screen text-black fixed x-10'>
                     <div className='px-7 py-6'>
                         {
                             menu ? (<HiOutlineMenuAlt3/>) : <MdCloseFullscreen/>
