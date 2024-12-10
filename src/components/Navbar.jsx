@@ -57,6 +57,10 @@ function Navbar() {
                     )}
                 </div>
             </div>
+            <div className="text-xl font-bold flex items-center gap-2 py-6 px-4">
+                <span className='text-white'>IREOn</span>
+                <span className='text-purple-500'>Coding</span>
+            </div>
         </div>
         
     </div>
