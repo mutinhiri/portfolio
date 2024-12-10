@@ -1,10 +1,22 @@
 import React, { useState } from 'react'
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { MdCloseFullscreen } from "react-icons/md";
+import { motion } from 'motion/react'
+import { clipPath } from 'motion/react-client';
 
 
 
 function Navbar() {
+
+    const variants = {
+        open: {clipPath: "circle(1200px at 43px 43px)"},
+        transition: {
+            type: "spring"
+        },
+        close: {
+            clipPath: "circle(43px at 43px 43px)"
+        }
+    }
     const [menu, setMenu] = useState(false)
     const items = [
         {id: 1, text: 'About'},
