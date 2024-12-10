@@ -41,14 +41,18 @@ function Navbar() {
                     <MdCloseFullscreen /> */}
                     </div>
                     { menu && (
-                        <div>
-                            <ul>
+                        <div className='flex flex-col justify-center items-center'>
+                            <ul className='space-y-6 text-black text-lg'>
                             { items.map(({id, text}) => (
-                                <li key={id}>{text}</li>
+                                <li 
+                                key={id}
+                                className='hover:text-purple-500 duration-200 cursor-pointer'
+                                >{text}</li>
                                   ))}
                     
  
                             </ul>
+                            <a href="" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download Cv</a>
                         </div>
                     )}
                 </div>
