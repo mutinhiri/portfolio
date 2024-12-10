@@ -1,4 +1,6 @@
 import React from 'react'
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { MdCloseFullscreen } from "react-icons/md";
 
 function Navbar() {
   return (
@@ -16,8 +18,22 @@ function Navbar() {
                     <li>Contact</li>
                 </ul>
             </div>
-            <a className=''>Download CV</a>
+            <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
         </div>
+        <div>
+            <div>
+                <div className='bg-red-900'>
+                    <div className='px-7 py-6'>
+                        {
+                            menu ? (<HiOutlineMenuAlt3) : <MdCloseFullscreen/>
+                        }
+                    <HiOutlineMenuAlt3 />
+                    <MdCloseFullscreen />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
   )
 }
