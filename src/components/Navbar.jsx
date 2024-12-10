@@ -3,6 +3,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { MdCloseFullscreen } from "react-icons/md";
 import { motion } from 'motion/react'
 import { clipPath } from 'motion/react-client';
+import { PiClosedCaptioningDuotone } from 'react-icons/pi';
 
 
 
@@ -13,8 +14,12 @@ function Navbar() {
         transition: {
             type: "spring"
         },
-        close: {
-            clipPath: "circle(43px at 43px 43px)"
+        closed: {
+            clipPath: "circle(25px at 43px 37px)",
+            transition: {
+                type: 'spring',
+                duration: 1,
+            }
         }
     }
     const [menu, setMenu] = useState(false)
@@ -41,8 +46,9 @@ function Navbar() {
             <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
         </div>
         <div className='flex md:hidden justify-between'>
-            <div>
-                <div 
+            <motion.div animate={menu ? "open" : 'closed'}>
+                <motion.div 
+                variants={variants}
                 onClick={() => setMenu((prev) => !prev )}
                 className='bg-white 2-2/3 h-screen text-black fixed x-10'>
                     <div className='px-7 py-6'>
@@ -67,8 +73,8 @@ function Navbar() {
                             <a href="" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download Cv</a>
                         </div>
                     )}
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
             <div className="text-xl font-bold flex items-center gap-2 py-6 px-4">
                 <span className='text-white'>IREOn</span>
                 <span className='text-purple-500'>Coding</span>

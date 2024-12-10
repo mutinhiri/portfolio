@@ -1,5 +1,6 @@
 
 import './App.css'
+import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -7,6 +8,9 @@ function App() {
   return (
     <div className='bg-[#1b0d40]'>
       <Navbar/>
+      <Hero/>
+      <Hero/>
+      <Hero/>
       <h1 className='bg-blue-900 rounded-lg'>Hello</h1>
     </div>
   )
