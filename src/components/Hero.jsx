@@ -23,8 +23,8 @@ const Hero = () => {
        className='container mx-auto text-center'>
         <motion.h1
         initial={{ opacity:0, y:100 }}
-        animate={{animate:1, y:0}}
-        // transition={{ delay:1, duration: 0.5}}
+        animate={{opacity:1, y:0}}
+        transition={{ delay:1, duration: 0.5}}
          className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Your Story , Your Way
         <motion.span
         initial={{opacity: 0, y:100 }}
