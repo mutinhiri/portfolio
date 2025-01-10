@@ -2,8 +2,8 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className='w-full py-48 bg-black'>
-      <img/>
+    <div className='text-white py-10'>
+      <img className='mx-auto w-2/3 md:w-1/3 lg:w-1/4'/>
       <div>
         <h1>Your Story , Your Way</h1>
         <span>Build Your Personal Portfolio</span>

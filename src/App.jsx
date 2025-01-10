@@ -9,9 +9,7 @@ function App() {
     <div className='bg-[#1b0d40]'>
       <Navbar/>
       <Hero/>
-      <Hero/>
-      <Hero/>
-      <h1 className='bg-blue-900 rounded-lg'>Hello</h1>
+
     </div>
   )
 }
