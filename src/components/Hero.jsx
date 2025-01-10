@@ -8,6 +8,8 @@ const Hero = () => {
         <h1>Your Story , Your Way</h1>
         <span>Build Your Personal Portfolio</span>
         <p>Showcase your Journey through a personal portfolio</p>
+        <button>Hire Me</button>
+        <button>My Story</button>
       </div>
         
     </div>
