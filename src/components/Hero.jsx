@@ -38,8 +38,16 @@ const Hero = () => {
          transition={{ delay:1.2, duration: 0.5}}
          className='text-gray-400 text-lg mb-8'>Showcase your Journey through a personal portfolio</motion.p>
         <div className="flex justify-center space-x-4 mb-10">
-          <button className='bg-purple-500 text-white px-6 py-3 rounded-full'>Hire Me</button>
-          <button className='text-white border border-white px-6 py-3 rounded-full'>My Story</button>
+          <motion.button
+          initial={{opacity:0, x: -100 }}
+          animate={{ opacity:1 , x:0 }}
+          transition={{delay: 1.5, duration: 0.5}}
+           className='bg-purple-500 text-white px-6 py-3 rounded-full'>Hire Me</motion.button>
+          <motion.button
+          initial={{opacity:0, x: 100 }}
+          animate={{ opacity:1 , x:0 }}
+          transition={{delay: 1.5, duration: 0.5}}
+           className='text-white border border-white px-6 py-3 rounded-full'>My Story</motion.button>
         </div>
 
       </motion.div>
