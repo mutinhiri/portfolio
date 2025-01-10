@@ -26,7 +26,11 @@ const Hero = () => {
         animate={{animate:1, y:0}}
         // transition={{ delay:1, duration: 0.5}}
          className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Your Story , Your Way
-        <motion.span className='text-purple-500'>Build Your Personal Portfolio</motion.span>
+        <motion.span
+        initial={{opacity: 0, y:100 }}
+        animate={{ opacity: 1, y: 0}}
+        transition={{ delay: 1.1, duration: 0.5}}
+         className='text-purple-500'>Build Your Personal Portfolio</motion.span>
         </motion.h1>
         <p className='text-gray-400 text-lg mb-8'>Showcase your Journey through a personal portfolio</p>
         <div className="flex justify-center space-x-4 mb-10">
