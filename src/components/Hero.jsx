@@ -32,7 +32,9 @@ const Hero = () => {
         transition={{ delay: 1.1, duration: 0.5}}
          className='text-purple-500'>Build Your Personal Portfolio</motion.span>
         </motion.h1>
-        <p className='text-gray-400 text-lg mb-8'>Showcase your Journey through a personal portfolio</p>
+        <motion.p
+        initial={{}}
+         className='text-gray-400 text-lg mb-8'>Showcase your Journey through a personal portfolio</motion.p>
         <div className="flex justify-center space-x-4 mb-10">
           <button className='bg-purple-500 text-white px-6 py-3 rounded-full'>Hire Me</button>
           <button className='text-white border border-white px-6 py-3 rounded-full'>My Story</button>
