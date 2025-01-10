@@ -5,7 +5,13 @@ import motion from 'motion/react'
 const Hero = () => {
   return (
     <div className='text-white py-10'>
-      <img 
+      <motion.img 
+      initial={{opacity:0, scale:0}}
+      animate={{opacity: 1, scale:1 }}
+      transition= {{
+        delay:0.5,
+        duration:0.5
+      }}
       className='mx-auto w-2/3 md:w-1/3 lg:w-1/4 '
       src={avatar}/>
       <div className='container mx-auto text-center'>
