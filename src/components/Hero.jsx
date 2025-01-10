@@ -12,8 +12,11 @@ const Hero = () => {
         <span className='text-purple-500'>Build Your Personal Portfolio</span>
         </h1>
         <p className='text-gray-400 text-lg mb-8'>Showcase your Journey through a personal portfolio</p>
-        <button className='bg-purple-500 text-white px-6 py-3 rounded-full'>Hire Me</button>
-        <button className='text-white border border-white px-6 py-3 rounded-full'>My Story</button>
+        <div className="flex">
+          <button className='bg-purple-500 text-white px-6 py-3 rounded-full'>Hire Me</button>
+          <button className='text-white border border-white px-6 py-3 rounded-full'>My Story</button>
+        </div>
+
       </div>
         
     </div>
