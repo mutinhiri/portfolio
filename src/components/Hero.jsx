@@ -6,6 +6,8 @@ const Hero = () => {
       <img/>
       <div>
         <h1>Your Story , Your Way</h1>
+        <span>Build Your Personal Portfolio</span>
+        <p>Showcase your Journey through a personal portfolio</p>
       </div>
         
     </div>
