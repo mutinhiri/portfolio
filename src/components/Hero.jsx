@@ -1,6 +1,6 @@
 import React from 'react'
 import avatar from '../assets/avatar.png'
-import motion from 'motion/react'
+import { motion } from 'motion/react'
 
 const Hero = () => {
   return (
