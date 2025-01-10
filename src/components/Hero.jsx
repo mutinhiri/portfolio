@@ -16,6 +16,10 @@ const Hero = () => {
       src={avatar}/>
       <motion.div
       initial={{ opacity:0 }}
+      animate={{opacity:1}}
+      transition= {{
+        duration: 0.7
+      }}
        className='container mx-auto text-center'>
         <h1 className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Your Story , Your Way
         <span className='text-purple-500'>Build Your Personal Portfolio</span>
