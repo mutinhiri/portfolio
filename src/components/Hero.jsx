@@ -7,7 +7,7 @@ const Hero = () => {
       <img 
       className='mx-auto w-2/3 md:w-1/3 lg:w-1/4'
       src={avatar}/>
-      <div>
+      <div className='container mx-auto text-center'>
         <h1>Your Story , Your Way</h1>
         <span>Build Your Personal Portfolio</span>
         <p>Showcase your Journey through a personal portfolio</p>
