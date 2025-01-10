@@ -1,6 +1,6 @@
 import React from 'react'
 import avatar from '../assets/avatar.png'
-import { motion } from 'motion/react'
+import { motion} from 'motion/react'
 
 const Hero = () => {
   return (
@@ -14,7 +14,9 @@ const Hero = () => {
       }}
       className='mx-auto w-2/3 md:w-1/3 lg:w-1/4 '
       src={avatar}/>
-      <div className='container mx-auto text-center'>
+      <motion.div
+      initial={{ opacity:0 }}
+       className='container mx-auto text-center'>
         <h1 className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Your Story , Your Way
         <span className='text-purple-500'>Build Your Personal Portfolio</span>
         </h1>
@@ -24,7 +26,7 @@ const Hero = () => {
           <button className='text-white border border-white px-6 py-3 rounded-full'>My Story</button>
         </div>
 
-      </div>
+      </motion.div>
         
     </div>
   )
