@@ -31,7 +31,11 @@ function Navbar() {
     ]
   return (
     <div>
-        <div className="container mx-auto hidden md:flex justify-between items-center py-6">
+        <motion.div
+        initial={{opacity: 0, y: -100}} 
+        animate={{opacity:1, y: 0 }}
+        duration={{duration: 0.9}}
+        className="container mx-auto hidden md:flex justify-between items-center py-6">
             <div className="text-xl lg:text-2xl font-bold flex items-center gap-1">
                 <span className='text-white'>Iron</span>
                 <span className='text-purple-500'>Coding</span>
@@ -44,7 +48,7 @@ function Navbar() {
                 </ul>
             </div>
             <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
-        </div>
+        </motion.div>
         <div className='flex md:hidden justify-between'>
             <motion.div animate={menu ? "open" : 'closed'}>
                 <motion.div 
@@ -53,7 +57,7 @@ function Navbar() {
                 className='bg-white 2-2/3 h-screen text-black fixed x-10'>
                     <div className='px-7 py-6'>
                         {
-                            menu ? (<HiOutlineMenuAlt3/>) : <MdCloseFullscreen/>
+                            menu ? (<HiOutlineMenuAlt3 size={30}/>) : <MdCloseFullscreen size={30}/>
                         }
                     {/* <HiOutlineMenuAlt3 />
                     <MdCloseFullscreen /> */}
@@ -75,10 +79,14 @@ function Navbar() {
                     )}
                 </motion.div>
             </motion.div>
-            <div className="text-xl font-bold flex items-center gap-2 py-6 px-4">
+            <motion.div 
+            initial={{opacity: 0, x:100, y: -100}}
+            animate={{opacity: 1, x:0, y:0}}
+            transition={{duration: 0.9}}
+            className="text-xl font-bold flex items-center gap-2 py-6 px-4">
                 <span className='text-white'>IREOn</span>
                 <span className='text-purple-500'>Coding</span>
-            </div>
+            </motion.div>
         </div>
         
     </div>
