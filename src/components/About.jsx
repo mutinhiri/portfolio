@@ -22,9 +22,9 @@ const About = () => {
           </p>
         </div>
         <div className='flex flex-col sm:flex-row justify-around items-center mt-12 space-y-6 sm:space-y-0'>
-          <div>
-            <h3> 50 + </h3>
-            <p>Overall Global Customers</p>
+          <div className='text-center'>
+            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 50 + </h3>
+            <p className='text-sm sm:text-base text-gray-300'>Overall Global Customers</p>
           </div>
         </div>
 
