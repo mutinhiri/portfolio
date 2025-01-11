@@ -18,7 +18,22 @@ const About = () => {
         </div>
         <div>
           <div>
+            <h3> 50 + </h3>
+            <p>Overall Global Customers</p>
+          </div>
+        </div>
+
+        <div>
+          <div>
             <h3> 5+ </h3>
+            <p>Years of development</p>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <h3> 90 + </h3>
+            <p>Projects delivered</p>
           </div>
         </div>
       </div>
