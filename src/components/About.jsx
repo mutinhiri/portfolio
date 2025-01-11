@@ -27,11 +27,15 @@ const About = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid illum quas facere labore omnis iure maiores, officia ducimus officiis, sit quia quisquam reiciendis quis. Minus quibusdam magnam veritatis tenetur.
         </motion.p>
         <div className='flex flex-col md:flex-row justify-center items-center'>
-          <motion.div 
-            className='mb-8 md:mb-0 md:mr-8 flex justify-center'>
+          <motion.div
+             ref={ref}
+             initial={{opacity:0, x: -100}}
+             animate={inView ? {opacity:1, x:0 }: {}}
+             transition={{delay: 0.6, duration:0.5}} 
+             className='mb-8 md:mb-0 md:mr-8 flex justify-center'>
             <img
-            src={aboutImg}
-            className='w-2/3 sm:w-1/2 md:w-10/12'
+              src={aboutImg}
+              className='w-2/3 sm:w-1/2 md:w-10/12'
             />
           </motion.div>
           <p
