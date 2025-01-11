@@ -26,9 +26,8 @@ const About = () => {
             <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 50 + </h3>
             <p className='text-sm sm:text-base text-gray-300'>Overall Global Customers</p>
           </div>
-        </div>
 
-        <div>
+          <div>
           <div>
             <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 5+ </h3>
             <p className='text-sm sm:text-base text-gray-300'>Years of development</p>
@@ -41,6 +40,9 @@ const About = () => {
             <p className='text-sm sm:text-base text-gray-300'>Projects delivered</p>
           </div>
         </div>
+        </div>
+
+    
       </div>
     </div>
   )
