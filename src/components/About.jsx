@@ -16,11 +16,12 @@ const About = () => {
             className='w-2/3 sm:w-1/2 md:w-10/12'
             />
           </div>
-          <p>
+          <p
+          className='md:w-1/2 text-gray-400 px-4 md:px-0 text-base sm:text-lg md:text-xl'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi laborum laboriosam omnis dicta, necessitatibus ipsa suscipit minima officiis ipsum ipsam voluptate debitis magni repellendus nemo.
           </p>
         </div>
-        <div>
+        <div className='flex flex-col sm:flex-row justify-around items-center mt-12 space-y-6 sm:space-y-0'>
           <div>
             <h3> 50 + </h3>
             <p>Overall Global Customers</p>
