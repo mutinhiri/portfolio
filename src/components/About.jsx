@@ -16,6 +16,11 @@ const About = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi laborum laboriosam omnis dicta, necessitatibus ipsa suscipit minima officiis ipsum ipsam voluptate debitis magni repellendus nemo.
           </p>
         </div>
+        <div>
+          <div>
+            <h3> 5+ </h3>
+          </div>
+        </div>
       </div>
     </div>
   )
