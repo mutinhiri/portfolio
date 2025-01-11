@@ -55,7 +55,12 @@ const About = () => {
             transition={{delay:1.2 , duration:0.3}} 
             className='text-center'>
             <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 50 + </h3>
-            <motion.p className='text-sm sm:text-base text-gray-300'>Overall Global Customers</motion.p>
+            <motion.p 
+              ref={ref}
+              initial={{opacity:0, y: 100}}
+              animate={inView ? {opacity:1, y:0 }: {}}
+              transition={{delay: 1.7, duration:0.5}} 
+              className='text-sm sm:text-base text-gray-300'>Overall Global Customers</motion.p>
           </motion.div>
 
           <div>
