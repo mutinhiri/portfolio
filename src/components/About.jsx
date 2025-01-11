@@ -30,15 +30,15 @@ const About = () => {
 
         <div>
           <div>
-            <h3> 5+ </h3>
-            <p>Years of development</p>
+            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 5+ </h3>
+            <p className='text-sm sm:text-base text-gray-300'>Years of development</p>
           </div>
         </div>
 
         <div>
           <div>
-            <h3> 90 + </h3>
-            <p>Projects delivered</p>
+            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 90 + </h3>
+            <p className='text-sm sm:text-base text-gray-300'>Projects delivered</p>
           </div>
         </div>
       </div>
