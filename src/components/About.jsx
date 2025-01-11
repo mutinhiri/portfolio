@@ -8,7 +8,7 @@ const About = () => {
         <p className='mb-12 text-gray-400 text-center'>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid illum quas facere labore omnis iure maiores, officia ducimus officiis, sit quia quisquam reiciendis quis. Minus quibusdam magnam veritatis tenetur.
         </p>
-        <div >
+        <div className='flex flex-col md:flex-row justify-center items-center'>
           <div>
             <img/>
           </div>
