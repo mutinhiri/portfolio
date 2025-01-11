@@ -9,7 +9,7 @@ const About = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid illum quas facere labore omnis iure maiores, officia ducimus officiis, sit quia quisquam reiciendis quis. Minus quibusdam magnam veritatis tenetur.
         </p>
         <div className='flex flex-col md:flex-row justify-center items-center'>
-          <div>
+          <div className='mb-8 md:mb-0 md:mr-8 flex justify-center'>
             <img/>
           </div>
           <p>
