@@ -64,17 +64,26 @@ const About = () => {
           </motion.div>
 
           <div>
-          <div>
+          <motion.div
+            ref={ref}
+            initial={{opacity:0 }}
+            animate={inView ? {opacity:1 }: {}}
+            transition={{delay:1.4 , duration:0.3}} >
             <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 5+ </h3>
-            <p className='text-sm sm:text-base text-gray-300'>Years of development</p>
-          </div>
+            <motion.p
+             ref={ref}
+             initial={{opacity:0, y: 100}}
+             animate={inView ? {opacity:1, y:0 }: {}}
+             transition={{delay: 1.8, duration:0.5}} 
+             className='text-sm sm:text-base text-gray-300'>Years of development</motion.p>
+          </motion.div>
         </div>
 
         <div>
-          <div>
+          <motion.div>
             <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 90 + </h3>
             <p className='text-sm sm:text-base text-gray-300'>Projects delivered</p>
-          </div>
+          </motion.div>
         </div>
         </div>
 
