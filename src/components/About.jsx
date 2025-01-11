@@ -1,4 +1,5 @@
 import React from 'react'
+import aboutImg from '../assets/aboutImg.jpg'
 
 const About = () => {
   return (
@@ -10,7 +11,9 @@ const About = () => {
         </p>
         <div className='flex flex-col md:flex-row justify-center items-center'>
           <div className='mb-8 md:mb-0 md:mr-8 flex justify-center'>
-            <img/>
+            <img
+            src={aboutImg}
+            />
           </div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi laborum laboriosam omnis dicta, necessitatibus ipsa suscipit minima officiis ipsum ipsam voluptate debitis magni repellendus nemo.
