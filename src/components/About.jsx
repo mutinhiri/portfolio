@@ -1,14 +1,21 @@
 import React from 'react'
 import aboutImg from '../assets/aboutImg.jpg'
 import {motion} from 'motion/react'
+import { useInView } from 'react-intersection-observer'
 
 const About = () => {
+
+  const {ref, inView} = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  })
   return (
     <div className='text-white py-16'>
       <div className='container mx-auto px-4 text-center'>
         <motion.h2
+        ref={ref}
         initial={{opacity:0, y:100}}
-        animate={{opacity:1, y:0 }}
+        animate={inView ? {opacity:1, y:0 }: {}}
         transition={{delay: 0.3, duration:0.5}}
          className='text-3xl md:text-4xl font-bold mb-8 underline'>About Me</motion.h2>
         <p className='mb-12 text-gray-400 text-center'>
