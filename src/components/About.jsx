@@ -13,6 +13,7 @@ const About = () => {
           <div className='mb-8 md:mb-0 md:mr-8 flex justify-center'>
             <img
             src={aboutImg}
+            className='w-2/3 sm:w-1/2 md:w-10/12'
             />
           </div>
           <p>
