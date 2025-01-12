@@ -1,8 +1,11 @@
 import React from 'react'
 import { FaAppStore } from 'react-icons/fa'
+import {motion} from "motion/react"
+import { useInView } from 'react-intersection-observer'
 // import { FaAppStore } from 'react-icons/fa'
 
 const Services = () => {
+
   const serviceData = [
     {
       title: "App Design",
@@ -31,7 +34,13 @@ const Services = () => {
       title: "App Design",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
     },
-  ]
+  ];
+
+  const {ref, inView} = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  })
+  
   return (
     <div className='text-white py16'>
         <div className='container mx-auto px-4 text-center'>
