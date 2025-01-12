@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaAppStore } from 'react-icons/fa'
-import { FaAppStore } from 'react-icons/fa'
+// import { FaAppStore } from 'react-icons/fa'
 
 const Services = () => {
   const serviceData = [
@@ -35,7 +35,7 @@ const Services = () => {
   return (
     <div>
         <div>
-          <h2>Sevrices</h2>
+          <h2>Services</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!</p>
           <div>
             {
@@ -44,6 +44,7 @@ const Services = () => {
                   key={index}>
                     <FaAppStore/>
                     <h3>{service.title}</h3>
+                    <p>{service.description}</p>
                   </div>
               ))
             }
