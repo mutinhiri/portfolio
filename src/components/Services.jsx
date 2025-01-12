@@ -45,7 +45,7 @@ const Services = () => {
                   className='bg-[#1c1a2b] rounded-lg p-6 text-center hover:shadow-lg hover:shadow-purple-500 transition-shadow duration-300'>
                     <FaAppStore className='text-purple-500 text-4xl sm:text-5xl lg:text-6xl mb-4 mx-auto'/>
                     <h3 className='text-lg sm:text-xl lg:text-2xl font-semibold mb-2'>{service.title}</h3>
-                    <p className='text-sm'>{service.description}</p>
+                    <p className='text-sm sm:text-base lg:text-lg text-gray-400'>{service.description}</p>
                   </div>
               ))
             }
