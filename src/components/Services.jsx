@@ -33,17 +33,18 @@ const Services = () => {
     },
   ]
   return (
-    <div>
-        <div>
-          <h2>Services</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!</p>
-          <div>
+    <div className='text-white py16'>
+        <div className='container mx-auto px-4 text-center'>
+          <h2 className='text-3xl md:text-4xl font-bold underline mb-8'>Services</h2>
+          <p className='mb-12 text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!</p>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {
               serviceData.map((service, index) =>(
                 <div
-                  key={index}>
-                    <FaAppStore/>
-                    <h3>{service.title}</h3>
+                  key={index}
+                  className='bg-[#1c1a2b] rounded-lg p-6 text-center hover:shadow-lg hover:shadow-purple-500 transition-shadow duration-300'>
+                    <FaAppStore className='text-purple-500 text-4xl sm:text-5xl lg:text-6xl mb-4 mx-auto'/>
+                    <h3 className='text-lg '>{service.title}</h3>
                     <p>{service.description}</p>
                   </div>
               ))
