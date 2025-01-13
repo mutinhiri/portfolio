@@ -105,7 +105,10 @@ const Contact = () => {
 
                 </div>
                 <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'></textarea>
-                <motion.button type='submit'className='bg-purple-500 text-white px-6 py-3 rounded-md hover:bg-purple-600 transition duration-200'>Submit Message</motion.button>
+                <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{scale: 0.95 }}
+                 type='submit'className='bg-purple-500 text-white px-6 py-3 rounded-md hover:bg-purple-600 transition duration-200'>Submit Message</motion.button>
             </motion.form>
         </div>
         {/* footer */}
