@@ -88,7 +88,7 @@ const Contact = () => {
                 </div>
                 </motion.div>
             </div>
-            <form className='space text-white '>
+            <motion.form className='space-y-4 text-white '>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                     <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
                     <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
@@ -101,7 +101,7 @@ const Contact = () => {
                 </div>
                 <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'></textarea>
                 <button type='submit'className='bg-purple-500 text-white px-6 py-3 rounded-md hover:bg-purple-600 transition duration-200'>Submit Message</button>
-            </form>
+            </motion.form>
         </div>
         {/* footer */}
         <div className='mt-48 flex justify-between items-center p-5 text-white border-t-2 border-purple-500'>
