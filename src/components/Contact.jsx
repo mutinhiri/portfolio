@@ -67,14 +67,29 @@ const Contact = () => {
                     <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
-                <div className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                     <input type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
                     <input type="email" placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
-                <textarea name="say" placeholder='Message' id=""></textarea>
-                <button type='submit'>Submit</button>
+                <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'></textarea>
+                <button type='submit'className='bg-purple-500 text-white px-6 py-3 rounded-md hover:bg-purple-600 transition duration-200'>Submit Message</button>
             </form>
+        </div>
+        {/* footer */}
+        <div className='mt-48 flex '>
+            <p>
+                2025. All rights reserved
+            </p>
+            <p>
+                Iron Coding 
+            </p>
+            <div>
+                <a href=""><FaFacebook/></a>
+                <a href=""><FaTwitter/></a>
+                <a href=""><FaLinkedin/></a>
+                <a href=""><FaInstagram/></a>
+            </div>
         </div>
     </div>
   )
