@@ -73,11 +73,16 @@ function Navbar() {
                     { menu && (
                         <div className='flex flex-col justify-center items-center'>
                             <ul className='space-y-6 text-black text-lg'>
-                            { items.map(({id, text}) => (
+                            { items.map(({id, text, to}) => (
                                 <li 
                                 key={id}
                                 className='hover:text-purple-500 duration-200 cursor-pointer'
-                                >{text}</li>
+                                ><Link
+                                to={to}
+                                smooth={true}
+                                duration={500}
+                                offset={-70}
+                                >{text}</Link></li>
                                   ))}
                     
  
