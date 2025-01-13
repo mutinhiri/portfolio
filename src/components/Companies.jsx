@@ -12,15 +12,35 @@ const Companies = () => {
     const companiesList = [...companies, ...companies, ...companies, ...companies]
 
   return (
-    <div>
-        <div>
-            <h2>Companies I have worked with</h2>
-            <div>
-                <div>
+    <div className='text-white py-16'>
+        <div className='container mx-auto text-center'>
+            <h2 className='text-3xl md:text-4xl font-bold mb-8'>Companies I have worked with</h2>
+            <div className='overflow-hidden relative w-full'>
+                <div className='whitespace-nowrap flex space-x-10 '>
                     {
-                        
+                        companiesList.map((company, index) => (
+                            <div
+                            className='text-lg bg-gray-800 px-6 py-3 rounded-full inline-block'
+                            key={index}>
+                                {company}
+                            </div>
+                        ))
                     }
                 </div>
+                
+            </div>
+            <div className='overflow-hidden relative w-full mt-5'>
+                <div className='whitespace-nowrap flex space-x-10'>
+                    {
+                        companiesList.map((company, index) => (
+                            <div
+                            key={index}>
+                                {company}
+                            </div>
+                        ))
+                    }
+                </div>
+                
             </div>
         </div>
     </div>
