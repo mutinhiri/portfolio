@@ -1,5 +1,7 @@
 import React from 'react'
 import projectImg from "../assets/avatar.png"
+import {motion} from "motion/react"
+import { useInView } from 'react-intersection-observer'
 
 const Work = () => {
 
