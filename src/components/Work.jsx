@@ -13,7 +13,7 @@ const Work = () => {
         },
         {
             id:12,
-            title: "Text toitle",
+            title: "App DAshboard",
             description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
             image: projectImg,
             link: '#'
@@ -34,7 +34,13 @@ const Work = () => {
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod hic modi officiis at expedita tenetur.
             </p>
             <div>
-
+                {
+                    projects.map((project) => (
+                        <div>
+                            
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>
