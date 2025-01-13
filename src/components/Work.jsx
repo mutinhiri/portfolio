@@ -53,7 +53,7 @@ const Work = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
                 {
                     projects.map((project) => (
-                        <div 
+                        <motion.div 
                         key={project.id}
                         className='bg-gray-900 shadow-lg rounded-lg overflow-hidden'>
                             <img src={project.image} className='w-full h-48 object-cover'/>
@@ -63,7 +63,7 @@ const Work = () => {
                                 <button className='border-2 border-purple-500 text-purple-500 px-4 py-2 rounded-full hover:bg-purple-500 hover:text-white transition'>Details</button>
                             </div>
 
-                        </div>
+                        </motion.div>
                     ))
                 }
             </div>
