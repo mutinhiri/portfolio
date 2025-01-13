@@ -63,7 +63,10 @@ const Companies = () => {
                 
             </div>
             <div className='overflow-hidden relative w-full mt-5'>
-                <div className='whitespace-nowrap flex space-x-10'>
+                <motion.div
+                variants={scrollVariants2}
+                animate="animate"
+                 className='whitespace-nowrap flex space-x-10'>
                     {
                         companiesList.map((company, index) => (
                             <div
@@ -73,7 +76,7 @@ const Companies = () => {
                             </div>
                         ))
                     }
-                </div>
+                </motion.div>
                 
             </div>
         </div>
