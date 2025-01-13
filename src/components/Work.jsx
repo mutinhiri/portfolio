@@ -27,8 +27,8 @@ const Work = () => {
         },
     ]
   return (
-    <div>
-        <div>
+    <div className='py-12'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <h2>My Work</h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod hic modi officiis at expedita tenetur.
