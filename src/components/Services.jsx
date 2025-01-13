@@ -58,7 +58,7 @@ const Services = () => {
                   ref={ref}
                   initial={{opacity: 0, scale: 0.8}}
                   animate={inView ? {opacity: 1, scale:1 } : {opacity: 0, scale: 0.8}}
-                  transition={{duration: 0.5}}
+                  transition={{duration: 0.5, delay: index * 0.2}}
                   key={index}
                   className='bg-[#1c1a2b] rounded-lg p-6 text-center hover:shadow-lg hover:shadow-purple-500 transition-shadow duration-300'>
                     <FaAppStore className='text-purple-500 text-4xl sm:text-5xl lg:text-6xl mb-4 mx-auto'/>
