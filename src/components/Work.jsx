@@ -7,21 +7,21 @@ const Work = () => {
 
     const projects = [
         {
-            id:11,
+            id:1,
             title: "Text toitle",
             description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
             image: projectImg,
             link: '#'
         },
         {
-            id:12,
+            id:2,
             title: "App DAshboard",
             description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
             image: projectImg,
             link: '#'
         },
         {
-            id:13,
+            id:3,
             title: "Text toitle",
             description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
             image: projectImg,
