@@ -33,8 +33,8 @@ const Contact = () => {
                 <motion.div
                    ref={ref}
                    initial={{opacity: 0, x: -50}}
-                   animate={inView ? {opacity: 1, y:0  }: {}}
-                   transition={{ delay:0.3, duration: 0.5}} className='flex items-center space-x-4'>
+                   animate={inView ? {opacity: 1, x:0  }: {}}
+                   transition={{ delay:0.2, duration: 0.5}} className='flex items-center space-x-4'>
 
                
                 <div className='bg-purple-500 p-4 rounded-full '>
@@ -49,7 +49,7 @@ const Contact = () => {
                     </p>
                 </div>
                 </motion.div>
-                <div className='flex items-center space-x-4'>
+                <motion.div className='flex items-center space-x-4'>
 
                
                     <div className='bg-purple-500 p-4 rounded-full '>
@@ -63,7 +63,7 @@ const Contact = () => {
                             barnabmutinhiri@gmail.com
                         </p>
                     </div>
-                </div>
+                </motion.div>
                 <div className='flex items-center space-x-4'>
 
                
