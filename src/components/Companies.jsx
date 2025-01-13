@@ -28,7 +28,7 @@ const Companies = () => {
 
     const scrollVariants2 = {
         animate: {
-            x: [0, -2000],
+            x: [ -2000, 0],
             transition: {
                 x: {
                     repeat: Infinity,
