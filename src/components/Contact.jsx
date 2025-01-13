@@ -109,7 +109,7 @@ const Contact = () => {
             </motion.form>
         </div>
         {/* footer */}
-        <div className='mt-48 flex justify-between items-center p-5 text-white border-t-2 border-purple-500'>
+        <motion.div className='mt-48 flex justify-between items-center p-5 text-white border-t-2 border-purple-500'>
             <p>
                 2025. All rights reserved
             </p>
@@ -122,7 +122,7 @@ const Contact = () => {
                 <a href="" className='hover:text-purple-500'><FaLinkedin className='w-6 h-6'/></a>
                 <a href="" className='hover:text-purple-500'><FaInstagram className='w-6 h-6'/></a>
             </div>
-        </div>
+        </motion.div>
     </div>
   )
 }
