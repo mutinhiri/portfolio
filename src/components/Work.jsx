@@ -54,6 +54,10 @@ const Work = () => {
                 {
                     projects.map((project) => (
                         <motion.div 
+                        ref={ref}
+                        initial={{opacity:0, y:50}}
+                        animate={inView ? {opacity:1, y:0} : {}}
+                        transition={{delay: project.id *0.2 , duration: 0.5}}
                         key={project.id}
                         className='bg-gray-900 shadow-lg rounded-lg overflow-hidden'>
                             <img src={project.image} className='w-full h-48 object-cover'/>
