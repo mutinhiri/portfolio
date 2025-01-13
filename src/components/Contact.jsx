@@ -77,18 +77,18 @@ const Contact = () => {
             </form>
         </div>
         {/* footer */}
-        <div className='mt-48 flex '>
+        <div className='mt-48 flex justify-between items-center p-5 text-white border-t-2 border-purple-500'>
             <p>
                 2025. All rights reserved
             </p>
             <p>
                 Iron Coding 
             </p>
-            <div>
-                <a href=""><FaFacebook/></a>
-                <a href=""><FaTwitter/></a>
-                <a href=""><FaLinkedin/></a>
-                <a href=""><FaInstagram/></a>
+            <div className='flex justify-center space-x-4 text-white mt-4 '>
+                <a href="" className='hover:text-purple-500'><FaFacebook className='w-6 h-6'/></a>
+                <a href="" className='hover:text-purple-500'><FaTwitter className='w-6 h-6'/></a>
+                <a href="" className='hover:text-purple-500'><FaLinkedin className='w-6 h-6'/></a>
+                <a href="" className='hover:text-purple-500'><FaInstagram className='w-6 h-6'/></a>
             </div>
         </div>
     </div>
