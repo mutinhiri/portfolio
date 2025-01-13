@@ -1,6 +1,7 @@
 
 import './App.css'
 import About from './components/About'
+import Contact from './components/Contact'
 // import Companies from './components/Companies'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
@@ -16,6 +17,7 @@ function App() {
       <About/>
       <Services/>
       <Work/>
+      <Contact/>
       {/* <Companies/> */}
 
     </div>
