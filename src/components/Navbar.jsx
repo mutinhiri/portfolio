@@ -4,10 +4,12 @@ import { MdCloseFullscreen } from "react-icons/md";
 import { motion } from 'motion/react'
 import { clipPath } from 'motion/react-client';
 import { PiClosedCaptioningDuotone } from 'react-icons/pi';
+import { Link } from 'react-scroll';
 
 
 
 function Navbar() {
+
 
     const variants = {
         open: {clipPath: "circle(1200px at 43px 43px)"},
@@ -24,10 +26,10 @@ function Navbar() {
     }
     const [menu, setMenu] = useState(false)
     const items = [
-        {id: 1, text: 'About'},
-        {id: 2, text: 'Services'},
-        {id: 3, text: 'Work'},
-        {id: 4, text: 'Contact', to: 'about'}
+        {id: 1, text: 'About', to: "about"},
+        {id: 2, text: 'Services', to: 'services'},
+        {id: 3, text: 'Work', to: "work"},
+        {id: 4, text: 'Contact', to: 'contact'}
     ]
   return (
     <div>
