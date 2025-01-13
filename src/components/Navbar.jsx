@@ -5,6 +5,7 @@ import { motion } from 'motion/react'
 import { clipPath } from 'motion/react-client';
 import { PiClosedCaptioningDuotone } from 'react-icons/pi';
 import { Link } from 'react-scroll';
+import { tr } from 'motion/react-m';
 
 
 
@@ -44,8 +45,13 @@ function Navbar() {
             </div>
             <div className="abot">
                 <ul className='hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white'>
-                    { items.map(({id, text}) => (
-                        <li key={id}><Link>{text}</Link></li>
+                    { items.map(({id, text, to }) => (
+                        <li key={id}><Link
+                        to={to}
+                        smooth={true}
+                        duration={500}
+                        offset={-70}
+                        >{text}</Link></li>
                     ))}
                 </ul>
             </div>
