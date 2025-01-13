@@ -88,7 +88,12 @@ const Contact = () => {
                 </div>
                 </motion.div>
             </div>
-            <motion.form className='space-y-4 text-white '>
+            <motion.form
+               ref={ref}
+               initial={{opacity: 0, x: -50}}
+               animate={inView ? {opacity: 1, x:0  }: {}}
+               transition={{ delay:0.8, duration: 0.5}} 
+               className='space-y-4 text-white '>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                     <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
                     <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
