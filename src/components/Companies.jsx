@@ -46,7 +46,10 @@ const Companies = () => {
         <div className='container mx-auto text-center'>
             <h2 className='text-3xl md:text-4xl font-bold mb-8'>Companies I have worked with</h2>
             <div className='overflow-hidden relative w-full'>
-                <motion.div className='whitespace-nowrap flex space-x-10 '>
+                <motion.div
+                variants={scrollVariants}
+                animate="animateAdd a"
+                 className='whitespace-nowrap flex space-x-10 '>
                     {
                         companiesList.map((company, index) => (
                             <div
