@@ -61,15 +61,15 @@ const Contact = () => {
                 </div>
                 </div>
             </div>
-            <form>
-                <div>
-                    <input type="text" placeholder='Full Name' />
-                    <input type="email" placeholder='Your email' />
+            <form className='space text-white '>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                    <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
+                    <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
-                <div>
-                    <input type="text" placeholder='Phone Number' />
-                    <input type="email" placeholder='Budget' />
+                <div className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'>
+                    <input type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
+                    <input type="email" placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
                 <textarea name="say" placeholder='Message' id=""></textarea>
