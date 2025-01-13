@@ -21,11 +21,20 @@ const Contact = () => {
             animate={inView ? {opacity: 1, y:0  }: {}}
             transition={{ delay:0.3, duration: 0.5}}
              className='text-4xl font-bold text-white '>Lets Discuss Your <span className='text-purple-500'>Project</span></motion.h2>
-            <motion.p className='text-slate-400 mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolores! Placeat eius, labore voluptatibus ea et ipsa minima animi! Dolore.</motion.p>
+            <motion.p
+               ref={ref}
+               initial={{opacity: 0, y: -100}}
+               animate={inView ? {opacity: 1, y:0  }: {}}
+               transition={{ delay:0.3, duration: 0.5}}
+                className='text-slate-400 mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolores! Placeat eius, labore voluptatibus ea et ipsa minima animi! Dolore.</motion.p>
         </div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8'>
             <div className='space-y-6'>
-                <div className='flex items-center space-x-4'>
+                <motion.div
+                   ref={ref}
+                   initial={{opacity: 0, x: -50}}
+                   animate={inView ? {opacity: 1, y:0  }: {}}
+                   transition={{ delay:0.3, duration: 0.5}} className='flex items-center space-x-4'>
 
                
                 <div className='bg-purple-500 p-4 rounded-full '>
@@ -39,7 +48,7 @@ const Contact = () => {
                         099877788
                     </p>
                 </div>
-                </div>
+                </motion.div>
                 <div className='flex items-center space-x-4'>
 
                
