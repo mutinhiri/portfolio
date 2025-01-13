@@ -29,11 +29,11 @@ const Work = () => {
   return (
     <div className='py-12'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <h2>My Work</h2>
-            <p>
+            <h2 className='text-4xl text-white underline font-bold text-center mb-12'>My Work</h2>
+            <p className='mb-12 text-gray-400 text-center'>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod hic modi officiis at expedita tenetur.
             </p>
-            <div>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
                 {
                     projects.map((project) => (
                         <div 
