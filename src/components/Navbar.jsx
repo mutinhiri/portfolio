@@ -45,7 +45,7 @@ function Navbar() {
             <div className="abot">
                 <ul className='hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white'>
                     { items.map(({id, text}) => (
-                        <li key={id}>{text}</li>
+                        <li key={id}><Link>{text}</Link></li>
                     ))}
                 </ul>
             </div>
