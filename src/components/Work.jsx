@@ -46,7 +46,7 @@ const Work = () => {
              ref={ref}
              initial={{opacity:0, y:100}}
              animate={inView ? {opacity:1, y:0} : {}}
-             transition={{delay:0.3, duration: 0.5}}
+             transition={{delay:0.5, duration: 0.5}}
              className='mb-12 text-gray-400 text-center'>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod hic modi officiis at expedita tenetur.
             </motion.p>
