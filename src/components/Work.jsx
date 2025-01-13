@@ -73,9 +73,14 @@ const Work = () => {
                 }
             </div>
         </div>
-        <div>
+        <motion.div
+        ref={ref}
+        initial={{opacity:0, y:100 }}
+        animate={inView ? {opacity:1, y:0} : {}}
+        transition={{delay:0.7, duration:0.5}}
+        >
             <Companies/>
-        </div>
+        </motion.div>
     </div>
   )
 }
