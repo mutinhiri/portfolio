@@ -7,6 +7,11 @@ import { FaPhone,
 
 
 const Contact = () => {
+
+    const {ref, inView} = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+      })
   return (
     <div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12'>
