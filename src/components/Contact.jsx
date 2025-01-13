@@ -8,7 +8,12 @@ import { FaPhone,
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12'>
+            <h2 className='text-4xl font-bold text-white '>Lets Discuss Your <span className='text-purple-500'>Project</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolores! Placeat eius, labore voluptatibus ea et ipsa minima animi! Dolore.</p>
+        </div>
+    </div>
   )
 }
 
