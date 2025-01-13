@@ -1,7 +1,7 @@
 
 import './App.css'
 import About from './components/About'
-import Companies from './components/Companies'
+// import Companies from './components/Companies'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Services from './components/Services'
@@ -16,7 +16,7 @@ function App() {
       <About/>
       <Services/>
       <Work/>
-      <Companies/>
+      {/* <Companies/> */}
 
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import projectImg from "../assets/avatar.png"
 import {motion} from "motion/react"
 import { useInView } from 'react-intersection-observer'
+import Companies from './Companies'
 
 const Work = () => {
 
@@ -71,6 +72,9 @@ const Work = () => {
                     ))
                 }
             </div>
+        </div>
+        <div>
+            <Companies/>
         </div>
     </div>
   )
