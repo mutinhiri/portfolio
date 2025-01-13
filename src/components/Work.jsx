@@ -36,8 +36,15 @@ const Work = () => {
             <div>
                 {
                     projects.map((project) => (
-                        <div>
-                            
+                        <div 
+                        key={project.id}>
+                            <img src={project.image}/>
+                            <div>
+                                <h3>{project.title}</h3>
+                                <p>{project.description}</p>
+                                <button>Details</button>
+                            </div>
+
                         </div>
                     ))
                 }
