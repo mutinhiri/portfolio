@@ -30,6 +30,21 @@ const Contact = () => {
                     </p>
                 </div>
                 </div>
+                <div className='flex items-center space-x-4'>
+
+               
+                    <div className='bg-purple-500 p-4 rounded-full '>
+                        <FaEnvelope className='text-white w-6 h-6'/>
+                    </div>
+                    <div>
+                        <p className='text-lg font-medium text-purple-500'>
+                            Call me 
+                        </p>
+                        <p className='text-white'>
+                            099877788
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
