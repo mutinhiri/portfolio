@@ -37,12 +37,13 @@ const Work = () => {
                 {
                     projects.map((project) => (
                         <div 
-                        key={project.id}>
-                            <img src={project.image}/>
-                            <div>
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                                <button>Details</button>
+                        key={project.id}
+                        className='bg-gray-900 shadow-lg rounded-lg overflow-hidden'>
+                            <img src={project.image} className='w-full h-48 object-cover'/>
+                            <div className='p-6'>
+                                <h3 className='text-xl text-white font-semibold mb-2'>{project.title}</h3>
+                                <p className='text-slate-400 mb-4 '>{project.description}</p>
+                                <button className='border-2 border-purple-500 text-purple-500 px-4 py-2 rounded-full hover:bg-purple-500 hover:text-white transition'>Details</button>
                             </div>
 
                         </div>
