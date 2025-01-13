@@ -49,7 +49,11 @@ const Contact = () => {
                     </p>
                 </div>
                 </motion.div>
-                <motion.div className='flex items-center space-x-4'>
+                <motion.div
+                   ref={ref}
+                   initial={{opacity: 0, x: -50}}
+                   animate={inView ? {opacity: 1, x:0  }: {}}
+                   transition={{ delay:0.4, duration: 0.5}}  className='flex items-center space-x-4'>
 
                
                     <div className='bg-purple-500 p-4 rounded-full '>
@@ -64,7 +68,11 @@ const Contact = () => {
                         </p>
                     </div>
                 </motion.div>
-                <div className='flex items-center space-x-4'>
+                <motion.div
+                   ref={ref}
+                   initial={{opacity: 0, x: -50}}
+                   animate={inView ? {opacity: 1, x:0  }: {}}
+                   transition={{ delay:0.6, duration: 0.5}}  className='flex items-center space-x-4'>
 
                
                 <div className='bg-purple-500 p-4 rounded-full '>
@@ -78,7 +86,7 @@ const Contact = () => {
                         Kadoma zimbabwe
                     </p>
                 </div>
-                </div>
+                </motion.div>
             </div>
             <form className='space text-white '>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
