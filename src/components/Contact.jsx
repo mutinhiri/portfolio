@@ -38,14 +38,42 @@ const Contact = () => {
                     </div>
                     <div>
                         <p className='text-lg font-medium text-purple-500'>
-                            Call me 
+                            Email me 
                         </p>
                         <p className='text-white'>
-                            099877788
+                            barnabmutinhiri@gmail.com
                         </p>
                     </div>
                 </div>
+                <div className='flex items-center space-x-4'>
+
+               
+                <div className='bg-purple-500 p-4 rounded-full '>
+                    <FaMapMarkerAlt className='text-white w-6 h-6'/>
+                </div>
+                <div>
+                    <p className='text-lg font-medium text-purple-500'>
+                        Address
+                    </p>
+                    <p className='text-white'>
+                        Kadoma zimbabwe
+                    </p>
+                </div>
+                </div>
             </div>
+            <form>
+                <div>
+                    <input type="text" placeholder='Full Name' />
+                    <input type="email" placeholder='Your email' />
+
+                </div>
+                <div>
+                    <input type="text" placeholder='Phone Number' />
+                    <input type="email" placeholder='Budget' />
+
+                </div>
+                <textarea name="say" placeholder='Message' id=""></textarea>
+            </form>
         </div>
     </div>
   )
