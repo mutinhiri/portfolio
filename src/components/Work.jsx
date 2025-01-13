@@ -1,4 +1,5 @@
 import React from 'react'
+import projectImg from "../assets/avatar.png"
 
 const Work = () => {
 
@@ -7,8 +8,23 @@ const Work = () => {
             id:11,
             title: "Text toitle",
             description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
-            image: ""
-        }
+            image: projectImg,
+            link: '#'
+        },
+        {
+            id:12,
+            title: "Text toitle",
+            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
+            image: projectImg,
+            link: '#'
+        },
+        {
+            id:13,
+            title: "Text toitle",
+            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
+            image: projectImg,
+            link: '#'
+        },
     ]
   return (
     <div>
