@@ -42,13 +42,13 @@ const Services = () => {
   })
 
   return (
-    <motion.div 
-    ref={ref}
-    initial={{opacity: 0, y:50}}
-    animate={inView ? {opacity: 1, y:0 } : {}}
-    transition={{duration: 0.5}}
-    className='text-white py16'>
-        <div className='container mx-auto px-4 text-center'>
+    <div className='text-white py16' id='services'>
+        <motion.div
+         ref={ref}
+         initial={{opacity: 0, y:50}}
+         animate={inView ? {opacity: 1, y:0 } : {}}
+         transition={{duration: 0.5}}
+          className='container mx-auto px-4 text-center'>
           <h2 className='text-3xl md:text-4xl font-bold underline mb-8'>Services</h2>
           <p className='mb-12 text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!</p>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -68,8 +68,8 @@ const Services = () => {
               ))
             }
           </div>
-        </div>
-    </motion.div>
+        </motion.div>
+    </div>
   )
 }
 

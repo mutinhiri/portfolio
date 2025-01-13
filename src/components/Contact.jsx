@@ -13,7 +13,7 @@ const Contact = () => {
         threshold: 0.2
       })
   return (
-    <div>
+    <div id='contact'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12'>
             <motion.h2
             ref={ref}
