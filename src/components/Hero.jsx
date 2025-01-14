@@ -48,7 +48,7 @@ const Hero = () => {
            smooth={true}
            duration={500}
            offset={-70}
-           > Hire Me</Link></motion.button>
+           > Hire Us</Link></motion.button>
           <motion.button
           initial={{opacity:0, x: 100 }}
           animate={{ opacity:1 , x:0 }}
@@ -58,7 +58,7 @@ const Hero = () => {
            smooth={true}
            duration={500}
            offset={-70}
-           > My Story</Link></motion.button>
+           > Our Story</Link></motion.button>
         </div>
 
       </motion.div>
