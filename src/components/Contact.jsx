@@ -117,7 +117,7 @@ const Contact = () => {
                 2025. All rights reserved
             </p>
             <p>
-                Iron Coding 
+               FlexiLogic Africa
             </p>
             <div className='flex justify-center space-x-4 text-white mt-4 '>
                 <a href="" className='hover:text-purple-500'><FaFacebook className='w-6 h-6'/></a>

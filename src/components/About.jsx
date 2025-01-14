@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutImg from '../assets/aboutImg.jpg'
+import aboutImg from '../assets/test.png'
 import {motion} from 'motion/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -24,7 +24,7 @@ const About = () => {
            animate={inView ? {opacity:1, y:0 }: {}}
            transition={{delay: 0.5, duration:0.5}}
            className='mb-12 text-gray-400 text-center'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid illum quas facere labore omnis iure maiores, officia ducimus officiis, sit quia quisquam reiciendis quis. Minus quibusdam magnam veritatis tenetur.
+          Hi, I'm Bunbee. A software Engineer passionate about building scalable and impactful solutions.
         </motion.p>
         <div className='flex flex-col md:flex-row justify-center items-center'>
           <motion.div
@@ -35,7 +35,7 @@ const About = () => {
              className='mb-8 md:mb-0 md:mr-8 flex justify-center'>
             <img
               src={aboutImg}
-              className='w-2/3 sm:w-1/2 md:w-10/12'
+              className='w-2/3 sm:w-1/2 md:w-10/12 h-60'
             />
           </motion.div>
           <motion.p

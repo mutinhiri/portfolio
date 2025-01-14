@@ -1,5 +1,5 @@
 import React from 'react'
-import avatar from '../assets/test.png'
+import avatar from '../assets/image.png'
 import { motion} from 'motion/react'
 import { Link } from 'react-scroll'
 
@@ -13,7 +13,7 @@ const Hero = () => {
         delay:0.5,
         duration:0.5
       }}
-      className='mx-auto w-2/3 md:w-1/3 lg:w-1/4 '
+      className='mx-auto w-2/3 md:w-1/3 lg:w-1/4 rounded-full'
       src={avatar}/>
       <motion.div
       initial={{ opacity:0 }}
@@ -26,18 +26,18 @@ const Hero = () => {
         initial={{ opacity:0, y:100 }}
         animate={{opacity:1, y:0}}
         transition={{ delay:1, duration: 0.5}}
-         className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Your Story , Your Way
+         className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Tailored Solutions, Powered by Logic
         <motion.span
         initial={{opacity: 0, y:100 }}
         animate={{ opacity: 1, y: 0}}
         transition={{ delay: 1.1, duration: 0.5}}
-         className='text-purple-500'>Build Your Personal Portfolio</motion.span>
+         className='text-purple-500'>Let's build your next solution</motion.span>
         </motion.h1>
         <motion.p
          initial={{ opacity:0, y:100 }}
          animate={{opacity:1, y:0}}
          transition={{ delay:1.2, duration: 0.5}}
-         className='text-gray-400 text-lg mb-8'>Showcase your Journey through a personal portfolio</motion.p>
+         className='text-gray-400 text-lg mb-8'>Take your business online and increase your reach</motion.p>
         <div className="flex justify-center space-x-4 mb-10">
           <motion.button
           initial={{opacity:0, x: -100 }}

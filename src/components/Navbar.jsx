@@ -40,8 +40,8 @@ function Navbar() {
         duration={{duration: 0.9}}
         className="container mx-auto hidden md:flex justify-between items-center py-6">
             <div className="text-xl lg:text-2xl font-bold flex items-center gap-1">
-                <span className='text-white'>Iron</span>
-                <span className='text-purple-500'>Coding</span>
+                <span className='text-white'>FlexiLogic</span>
+                <span className='text-purple-500'>Africa</span>
             </div>
             <div className="abot">
                 <ul className='hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white'>
