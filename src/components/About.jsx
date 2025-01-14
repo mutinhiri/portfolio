@@ -24,7 +24,7 @@ const About = () => {
            animate={inView ? {opacity:1, y:0 }: {}}
            transition={{delay: 0.5, duration:0.5}}
            className='mb-12 text-gray-400 text-center'>
-          Hi, I'm Bunbee. A software Engineer passionate about building scalable and impactful solutions.
+          {/* Hi, I'm Bunbee. A software Engineer passionate about building scalable and impactful solutions. */}
         </motion.p>
         <div className='flex flex-col md:flex-row justify-center items-center'>
           <motion.div
@@ -44,7 +44,7 @@ const About = () => {
             animate={inView ? {opacity:1, x:0 }: {}}
             transition={{delay: 0.6, duration:0.5}} 
             className='md:w-1/2 text-gray-400 px-4 md:px-0 text-base sm:text-lg md:text-xl'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi laborum laboriosam omnis dicta, necessitatibus ipsa suscipit minima officiis ipsum ipsam voluptate debitis magni repellendus nemo.
+               FlexiLogic Africa is a technology company dedicated to empowering businesses across Africa through innovative, customized software solutions. Our mission is to deliver flexible, scalable, and client-focused systems that address the unique challenges of the African market. Guided by our core values of innovation, collaboration, and excellence, we leverage our expertise to help businesses thrive in the digital age. With a passionate team of experienced professionals, we are committed to shaping a smarter, more connected future for Africa. Let us partner with you to transform your business with tailored technology solutions.
           </motion.p>
         </div>
         <div className='flex flex-col sm:flex-row justify-around items-center mt-12 space-y-6 sm:space-y-0'>
