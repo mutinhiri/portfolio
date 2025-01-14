@@ -54,7 +54,7 @@ const About = () => {
             animate={inView ? {opacity:1 }: {}}
             transition={{delay:1.2 , duration:0.3}} 
             className='text-center'>
-            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 50 + </h3>
+            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 50+ </h3>
             <motion.p 
               ref={ref}
               initial={{opacity:0, y: 100}}
@@ -85,7 +85,7 @@ const About = () => {
            initial={{opacity:0}}
            animate={inView ? {opacity:1 }: {}}
            transition={{delay: 1.6, duration:0.3}} >
-            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 90 + </h3>
+            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 90+ </h3>
             <motion.p
               ref={ref}
               initial={{opacity:0, y: 100}}
