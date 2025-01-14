@@ -26,7 +26,7 @@ const Contact = () => {
                initial={{opacity: 0, y: -100}}
                animate={inView ? {opacity: 1, y:0  }: {}}
                transition={{ delay:0.3, duration: 0.5}}
-                className='text-slate-400 mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, dolores! Placeat eius, labore voluptatibus ea et ipsa minima animi! Dolore.</motion.p>
+                className='text-slate-400 mt-4'>We’d love to hear about your unique challenges and goals. Whether you’re looking to create a custom software solution, optimize your existing systems, or explore new tech opportunities, we’re here to help</motion.p>
         </div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8'>
             <div className='space-y-6'>
@@ -45,7 +45,7 @@ const Contact = () => {
                         Call me 
                     </p>
                     <p className='text-white'>
-                        099877788
+                        +263771066268
                     </p>
                 </div>
                 </motion.div>
@@ -83,7 +83,7 @@ const Contact = () => {
                         Address
                     </p>
                     <p className='text-white'>
-                        Kadoma zimbabwe
+                       1809 George Silundika Harare Zimbabwe
                     </p>
                 </div>
                 </motion.div>
@@ -117,7 +117,7 @@ const Contact = () => {
                 2025. All rights reserved
             </p>
             <p>
-                Iron Coding 
+               FlexiLogic Africa
             </p>
             <div className='flex justify-center space-x-4 text-white mt-4 '>
                 <a href="" className='hover:text-purple-500'><FaFacebook className='w-6 h-6'/></a>
