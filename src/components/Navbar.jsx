@@ -55,7 +55,7 @@ function Navbar() {
                     ))}
                 </ul>
             </div>
-            <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
+            {/* <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a> */}
         </motion.div>
         <div className='flex md:hidden justify-between'>
             <motion.div animate={menu ? "open" : 'closed'}>
@@ -87,7 +87,7 @@ function Navbar() {
                     
  
                             </ul>
-                            <a href="" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download Cv</a>
+                            {/* <a href="" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download Cv</a> */}
                         </div>
                     )}
                 </motion.div>

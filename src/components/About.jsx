@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutImg from '../assets/test.png'
+import aboutImg from '../assets/testr.png'
 import {motion} from 'motion/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -24,7 +24,6 @@ const About = () => {
            animate={inView ? {opacity:1, y:0 }: {}}
            transition={{delay: 0.5, duration:0.5}}
            className='mb-12 text-gray-400 text-center'>
-          {/* Hi, I'm Bunbee. A software Engineer passionate about building scalable and impactful solutions. */}
         </motion.p>
         <div className='flex flex-col md:flex-row justify-center items-center'>
           <motion.div
@@ -44,7 +43,9 @@ const About = () => {
             animate={inView ? {opacity:1, x:0 }: {}}
             transition={{delay: 0.6, duration:0.5}} 
             className='md:w-1/2 text-gray-400 px-4 md:px-0 text-base sm:text-lg md:text-xl'>
-               FlexiLogic Africa is a technology company dedicated to empowering businesses across Africa through innovative, customized software solutions. Our mission is to deliver flexible, scalable, and client-focused systems that address the unique challenges of the African market. Guided by our core values of innovation, collaboration, and excellence, we leverage our expertise to help businesses thrive in the digital age. With a passionate team of experienced professionals, we are committed to shaping a smarter, more connected future for Africa. Let us partner with you to transform your business with tailored technology solutions.
+FlexiLogic Africa is a technology company dedicated to empowering businesses across Africa through innovative, customized software solutions. Our mission is to deliver flexible, scalable, and client-focused systems that address the unique challenges of the African market. Guided by our core values of innovation, collaboration, and excellence, we leverage our expertise to help businesses thrive in the digital age.
+
+With a passionate team of experienced professionals, we are committed to shaping a smarter, more connected future for Africa. Let us partner with you to transform your business with tailored technology solutions — innovating business through smart technology and empowering Africa’s digital future.
           </motion.p>
         </div>
         <div className='flex flex-col sm:flex-row justify-around items-center mt-12 space-y-6 sm:space-y-0'>
@@ -69,7 +70,7 @@ const About = () => {
             initial={{opacity:0 }}
             animate={inView ? {opacity:1 }: {}}
             transition={{delay:1.4 , duration:0.3}} >
-            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 5+ </h3>
+            <h3 className='text-3xl md:text-8xl font-bold md:my-6'> 8+ </h3>
             <motion.p
              ref={ref}
              initial={{opacity:0, y: 100}}

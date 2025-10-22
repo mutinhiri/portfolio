@@ -26,12 +26,12 @@ const Hero = () => {
         initial={{ opacity:0, y:100 }}
         animate={{opacity:1, y:0}}
         transition={{ delay:1, duration: 0.5}}
-         className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'>Tailored Solutions, Powered by Logic
+         className='text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4'> Innovating Business Through Smart Solutions
         <motion.span
         initial={{opacity: 0, y:100 }}
         animate={{ opacity: 1, y: 0}}
         transition={{ delay: 1.1, duration: 0.5}}
-         className='text-purple-500'>Let's build your next solution</motion.span>
+         className='text-purple-500'>Empowering Africa's Digital Future</motion.span>
         </motion.h1>
         <motion.p
          initial={{ opacity:0, y:100 }}
