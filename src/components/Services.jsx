@@ -8,31 +8,31 @@ const Services = () => {
 
   const serviceData = [
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Custom Software Development",
+      description: "We design and build software solutions tailored to your business needs — from web and desktop applications to enterprise systems that streamline operations and drive growth."
     },
 
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Web & Mobile Application Development",
+      description: "Create responsive websites and intuitive mobile apps that enhance user experience, increase engagement, and deliver measurable results."
     },
 
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Cloud Solutions & DevOps",
+      description: "Leverage scalable cloud infrastructure, automation, and modern DevOps practices to optimize performance, security, and reliability."
     },
 
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Business Process Automation",
+      description: "Streamline repetitive tasks, integrate systems, and improve operational efficiency with intelligent automation solutions."
     },
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "IT Consulting & Digital Transformation",
+      description: "Partner with our experts to align technology strategy with business goals, implement digital transformation initiatives, and maximize ROI."
     },
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Support & Maintenance",
+      description: "Ensure your systems and software remain secure, updated, and fully optimized with reliable ongoing support and maintenance services."
     },
   ];
 
@@ -50,7 +50,7 @@ const Services = () => {
          transition={{duration: 0.5}}
           className='container mx-auto px-4 text-center'>
           <h2 className='text-3xl md:text-4xl font-bold underline mb-8'>Services</h2>
-          <p className='mb-12 text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!</p>
+          <p className='mb-12 text-gray-400'>Delivering Smart Solutions for Every Business.</p>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {
               serviceData.map((service, index) =>(

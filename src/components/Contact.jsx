@@ -42,10 +42,10 @@ const Contact = () => {
                 </div>
                 <div>
                     <p className='text-lg font-medium text-purple-500'>
-                        Call me 
+                        Call us
                     </p>
                     <p className='text-white'>
-                        +263771066268
+                        +263772550103
                     </p>
                 </div>
                 </motion.div>
@@ -61,7 +61,7 @@ const Contact = () => {
                     </div>
                     <div>
                         <p className='text-lg font-medium text-purple-500'>
-                            Email me 
+                            Email us 
                         </p>
                         <p className='text-white'>
                             barnabmutinhiri@gmail.com
@@ -75,7 +75,7 @@ const Contact = () => {
                    transition={{ delay:0.6, duration: 0.5}}  className='flex items-center space-x-4'>
 
                
-                <div className='bg-purple-500 p-4 rounded-full '>
+                {/* <div className='bg-purple-500 p-4 rounded-full '>
                     <FaMapMarkerAlt className='text-white w-6 h-6'/>
                 </div>
                 <div>
@@ -85,26 +85,28 @@ const Contact = () => {
                     <p className='text-white'>
                        1809 George Silundika Harare Zimbabwe
                     </p>
-                </div>
+                </div> */}
                 </motion.div>
             </div>
             <motion.form
                ref={ref}
+               action='https://formspree.io/f/xkgqlbjd'
+               method='POST'
                initial={{opacity: 0, x: -50}}
                animate={inView ? {opacity: 1, x:0  }: {}}
                transition={{ delay:0.8, duration: 0.5}} 
-               className='space-y-4 text-white '>
+               className='space-y-4  '>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                     <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
                     <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                    <input type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
-                    <input type="email" placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
+                    <input type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' name='phone number' />
+                    <input type="email" placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' name='budget'/>
 
                 </div>
-                <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'></textarea>
+                <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' ></textarea>
                 <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{scale: 0.95 }}

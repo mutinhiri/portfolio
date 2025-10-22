@@ -1,5 +1,8 @@
 import React from 'react'
 import projectImg from "../assets/avatar.png"
+import schoolImg from '../assets/school1.png'
+import hrImg from '../assets/hrimg.jpg'
+import farmer from '../assets/farmer.jpg'
 import {motion} from "motion/react"
 import { useInView } from 'react-intersection-observer'
 import Companies from './Companies'
@@ -9,23 +12,23 @@ const Work = () => {
     const projects = [
         {
             id:1,
-            title: "Text toitle",
-            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
-            image: projectImg,
+            title: "School Management Software",
+            description: "implifying school administration and improving communication between teachers, parents, and students.",
+            image: schoolImg,
             link: '#'
         },
         {
             id:2,
-            title: "App DAshboard",
-            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
-            image: projectImg,
+            title: "HR Management Software",
+            description: "Streamlining recruitment, employee records, performance, and payroll for smarter HR management.",
+            image: hrImg,
             link: '#'
         },
         {
             id:3,
-            title: "Text toitle",
-            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
-            image: projectImg,
+            title: "AI Virtual Assistant App",
+            description: "Automating tasks and providing instant insights to boost farming productivity",
+            image: farmer,
             link: '#'
         },
     ]
@@ -49,7 +52,7 @@ const Work = () => {
              animate={inView ? {opacity:1, y:0} : {}}
              transition={{delay:0.5, duration: 0.5}}
              className='mb-12 text-gray-400 text-center'>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod hic modi officiis at expedita tenetur.
+             Solutions That Drive Growth and Efficiency.
             </motion.p>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
                 {
@@ -79,7 +82,7 @@ const Work = () => {
         animate={inView ? {opacity:1, y:0} : {}}
         transition={{delay:0.7, duration:0.5}}
         >
-            <Companies/>
+            {/* <Companies/> */}
         </motion.div>
     </div>
   )
