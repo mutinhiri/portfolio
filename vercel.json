@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
   "redirects": [
     {
       "source": "/:path*",
@@ -10,15 +7,18 @@
       "permanent": true
     }
   ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options",    "value": "nosniff" },
-        { "key": "X-Frame-Options",            "value": "DENY" },
-        { "key": "X-XSS-Protection",           "value": "1; mode=block" },
-        { "key": "Referrer-Policy",            "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy",         "value": "camera=(), microphone=(), geolocation=()" }
+        { "key": "X-Content-Type-Options",  "value": "nosniff" },
+        { "key": "X-Frame-Options",          "value": "DENY" },
+        { "key": "X-XSS-Protection",         "value": "1; mode=block" },
+        { "key": "Referrer-Policy",          "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy",       "value": "camera=(), microphone=(), geolocation=()" }
       ]
     },
     {
@@ -28,9 +28,10 @@
       ]
     },
     {
-      "source": "/(og-image.png|favicon.svg|apple-touch-icon.png|manifest.json)",
+      "source": "/(og-image\\.png|manifest\\.json|sitemap\\.xml|robots\\.txt)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        { "key": "Cache-Control",               "value": "public, max-age=86400" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
   ]
