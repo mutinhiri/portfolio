@@ -25,169 +25,289 @@ import { useNavigate, useParams, Link } from "react-router-dom";
    ARTICLE DATA  ← Edit everything in this object for each post
    ───────────────────────────────────────────────────────────── */
 const ARTICLE = {
-  slug: "building-school-management-system-zimbabwe",
-  category: "Case Study",
-  categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-  title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
-  subtitle: "From a single-school pilot to a production platform — engineering decisions, hard lessons, and what shipped in 12 weeks.",
-  date: "12 February 2025",
-  readTime: "8 min read",
+  slug: "why-african-startups-choose-flutter",
+  category: "Engineering",
+  categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
+  title: "Why African Startups Are Choosing Flutter Over React Native in 2025",
+  subtitle: "Performance on affordable Android hardware, a single codebase for two platforms, and offline-first capability built into the framework — Flutter solves the specific problems African mobile development faces better than any alternative available today.",
+  date: "28 January 2025",
+  readTime: "6 min read",
   author: {
     name: "FlexiLogic Team",
     role: "Engineering & Product",
     avatar: "FL",
   },
-  coverEmoji: "🏫",
-  coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+  coverEmoji: "📱",
+  coverBg: "linear-gradient(135deg,#0d1b2a 0%,#1a2f4a 100%)",
 
-  /* ── CONTENT BLOCKS ──────────────────────────────────────────
-     Available block types:
-       { type: "paragraph",  text: "..." }
-       { type: "heading",    text: "...", level: 2 | 3 }
-       { type: "quote",      text: "...", author: "..." }
-       { type: "image",      src: "/path.jpg", caption: "..." }
-       { type: "callout",    emoji: "💡", title: "...", text: "..." }
-       { type: "list",       ordered: false, items: ["...", "..."] }
-       { type: "code",       lang: "js", text: "const x = 1;" }
-       { type: "divider" }
-  ─────────────────────────────────────────────────────────────── */
   content: [
     {
       type: "paragraph",
-      text: "When Chiedza Moyo, founder of AcademyPro, first reached out to us in October 2024, she had a spreadsheet. One very large, very broken spreadsheet managing enrolment, fees, grades, attendance, and parent communication for three secondary schools in Harare. By February 2025, she had Eduverse — a platform handling 1,248 students, 87 teachers, and a finance module that processed over $128,000 in fee collections in its first term alone.",
+      text: "When a Lagos-based healthtech startup approached us in mid-2024 to rebuild their patient-facing mobile app, they had an existing React Native codebase, a user base split 84% Android and 16% iOS, and a consistent complaint from their Android users: the app was slow. Not catastrophically slow — just the kind of sluggish that makes people sigh before opening it. On a Samsung Galaxy A-series device running Android 12, navigating between screens had a noticeable lag. Animations stuttered. The keyboard sometimes took two full seconds to appear after tapping a text field. None of these problems appeared on the iPhones the development team used for testing.",
     },
     {
       type: "paragraph",
-      text: "This is a case study of what we built, how we built it, and — more importantly — the technical decisions that made it possible to ship in 12 weeks without cutting corners on quality.",
+      text: "We rebuilt the app in Flutter. The performance complaints stopped within the first week of the new version's release. The app felt native on the same mid-range Android hardware that had made the React Native version feel sluggish. App store rating moved from 3.2 to 4.4 stars over the following two months. This outcome was not surprising to us — it was the predictable result of choosing a framework whose architecture matches the realities of the African mobile market. This article explains why.",
     },
     { type: "divider" },
     {
       type: "heading",
       level: 2,
-      text: "The Problem Space",
+      text: "The African Mobile Market in 2025",
     },
     {
       type: "paragraph",
-      text: "Zimbabwean secondary schools face a uniquely complex administrative burden. Enrolment isn't a once-a-year event — students join and leave mid-term. Fee structures vary by form, subject combination, and whether a student is boarding. Government reporting requirements layer on top. And parent communication — previously done by paper letters sent home with students — was hitting a 40% non-delivery rate.",
+      text: "Building mobile apps for African markets means building for a specific and well-defined set of constraints that differ meaningfully from the assumptions baked into most Western mobile development tooling and tutorials. The median smartphone in active use across sub-Saharan Africa is a mid-range Android device — a Tecno Spark, a Samsung Galaxy A-series, an Infinix Hot — with 3–4GB of RAM, a mid-tier processor, and a screen resolution of 720p. iOS devices exist in the market but represent a minority of the user base, typically concentrated among higher-income urban users and expatriates.",
+    },
+    {
+      type: "paragraph",
+      text: "Network conditions are variable and often poor. Mobile data is the primary internet connection for most users, and while 4G coverage in major urban centres is solid, rural coverage is patchy and indoor coverage in concrete buildings is frequently degraded to 3G or EDGE. Data costs, while falling, remain a real constraint on user behaviour — large app downloads, heavy image loading, and frequent API calls all have a cost that users feel directly.",
     },
     {
       type: "callout",
-      emoji: "💡",
-      title: "Key Insight",
-      text: "Most school management systems are built for the UK or US context. They assume stable enrolment, single-currency fee structures, and reliable internet. We had to design for the opposite of all three.",
+      emoji: "📱",
+      title: "Test on the right hardware",
+      text: "One of the most common failure modes in African app development is a team that builds and tests on flagship devices — the latest iPhone, a Samsung Galaxy S-series — and ships to users on mid-range hardware. The performance gap between a flagship and a mid-range Android device is significant enough that an app that feels smooth on the former can feel broken on the latter. Flutter's architecture makes this gap smaller. Choosing the right test devices makes it visible before it ships.",
     },
     {
       type: "heading",
       level: 2,
-      text: "Technical Architecture",
+      text: "What Flutter Is and Why the Architecture Matters",
     },
     {
       type: "paragraph",
-      text: "We settled on a React frontend with a Node.js/Express backend, PostgreSQL for the main data store, and Redis for session management and job queues. AWS S3 handles document storage (report cards, fee receipts, government forms). Twilio SMS powers parent notifications — the one communication channel with near-100% reach in our target market.",
+      text: "Flutter is Google's open-source UI framework for building cross-platform applications from a single codebase. It uses the Dart programming language and, critically, does not use the host platform's native UI components. Instead, Flutter brings its own rendering engine — Impeller on modern devices, Skia on older ones — that draws every pixel of the UI directly to the screen. This architectural decision is the root cause of most of Flutter's performance advantages in the African market context.",
+    },
+    {
+      type: "paragraph",
+      text: "Most cross-platform frameworks — React Native, Xamarin, Ionic — work by rendering to native UI components, communicating between JavaScript and native code across a bridge. This bridge is a performance bottleneck. Every interaction that crosses the bridge — a scroll event, an animation frame, a gesture recognition result — incurs a serialisation and deserialisation cost. On high-end hardware with fast processors, this cost is imperceptible. On mid-range Android hardware with slower CPUs and less RAM, it accumulates into the jank and lag that African users of React Native apps frequently experience.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Performance on Mid-Range Android Hardware",
+    },
+    {
+      type: "paragraph",
+      text: "Flutter's rendering engine bypasses the JavaScript bridge entirely. Dart compiles to native ARM code — the same instruction set that native Android and iOS apps use. The UI rendering happens entirely within Flutter's own engine, targeting 60fps or 120fps depending on the device's display refresh rate, without ever crossing a language bridge. The result is consistent, smooth animation and interaction performance on the same mid-range Android hardware where bridge-based frameworks struggle.",
+    },
+    {
+      type: "code",
+      lang: "dart",
+      text: `// Flutter's rendering pipeline — no JavaScript bridge
+// Every frame is rendered directly by Flutter's engine
+
+// Example: Smooth animated list — performs identically on
+// a Tecno Spark and a Samsung Galaxy S24
+
+class TransactionList extends StatelessWidget {
+  final List<Transaction> transactions;
+  const TransactionList({required this.transactions});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedList(
+      initialItemCount: transactions.length,
+      itemBuilder: (context, index, animation) {
+        return SlideTransition(
+          // 60fps animation — no bridge overhead on mid-range hardware
+          position: Tween<Offset>(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).animate(CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeOutCubic,
+          )),
+          child: TransactionCard(
+            transaction: transactions[index],
+            // Dart compiled to ARM — direct GPU access, no JS overhead
+          ),
+        );
+      },
+    );
+  }
+}
+
+// Contrast: React Native equivalent crosses the JS bridge
+// on every animation frame — noticeable on 3GB RAM devices`,
+    },
+    {
+      type: "paragraph",
+      text: "In practical terms this means Flutter apps feel native on the devices African users actually own. Scrolling is smooth. Transitions are crisp. The keyboard appears immediately. Forms respond to input without delay. These are not subtle differences — they are the difference between an app users open willingly and one they open reluctantly.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "One Codebase, Two Platforms",
+    },
+    {
+      type: "paragraph",
+      text: "Flutter's single-codebase model is not unique — React Native, Xamarin, and Ionic all promise the same. What distinguishes Flutter is how completely the promise is kept. Because Flutter renders its own UI rather than delegating to platform components, the same Dart code produces visually identical results on Android and iOS. There is no Android-specific styling to maintain, no iOS-specific layout fixes to apply, no platform-conditional code paths to test. A widget that looks and behaves correctly on Android looks and behaves correctly on iOS from the same source.",
+    },
+    {
+      type: "paragraph",
+      text: "For African startups where the user base is overwhelmingly Android but the founding team, investors, and enterprise clients use iPhones, this matters practically. The app needs to work excellently on both platforms. With Flutter, that requirement does not double the development cost — it adds a modest increment for platform-specific integrations like payment SDKs and notification handling, both of which Flutter's plugin ecosystem handles well.",
+    },
+    {
+      type: "callout",
+      emoji: "💰",
+      title: "The real cost comparison",
+      text: "A native Android + native iOS development engagement typically costs 1.8–2.2x the cost of a single-platform build. A Flutter engagement for both platforms typically costs 1.1–1.3x a single-platform build — because the codebase, the business logic, the state management, and the vast majority of the UI are shared. For early-stage African startups managing tight development budgets, that cost difference is meaningful.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Offline-First and Low-Bandwidth Optimisation",
+    },
+    {
+      type: "paragraph",
+      text: "Flutter does not make offline-first architecture automatic — but it makes it significantly easier than the alternatives. The Dart ecosystem includes mature, well-documented libraries for local data persistence (Hive, Isar, sqflite), connectivity monitoring, and background synchronisation that compose cleanly into offline-first architectures. The synchronous nature of Dart's object model and Flutter's widget rebuild system make it straightforward to design state management that reads from local storage first and updates from the network in the background.",
+    },
+    {
+      type: "code",
+      lang: "dart",
+      text: `// Offline-first data layer using Hive (local NoSQL) + API sync
+// Shows cached data instantly, syncs in background when connected
+
+class StudentRepository {
+  final Box<StudentModel> _localBox = Hive.box('students');
+  final ApiService _api;
+
+  StudentRepository(this._api);
+
+  // Always returns immediately from local cache
+  List<StudentModel> getStudents() => _localBox.values.toList();
+
+  // Stream emits cached data first, then fresh data after sync
+  Stream<List<StudentModel>> watchStudents() async* {
+    // Emit cached data immediately — no network wait
+    yield getStudents();
+
+    // Attempt background sync if connected
+    try {
+      final connected = await Connectivity()
+          .checkConnectivity() != ConnectivityResult.none;
+
+      if (connected) {
+        final fresh = await _api.fetchStudents();
+
+        // Update local cache
+        await _localBox.clear();
+        await _localBox.addAll(fresh);
+
+        // Emit updated data
+        yield getStudents();
+      }
+    } catch (e) {
+      // Network failure — cached data remains visible, no error shown
+      debugPrint('Sync failed, showing cached data: $e');
+    }
+  }
+
+  // Queue writes locally, sync when connected
+  Future<void> updateAttendance(String studentId, bool present) async {
+    final student = _localBox.get(studentId);
+    if (student == null) return;
+
+    // Write to local cache immediately
+    await _localBox.put(studentId, student.copyWith(present: present));
+
+    // Queue for server sync
+    await SyncQueue.enqueue(SyncOperation(
+      type: 'attendance_update',
+      payload: {'studentId': studentId, 'present': present},
+    ));
+  }
+}`,
+    },
+    {
+      type: "paragraph",
+      text: "For bandwidth optimisation, Flutter's image caching, asset bundling, and lazy loading patterns keep data consumption low without sacrificing visual quality. Flutter apps can be configured to serve lower-resolution images on slower connections, defer loading of non-critical assets until after the first frame renders, and compress API payloads efficiently. These are not Flutter-exclusive capabilities — but Flutter's architecture makes implementing them cleanly significantly more straightforward than in bridge-based frameworks.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Hot Reload and Development Velocity",
+    },
+    {
+      type: "paragraph",
+      text: "Flutter's hot reload is one of its most practically significant features for African startup development teams working under time and budget pressure. Hot reload injects updated Dart code into the running application in under a second, preserving the current application state — meaning a developer can change a colour, adjust a layout, or fix a logic error and see the result instantly without restarting the app or losing the UI state they were testing. Hot restart, which rebuilds the entire app state, takes two to three seconds rather than the thirty to sixty seconds a full build cycle requires.",
+    },
+    {
+      type: "paragraph",
+      text: "The compounding effect of fast iteration cycles on a startup development timeline is significant. A UI that would require twenty build-test-adjust cycles to refine in a native Android environment requires the same twenty cycles in Flutter — but completes them in minutes rather than hours. Across a twelve-week development engagement, this difference translates to meaningfully more iteration, more refined user experience, and more features shipped within the same budget envelope.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Flutter vs React Native: An Honest Comparison",
+    },
+    {
+      type: "paragraph",
+      text: "React Native is a mature, well-supported framework with a large ecosystem, a vast pool of JavaScript developers, and significant investment from Meta. It is not a bad choice for every context — but for the specific context of African market mobile development, Flutter has meaningful structural advantages. Here is an honest assessment of both.",
     },
     {
       type: "list",
       ordered: false,
       items: [
-        "React + Tailwind CSS — fast iteration on the UI, familiar to our frontend team",
-        "Node.js/Express — sufficient for our load profile, easy to extend",
-        "PostgreSQL — relational data with complex joins (students ↔ fees ↔ terms ↔ subjects)",
-        "Redis — session store + Bull queue for SMS jobs and report generation",
-        "AWS S3 + Lambda — document storage and serverless PDF generation",
-        "Twilio SMS — parent notifications with delivery receipts",
+        "Performance on mid-range Android — Flutter wins clearly. Dart-to-ARM compilation with direct GPU rendering outperforms React Native's JavaScript bridge architecture on the hardware most African users own. This is the single most important differentiator for this market.",
+        "Ecosystem and third-party libraries — React Native has a larger and more mature package ecosystem, particularly for integrations with US-centric services. Flutter's pub.dev ecosystem is growing rapidly and covers all the integrations relevant to African markets — EcoCash, mobile money SDKs, local maps, and authentication providers.",
+        "Developer availability — React Native benefits from the enormous JavaScript developer pool. Flutter requires Dart, which has a smaller but rapidly growing developer community in Africa. At FlexiLogic, our Flutter team is fully staffed; we have not found developer availability to be a meaningful constraint.",
+        "Web and desktop targets — Flutter compiles to web and desktop (Windows, macOS, Linux) from the same codebase, making it a stronger choice for products that need to span multiple platforms beyond mobile. React Native's web story (via React Native Web) is more complex and less complete.",
+        "UI fidelity and consistency — Flutter's custom rendering engine delivers pixel-perfect consistency across Android and iOS. React Native's native component delegation means subtle platform differences require platform-specific code to resolve.",
+        "Learning curve — Dart is a new language for most developers. The syntax is approachable for anyone with JavaScript, Java, or Kotlin experience, and most developers are productive within two to three weeks. This is a real but manageable onboarding cost.",
       ],
-    },
-    {
-      type: "heading",
-      level: 3,
-      text: "The Data Model Challenge",
-    },
-    {
-      type: "paragraph",
-      text: "The most technically interesting part of the project was the fee management data model. A student's fee obligation is determined by their form, boarding status, subject combination, and which payment plan their family is on — and any of these can change mid-term. We spent a full sprint on this before writing a single line of application code.",
-    },
-    {
-      type: "code",
-      lang: "sql",
-      text: `-- Simplified fee obligation model
-CREATE TABLE fee_structures (
-  id          UUID PRIMARY KEY,
-  term_id     UUID REFERENCES terms(id),
-  form        SMALLINT NOT NULL,        -- 1–6
-  is_boarding BOOLEAN  DEFAULT false,
-  base_amount NUMERIC(10,2) NOT NULL,
-  created_at  TIMESTAMPTZ DEFAULT now()
-);
-
-CREATE TABLE student_adjustments (
-  id                UUID PRIMARY KEY,
-  student_id        UUID REFERENCES students(id),
-  fee_structure_id  UUID REFERENCES fee_structures(id),
-  adjustment_type   TEXT,  -- 'discount' | 'surcharge' | 'scholarship'
-  amount            NUMERIC(10,2),
-  reason            TEXT,
-  approved_by       UUID REFERENCES staff(id)
-);`,
-    },
-    {
-      type: "paragraph",
-      text: "This separation — base structure plus per-student adjustments — gave us the flexibility to handle scholarships, sibling discounts, payment plans, and government subsidies without hardcoding any special cases into the application layer.",
-    },
-    {
-      type: "heading",
-      level: 2,
-      text: "What We'd Do Differently",
-    },
-    {
-      type: "paragraph",
-      text: "We underestimated the complexity of the government reporting module. Zimbabwe's Ministry of Primary and Secondary Education has specific export formats for enrolment returns, and the format changed once during our build. We built the export logic directly into the API handlers — a mistake we paid for when requirements shifted. In hindsight, this should have been a separate reporting service from day one.",
     },
     {
       type: "quote",
-      text: "The best architecture decision we made was keeping the SMS notification system completely decoupled from the main application. When Twilio had a brief outage in week three of the pilot, the main platform kept running perfectly — messages just queued and delivered when service resumed.",
-      author: "Lead Engineer, FlexiLogic Africa",
+      text: "We evaluate the framework choice at the start of every mobile engagement based on the client's existing team, their target user's hardware, and their platform distribution. For most African market apps — especially those where Android performance and offline capability are requirements — we recommend Flutter. We have not had a client regret that recommendation.",
+      author: "FlexiLogic Mobile Engineering Lead",
     },
     {
       type: "heading",
       level: 2,
-      text: "Results After One Full Term",
+      text: "When We Recommend React Native Instead",
     },
     {
-      type: "list",
-      ordered: true,
-      items: [
-        "1,248 students enrolled and managed across 3 schools",
-        "$128,000+ in fee collections processed — 91% collection rate (up from ~74%)",
-        "94% average attendance tracking compliance (staff adoption)",
-        "Parent SMS notification open rate impossible to measure directly, but fee collection correlation is strong",
-        "Zero critical bugs in production after go-live",
-        "Admin time on weekly fee reconciliation dropped from ~6 hours to ~40 minutes",
-      ],
+      type: "paragraph",
+      text: "Intellectual honesty requires acknowledging the cases where React Native remains the better choice. If a client's existing engineering team has deep React and JavaScript expertise and will own the app's ongoing development, introducing Dart creates a learning curve that may outweigh Flutter's performance advantages — particularly for internal tools and lower-stakes applications where performance is not critical. If a project requires deep integration with a third-party SDK that has mature React Native support but no Flutter plugin, the cost of building a custom Flutter plugin may not be justified. And if a product already has a significant React Native codebase with a working feature set, the ROI of a full Flutter rewrite must be weighed against the cost of incremental React Native improvements.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "What We Build with Flutter at FlexiLogic",
+    },
+    {
+      type: "paragraph",
+      text: "Flutter is our primary mobile framework for all new client engagements where the recommendation is appropriate. Our Flutter practice covers consumer-facing apps for fintech, healthcare, e-commerce, and edtech clients across African markets — applications where performance on mid-range Android hardware, offline capability, and EcoCash payment integration are standard requirements. We also build internal operations apps in Flutter for logistics teams, field workers, and school staff — use cases where the app needs to function in areas with poor connectivity and on devices that may be several years old.",
+    },
+    {
+      type: "paragraph",
+      text: "Our standard Flutter stack pairs the framework with a Node.js or Django REST API backend, PostgreSQL or Firebase for data persistence depending on the project's real-time requirements, and Hive or sqflite for local offline storage. State management uses Riverpod for its compile-time safety and testability. CI/CD pipelines automate builds and deployments to both Google Play and the App Store from a single GitHub Actions workflow — meaning a code merge to the main branch triggers automated testing and a new build to both stores without any manual intervention.",
     },
     {
       type: "callout",
-      emoji: "🚀",
-      title: "Now expanding",
-      text: "AcademyPro is onboarding two additional schools in Q2 2025. We're building multi-school reporting dashboards and a parent-facing mobile app as the next phase.",
+      emoji: "🐦",
+      title: "Building a Flutter app for the African market?",
+      text: "Whether you are starting from scratch, evaluating a migration from React Native, or looking for a Flutter engineering partner with deep experience building for African market constraints, the FlexiLogic mobile team would be glad to talk. Get in touch to book a free technical scoping call.",
     },
     { type: "divider" },
     {
       type: "paragraph",
-      text: "If you're running a school, a school network, or an edtech product targeting the African market — we'd love to talk. The problems are hard and genuinely interesting, and we're only getting better at solving them.",
+      text: "Framework choices are not permanent — but they are consequential. A mobile app built on the wrong foundation for its target market will accumulate performance debt, user experience debt, and maintenance debt that compounds over time. Flutter's architecture aligns with the realities of African mobile development — the hardware, the connectivity, the platform distribution — in a way that makes it the right default choice for teams building mobile products for this market. The startups choosing Flutter now are shipping faster, performing better on the hardware their users own, and doing it at a lower cost than the native development alternative. That combination is hard to argue with.",
     },
   ],
 
-  // Related posts shown at the bottom
   related: [
     {
-      slug: "why-african-startups-choose-flutter",
-      category: "Engineering",
-      categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
-      title: "Why African Startups Are Choosing Flutter Over React Native in 2025",
-      date: "28 Jan 2025",
-      readTime: "6 min read",
+      slug: "mobile-app-development-africa-2025",
+      category: "Mobile",
+      categoryColor: "bg-[#38BDF8]/15 text-[#38BDF8]",
+      title: "Mobile App Development in Africa: Why Your Next Customer Will Find You on a Phone — or Not at All",
+      date: "13 Mar 2025",
+      readTime: "11 min read",
       cover: "📱",
-      coverBg: "linear-gradient(135deg,#0d1b2a 0%,#1a2f4a 100%)",
+      coverBg: "linear-gradient(135deg,#0a1520 0%,#0d1f35 100%)",
     },
     {
       slug: "zero-downtime-deployments-node",

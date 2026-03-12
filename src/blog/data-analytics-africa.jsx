@@ -26,216 +26,308 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 
 /* ─── Styles ─── */
 const ARTICLE = {
-  slug: "cybersecurity-modern-african-platforms",
-  category: "Cybersecurity",
-  categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
-  title: "Building Secure Software Platforms for Modern African Businesses",
-  subtitle:
-    "How strong cybersecurity practices protect digital platforms, sensitive data, and customer trust in an increasingly connected world.",
-  date: "18 March 2026",
-  readTime: "7 min read",
+  slug: "data-analytics-africa-turning-data-into-decisions",
+  category: "Data & Analytics",
+  categoryColor: "bg-[#34D399]/15 text-[#34D399]",
+  title: "Data Analytics in Africa: Why Most Businesses Are Sitting on a Gold Mine They Cannot Read",
+  subtitle: "Every transaction, every customer interaction, every operational event your business generates is a data point. African organisations are collecting more data than ever before — and making fewer decisions from it than they should. That gap is the opportunity.",
+  date: "13 March 2025",
+  readTime: "12 min read",
   author: {
-    name: "FlexiLogic Security Team",
-    role: "Security Engineering",
+    name: "FlexiLogic Team",
+    role: "Engineering & Product",
     avatar: "FL",
   },
-  coverEmoji: "🔐",
-  coverBg: "linear-gradient(135deg,#0B1221 0%,#2A1A1A 100%)",
+  coverEmoji: "📊",
+  coverBg: "linear-gradient(135deg,#0a1a12 0%,#0d2b1a 100%)",
 
   content: [
     {
       type: "paragraph",
-      text: "As businesses across Africa increasingly adopt digital platforms, cybersecurity has become a critical part of modern software development. From customer data to financial transactions, digital systems now handle sensitive information that must be protected against unauthorized access and cyber threats.",
+      text: "A logistics company in Harare was losing money on a specific delivery route for eight months before anyone noticed. The data that would have revealed the problem — fuel costs, delivery times, vehicle maintenance records, customer payment delays — existed in three separate spreadsheets maintained by three different people. Nobody had the time to join them together. A retailer with four branches was consistently over-ordering stock for two locations and under-ordering for the other two, leaving money tied up in slow-moving inventory while losing sales on fast-moving lines. The pattern was obvious in hindsight. It was invisible in the moment because the sales data lived in a point-of-sale system that nobody had ever connected to anything else.",
     },
-
     {
       type: "paragraph",
-      text: "At FlexiLogic Africa, security is built into every layer of the systems we design. Our engineering teams integrate cybersecurity practices throughout the development lifecycle to ensure that applications remain resilient against modern threats.",
+      text: "These are not unusual stories. They are the default state of data management across the majority of Zimbabwean and African businesses — not because the data does not exist, but because the infrastructure to connect it, the tools to analyse it, and the discipline to act on it have not been built. This article makes the case for why that needs to change, what modern data analytics infrastructure actually looks like for a business of any size, and what FlexiLogic builds to close the gap.",
     },
-
     { type: "divider" },
-
     {
       type: "heading",
       level: 2,
-      text: "Why Cybersecurity Matters",
+      text: "The Data Problem African Businesses Actually Have",
     },
-
     {
       type: "paragraph",
-      text: "Cyber threats are becoming more sophisticated each year. Organizations that rely on digital systems must protect their platforms from data breaches, unauthorized access, and operational disruptions.",
+      text: "The conversation about data in Africa is often framed around data scarcity — not enough data, not enough connectivity, not enough digital infrastructure to generate meaningful datasets. That framing was accurate a decade ago. It is increasingly inaccurate today. Mobile money platforms process millions of transactions daily. School management systems record attendance and marks for hundreds of thousands of students. Hospital systems log patient visits, prescriptions, and outcomes. E-commerce platforms capture every browse, click, add-to-cart, and abandoned checkout. The data is there. The problem is not collection — it is connectivity, accessibility, and analysis.",
     },
-
     {
       type: "callout",
-      emoji: "🛡️",
-      title: "Security Protects Trust",
-      text: "Strong cybersecurity practices help organizations safeguard customer data and maintain trust in their digital services.",
+      emoji: "💡",
+      title: "The real data problem in 2025",
+      text: "Most African businesses do not have a data shortage. They have a data fragmentation problem. Operational data lives in disconnected systems — accounting software, point-of-sale terminals, spreadsheets, CRM tools, mobile money dashboards — that have never been connected to each other. The insight that would change a business decision exists somewhere in that fragmented landscape. It just cannot be seen.",
     },
-
+    {
+      type: "paragraph",
+      text: "The second layer of the problem is the reporting bottleneck. In most organisations, producing a management report requires a senior person to manually extract data from multiple systems, clean it, reconcile discrepancies, build a spreadsheet, format charts, and write a narrative. This process takes anywhere from half a day to two full days, depending on the organisation. The report is out of date by the time it is presented. The person who produced it could have been doing something more valuable. And because the process is so painful, it happens monthly or quarterly rather than continuously — meaning decisions are made on stale data for weeks at a time.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Common Security Risks for Digital Platforms",
+      text: "What Modern Data Analytics Infrastructure Looks Like",
     },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Unauthorized access to sensitive data",
-        "Weak authentication systems",
-        "Unsecured APIs and backend services",
-        "Improper access control permissions",
-        "Software vulnerabilities in applications",
-        "Phishing and social engineering attacks",
-      ],
-    },
-
     {
       type: "paragraph",
-      text: "Many security incidents occur not because of advanced hacking techniques, but because systems were not designed with strong security practices from the beginning.",
+      text: "A modern data analytics stack for an African business does not require a team of data scientists, a million-dollar enterprise software licence, or years of implementation. It requires four components working together: a data warehouse that centralises data from all your operational systems, a pipeline that keeps that warehouse current, a business intelligence layer that lets people explore and visualise the data without writing code, and a reporting layer that delivers the right insights to the right people automatically.",
     },
-
-    {
-      type: "heading",
-      level: 2,
-      text: "Security by Design",
-    },
-
-    {
-      type: "paragraph",
-      text: "At FlexiLogic Africa, we follow a security-by-design approach where cybersecurity considerations are integrated into system architecture from the earliest stages of development. This ensures that security is not treated as an afterthought.",
-    },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Secure authentication and identity management",
-        "Role-based access control systems",
-        "Encrypted communication between services",
-        "Secure API design and validation",
-        "Data protection and encryption practices",
-      ],
-    },
-
     {
       type: "heading",
       level: 3,
-      text: "Example: Secure Password Handling",
+      text: "Data Warehouse and Pipeline Engineering",
     },
-
     {
       type: "paragraph",
-      text: "One of the most important security practices is ensuring that sensitive credentials such as passwords are never stored in plain text. Instead, modern applications store securely hashed versions of passwords.",
+      text: "A data warehouse is a centralised repository where data from all your operational systems — your accounting software, your CRM, your point-of-sale system, your mobile money integration, your custom applications — is collected, cleaned, and stored in a unified structure optimised for analysis. Unlike an operational database that is optimised for fast writes and individual record lookups, a data warehouse is built for fast reads across large datasets — the kind of queries that answer questions like 'what was our revenue by product category across all branches last quarter, compared to the same quarter last year'.",
     },
-
+    {
+      type: "paragraph",
+      text: "The pipeline is the engineering that keeps the warehouse current. Data pipelines extract data from source systems on a defined schedule or in real time, transform it into the consistent structure the warehouse expects, and load it into the warehouse — a process known as ETL (Extract, Transform, Load). A well-built pipeline is invisible: it runs reliably in the background, handles errors gracefully, and alerts your team when something unexpected happens rather than silently producing wrong numbers.",
+    },
     {
       type: "code",
-      lang: "js",
-      text: `// Example simplified password hashing
+      lang: "python",
+      text: `# Example: Simplified ETL pipeline for a multi-branch retailer
+# Extracts daily sales from each branch POS system,
+# transforms to a unified schema, loads to data warehouse
 
-import bcrypt from 'bcrypt'
+import pandas as pd
+from datetime import date, timedelta
+from warehouse import db
+from sources import pos_system, accounting_api
 
-async function hashPassword(password) {
-  const salt = await bcrypt.genSalt(10)
-  return bcrypt.hash(password, salt)
-}`,
+def run_daily_sales_pipeline(target_date=None):
+    target_date = target_date or date.today() - timedelta(days=1)
+
+    branch_records = []
+
+    # Extract — pull from each branch POS system
+    for branch in pos_system.get_branches():
+        raw = pos_system.get_sales(
+            branch_id=branch.id,
+            date=target_date
+        )
+
+        # Transform — normalise to unified schema
+        for sale in raw:
+            branch_records.append({
+                "date":           target_date,
+                "branch_id":      branch.id,
+                "branch_name":    branch.name,
+                "product_sku":    sale.sku,
+                "product_name":   sale.name,
+                "category":       sale.category,
+                "quantity_sold":  sale.qty,
+                "unit_price_usd": sale.price,
+                "revenue_usd":    sale.qty * sale.price,
+                "payment_method": sale.payment_method,  # cash | ecocash | card
+            })
+
+    df = pd.DataFrame(branch_records)
+
+    # Load — upsert into warehouse fact table
+    db.upsert(
+        table="fact_daily_sales",
+        data=df,
+        conflict_keys=["date", "branch_id", "product_sku"]
+    )
+
+    print(f"Loaded {len(df)} records for {target_date}")
+
+# Scheduled daily at 02:00 via cron / Airflow / AWS EventBridge`,
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Business Intelligence Setup",
+    },
+    {
+      type: "paragraph",
+      text: "Business intelligence (BI) tools sit on top of the data warehouse and give non-technical users the ability to explore data, build visualisations, and answer their own questions without writing SQL or waiting for a developer. We implement and configure BI platforms — including Metabase, Apache Superset, and Looker Studio — tailored to each client's data model and user base. The goal is a system where a branch manager, a finance director, or a school principal can log in, navigate to their area of interest, and get answers to the questions they actually have — without opening a spreadsheet.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Custom Dashboards and Reporting",
+    },
+    {
+      type: "paragraph",
+      text: "Off-the-shelf BI tools cover the majority of analytical needs, but there are always dashboards that require custom development — either because the visualisation is highly specific to a business process, because it needs to be embedded in an existing application, or because it needs to serve a non-technical audience who should not need to learn a BI tool at all. We build custom dashboards using React with charting libraries including Recharts, Chart.js, and D3 — embedded directly in client applications or served as standalone reporting portals.",
+    },
+    {
+      type: "paragraph",
+      text: "Automated reporting is a separate but related capability. Rather than a dashboard that someone has to remember to check, automated reports push the right numbers to the right people on a defined schedule — a Monday morning revenue summary to the CEO via email, a daily cash position report to the finance team via WhatsApp, a weekly attendance and fee collection summary to each school's headmaster. The information arrives in the workflow rather than requiring a deliberate visit to a separate tool.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Real-Time Analytics",
+    },
+    {
+      type: "paragraph",
+      text: "For businesses where conditions change fast — a fintech platform processing live transactions, an e-commerce site running a promotional campaign, a logistics operation managing active deliveries — batch-processed daily reports are not enough. Real-time analytics pipelines process event streams as they are generated, updating dashboards and triggering alerts within seconds of meaningful events occurring. A fraud detection rule that fires when a transaction pattern deviates from a customer's baseline. An alert that fires when a delivery is running more than 30 minutes behind schedule. A dashboard that shows live conversion rates during a flash sale so the marketing team can respond in the moment.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Customer and Sales Analytics",
+    },
+    {
+      type: "paragraph",
+      text: "Understanding customer behaviour is the foundation of every growth strategy, yet most African businesses have only the most rudimentary picture of who their customers are, how they behave, and what drives their purchasing decisions. Customer analytics brings together transaction history, engagement data, demographic information, and behavioural signals to answer the questions that actually drive revenue: Which customers are most valuable? Which are at risk of churning? Which product combinations are most commonly purchased together? Which acquisition channels produce the customers with the highest lifetime value? Which customer segments are underserved by the current product offering?",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Operational and Financial Reporting",
+    },
+    {
+      type: "paragraph",
+      text: "Operational reporting connects business process data — delivery times, staff productivity, inventory turnover, service quality metrics — to financial outcomes, giving leadership teams a complete picture of where value is being created and destroyed across the organisation. Financial reporting automation eliminates the manual compilation process that consumes senior finance staff time every month-end, replacing it with automated reconciliation, variance analysis, and board-ready report generation that takes minutes rather than days.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Protecting APIs and Backend Systems",
+      text: "Sector by Sector: What Data Analytics Changes",
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Fintech and Banking",
+    },
     {
       type: "paragraph",
-      text: "Most modern applications rely on APIs to connect mobile apps, web interfaces, and backend services. Securing these APIs is essential to prevent unauthorized access or malicious activity.",
+      text: "Financial services generates more data per customer interaction than almost any other sector — and has the most direct line between analytical insight and revenue impact. Transaction analytics surfaces fraud patterns before they scale. Portfolio analytics identifies the customer segments and loan products with the best risk-adjusted returns. Operational analytics reveals the processing bottlenecks that are slowing application approval times and driving applicant drop-off. For fintech businesses, a mature analytics practice is not a nice-to-have — it is a competitive requirement.",
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Healthcare and Clinics",
+    },
+    {
+      type: "paragraph",
+      text: "Healthcare analytics in the Zimbabwean context divides into two high-value categories: operational analytics that improves clinic efficiency, and population health analytics that informs resource allocation and intervention prioritisation. On the operational side, appointment scheduling analytics reduces no-show rates and optimises clinician utilisation. Inventory analytics ensures essential medicines and consumables are stocked appropriately without tying up excessive working capital. On the population health side, patient outcome tracking across conditions, demographics, and treatment protocols surfaces the patterns that inform better clinical and administrative decision-making.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Schools and EdTech",
+    },
+    {
+      type: "paragraph",
+      text: "Schools are among the most data-rich and analytically underserved institutions in Zimbabwe. Attendance records, assessment results, teacher performance data, fee collection rates, and behavioural records accumulate term after term — and are almost never analysed in a way that produces actionable insight. Student performance analytics identifies at-risk learners weeks before they fail, enabling early intervention. Teacher effectiveness analytics supports professional development and curriculum planning decisions. Fee collection analytics gives school finance teams a real-time picture of collection rates by form, class, and payment method — eliminating the end-of-term surprise that cash flow is lower than expected.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "E-Commerce and Retail",
+    },
+    {
+      type: "paragraph",
+      text: "Retail analytics is one of the most mature and proven applications of data science globally, and the tools and techniques that transformed retail operations in developed markets are now accessible to Zimbabwean retailers at a fraction of the historical cost. Basket analysis reveals which products are bought together most frequently — informing placement, bundling, and promotional strategy. Price elasticity modelling informs promotional discount decisions. Inventory analytics by branch, category, and season eliminates the over-stock and under-stock cycles that erode both margin and customer satisfaction. Customer lifetime value modelling identifies the acquisition channels and customer profiles worth investing in.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Government and NGOs",
+    },
+    {
+      type: "paragraph",
+      text: "Government agencies and NGOs face a specific analytics challenge: demonstrating programme impact to funders and oversight bodies using data that is often collected in fragmented, inconsistent formats across distributed field operations. We build data collection standardisation frameworks, aggregation pipelines, and impact reporting dashboards that give programme managers real-time visibility into operations and give donors the evidence-based reporting they require. For government agencies digitising service delivery, analytics infrastructure enables the performance management and accountability reporting that citizens and oversight bodies increasingly expect.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Logistics and Supply Chain",
+    },
+    {
+      type: "paragraph",
+      text: "Logistics operations generate dense, time-sensitive data — vehicle locations, delivery times, route costs, fuel consumption, driver performance, customer satisfaction scores — that is almost always under-analysed. Route optimisation analytics reduces fuel costs and delivery times simultaneously. Driver performance analytics identifies training needs and safety risks before they become incidents. Customer delivery analytics reveals the patterns behind late deliveries and returns, informing operational changes that improve service quality. For logistics companies operating in Zimbabwe's challenging road infrastructure environment, data-driven route and fleet management is a direct path to margin improvement.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "General SMEs",
+    },
+    {
+      type: "paragraph",
+      text: "Small and medium enterprises often believe sophisticated data analytics is out of their reach — too expensive, too complex, too dependent on data volumes they do not yet have. The reality in 2025 is that a well-designed analytics setup for an SME is neither expensive nor complex, and the minimum viable dataset for meaningful insight is smaller than most business owners assume. A single connected view of revenue, costs, customer behaviour, and operational performance — updated automatically and accessible on a phone — is transformative for a business that has been running on gut feel and end-of-month spreadsheets.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Common Mistakes We See in African Data Projects",
+    },
     {
       type: "list",
-      ordered: false,
+      ordered: true,
       items: [
-        "Token-based authentication systems",
-        "Strict input validation",
-        "Rate limiting to prevent abuse",
-        "Secure API gateways",
-        "Monitoring suspicious activity",
+        "Building dashboards before cleaning data. A beautiful dashboard fed by dirty, inconsistent data is worse than no dashboard — it produces confident wrong answers. Data quality assessment and remediation must come before visualisation, not after.",
+        "Measuring everything instead of the right things. The first question in any analytics engagement should be 'what decisions do you need to make better?' — not 'what data do we have?' Starting from decisions works backwards to the metrics that matter. Starting from data produces dashboards full of numbers that nobody acts on.",
+        "Ignoring the last mile. A dashboard that requires a user to log into a separate tool, remember a URL, and navigate a BI interface will be checked occasionally at best. Analytics that arrives in the workflow — a WhatsApp message, an email summary, an alert on a phone — gets acted on. Distribution is as important as quality.",
+        "Treating analytics as a project rather than a capability. Analytics infrastructure built once and never maintained degrades rapidly as source systems change, data volumes grow, and business questions evolve. Every analytics engagement we deliver includes a maintenance and evolution plan — because the most valuable insights from a data system often emerge six months after it is first built, not on launch day.",
+        "Underestimating data governance. Who is allowed to see which data? Who is responsible for data quality? What happens when two reports show different numbers for the same metric? These governance questions seem administrative but are fundamental to whether analytics actually gets used and trusted in an organisation.",
       ],
     },
-
+    {
+      type: "quote",
+      text: "The most common failure mode we see is not a technical one. It is an organisation that built a data system nobody trusts because the numbers do not match what people already know. Trust in data is earned through rigorous quality control, transparent methodology, and consistent delivery — not through impressive visualisations.",
+      author: "FlexiLogic Data Engineering Team",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Monitoring and Threat Detection",
+      text: "How a FlexiLogic Data Analytics Engagement Works",
     },
-
     {
       type: "paragraph",
-      text: "Cybersecurity does not end once an application is deployed. Continuous monitoring helps detect suspicious behavior, potential breaches, and unusual activity within systems.",
+      text: "We begin every data engagement with a two-week discovery phase. We audit your existing data sources — what systems you run, what data they generate, how it is currently stored, and what quality issues exist. We interview the decision-makers who will be the primary consumers of analytics output, mapping the specific decisions they make regularly and the information gaps that currently limit the quality of those decisions. The output is a data architecture proposal and a prioritised analytics roadmap — a clear picture of what to build first and why.",
     },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Application activity monitoring",
-        "Security logging and audit trails",
-        "Automated threat detection alerts",
-        "Infrastructure vulnerability scanning",
-        "Regular security updates and patches",
-      ],
-    },
-
-    {
-      type: "heading",
-      level: 2,
-      text: "Security for Growing Digital Platforms",
-    },
-
     {
       type: "paragraph",
-      text: "As African startups and organizations scale their digital services, cybersecurity becomes increasingly important. Strong security practices help ensure that platforms can grow safely while protecting users and operational data.",
+      text: "The build phase proceeds in two-week sprints, starting with the data pipeline and warehouse foundation before layering in dashboards and reporting. We ship usable output continuously — by the end of the second sprint, you typically have a working data pipeline and your first dashboard in production, even if it covers only one data source and three metrics. This early delivery builds organisational confidence in the project and surfaces the requirement changes that always emerge when people see real data for the first time.",
     },
-
     {
       type: "callout",
-      emoji: "🚀",
-      title: "Engineering Secure Digital Platforms",
-      text: "FlexiLogic Africa builds secure software systems that protect business data, safeguard users, and maintain the integrity of digital platforms.",
+      emoji: "📈",
+      title: "Start with a data audit",
+      text: "Not sure what your data infrastructure is worth building on? A FlexiLogic data audit gives you a clear picture of what you have, what it is worth, and what it would take to turn it into a working analytics capability. Two weeks, fixed price, actionable output. Get in touch to book yours.",
     },
-
     { type: "divider" },
-
     {
       type: "paragraph",
-      text: "If your organization is building a digital platform or modernizing existing systems, integrating strong cybersecurity practices from the beginning is essential to protecting your operations and your customers.",
+      text: "Data is not a technology problem. It is a decision quality problem. Every business decision made without data — about pricing, about staffing, about inventory, about customers, about strategy — is a decision made with less information than was available. The organisations building data infrastructure now are not just becoming more efficient. They are building a compounding advantage: better decisions today produce better outcomes, which generate better data, which enable better decisions tomorrow. In competitive markets, that compounding effect becomes decisive.",
     },
   ],
 
   related: [
     {
-      slug: "cloud-devops-infrastructure-africa",
-      category: "DevOps",
-      categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
-      title: "Building Reliable Cloud Infrastructure for Modern African Applications",
-      date: "18 Mar 2026",
-      readTime: "7 min read",
-      cover: "☁️",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#13243F 100%)",
+      slug: "ai-automation-africa-opportunity-2025",
+      category: "AI & Automation",
+      categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
+      title: "AI Automation in Africa: The Opportunity, The Reality, and What to Build First",
+      date: "13 Mar 2025",
+      readTime: "12 min read",
+      cover: "🤖",
+      coverBg: "linear-gradient(135deg,#0d0a1a 0%,#1a1035 100%)",
     },
     {
-      slug: "ai-automation-african-businesses",
-      category: "AI & Automation",
-      categoryColor: "bg-[#9B6DFF]/15 text-[#9B6DFF]",
-      title: "Using AI Automation to Transform Business Operations in Africa",
-      date: "18 Mar 2026",
-      readTime: "7 min read",
-      cover: "🤖",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#1E1A3F 100%)",
+      slug: "why-african-startups-need-devops-cloud-infrastructure",
+      category: "DevOps",
+      categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
+      title: "Why African Startups Can No Longer Afford to Ignore DevOps",
+      date: "13 Mar 2025",
+      readTime: "9 min read",
+      cover: "☁️",
+      coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
     },
   ],
 };

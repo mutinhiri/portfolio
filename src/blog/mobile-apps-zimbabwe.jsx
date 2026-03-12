@@ -25,230 +25,340 @@ import { useNavigate, useParams, Link } from "react-router-dom";
    ARTICLE DATA  ← Edit everything in this object for each post
    ───────────────────────────────────────────────────────────── */
 const ARTICLE = {
-  slug: "building-mobile-applications-africa",
-  category: "Engineering",
-  categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-  title: "Building High-Performance Mobile Applications for African Businesses",
-  subtitle:
-    "How FlexiLogic Africa designs and engineers scalable mobile apps that work reliably across Africa’s diverse mobile ecosystem.",
-  date: "18 March 2026",
-  readTime: "7 min read",
+  slug: "mobile-app-development-africa-2025",
+  category: "Mobile",
+  categoryColor: "bg-[#38BDF8]/15 text-[#38BDF8]",
+  title: "Mobile App Development in Africa: Why Your Next Customer Will Find You on a Phone — or Not at All",
+  subtitle: "Africa is the world's most mobile-first continent. Businesses that meet their customers on the device they actually use are winning. Those waiting to 'do the website first' are ceding ground they will not easily recover.",
+  date: "13 March 2025",
+  readTime: "11 min read",
   author: {
-    name: "FlexiLogic Engineering",
-    role: "Mobile & Platform Team",
+    name: "FlexiLogic Team",
+    role: "Engineering & Product",
     avatar: "FL",
   },
   coverEmoji: "📱",
-  coverBg: "linear-gradient(135deg,#0B1221 0%,#1A2F4A 100%)",
+  coverBg: "linear-gradient(135deg,#0a1520 0%,#0d1f35 100%)",
 
   content: [
     {
       type: "paragraph",
-      text: "Mobile devices are the primary way millions of people across Africa access digital services. From banking and education to logistics and commerce, mobile applications have become the backbone of modern business operations. At FlexiLogic Africa, we design and build high-performance mobile applications that enable organizations to reach users wherever they are.",
+      text: "In 2024, a Zimbabwean microfinance institution launched a mobile loan application feature. Within 90 days, 67% of all new loan applications were coming through the app — not the branch, not the website, not the USSD menu. A school network rolled out a parent-facing mobile app showing attendance, marks, and fee balances in real time. Parent engagement with fee payment reminders went from a 22% response rate on SMS to 71% on in-app push notifications. A courier company gave their drivers a delivery management app with offline support. On-time delivery rates improved by 28% in the first term simply because drivers stopped relying on WhatsApp voice notes to receive and confirm delivery instructions.",
     },
-
     {
       type: "paragraph",
-      text: "Our approach to mobile development focuses on reliability, performance, and scalability. Mobile apps must function across a wide range of devices, network conditions, and operating systems — particularly in emerging markets where connectivity can vary significantly.",
+      text: "These are not outliers. They are the predictable result of meeting African users where they already are — on their phones. This article makes the case for mobile-first product strategy in the African market, explains the technology choices that make the difference between a mobile app that gets used and one that gets uninstalled, and details what FlexiLogic builds for clients across every sector.",
     },
-
     { type: "divider" },
-
     {
       type: "heading",
       level: 2,
-      text: "Why Mobile Applications Matter",
+      text: "Africa Is Not Going Mobile-First — It Already Is",
     },
-
     {
       type: "paragraph",
-      text: "For many organizations across Africa, the mobile phone is the primary digital interface with customers, employees, and partners. A well-designed mobile application can dramatically improve accessibility, engagement, and operational efficiency.",
+      text: "Mobile internet penetration across sub-Saharan Africa has crossed 50% and is growing faster than any other region in the world. In Zimbabwe, smartphone ownership has expanded dramatically across income brackets over the past five years, driven by the availability of affordable Android handsets and competitive mobile data pricing. The overwhelming majority of internet activity — browsing, banking, shopping, communicating, consuming content — happens on a mobile device. Desktop and laptop computing remains a workplace tool for a minority of the population. For most Zimbabweans, the phone is not a secondary screen. It is the primary and often only screen.",
     },
-
     {
       type: "callout",
-      emoji: "🌍",
-      title: "Mobile-First Markets",
-      text: "In many African markets, mobile devices are the primary computing platform. Businesses that invest in strong mobile experiences can reach customers faster and more effectively.",
+      emoji: "📱",
+      title: "The mobile reality in Zimbabwe",
+      text: "When you build a digital product for the Zimbabwean market, you are building for a user who is on a mid-range Android device, on a mobile data connection that varies between 3G and 4G depending on their location, with limited storage space on their device, and high sensitivity to data costs. Every product decision — from app size to image compression to offline capability — needs to be made with that user in mind, not a broadband-connected desktop user in a Sandton office.",
     },
-
+    {
+      type: "paragraph",
+      text: "The business implication is straightforward but still underappreciated by many Zimbabwean organisations: a product that is not excellent on mobile is not excellent. A website that is technically mobile-responsive but was designed for desktop is not a mobile product. A process that requires a customer to visit a branch because the digital channel does not work well on a phone will increasingly lose customers to a competitor who solved that problem. Mobile is not a feature. It is the default.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Types of Mobile Applications We Build",
+      text: "Choosing the Right Technology: Flutter, React Native, and PWAs",
     },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Customer-facing mobile apps for businesses and startups",
-        "School and education mobile platforms",
-        "Financial and fintech applications",
-        "Logistics and fleet management apps",
-        "Employee productivity and field service apps",
-        "Mobile dashboards for enterprise platforms",
-      ],
-    },
-
     {
       type: "paragraph",
-      text: "Each application we build is designed around the real-world workflows of the teams and customers who will use it daily.",
+      text: "The most consequential early decision in a mobile app project is the technology choice — and it is one where bad advice is common and the consequences of getting it wrong are expensive. Building separate native apps for iOS and Android doubles your development cost and ongoing maintenance burden. Building a cross-platform app with the wrong framework produces an app that feels clunky on both platforms. Building a Progressive Web App when you actually need native device capabilities produces a product that cannot do what the business requires.",
     },
-
-    {
-      type: "heading",
-      level: 2,
-      text: "Our Mobile Development Approach",
-    },
-
-    {
-      type: "paragraph",
-      text: "We focus on building mobile applications that are fast, intuitive, and reliable across both Android and iOS platforms. Our development process emphasizes performance optimization, strong backend integration, and user-centered design.",
-    },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Modern cross-platform frameworks for efficient development",
-        "High-performance UI design optimized for mobile devices",
-        "Secure authentication and user management",
-        "Offline-first capabilities for unstable networks",
-        "Scalable backend APIs powering mobile functionality",
-      ],
-    },
-
     {
       type: "heading",
       level: 3,
-      text: "Offline-First Design",
+      text: "Flutter: Our Primary Recommendation for African Market Apps",
     },
-
     {
       type: "paragraph",
-      text: "One of the most important considerations in mobile development for African markets is connectivity reliability. Many users experience intermittent or slow internet connections. For this reason, we design mobile applications with offline capabilities that allow users to continue working even when connectivity drops.",
+      text: "Flutter is Google's cross-platform UI framework that compiles to native ARM code for both Android and iOS from a single Dart codebase. It is our primary recommendation for African market mobile apps for three reasons specific to this context. First, Flutter produces a single codebase that runs on Android and iOS with near-identical performance and visual fidelity — critical when your user base is overwhelmingly Android but your client's leadership team uses iPhones. Second, Flutter apps compile to native code rather than running in a JavaScript bridge, which means they perform well on mid-range Android hardware where JavaScript-heavy apps struggle. Third, Flutter's widget system gives precise control over UI rendering, which matters when you need to optimise for small screens and variable display densities.",
     },
-
     {
       type: "code",
-      lang: "js",
-      text: `// Example simplified offline data sync concept
+      lang: "dart",
+      text: `// Example: Flutter widget for an offline-capable fee payment status screen
+// Shows cached data immediately, syncs in background when connected
 
-async function syncData(localChanges) {
-  try {
-    await api.post('/sync', localChanges);
-    markChangesAsSynced();
-  } catch (err) {
-    queueForRetry(localChanges);
+class FeeStatusScreen extends StatefulWidget {
+  final String studentId;
+  const FeeStatusScreen({required this.studentId});
+
+  @override
+  State<FeeStatusScreen> createState() => _FeeStatusScreenState();
+}
+
+class _FeeStatusScreenState extends State<FeeStatusScreen> {
+  FeeData? _cachedData;
+  bool _isSyncing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCachedData();
+    _syncIfConnected();
+  }
+
+  Future<void> _loadCachedData() async {
+    // Load from local SQLite cache immediately — no waiting for network
+    final cached = await LocalDb.getFeeData(widget.studentId);
+    setState(() => _cachedData = cached);
+  }
+
+  Future<void> _syncIfConnected() async {
+    final connected = await ConnectivityService.isOnline();
+    if (!connected) return;
+
+    setState(() => _isSyncing = true);
+    try {
+      final fresh = await ApiService.fetchFeeData(widget.studentId);
+      await LocalDb.saveFeeData(fresh);          // Update cache
+      setState(() { _cachedData = fresh; _isSyncing = false; });
+    } catch (e) {
+      setState(() => _isSyncing = false);        // Show cached data on error
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_cachedData == null) return const LoadingSpinner();
+
+    return Column(
+      children: [
+        if (_isSyncing) const SyncingBanner(),   // Subtle "updating..." indicator
+        FeeBalanceCard(data: _cachedData!),
+        PaymentHistoryList(payments: _cachedData!.payments),
+      ],
+    );
   }
 }`,
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "React Native: When the Team Already Knows JavaScript",
+    },
+    {
+      type: "paragraph",
+      text: "React Native remains a strong choice for teams with existing JavaScript and React expertise, or for projects that need to share significant business logic with a React web application. The ecosystem is mature, the community is large, and the performance gap with Flutter has narrowed considerably since the New Architecture rollout. We use React Native when a client's existing engineering team is JavaScript-native and will own the app's ongoing development — the learning curve of introducing a new language (Dart) is not justified when the team already has the skills to move quickly in React Native.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Progressive Web Apps: The Right Tool for the Right Job",
+    },
+    {
+      type: "paragraph",
+      text: "A Progressive Web App (PWA) is a web application built with modern browser APIs that give it app-like capabilities: it can be installed to the home screen, work offline, send push notifications, and load instantly on repeat visits. PWAs are not a compromise between a website and a native app — they are the right choice for specific use cases. Internal tools and dashboards that staff access on known devices. Lightweight customer-facing applications where the friction of an app store download would reduce adoption. Applications where the content is primarily informational and the native device capabilities (camera, GPS, biometrics) are not required.",
+    },
+    {
+      type: "paragraph",
+      text: "The key limitation of PWAs in the African context is iOS support — Apple's Safari browser has historically lagged behind Chrome in implementing PWA capabilities, and iOS users cannot receive push notifications from PWAs with the same reliability as Android users. For applications where push notification delivery is critical — fee payment reminders, attendance alerts, delivery updates — a native or cross-platform app is the more reliable choice.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Performance and Scalability",
+      text: "Offline Support: Non-Negotiable for the African Market",
     },
-
     {
       type: "paragraph",
-      text: "Mobile users expect applications to be fast and responsive. Our engineering team focuses on optimizing application performance through efficient data handling, caching strategies, and careful resource management on the device.",
+      text: "Offline capability is the single most important technical consideration for mobile apps targeting African users — and the one most commonly omitted by development teams following tutorials written for broadband-connected markets. A mobile app that requires a live network connection to display any content is a mobile app that stops working in a taxi, in a suburb with poor coverage, in a building with thick walls, or anywhere outside a major urban centre. In Zimbabwe, that describes a significant proportion of a user's daily life.",
     },
-
+    {
+      type: "paragraph",
+      text: "Every mobile app we build implements an offline-first architecture: data is fetched from the server and stored in a local database on the device. The app reads from the local database first and displays content immediately, then syncs with the server in the background when a connection is available. Write operations — submitting a form, recording a transaction, marking attendance — are queued locally and synced when connectivity is restored. The user experience is fast and functional regardless of network state, with clear indicators when data may be stale or when a sync is in progress.",
+    },
+    {
+      type: "callout",
+      emoji: "📶",
+      title: "Offline-first is a feature, not an edge case",
+      text: "In Western app development, offline support is often treated as an edge case for occasional underground commuters. In the African market, intermittent connectivity is a daily reality for a majority of users. Apps built offline-first are not just more robust — they feel fundamentally faster and more reliable than online-dependent apps, because they never make the user wait for a network round-trip to display content they have already loaded.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Push Notifications: The Highest-ROI Mobile Feature",
+    },
+    {
+      type: "paragraph",
+      text: "Push notifications are the most direct communication channel a business has with its mobile app users — more immediate than email, more reliable than SMS for smartphone users, and free to send at any volume. The organisations using push notifications well are seeing dramatic improvements in the metrics that matter: fee collection rates, appointment attendance, delivery confirmation rates, and re-engagement of users who have not opened the app recently.",
+    },
+    {
+      type: "paragraph",
+      text: "The difference between push notifications that drive action and push notifications that get disabled within a week comes down to relevance and timing. A notification that tells a parent their child was marked absent today at 10am is immediately actionable and highly valued. A notification that says 'Check out what's new in the app!' is noise that trains users to ignore everything that follows. We implement notification systems with full segmentation and personalisation — the right message to the right user at the right moment — and include analytics that track open rates and conversion by notification type so the strategy can be continuously improved.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "App Store Deployment and Optimisation",
+    },
+    {
+      type: "paragraph",
+      text: "Getting an app built is only half the job. Getting it into users' hands requires navigating the Google Play Store and Apple App Store submission processes, passing review requirements that catch many first-time submitters by surprise, and then optimising the app's store listing to convert browsers into installers. App Store Optimisation (ASO) — the mobile equivalent of SEO — determines whether your app appears when users search for the problem it solves, and whether the listing converts those searches into downloads.",
+    },
     {
       type: "list",
       ordered: false,
       items: [
-        "Efficient API communication",
-        "Optimized mobile UI rendering",
-        "Data caching for faster load times",
-        "Background synchronization",
-        "Cloud infrastructure designed for growth",
+        "Google Play and Apple App Store submission — handling the full submission process including developer account setup, app signing, privacy policy requirements, content rating, and review response if issues arise",
+        "Store listing optimisation — keyword research for app store search, compelling short and long descriptions, screenshot design that communicates the app's value in the first three seconds, and app icon design optimised for both stores",
+        "Release management — staged rollouts that limit exposure of new versions to a percentage of users before full deployment, reducing the blast radius of any post-release issues",
+        "Update strategy — planning and executing regular update cycles that keep the app performing well on new OS versions and take advantage of new platform capabilities as they become available",
       ],
     },
-
     {
       type: "heading",
       level: 2,
-      text: "Security and Data Protection",
+      text: "Sector by Sector: What Mobile Unlocks",
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Fintech and Mobile Money",
+    },
     {
       type: "paragraph",
-      text: "Mobile applications often handle sensitive data such as financial records, personal information, and operational data. We build security directly into our mobile systems through encrypted communication, secure authentication, and strict access control mechanisms.",
+      text: "Mobile is not just a channel for fintech in Africa — it is the primary product surface. Loan applications, account management, transaction history, payment initiation, and customer support all belong in a well-designed mobile app for a Zimbabwean fintech. The specific capabilities that differentiate winning fintech apps in this market are biometric authentication (fingerprint and face ID for fast, secure login), EcoCash and InnBucks integration for seamless payment initiation, and push notifications for transaction confirmations and payment reminders that drive repayment rates.",
     },
-
     {
-      type: "list",
-      ordered: false,
-      items: [
-        "Secure authentication flows",
-        "Encrypted API communication",
-        "Token-based session management",
-        "Role-based access control",
-        "Secure data storage on device",
-      ],
+      type: "heading",
+      level: 3,
+      text: "Healthcare and Clinics",
     },
-
+    {
+      type: "paragraph",
+      text: "Healthcare mobile apps in the Zimbabwean context deliver the most value in three areas: patient-facing appointment and record access, field health worker support tools, and clinic operational management. A patient app that shows appointment history, medication reminders, and basic health records reduces no-shows and improves treatment adherence. A field worker app with offline capability for data collection in rural areas — community health surveys, vaccination records, referral documentation — eliminates the paper-based data pipeline that loses and delays critical health information.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Schools and EdTech",
+    },
+    {
+      type: "paragraph",
+      text: "The parent-facing school app is one of the highest-engagement mobile products in the education sector. Parents check their children's attendance, marks, homework deadlines, and fee balances daily when the information is available on their phone — engagement levels that no weekly newsletter or termly report can come close to matching. For EdTech platforms, mobile-first delivery of learning content with offline support enables genuine reach into areas where home internet connectivity is limited but smartphone ownership is growing.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "E-Commerce and Retail",
+    },
+    {
+      type: "paragraph",
+      text: "Zimbabwean e-commerce is mobile commerce. Shopping apps optimised for mid-range Android hardware, with fast image loading, frictionless checkout, and mobile money payment integration, outperform desktop-first e-commerce experiences in this market by significant margins. The specific features that drive conversion on African e-commerce apps are lightweight product images that load quickly on mobile data, WhatsApp integration for customer service, EcoCash and card payment options at checkout, and order tracking push notifications that reduce customer anxiety and support queries.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Logistics and Delivery",
+    },
+    {
+      type: "paragraph",
+      text: "Logistics operations run on mobile. Driver apps with offline-capable route management, delivery confirmation with photo capture, digital proof of delivery, and real-time status updates to customers transform the operational efficiency of a courier or logistics business. Customer-facing tracking apps that provide live delivery status reduce inbound customer service queries dramatically — customers stop calling to ask where their delivery is when the app tells them proactively. We have built logistics apps for Zimbabwean courier operations that eliminated an estimated 60% of customer service call volume within the first two months of launch.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Government and NGOs",
+    },
+    {
+      type: "paragraph",
+      text: "Government citizen service apps and NGO field operations apps represent two distinct but equally high-value mobile use cases. Citizen service apps — for permit applications, service requests, payment of fees and levies, and access to public information — reduce queue lengths, improve service accessibility in rural areas, and generate the digital transaction records that enable better service planning. NGO field apps for beneficiary registration, programme monitoring, and data collection replace paper-based processes that are slow, error-prone, and expensive to aggregate into reports.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "General SMEs",
+    },
+    {
+      type: "paragraph",
+      text: "For SMEs, the mobile opportunity often sits on the internal operations side as much as the customer-facing side. A field sales app that lets representatives capture orders, check stock levels, and issue quotes on a phone eliminates the order-taking lag that costs sales. A staff management app for clock-in, task assignment, and performance tracking brings operational visibility to a business owner who cannot be physically present at every location. A customer loyalty app that tracks purchases and issues rewards drives repeat business in markets where loyalty programmes have historically required expensive card infrastructure.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "From Idea to Launch",
+      text: "What Makes a Mobile App Succeed in the African Market",
     },
-
-    {
-      type: "paragraph",
-      text: "Building a successful mobile application requires more than just writing code. Our process combines product strategy, user experience design, and strong engineering execution to bring ideas from concept to launch.",
-    },
-
     {
       type: "list",
       ordered: true,
       items: [
-        "Product discovery and requirements definition",
-        "User experience and interface design",
-        "Mobile application development",
-        "Testing across devices and operating systems",
-        "Deployment and ongoing support",
+        "Small app size. Every megabyte of app size costs your users real money in download data costs and real storage on devices that may have 16–32GB total. We optimise aggressively — code splitting, asset compression, lazy loading — to keep apps under 20MB where possible.",
+        "Fast first load. Users in low-connectivity environments abandon apps that take more than three seconds to show useful content. Offline-first architecture with local caching is the solution, not faster servers.",
+        "Localised payment integration. An app that does not support EcoCash, InnBucks, or the payment methods your users actually have is an app with a broken checkout. Payment integration is not an afterthought.",
+        "Accessible design. Mid-range Android screens vary significantly in size, resolution, and colour accuracy. UI design that works at 720p on a 5.5-inch screen is not the same as a design built for a high-resolution flagship. We test on representative hardware, not just the latest iPhone.",
+        "Respectful notification design. Push notification permission is a privilege users grant and revoke. Notification strategies that prioritise relevance over volume build long-term engagement. Notification strategies that optimise for frequency build uninstall rates.",
+        "Graceful error handling. Network errors, payment failures, and server timeouts will happen. Apps that show a clear, friendly error message and offer a recovery path retain users. Apps that show a blank screen or a raw error code lose them.",
       ],
     },
-
+    {
+      type: "quote",
+      text: "The apps that win in the African market are not the most feature-rich — they are the fastest, the most reliable in poor connectivity, and the most respectful of the data and storage constraints of the devices their users actually own.",
+      author: "FlexiLogic Mobile Engineering Team",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "How a FlexiLogic Mobile Engagement Works",
+    },
+    {
+      type: "paragraph",
+      text: "We run mobile app engagements in three stages. The first is a one-week discovery and scoping session where we define the app's core user journeys, agree on the technology choice (Flutter, React Native, or PWA), map the backend integrations required, and produce a detailed specification and timeline. This stage eliminates the scope creep and requirement misunderstandings that derail most app projects before a line of code is written.",
+    },
+    {
+      type: "paragraph",
+      text: "The build stage proceeds in two-week sprints with a working, testable build delivered at the end of every sprint. We use TestFlight for iOS beta distribution and Google Play Internal Testing for Android, so clients are testing on real devices throughout the build — not seeing the app for the first time at launch. UI/UX design, development, and QA run in parallel rather than sequentially, which compresses the timeline without compressing quality.",
+    },
+    {
+      type: "paragraph",
+      text: "The launch stage covers app store submission, release management, and a 30-day post-launch support period during which we monitor crash rates, performance metrics, and user feedback and address any issues that emerge in the wild. After the support period, clients can transition to a maintenance retainer for ongoing updates, feature additions, and OS compatibility work as Android and iOS release new versions.",
+    },
     {
       type: "callout",
       emoji: "🚀",
-      title: "Engineering Mobile Products for Africa",
-      text: "At FlexiLogic Africa, we are committed to building mobile applications that empower businesses, improve access to digital services, and support the next generation of African technology innovation.",
+      title: "Ready to build your mobile app?",
+      text: "Whether you are starting from scratch or rebuilding a mobile experience that is not performing, FlexiLogic delivers mobile apps built specifically for the African market — fast, offline-capable, and designed for the devices your users actually own. Get in touch to book a free scoping call.",
     },
-
     { type: "divider" },
-
     {
       type: "paragraph",
-      text: "If you're planning to build a mobile application for your business or startup, our team can help design and engineer a solution that scales with your growth.",
+      text: "The window for mobile-first competitive advantage in Zimbabwe and across Africa is not closing — but it is narrowing. The organisations that have already built excellent mobile experiences are compounding their user base, their data, and their brand equity with every passing month. The cost of building a great mobile app has never been lower. The cost of not having one has never been higher.",
     },
   ],
 
   related: [
     {
-      slug: "building-modern-web-applications-africa",
-      category: "Engineering",
-      categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
-      title: "Building Modern Web Applications for African Businesses",
-      date: "18 Mar 2026",
-      readTime: "7 min read",
-      cover: "💻",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+      slug: "ai-automation-africa-opportunity-2025",
+      category: "AI & Automation",
+      categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
+      title: "AI Automation in Africa: The Opportunity, The Reality, and What to Build First",
+      date: "13 Mar 2025",
+      readTime: "12 min read",
+      cover: "🤖",
+      coverBg: "linear-gradient(135deg,#0d0a1a 0%,#1a1035 100%)",
     },
     {
-      slug: "building-school-management-system-zimbabwe",
-      category: "Case Study",
-      categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-      title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
-      date: "12 Feb 2025",
-      readTime: "8 min read",
-      cover: "🏫",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+      slug: "data-analytics-africa-turning-data-into-decisions",
+      category: "Data & Analytics",
+      categoryColor: "bg-[#34D399]/15 text-[#34D399]",
+      title: "Data Analytics in Africa: Why Most Businesses Are Sitting on a Gold Mine They Cannot Read",
+      date: "13 Mar 2025",
+      readTime: "12 min read",
+      cover: "📊",
+      coverBg: "linear-gradient(135deg,#0a1a12 0%,#0d2b1a 100%)",
     },
   ],
 };

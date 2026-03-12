@@ -25,205 +25,387 @@ import { useNavigate, useParams, Link } from "react-router-dom";
    ARTICLE DATA  ← Edit everything in this object for each post
    ───────────────────────────────────────────────────────────── */
 const ARTICLE = {
-  slug: "building-modern-web-applications-africa",
-  category: "Engineering",
-  categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
-  title: "Building Modern Web Applications for African Businesses",
-  subtitle:
-    "How FlexiLogic Africa designs scalable, secure, and high-performance web applications that help businesses operate and grow in a digital-first economy.",
-  date: "18 March 2026",
-  readTime: "7 min read",
+  slug: "web-development-zimbabwe-why-your-business-needs-a-professional-website",
+  category: "Web Development",
+  categoryColor: "bg-[#F59E0B]/15 text-[#F59E0B]",
+  title: "Your Website Is Your Hardest Working Employee — Most Zimbabwean Businesses Have Not Hired It Yet",
+  subtitle: "A professional website works 24 hours a day, 7 days a week, reaches customers you will never meet in person, and builds credibility before a single conversation takes place. Yet the majority of Zimbabwean businesses either have no website, or one that is actively costing them trust and revenue.",
+  date: "13 March 2025",
+  readTime: "11 min read",
   author: {
-    name: "FlexiLogic Engineering",
-    role: "Product & Platform Team",
+    name: "FlexiLogic Team",
+    role: "Engineering & Product",
     avatar: "FL",
   },
-  coverEmoji: "💻",
-  coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+  coverEmoji: "🌐",
+  coverBg: "linear-gradient(135deg,#1a1200 0%,#2d1f00 100%)",
 
   content: [
     {
       type: "paragraph",
-      text: "Across Africa, businesses are rapidly moving from manual processes and spreadsheets to fully digital platforms. Web applications are at the center of this transformation. At FlexiLogic Africa, we build modern web applications that help organizations streamline operations, manage data intelligently, and deliver better digital experiences to their customers.",
+      text: "A boutique law firm in Harare was losing prospective clients to a competitor with an inferior track record but a significantly better website. The partner who eventually called us had spent years building a reputation through referrals — and had never considered that a potential client who received that referral would immediately search for the firm online, land on a broken, outdated page that had not been updated since 2019, and quietly choose someone else. The referral was happening. The conversion was not.",
     },
-
     {
       type: "paragraph",
-      text: "From internal enterprise dashboards to customer-facing SaaS platforms, our engineering team focuses on building systems that are scalable, secure, and designed to grow with the organizations that use them.",
+      text: "This pattern repeats across sectors and business sizes in Zimbabwe. A guest house in Victoria Falls losing bookings to a property with identical facilities but a professional booking website. A clinic that has served its community for fifteen years being passed over by new residents who found a competitor with better online information. An SME that cannot pitch for corporate contracts because procurement teams require a credible web presence as a baseline due diligence check. In every case, the business's actual quality was not the problem. Its digital representation was.",
     },
-
     { type: "divider" },
-
     {
       type: "heading",
       level: 2,
-      text: "What Is a Web Application?",
+      text: "The Web Presence Gap in Zimbabwe",
     },
-
     {
       type: "paragraph",
-      text: "A web application is software that runs in the browser but connects to powerful backend systems in the cloud. Unlike simple websites, web apps allow users to interact with data, automate processes, and perform complex tasks directly through the web.",
+      text: "Internet penetration in Zimbabwe is growing rapidly, and with it the proportion of purchasing decisions — B2C and B2B — that involve an online search before any human contact takes place. A customer considering a new clinic searches for it before booking. A corporate procurement manager considering a vendor searches for them before scheduling a meeting. A traveller considering accommodation searches before making a reservation. A parent considering a school searches before arranging a visit. The search happens regardless of whether the business has prepared for it.",
     },
-
     {
       type: "callout",
-      emoji: "🌍",
-      title: "Why Web Apps Matter",
-      text: "Web applications remove installation barriers. Users can access the system from any device with a browser — making them ideal for organizations operating across multiple offices, cities, or countries.",
+      emoji: "🔍",
+      title: "The silent first impression",
+      text: "Most businesses obsess over the impression they make in meetings, pitches, and calls. Almost none invest equivalent energy in the impression they make on the 80% of potential customers who search for them online, form a judgment within seconds, and either proceed or move on — without the business ever knowing the evaluation happened.",
     },
-
+    {
+      type: "paragraph",
+      text: "The web presence gap in Zimbabwe takes three forms. The first is absence — businesses with no website at all, relying entirely on social media profiles and word of mouth. The second is neglect — businesses with websites that were built years ago, are no longer maintained, and present outdated information, broken links, and a visual language that communicates stagnation rather than credibility. The third is inadequacy — businesses with technically functional websites that were built cheaply, load slowly, look unprofessional on mobile, and fail to communicate the business's actual value proposition clearly enough to convert a visitor into an enquiry.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Types of Web Applications We Build",
+      text: "What a Professional Website Actually Does for Your Business",
     },
-
+    {
+      type: "paragraph",
+      text: "The case for a professional website is sometimes framed as a branding argument — it makes you look more credible. That is true but incomplete. A well-built website is not just a credibility signal. It is an active business development tool that works continuously without staff time, salary costs, or office hours constraints.",
+    },
     {
       type: "list",
       ordered: false,
       items: [
-        "Enterprise management systems",
-        "School and education platforms",
-        "Financial and payment dashboards",
-        "Logistics and fleet management systems",
-        "Customer portals and SaaS products",
-        "Internal operations tools for businesses",
+        "Generates inbound enquiries from people who found you through search — customers who were already looking for what you offer and came to you, rather than requiring you to find them",
+        "Qualifies prospects before they make contact — a well-designed website communicates who you serve, what you do, what it costs, and why you are the right choice, so the conversations you do have are with people who are already largely convinced",
+        "Operates outside business hours — enquiry forms, booking systems, and e-commerce checkouts capture revenue opportunities at 11pm on a Sunday that a branch or phone line cannot",
+        "Builds trust with audiences you will never reach through referrals — corporate clients, international partners, grant-making bodies, and customers outside your immediate network all evaluate credibility online before making contact",
+        "Provides a measurable, improvable sales channel — unlike word of mouth or print advertising, website performance is trackable and optimisable, allowing continuous improvement of conversion rates over time",
+        "Supports every other marketing activity — a social media post, a business card, a radio advertisement, or a referral all drive people to search for you online. Without a strong web presence, those investments are partially wasted",
       ],
     },
-
-    {
-      type: "paragraph",
-      text: "Each product we build is tailored to the specific needs of the organization. African markets often require flexibility around payment systems, connectivity reliability, and operational workflows — which is why we design systems that are adaptable from the start.",
-    },
-
     {
       type: "heading",
       level: 2,
-      text: "Our Web Application Architecture",
+      text: "The Services We Deliver",
     },
-
-    {
-      type: "paragraph",
-      text: "Our engineering approach combines modern frontend frameworks with scalable backend systems. This allows us to deliver fast user experiences while maintaining reliability and strong data integrity.",
-    },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "React and modern frontend frameworks for responsive interfaces",
-        "Node.js and backend frameworks for scalable APIs",
-        "PostgreSQL databases for structured business data",
-        "Cloud infrastructure for performance and reliability",
-        "Secure authentication and role-based access systems",
-      ],
-    },
-
     {
       type: "heading",
       level: 3,
-      text: "Designing for Performance",
+      text: "Business Websites and Landing Pages",
     },
-
     {
       type: "paragraph",
-      text: "Performance is critical for business software. Our applications are designed to load quickly, handle large datasets, and remain responsive even as user numbers grow. We achieve this through optimized API design, caching strategies, and efficient database queries.",
+      text: "A business website is the digital headquarters of your organisation — the definitive source of truth about who you are, what you do, who you serve, and how to engage with you. We design and build business websites that do three things well: communicate your value proposition clearly within the first five seconds of a visit, build trust through professional design and substantive content, and drive visitors toward a specific action — an enquiry, a booking, a download, or a call.",
     },
-
     {
-      type: "code",
-      lang: "js",
-      text: `// Example API endpoint structure
-app.get('/api/students', async (req, res) => {
-  const students = await db.query(
-    'SELECT id, name, class, enrollment_date FROM students'
-  );
-
-  res.json(students.rows);
-});`,
+      type: "paragraph",
+      text: "Landing pages are purpose-built single pages designed to convert traffic from a specific source — a Google ad, a social media campaign, an email newsletter — into a specific action. Where a business website serves multiple audiences and purposes, a landing page serves one audience and one purpose, with every element of the design oriented toward that single conversion goal. For businesses running paid digital marketing campaigns, a well-designed landing page can double or triple the return on the advertising spend compared to sending traffic to a general website homepage.",
     },
-
     {
       type: "heading",
-      level: 2,
-      text: "Security and Reliability",
+      level: 3,
+      text: "E-Commerce Stores",
     },
-
     {
       type: "paragraph",
-      text: "Business applications handle sensitive data — from financial records to student information. Security is therefore built into every system we develop. This includes encrypted connections, secure authentication, role-based access control, and comprehensive audit logging.",
+      text: "Zimbabwean e-commerce is in an accelerated growth phase, driven by increasing smartphone ownership, improving mobile payment infrastructure, and a consumer base that has experienced the convenience of online shopping and will not revert. An e-commerce store built for this market needs to handle the specific payment methods Zimbabwean consumers use — EcoCash, InnBucks, Visa and Mastercard — load quickly on mobile data connections, and present products in a way that builds purchase confidence for customers who cannot physically inspect what they are buying.",
     },
+    {
+      type: "paragraph",
+      text: "We build e-commerce solutions ranging from WooCommerce implementations for businesses that need a managed, content-editable product catalogue, to fully custom-built storefronts for businesses with complex product logic, subscription models, or integration requirements that off-the-shelf platforms cannot accommodate. Every e-commerce build we deliver includes mobile optimisation, payment gateway integration, order management, and basic inventory tracking as standard.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Web Application Development",
+    },
+    {
+      type: "paragraph",
+      text: "Beyond websites and e-commerce, the web is a platform for building sophisticated applications that run in a browser — customer portals, booking systems, management dashboards, internal tools, and SaaS products. Web applications built with modern frameworks like React deliver user experiences that rival native desktop software, accessible from any device without installation. We build web applications for clients whose business processes require more than a website can provide — interactive workflows, real-time data, user authentication, and integration with external systems.",
+    },
+    {
+      type: "code",
+      lang: "jsx",
+      text: `// Example: React component for a professional services enquiry form
+// Clean, validated, with optimistic UI and error handling
 
+import { useState } from "react";
+
+export default function EnquiryForm() {
+  const [form, setForm] = useState({
+    name: "", email: "", phone: "", service: "", message: ""
+  });
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+
+  const services = [
+    "Web Development", "Mobile App", "Cloud DevOps",
+    "Data Analytics", "AI Automation", "Cybersecurity"
+  ];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    try {
+      await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "success") return (
+    <div className="text-center py-12">
+      <div className="text-4xl mb-4">✅</div>
+      <h3>We have received your enquiry</h3>
+      <p>A member of the FlexiLogic team will be in touch within one business day.</p>
+    </div>
+  );
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input
+        placeholder="Full name"
+        value={form.name}
+        onChange={e => setForm({ ...form, name: e.target.value })}
+        required
+      />
+      <input
+        type="email" placeholder="Email address"
+        value={form.email}
+        onChange={e => setForm({ ...form, email: e.target.value })}
+        required
+      />
+      <input
+        placeholder="Phone number (optional)"
+        value={form.phone}
+        onChange={e => setForm({ ...form, phone: e.target.value })}
+      />
+      <select
+        value={form.service}
+        onChange={e => setForm({ ...form, service: e.target.value })}
+        required
+      >
+        <option value="">Select a service</option>
+        {services.map(s => <option key={s} value={s}>{s}</option>)}
+      </select>
+      <textarea
+        placeholder="Tell us about your project"
+        value={form.message}
+        onChange={e => setForm({ ...form, message: e.target.value })}
+        rows={4} required
+      />
+      <button type="submit" disabled={status === "submitting"}>
+        {status === "submitting" ? "Sending..." : "Send Enquiry"}
+      </button>
+      {status === "error" && (
+        <p className="text-red-500">Something went wrong. Please try again or email us directly.</p>
+      )}
+    </form>
+  );
+}`,
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "UI/UX Design",
+    },
+    {
+      type: "paragraph",
+      text: "Design is not decoration. It is the discipline of making a digital product easy to understand, easy to use, and emotionally compelling for the specific people who will use it. A website with strong UI/UX design communicates professionalism and trustworthiness at a glance, guides visitors toward the actions that matter, and reduces the friction between interest and conversion. A website with weak design — regardless of how well-written the content is — communicates carelessness and creates doubt.",
+    },
+    {
+      type: "paragraph",
+      text: "Our design process starts with understanding the target audience — who they are, what they are trying to accomplish, what they need to believe to take action, and what visual language will build rather than erode trust with them. We produce wireframes and high-fidelity mockups before writing any code, and we validate designs against real user feedback before committing to the build. This front-loaded investment in design typically reduces development time and revision cycles significantly compared to building first and designing as you go.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Website Redesigns and Migrations",
+    },
+    {
+      type: "paragraph",
+      text: "An existing website that is underperforming is not always a reason to build from scratch. Sometimes a strategic redesign — updated visual language, restructured information architecture, improved mobile experience, and refreshed content — is the right intervention. We audit existing websites against conversion, performance, and SEO benchmarks before recommending whether a redesign or a rebuild is the more effective investment. When migration is required — moving from an old CMS to a modern stack, from shared hosting to a cloud environment, or from HTTP to HTTPS — we handle the technical migration with zero downtime and no loss of existing search engine ranking.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "CMS Integration",
+    },
+    {
+      type: "paragraph",
+      text: "A website whose content can only be updated by a developer is a website that will become outdated. Content Management System integration gives non-technical staff the ability to update text, images, news posts, product listings, and other content without touching code. We implement WordPress for clients who need a widely supported, plugin-rich CMS with a large pool of local administrators. For clients building on custom React frontends, we integrate headless CMS platforms — Sanity, Contentful, or Strapi — that give the same editorial flexibility while keeping the performance and design advantages of a modern frontend stack.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "SEO and Performance Optimisation",
+    },
+    {
+      type: "paragraph",
+      text: "A website that cannot be found on Google and loads slowly on a mobile data connection is not a functional business asset — it is an expensive digital brochure that nobody reads. Search Engine Optimisation (SEO) and performance engineering are the disciplines that determine whether your website actually drives business outcomes. SEO ensures your website appears when potential customers search for the services or products you offer. Performance optimisation ensures that when they arrive, the page loads fast enough that they stay.",
+    },
     {
       type: "list",
       ordered: false,
       items: [
-        "Secure authentication and authorization",
-        "Encrypted data transmission (HTTPS)",
-        "Role-based access control for teams",
-        "Regular backups and disaster recovery planning",
-        "Cloud infrastructure monitoring",
+        "Technical SEO — site structure, URL architecture, structured data markup, XML sitemaps, robots.txt configuration, and Core Web Vitals optimisation that meet Google's ranking requirements",
+        "On-page SEO — keyword research, page title and meta description optimisation, heading structure, internal linking, and content optimisation for the specific search terms your target customers use",
+        "Performance optimisation — image compression and next-gen formats (WebP, AVIF), JavaScript and CSS minification and bundling, server-side rendering for critical pages, CDN configuration for fast delivery across African regions, and lazy loading for below-the-fold content",
+        "Local SEO — Google Business Profile optimisation, local keyword targeting, and structured data for businesses that serve a specific geographic area",
+        "Ongoing SEO monitoring — monthly ranking reports, Core Web Vitals monitoring, backlink analysis, and content recommendations based on search trend data",
       ],
     },
-
     {
       type: "heading",
       level: 2,
-      text: "Why Businesses Choose FlexiLogic Africa",
+      text: "Sector by Sector: What a Professional Website Changes",
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Fintech and Banking",
+    },
     {
       type: "paragraph",
-      text: "We combine product thinking with deep engineering expertise. Instead of simply writing code, we partner with organizations to design systems that solve real operational problems and deliver measurable impact.",
+      text: "Trust is the primary currency of financial services — and a professional website is one of the most powerful trust signals available to a Zimbabwean fintech or financial institution. A fintech website needs to communicate regulatory standing, explain products clearly in plain language, provide transparent fee and rate information, and make the application or onboarding process as simple as possible. For digital lenders and mobile money operators, the website is often the first point of contact for potential customers evaluating whether to trust a financial product with their money. The quality of that first contact is disproportionately consequential.",
     },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Healthcare and Clinics",
+    },
+    {
+      type: "paragraph",
+      text: "Patients choosing a clinic or specialist in Zimbabwe increasingly search online before making a booking decision. A healthcare website that provides clear information about services, qualifications, facilities, and location — with an online booking capability — captures patients who would otherwise choose a competitor with better digital presence. For specialists and private clinics competing for a discerning patient base, the website communicates quality of care before a patient has ever interacted with a member of staff.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Schools and EdTech",
+    },
+    {
+      type: "paragraph",
+      text: "A school's website is evaluated by prospective parents making one of the most significant decisions of their children's lives. It needs to communicate academic culture, values, facilities, extracurricular offering, and outcomes with clarity and warmth. Admissions information, fee structures, and application processes should be easy to find and understand. Testimonials, results, and community stories build the emotional case alongside the rational one. For EdTech companies, the website is the primary sales channel — every element of the design should be oriented toward trial sign-ups, demo bookings, or direct purchases.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "E-Commerce and Retail",
+    },
+    {
+      type: "paragraph",
+      text: "For retail businesses, an e-commerce website is not a supplement to the physical store — it is an additional store that is open around the clock, serves customers who live too far from a physical location to visit regularly, and captures impulse purchases that a browsing customer would make at midnight if the checkout were available. Zimbabwean retailers with strong e-commerce presences are growing their addressable market and their revenue per customer simultaneously. Those without one are leaving a growing proportion of purchasing intent unaddressed.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Hospitality and Tourism",
+    },
+    {
+      type: "paragraph",
+      text: "Tourism is one of the most website-dependent industries in Zimbabwe's economy. Travellers researching accommodation, safari operations, and hospitality experiences make their decisions almost entirely online — and the quality of a website's photography, copy, and booking experience is directly correlated with booking conversion rates. A Victoria Falls lodge or a Nyanga retreat with a slow, poorly photographed, hard-to-book website is systematically losing reservations to competitors with better digital presence, regardless of the actual quality of the physical experience they offer.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Government and NGOs",
+    },
+    {
+      type: "paragraph",
+      text: "Government agencies and NGOs have a specific web presence imperative: accountability and accessibility. Citizens need to be able to find information about services, eligibility, processes, and contact details without barriers. Donors and grant-making bodies evaluate organisational credibility through digital presence before engaging. A well-structured, clearly written, regularly updated website is not a communication nice-to-have for a public institution or civil society organisation — it is a transparency obligation and a fundraising asset.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Professional Services and SMEs",
+    },
+    {
+      type: "paragraph",
+      text: "Law firms, accounting practices, engineering consultancies, architecture studios, and management consulting firms compete in markets where reputation and credibility are everything — and where a professional website is one of the primary signals of both. Corporate clients conducting supplier due diligence, referral recipients validating a recommendation, and prospective hires evaluating a potential employer all form their first impression online. For professional services firms, the investment in a well-designed website is among the highest-return marketing expenditures available.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "What Separates a Website That Works from One That Does Not",
+    },
     {
       type: "list",
       ordered: true,
       items: [
-        "Custom systems tailored to African business environments",
-        "Modern and scalable software architecture",
-        "User-friendly interfaces for real-world teams",
-        "Cloud-ready infrastructure for long-term growth",
-        "Ongoing support and product improvements",
+        "Speed on mobile data. Google's research consistently shows that more than half of mobile users abandon a page that takes longer than three seconds to load. In Zimbabwe's mobile data environment, this threshold is even less forgiving. Performance is not an aesthetic consideration — it is a conversion requirement.",
+        "A clear single action on every page. Every page of a website should have one primary action it wants visitors to take — book a call, submit an enquiry, make a purchase, download a resource. Pages that try to accomplish everything accomplish nothing. The best-performing websites guide visitors through a deliberate journey toward a specific outcome.",
+        "Content written for the visitor, not the business. Most website copy is written from the business's perspective — what we do, our mission, our values. Visitors arrive with a different question: can you solve my problem? Website content that leads with the visitor's problem and explains how you solve it converts significantly better than content that leads with a company biography.",
+        "Trust signals placed where they are needed most. Testimonials, credentials, client logos, case studies, and certifications should appear at the specific moments in a visitor's journey when doubt is highest — next to a pricing section, near an enquiry form, on a services page. Trust signals buried in an 'About' page that most visitors never reach are wasted.",
+        "Genuine mobile optimisation. A website that is technically responsive but was designed for desktop is not mobile-optimised. True mobile optimisation means designing for a touchscreen first — tap targets that are large enough to use with a thumb, navigation that works without hover states, forms that do not require a keyboard to use comfortably, and content that is readable without pinching to zoom.",
+        "Maintained and current. A website whose latest news post is from 2022, whose team page shows people who no longer work there, and whose services section describes offerings that have since changed communicates neglect. Regular content updates are not just good for SEO — they signal to every visitor that the business is active, engaged, and worth trusting.",
       ],
     },
-
     {
-      type: "callout",
-      emoji: "🚀",
-      title: "Building the Future of African Software",
-      text: "From education platforms to enterprise management systems, FlexiLogic Africa is helping organizations build digital infrastructure that powers the next generation of African businesses.",
+      type: "quote",
+      text: "The question we ask at the start of every web project is not 'what does the client want to say?' It is 'what does the visitor need to believe in order to take action — and what is the most credible, compelling way to help them believe it?' That shift in perspective is the difference between a website that looks good and one that actually works.",
+      author: "FlexiLogic Design Team",
     },
-
-    { type: "divider" },
-
+    {
+      type: "heading",
+      level: 2,
+      text: "How a FlexiLogic Web Engagement Works",
+    },
     {
       type: "paragraph",
-      text: "If your organization is planning to build a web application — whether an internal system or a customer-facing platform — our engineering team would love to help turn your idea into a scalable product.",
+      text: "Every web engagement begins with a discovery session where we understand your business, your target audience, your competitive landscape, and the specific outcomes you need the website to drive. We audit any existing web presence for performance, SEO, and conversion issues. We agree on a sitemap, a content strategy, and a visual direction before any design work begins — preventing the expensive rework that happens when direction changes after designs are already built.",
+    },
+    {
+      type: "paragraph",
+      text: "Design comes next — wireframes that establish information architecture and user journey, followed by high-fidelity mockups in your brand language that give you a precise preview of the finished product before a line of code is written. Once designs are approved, development proceeds on a defined timeline with a staging environment where you can review and provide feedback on the live build before it goes to production.",
+    },
+    {
+      type: "paragraph",
+      text: "Launch is followed by a 30-day support period covering any post-launch fixes, Google Search Console setup, analytics configuration, and initial SEO indexing verification. After the support period, clients can move to a maintenance retainer covering content updates, security patches, performance monitoring, and ongoing SEO work — or manage the site independently using the CMS training we provide at handover.",
+    },
+    {
+      type: "callout",
+      emoji: "🌐",
+      title: "Ready to build a website that actually works?",
+      text: "Whether you need a brand new professional website, an e-commerce store, a web application, or a complete rebuild of an underperforming existing site — FlexiLogic delivers web products built for the Zimbabwean market, designed to convert visitors into customers, and engineered to perform on the devices and connections your audience actually uses. Get in touch to start the conversation.",
+    },
+    { type: "divider" },
+    {
+      type: "paragraph",
+      text: "Your website is the only member of your team that works every hour of every day, never calls in sick, reaches customers you will never meet through any other channel, and makes a judgment call about your business on your behalf before you know the evaluation is happening. The question is not whether that team member is worth investing in. The question is whether yours is doing the job well enough to win.",
     },
   ],
 
   related: [
     {
-      slug: "building-school-management-system-zimbabwe",
-      category: "Case Study",
-      categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-      title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
-      date: "12 Feb 2025",
-      readTime: "8 min read",
-      cover: "🏫",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+      slug: "mobile-app-development-africa-2025",
+      category: "Mobile",
+      categoryColor: "bg-[#38BDF8]/15 text-[#38BDF8]",
+      title: "Mobile App Development in Africa: Why Your Next Customer Will Find You on a Phone — or Not at All",
+      date: "13 Mar 2025",
+      readTime: "11 min read",
+      cover: "📱",
+      coverBg: "linear-gradient(135deg,#0a1520 0%,#0d1f35 100%)",
     },
     {
-      slug: "zero-downtime-deployments-node",
-      category: "DevOps",
-      categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
-      title: "Zero-Downtime Deployments on a Budget: Our Node.js Playbook",
-      date: "10 Jan 2025",
-      readTime: "5 min read",
-      cover: "☁️",
-      coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
+      slug: "cybersecurity-zimbabwe-why-businesses-are-vulnerable",
+      category: "Cybersecurity",
+      categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
+      title: "Cybersecurity in Zimbabwe: Why Local Businesses Are More Exposed Than They Think",
+      date: "13 Mar 2025",
+      readTime: "11 min read",
+      cover: "🔐",
+      coverBg: "linear-gradient(135deg,#1a0a0a 0%,#2d1515 100%)",
     },
   ],
 };

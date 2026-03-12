@@ -23,15 +23,17 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 
 /* ─────────────────────────────────────────────────────────────
    ARTICLE DATA  ← Edit everything in this object for each post
-   ───────────────────────────────────────────────────────────── */
+
+
+/* ─── Styles ─── */
 const ARTICLE = {
   slug: "building-school-management-system-zimbabwe",
-  category: "Case Study",
+  category: "Product",
   categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-  title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
-  subtitle: "From a single-school pilot to a production platform — engineering decisions, hard lessons, and what shipped in 12 weeks.",
-  date: "12 February 2025",
-  readTime: "8 min read",
+  title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
+  subtitle: "One platform for admins, teachers, parents, and accountants — how we designed and shipped Eduverse, a school management system built for the real operational challenges facing Zimbabwean schools in 2025.",
+  date: "13 March 2025",
+  readTime: "10 min read",
   author: {
     name: "FlexiLogic Team",
     role: "Engineering & Product",
@@ -40,145 +42,299 @@ const ARTICLE = {
   coverEmoji: "🏫",
   coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
 
-  /* ── CONTENT BLOCKS ──────────────────────────────────────────
-     Available block types:
-       { type: "paragraph",  text: "..." }
-       { type: "heading",    text: "...", level: 2 | 3 }
-       { type: "quote",      text: "...", author: "..." }
-       { type: "image",      src: "/path.jpg", caption: "..." }
-       { type: "callout",    emoji: "💡", title: "...", text: "..." }
-       { type: "list",       ordered: false, items: ["...", "..."] }
-       { type: "code",       lang: "js", text: "const x = 1;" }
-       { type: "divider" }
-  ─────────────────────────────────────────────────────────────── */
   content: [
     {
       type: "paragraph",
-      text: "When Chiedza Moyo, founder of AcademyPro, first reached out to us in October 2024, she had a spreadsheet. One very large, very broken spreadsheet managing enrolment, fees, grades, attendance, and parent communication for three secondary schools in Harare. By February 2025, she had Eduverse — a platform handling 1,248 students, 87 teachers, and a finance module that processed over $128,000 in fee collections in its first term alone.",
+      text: "Most school management systems were built for schools that have reliable electricity, stable internet, a dedicated IT administrator, and a single fee currency. Zimbabwean schools have none of those things by default. Eduverse was built for the reality on the ground — multi-role access, offline-resilient design, flexible fee structures, and communication channels that actually reach parents.",
     },
     {
       type: "paragraph",
-      text: "This is a case study of what we built, how we built it, and — more importantly — the technical decisions that made it possible to ship in 12 weeks without cutting corners on quality.",
+      text: "In this post we break down exactly what Eduverse does, how we architected the four core role portals (Admin, Teacher, Parent, Accountant), the product decisions that shaped each module, and why we believe this is the right foundation for school management software across sub-Saharan Africa.",
     },
     { type: "divider" },
     {
       type: "heading",
       level: 2,
-      text: "The Problem Space",
+      text: "What Is Eduverse?",
     },
     {
       type: "paragraph",
-      text: "Zimbabwean secondary schools face a uniquely complex administrative burden. Enrolment isn't a once-a-year event — students join and leave mid-term. Fee structures vary by form, subject combination, and whether a student is boarding. Government reporting requirements layer on top. And parent communication — previously done by paper letters sent home with students — was hitting a 40% non-delivery rate.",
+      text: "Eduverse is a web-based school management system (SMS) designed for secondary and primary schools in Zimbabwe and the broader African market. It consolidates four traditionally siloed administrative workflows — school administration, classroom management, parent communication, and fee accounting — into a single, role-based platform. Each user type sees only the tools relevant to their job, reducing training overhead and minimising data exposure.",
     },
     {
       type: "callout",
-      emoji: "💡",
-      title: "Key Insight",
-      text: "Most school management systems are built for the UK or US context. They assume stable enrolment, single-currency fee structures, and reliable internet. We had to design for the opposite of all three.",
+      emoji: "🎯",
+      title: "Who Eduverse is built for",
+      text: "School administrators who need to manage terms, timetables, and staff assignments. Teachers who need to set homework, record marks, and take attendance. Parents who want real-time visibility into their child's progress and fees. Accountants who need to issue invoices, track payments, and reconcile fee collections — all in one place.",
     },
     {
       type: "heading",
       level: 2,
-      text: "Technical Architecture",
+      text: "The Admin Portal: Running the School from One Dashboard",
     },
     {
       type: "paragraph",
-      text: "We settled on a React frontend with a Node.js/Express backend, PostgreSQL for the main data store, and Redis for session management and job queues. AWS S3 handles document storage (report cards, fee receipts, government forms). Twilio SMS powers parent notifications — the one communication channel with near-100% reach in our target market.",
+      text: "School administrators are the power users of Eduverse. The admin portal is built around three core workflows: academic configuration, staff management, and school-wide reporting. Before a new term begins, the admin sets up the term calendar — defining start and end dates, holiday blocks, and examination periods. This term configuration becomes the backbone that every other module references.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Timetable Management",
+    },
+    {
+      type: "paragraph",
+      text: "Timetabling is one of the most complex scheduling problems in secondary education. Each form has a different subject combination, teachers have maximum period loads, and rooms have capacity constraints. We built a drag-and-drop timetable builder that lets admins construct weekly schedules visually and then publishes them to every teacher and student automatically. Clash detection runs in real time — if you try to assign the same teacher to two classes at the same period, the system flags it immediately rather than letting the error silently propagate.",
+    },
+    {
+      type: "callout",
+      emoji: "💡",
+      title: "Design decision",
+      text: "We deliberately kept timetable data separate from attendance data at the database level. This means historical attendance records remain accurate even when timetables are revised mid-term — a common occurrence in schools running make-up lessons or reshuffling staff.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Teacher-to-Class Assignments",
+    },
+    {
+      type: "paragraph",
+      text: "Admin users can view a live matrix of which teachers are assigned to which classes and subjects. The assignment view also surfaces unassigned subjects — a common pain point at the start of term when staff changes happen. Reassigning a teacher cascades through to their personal timetable and updates the affected class's timetable view in real time, with no manual syncing required.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "The Teacher Portal: From Timetable to Markbook",
+    },
+    {
+      type: "paragraph",
+      text: "When a teacher logs in to Eduverse, the first thing they see is today's schedule pulled directly from the published timetable — which periods they have, which classes, and which subjects. Every action a teacher needs to take during their working day is reachable in two clicks or fewer from that home screen.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Homework and Assessments",
+    },
+    {
+      type: "paragraph",
+      text: "Teachers can create homework tasks and formal assessments directly from their class view. Each task has a due date, a maximum mark, and an optional description or file attachment. Once published, the task appears in the parent portal so families know what is expected and when. For assessments, teachers can configure whether the mark contributes to the term average and at what weighting — supporting both continuous assessment models and single-examination grading schemes.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Mark Recording",
+    },
+    {
+      type: "paragraph",
+      text: "The markbook is a spreadsheet-style grid where teachers enter raw scores that are automatically converted to percentages, grades, and comments based on the school's grading scale (which the admin configures once at setup). Bulk import from CSV is supported for teachers who prefer to record marks offline first. Every mark entry is timestamped and attributed to the recording teacher, creating a full audit trail for moderation purposes.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Attendance Register",
+    },
+    {
+      type: "paragraph",
+      text: "Each period on a teacher's timetable has a one-tap attendance register. The teacher sees their class list, marks present or absent for each student, and optionally adds a reason code (sick, late, suspended, etc.). Submission takes under two minutes for a class of 40. The system aggregates attendance data continuously, so by the time a parent gets an SMS alert about low attendance, the data has already been cross-referenced against excused absences to reduce false alarms.",
+    },
+    {
+      type: "quote",
+      text: "Before Eduverse, I was keeping three separate registers — one for the school office, one for my markbook, and one for the department head. Now I enter it once and everyone sees it. It has saved me at least an hour every single school day.",
+      author: "Form 4 Maths Teacher, Harare",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "The Parent Portal: Visibility Without the Phone Call",
+    },
+    {
+      type: "paragraph",
+      text: "Parent engagement is one of the strongest predictors of student academic outcomes — and one of the hardest things for schools to operationalise at scale. Most schools default to paper reports sent home once a term and phone calls when something goes wrong. Eduverse replaces both with a real-time parent portal and push notifications.",
     },
     {
       type: "list",
       ordered: false,
       items: [
-        "React + Tailwind CSS — fast iteration on the UI, familiar to our frontend team",
-        "Node.js/Express — sufficient for our load profile, easy to extend",
-        "PostgreSQL — relational data with complex joins (students ↔ fees ↔ terms ↔ subjects)",
-        "Redis — session store + Bull queue for SMS jobs and report generation",
-        "AWS S3 + Lambda — document storage and serverless PDF generation",
-        "Twilio SMS — parent notifications with delivery receipts",
+        "Attendance summary — daily and weekly attendance percentage per subject, with absence reason codes visible where provided",
+        "Mark recordings — test and assignment results appear as soon as a teacher submits them, with the class average shown for context",
+        "Upcoming homework and assessments — due dates and task descriptions set by teachers",
+        "Fee balance — current amount owed, payment history, and any outstanding invoices",
+        "School notifications — term dates, event notices, and urgent announcements from the admin",
       ],
+    },
+    {
+      type: "paragraph",
+      text: "Notifications are delivered via SMS for critical alerts (low attendance threshold crossed, a fee payment confirmed, a new report card published) and in-app for general updates. We chose SMS as the primary push channel because smartphone penetration among parents in our target market is growing rapidly, but data connectivity is still unreliable outside Harare's CBD. An SMS arrives even on a feature phone with no data.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "The Accountant Portal: Fee Management That Actually Reconciles",
+    },
+    {
+      type: "paragraph",
+      text: "School fee management in Zimbabwe is genuinely complex. Fee structures differ by form, by boarding status, by subject combination, and sometimes by individual student arrangement (scholarship, sibling discount, government subsidy). Payment can come in USD cash, EcoCash mobile money, bank transfer, or a mix of all three. Any fee management system that doesn't handle this complexity from day one will be abandoned within a term.",
     },
     {
       type: "heading",
       level: 3,
-      text: "The Data Model Challenge",
+      text: "Fee Structure Configuration",
     },
     {
       type: "paragraph",
-      text: "The most technically interesting part of the project was the fee management data model. A student's fee obligation is determined by their form, boarding status, subject combination, and which payment plan their family is on — and any of these can change mid-term. We spent a full sprint on this before writing a single line of application code.",
+      text: "Accountants (or admins with accountant permissions) configure fee structures at the start of each term. A base fee is set per form and boarding status, and individual adjustments — discounts, scholarships, surcharges — can be applied per student with a mandatory reason field and approval workflow. This creates the complete audit trail that school boards and auditors require.",
     },
     {
       type: "code",
       lang: "sql",
-      text: `-- Simplified fee obligation model
+      text: `-- Core fee obligation model (simplified)
 CREATE TABLE fee_structures (
-  id          UUID PRIMARY KEY,
-  term_id     UUID REFERENCES terms(id),
-  form        SMALLINT NOT NULL,        -- 1–6
-  is_boarding BOOLEAN  DEFAULT false,
-  base_amount NUMERIC(10,2) NOT NULL,
-  created_at  TIMESTAMPTZ DEFAULT now()
+  id            UUID PRIMARY KEY,
+  term_id       UUID REFERENCES terms(id),
+  form          SMALLINT NOT NULL,         -- 1–6
+  is_boarding   BOOLEAN DEFAULT false,
+  base_amount   NUMERIC(10,2) NOT NULL,
+  currency      TEXT DEFAULT 'USD',
+  created_at    TIMESTAMPTZ DEFAULT now()
 );
 
-CREATE TABLE student_adjustments (
-  id                UUID PRIMARY KEY,
-  student_id        UUID REFERENCES students(id),
-  fee_structure_id  UUID REFERENCES fee_structures(id),
-  adjustment_type   TEXT,  -- 'discount' | 'surcharge' | 'scholarship'
-  amount            NUMERIC(10,2),
-  reason            TEXT,
-  approved_by       UUID REFERENCES staff(id)
+CREATE TABLE student_fee_adjustments (
+  id                  UUID PRIMARY KEY,
+  student_id          UUID REFERENCES students(id),
+  fee_structure_id    UUID REFERENCES fee_structures(id),
+  adjustment_type     TEXT,  -- 'discount' | 'scholarship' | 'surcharge'
+  amount              NUMERIC(10,2),
+  reason              TEXT NOT NULL,
+  approved_by         UUID REFERENCES staff(id),
+  approved_at         TIMESTAMPTZ
+);
+
+CREATE TABLE fee_payments (
+  id              UUID PRIMARY KEY,
+  student_id      UUID REFERENCES students(id),
+  term_id         UUID REFERENCES terms(id),
+  amount_paid     NUMERIC(10,2),
+  payment_method  TEXT,  -- 'cash' | 'ecocash' | 'bank_transfer'
+  reference       TEXT,
+  recorded_by     UUID REFERENCES staff(id),
+  paid_at         TIMESTAMPTZ DEFAULT now()
 );`,
     },
     {
       type: "paragraph",
-      text: "This separation — base structure plus per-student adjustments — gave us the flexibility to handle scholarships, sibling discounts, payment plans, and government subsidies without hardcoding any special cases into the application layer.",
+      text: "The separation of base structures, per-student adjustments, and payment records into three distinct tables is intentional. It means we can always reconstruct the exact fee obligation for any student at any point in time — useful for disputes, audits, and the government returns that schools are required to file.",
     },
     {
       type: "heading",
-      level: 2,
-      text: "What We'd Do Differently",
+      level: 3,
+      text: "Payment Recording and Receipts",
     },
     {
       type: "paragraph",
-      text: "We underestimated the complexity of the government reporting module. Zimbabwe's Ministry of Primary and Secondary Education has specific export formats for enrolment returns, and the format changed once during our build. We built the export logic directly into the API handlers — a mistake we paid for when requirements shifted. In hindsight, this should have been a separate reporting service from day one.",
-    },
-    {
-      type: "quote",
-      text: "The best architecture decision we made was keeping the SMS notification system completely decoupled from the main application. When Twilio had a brief outage in week three of the pilot, the main platform kept running perfectly — messages just queued and delivered when service resumed.",
-      author: "Lead Engineer, FlexiLogic Africa",
+      text: "When a payment is recorded, Eduverse automatically generates a PDF receipt and sends an SMS notification to the parent. The accountant's dashboard shows a live collection rate — total collected versus total invoiced — broken down by form, class, and payment method. End-of-term reconciliation, which previously took senior accountants up to six hours, now takes under forty minutes.",
     },
     {
       type: "heading",
       level: 2,
-      text: "Results After One Full Term",
+      text: "Architecture and Technical Decisions",
+    },
+    {
+      type: "paragraph",
+      text: "Eduverse is a React single-page application fronted by a Node.js/Express REST API, with PostgreSQL as the primary data store. We chose this stack for three reasons: our engineering team knows it deeply, it handles Eduverse's relational data model well, and it is cost-effective to host on AWS in the af-south-1 (Cape Town) region — reducing latency for southern African users compared to EU or US regions.",
+    },
+    {
+      type: "list",
+      ordered: false,
+      items: [
+        "React + Tailwind CSS — component-driven UI with rapid iteration cycles",
+        "Node.js / Express — REST API with JWT-based role authentication",
+        "PostgreSQL — relational schema with row-level security per school (multi-tenancy)",
+        "Redis + Bull — background job queues for SMS dispatch, PDF generation, and report aggregation",
+        "AWS S3 — document storage for report cards, receipts, and uploaded resources",
+        "AWS Lambda — serverless PDF generation triggered by S3 events",
+        "Twilio SMS — parent and staff notifications with delivery status webhooks",
+      ],
+    },
+{
+  type: "heading",
+  level: 3,
+  text: "Single-School Deployment: One System, One School",
+},
+{
+  type: "paragraph",
+  text: "Eduverse is intentionally deployed as a dedicated instance per school. Each school gets their own hosted environment — their own database, their own subdomain, their own configuration — with no data shared across institutions. This is a deliberate product decision, not a technical limitation.",
+},
+{
+  type: "callout",
+  emoji: "🏫",
+  title: "Why single-school deployment?",
+  text: "Every school operates differently. Fee structures, grading scales, timetable formats, subject combinations, and reporting requirements vary not just by country but by individual institution. A shared multi-tenant platform forces schools into a lowest-common-denominator configuration. Dedicated deployments mean each school's Eduverse instance is configured exactly for how that school actually runs — with no compromises.",
+},
+{
+  type: "paragraph",
+  text: "In practice this means a school in Bulawayo running a Cambridge A-Level programme and a school in Mutare on the ZIMSEC curriculum can both use Eduverse without either having to work around the other's setup. Grading scales, term structures, subject naming, fee categories, and report card templates are all configured independently per deployment.",
+},
+{
+  type: "paragraph",
+  text: "From an infrastructure standpoint, each deployment is a lightweight stack — a containerised Node.js API, a PostgreSQL database, and a static React frontend served via CDN. Provisioning a new school takes under 30 minutes. Updates and patches are rolled out across all deployments centrally by the FlexiLogic team, so schools get new features without needing any IT intervention on their side.",
+},
+    {
+      type: "heading",
+      level: 2,
+      text: "Lessons Learned Building EdTech for African Schools",
+    },
+    {
+      type: "paragraph",
+      text: "Building software for this market taught us things that no amount of desk research could have surfaced. We share them here because we think they apply broadly to anyone building institutional software in emerging markets.",
     },
     {
       type: "list",
       ordered: true,
       items: [
-        "1,248 students enrolled and managed across 3 schools",
-        "$128,000+ in fee collections processed — 91% collection rate (up from ~74%)",
-        "94% average attendance tracking compliance (staff adoption)",
-        "Parent SMS notification open rate impossible to measure directly, but fee collection correlation is strong",
-        "Zero critical bugs in production after go-live",
-        "Admin time on weekly fee reconciliation dropped from ~6 hours to ~40 minutes",
+        "Design for low-bandwidth first. Every data-heavy view in Eduverse has a skeleton loader and incremental data fetching — the page is usable before all data has loaded.",
+        "SMS beats push notifications every time. In-app notifications are nice-to-have. SMS is the contract with the parent. Never let anything important live only in-app.",
+        "Role separation is a feature, not just an access control decision. Teachers do not want to see fee data. Parents do not want to see the timetable builder. Scoping each portal tightly reduces training burden dramatically.",
+        "The data model for fees must be designed before a single line of application code is written. Retrofitting flexible fee structures onto a rigid schema is extremely painful and almost always results in hacky workarounds that break at audit time.",
+        "Build an audit trail into every write operation from day one. Schools are accountable to boards, parents, and government. If you cannot show who changed what and when, you will lose institutional trust.",
       ],
+    },
+    {
+      type: "quote",
+      text: "The single best investment we made was spending a full sprint on the data model before building any UI. Every week of schema design saved us three weeks of migrations.",
+      author: "Lead Engineer, FlexiLogic Africa",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "What's Coming Next",
+    },
+    {
+      type: "paragraph",
+      text: "Eduverse is a living platform. Based on feedback from our pilot schools and the broader market, the next development phase includes a parent-facing mobile app (Flutter, to maintain a single codebase for Android and iOS), a multi-school reporting dashboard for school network owners, an AI-assisted report card comment generator for teachers, and integration with Zimbabwe's ZIMSEC examination registration portal.",
     },
     {
       type: "callout",
       emoji: "🚀",
-      title: "Now expanding",
-      text: "AcademyPro is onboarding two additional schools in Q2 2025. We're building multi-school reporting dashboards and a parent-facing mobile app as the next phase.",
+      title: "Now onboarding new schools",
+      text: "Eduverse is open for enrolment. Whether you're running a single school or a network of campuses, we'll have you live within two weeks. Get in touch with the FlexiLogic team to book a demo.",
     },
     { type: "divider" },
     {
       type: "paragraph",
-      text: "If you're running a school, a school network, or an edtech product targeting the African market — we'd love to talk. The problems are hard and genuinely interesting, and we're only getting better at solving them.",
+      text: "If you're a school owner, a school network operator, an EdTech founder, or a developer thinking about building school management software for the African market — we'd love to compare notes. The problems are hard, the market is underserved, and the impact of getting it right is genuinely significant.",
     },
   ],
 
-  // Related posts shown at the bottom
   related: [
+    {
+      slug: "building-school-management-system-zimbabwe",
+      category: "Case Study",
+      categoryColor: "bg-[#00C896]/15 text-[#00C896]",
+      title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
+      date: "12 Feb 2025",
+      readTime: "8 min read",
+      cover: "📊",
+      coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+    },
     {
       slug: "why-african-startups-choose-flutter",
       category: "Engineering",
@@ -189,20 +345,8 @@ CREATE TABLE student_adjustments (
       cover: "📱",
       coverBg: "linear-gradient(135deg,#0d1b2a 0%,#1a2f4a 100%)",
     },
-    {
-      slug: "zero-downtime-deployments-node",
-      category: "DevOps",
-      categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
-      title: "Zero-Downtime Deployments on a Budget: Our Node.js Playbook",
-      date: "10 Jan 2025",
-      readTime: "5 min read",
-      cover: "☁️",
-      coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
-    },
   ],
 };
-
-/* ─── Styles ─── */
 const ArticleStyles = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
