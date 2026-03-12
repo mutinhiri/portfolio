@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 /* ═══════════════════════════════════════════════════════════════
    FlexilogicBlogArticle.jsx
@@ -492,12 +493,12 @@ export default function FlexilogicBlogArticle() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
-  // ── ROUTING helper — replace with your router's navigate ──
-  const goBack = () => {
-    if (typeof window !== "undefined") window.history.back();
-  };
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
   const goTo = (slug) => {
-    alert(`Navigate to /blog/${slug}\n\nReplace with:\nnavigate(\`/blog/${slug}\`)`);
+    if (slug === "all") navigate("/blog");
+    else navigate(`/blog/${slug}`);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -518,19 +519,19 @@ export default function FlexilogicBlogArticle() {
             <ArrLeft sz={13} /> Back
           </button>
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5 no-underline">
+          <Link to="/" className="flex items-center gap-2.5 no-underline">
             <LogoMark size={34} />
             <div>
               <div className="text-[14px] font-extrabold text-[#0B1221] tracking-tight leading-tight">FLEXILOGIC</div>
               <div className="text-[7px] font-bold tracking-[.2em] text-[#C8922A]">AFRICA</div>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="flex items-center gap-3">
           <ShareBar title={ARTICLE.title} slug={ARTICLE.slug} />
-          <a href="/#contact" className="btn-shimmer font-bold text-[12px] text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 no-underline ml-2">
+          <Link to="/#contact" className="btn-shimmer font-bold text-[12px] text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 no-underline ml-2">
             Start a Project <Arr sz={12} />
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -549,9 +550,9 @@ export default function FlexilogicBlogArticle() {
         <div className="relative z-10 max-w-[780px] mx-auto">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/35 text-[11px] font-semibold mb-6">
-            <a href="/" className="hover:text-white/70 transition-colors no-underline text-white/35">Home</a>
+            <Link to="/" className="hover:text-white/70 transition-colors no-underline text-white/35">Home</Link>
             <span>/</span>
-            <a href="/#blog" className="hover:text-white/70 transition-colors no-underline text-white/35">Blog</a>
+            <Link to="/blog" className="hover:text-white/70 transition-colors no-underline text-white/35">Blog</Link>
             <span>/</span>
             <span className="text-white/55 truncate max-w-[240px]">{ARTICLE.title}</span>
           </div>
@@ -688,12 +689,12 @@ export default function FlexilogicBlogArticle() {
             <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <a href="/#blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">
+            <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">
               More Articles
-            </a>
-            <a href="/#contact" className="btn-shimmer font-bold text-[13px] text-[#0B1221] border-none rounded-xl px-6 py-2.5 cursor-pointer flex items-center gap-2 no-underline">
+            </Link>
+            <Link to="/#contact" className="btn-shimmer font-bold text-[13px] text-[#0B1221] border-none rounded-xl px-6 py-2.5 cursor-pointer flex items-center gap-2 no-underline">
               Start a Project <Arr sz={13} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
