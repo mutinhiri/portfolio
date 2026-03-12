@@ -138,9 +138,89 @@ const LogoMark = ({ size = 38 }) => (
    4. The card will automatically appear in the blog section
    ═══════════════════════════════════════════════════════ */
 export const BLOG_POSTS = [
+  /* ── SERVICE POSTS — one per service ─────────────────── */
+  {
+    slug: "web-platforms-zimbabwe",
+    featured: false,
+    category: "Web Platforms",
+    categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
+    title: "How We Build Scalable Web Platforms for African Businesses",
+    excerpt: "From architecture decisions to framework choices — our end-to-end approach to shipping fast, conversion-optimised web platforms that hold up under real African market conditions.",
+    date: "3 Mar 2025",
+    readTime: "7 min read",
+    author: "FlexiLogic Team",
+    cover: "⚡",
+    coverBg: "linear-gradient(135deg,#0B1221 0%,#1a2f5e 100%)",
+  },
+  {
+    slug: "mobile-apps-zimbabwe",
+    featured: false,
+    category: "Mobile Apps",
+    categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
+    title: "Building Mobile Apps for Low-Bandwidth Markets: Our Flutter Playbook",
+    excerpt: "Offline-first design, lightweight bundles, and graceful degradation — the exact patterns we apply when shipping iOS & Android apps for Zimbabwean and broader African users.",
+    date: "18 Feb 2025",
+    readTime: "6 min read",
+    author: "FlexiLogic Team",
+    cover: "📲",
+    coverBg: "linear-gradient(135deg,#0d1b2a 0%,#2d1b4e 100%)",
+  },
+  {
+    slug: "cloud-devops-africa",
+    featured: false,
+    category: "Cloud & DevOps",
+    categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
+    title: "Cloud Infrastructure for African Scale: AWS, GCP & Zero-Downtime Pipelines",
+    excerpt: "How we architect and deploy cloud infrastructure for African businesses — keeping costs lean, latency low, and uptime close to 100% even on constrained budgets.",
+    date: "10 Jan 2025",
+    readTime: "5 min read",
+    author: "FlexiLogic Team",
+    cover: "☁️",
+    coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
+  },
+  {
+    slug: "ai-automation-africa",
+    featured: false,
+    category: "AI & Automation",
+    categoryColor: "bg-[#00C896]/15 text-[#00C896]",
+    title: "Practical AI for African Businesses: What Actually Works in 2025",
+    excerpt: "Cutting through the hype — the AI and automation integrations we've shipped for real clients, what moved the needle, and what was just expensive noise.",
+    date: "25 Feb 2025",
+    readTime: "8 min read",
+    author: "FlexiLogic Team",
+    cover: "🤖",
+    coverBg: "linear-gradient(135deg,#0a1f14 0%,#0d2e1e 100%)",
+  },
+  {
+    slug: "cybersecurity-zimbabwe",
+    featured: false,
+    category: "Cybersecurity",
+    categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
+    title: "Cybersecurity in Zimbabwe: The Threats Local Businesses Are Ignoring",
+    excerpt: "Social engineering, unpatched systems, and weak API design — the three vulnerabilities we find in almost every security audit we run for Zimbabwean companies.",
+    date: "14 Feb 2025",
+    readTime: "7 min read",
+    author: "FlexiLogic Team",
+    cover: "🔐",
+    coverBg: "linear-gradient(135deg,#1a0a0a 0%,#2e0d0d 100%)",
+  },
+  {
+    slug: "data-analytics-africa",
+    featured: false,
+    category: "Data & Analytics",
+    categoryColor: "bg-[#FFD700]/15 text-[#C8922A]",
+    title: "From Raw Data to Real Decisions: How We Build Analytics That Get Used",
+    excerpt: "Most dashboards get opened once and abandoned. Here's our framework for building data pipelines and visualisations that business owners actually rely on every day.",
+    date: "5 Feb 2025",
+    readTime: "6 min read",
+    author: "FlexiLogic Team",
+    cover: "📊",
+    coverBg: "linear-gradient(135deg,#1a1400 0%,#2e2200 100%)",
+  },
+  /* ── CASE STUDIES & OTHER POSTS ──────────────────────── */
   {
     slug: "building-school-management-system-zimbabwe",
-    featured: true,                          // ← first featured post = large card
+    featured: true,
     category: "Case Study",
     categoryColor: "bg-[#00C896]/15 text-[#00C896]",
     title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
@@ -148,7 +228,6 @@ export const BLOG_POSTS = [
     date: "12 Feb 2025",
     readTime: "8 min read",
     author: "FlexiLogic Team",
-    // cover: use an emoji OR replace with a real image URL string
     cover: "🏫",
     coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
   },
@@ -355,12 +434,12 @@ const STEPS = [
   { id: "06", title: "Support & Growth", sub: "We grow as you grow", desc: "Monthly retainers, feature roadmaps, 24/7 alerting, and a dedicated technical partner who treats your product like their own.", tags: ["24/7 Monitoring", "Monthly Releases", "Roadmap Mgmt", "Priority SLA"], metric: "100", mUnit: "+", mLabel: "Long-term clients", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0" /><path d="M12 8v4l3 3" /></svg> },
 ];
 const SERVICES = [
-  { e: "⚡", t: "Web Platforms", d: "Scalable web apps with modern frameworks, optimised for speed and conversion." },
-  { e: "📲", t: "Mobile Apps", d: "Cross-platform iOS & Android experiences via Flutter and React Native." },
-  { e: "☁️", t: "Cloud & DevOps", d: "AWS, GCP, Azure — infrastructure as code with zero-downtime pipelines." },
-  { e: "🤖", t: "AI & Automation", d: "Smart features, intelligent workflows, and LLM-powered product experiences." },
-  { e: "🔐", t: "Cybersecurity", d: "Penetration testing, security audits, and secure-by-design architecture." },
-  { e: "📊", t: "Data & Analytics", d: "Dashboards, data pipelines, and insights that drive real business decisions." },
+  { e: "⚡", t: "Web Platforms",    d: "Scalable web apps with modern frameworks, optimised for speed and conversion.", slug: "web-platforms-zimbabwe" },
+  { e: "📲", t: "Mobile Apps",      d: "Cross-platform iOS & Android experiences via Flutter and React Native.",        slug: "mobile-apps-zimbabwe" },
+  { e: "☁️", t: "Cloud & DevOps",   d: "AWS, GCP, Azure — infrastructure as code with zero-downtime pipelines.",       slug: "cloud-devops-africa" },
+  { e: "🤖", t: "AI & Automation",  d: "Smart features, intelligent workflows, and LLM-powered product experiences.",   slug: "ai-automation-africa" },
+  { e: "🔐", t: "Cybersecurity",    d: "Penetration testing, security audits, and secure-by-design architecture.",     slug: "cybersecurity-zimbabwe" },
+  { e: "📊", t: "Data & Analytics", d: "Dashboards, data pipelines, and insights that drive real business decisions.", slug: "data-analytics-africa" },
 ];
 
 const SMSMockup = () => (
@@ -745,6 +824,7 @@ function ContactSection() {
 export default function FlexilogicPortfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [showreel, setShowreel] = useState(false);
+   const navigate = useNavigate();
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", h);
@@ -886,11 +966,11 @@ export default function FlexilogicPortfolio() {
             {SERVICES.map((s, i) => {
               const [ref, vis] = useRev(0.2);
               return (
-                <div ref={ref} key={s.t} className={`rv ${vis ? "vis" : ""} group bg-white border border-[#E4E1D9] rounded-[20px] p-7 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30`} style={{ transitionDelay: `${i * .06}s` }}>
+                <div ref={ref} key={s.t} onClick={() => { navigate(`/blog/${s.slug}`); window.scrollTo(0,0); }} className={`rv ${vis ? "vis" : ""} group bg-white border border-[#E4E1D9] rounded-[20px] p-7 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30`} style={{ transitionDelay: `${i * .06}s` }}>
                   <div className="w-[46px] h-[46px] rounded-[13px] bg-[#FDF3E0] text-[22px] flex items-center justify-center mb-4">{s.e}</div>
                   <div className="serif text-[20px] text-[#0B1221] mb-2">{s.t}</div>
                   <p className="text-[13px] leading-[1.72] text-[#6B7592]">{s.d}</p>
-                  <div className="flex items-center gap-1.5 mt-4 text-[#C8922A] font-bold text-[12px]">Learn more <Arr sz={12} /></div>
+                  <div className="flex items-center gap-1.5 mt-4 text-[#C8922A] font-bold text-[12px] group-hover:gap-2.5 transition-all">Learn more <Arr sz={12} /></div>
                 </div>
               );
             })}

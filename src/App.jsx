@@ -27,11 +27,11 @@
  *  1. Add an entry to BLOG_POSTS in FlexilogicPortfolio.jsx
  *     (cards on the portfolio automatically appear).
  *
- *  2. Copy FlexilogicBlogArticle.jsx → src/blog/your-slug.jsx
+ *  2. Copy FlexilogicBlogArticle.jsx → src/your-slug.jsx
  *     Fill in the ARTICLE const at the top of that file.
  *
  *  3. Import and add ONE line here in the blogRoutes array:
- *       { slug: "your-slug", component: lazy(() => import("./blog/your-slug")) }
+ *       { slug: "your-slug", component: lazy(() => import("./your-slug")) }
  *
  *  That's it. The route /blog/your-slug will work automatically.
  * ─────────────────────────────────────────────────────────────
@@ -46,35 +46,39 @@ import {
   useParams,
 } from "react-router-dom";
 
-// import FlexilogicPortfolio from "./FlexilogicPortfolio";
-import FlexilogicPortfolio from "./components/FlexilogicPortfolio";
+import FlexilogicPortfolio from "./FlexilogicPortfolio";
 
 /* ── Lazy-load each blog article for code-splitting ─────────── */
 const SchoolManagementArticle = lazy(() =>
-  import("./components/blog/building-school-management-systems-zimbabwe")
+  import("./blog/building-school-management-systems-zimbabwe")
 );
 const FlutterArticle = lazy(() =>
-  import("./components/blog/why-african-startups-choose-flutter")
+  import("./blog/why-african-startups-choose-flutter")
 );
 const DeploymentArticle = lazy(() =>
-  import("./components/blog/zero-downtime-deployments-node")
+  import("./blog/zero-downtime-deployments-node")
 );
+
+/* ── Service blog articles ───────────────────────────────────── */
+const WebPlatformsArticle  = lazy(() => import("./blog/web-platforms-zimbabwe"));
+const MobileAppsArticle    = lazy(() => import("./blog/mobile-apps-zimbabwe"));
+const CloudDevOpsArticle   = lazy(() => import("./blog/cloud-devops-africa"));
+const AIAutomationArticle  = lazy(() => import("./blog/ai-automation-africa"));
+const CybersecurityArticle = lazy(() => import("./blog/cybersecurity-zimbabwe"));
+const DataAnalyticsArticle = lazy(() => import("./blog/data-analytics-africa"));
 
 /* ── Register your posts here ───────────────────────────────── */
 const blogRoutes = [
-  {
-    slug: "building-school-management-system-zimbabwe",
-    component: SchoolManagementArticle,
-  },
-  {
-    slug: "why-african-startups-choose-flutter",
-    component: FlutterArticle,
-  },
-  {
-    slug: "zero-downtime-deployments-node",
-    component: DeploymentArticle,
-  },
-  // ← add new posts here, following the same pattern
+  { slug: "building-school-management-system-zimbabwe", component: SchoolManagementArticle },
+  { slug: "why-african-startups-choose-flutter",        component: FlutterArticle },
+  { slug: "zero-downtime-deployments-node",             component: DeploymentArticle },
+  { slug: "web-platforms-zimbabwe",                     component: WebPlatformsArticle },
+  { slug: "mobile-apps-zimbabwe",                       component: MobileAppsArticle },
+  { slug: "cloud-devops-africa",                        component: CloudDevOpsArticle },
+  { slug: "ai-automation-africa",                       component: AIAutomationArticle },
+  { slug: "cybersecurity-zimbabwe",                     component: CybersecurityArticle },
+  { slug: "data-analytics-africa",                      component: DataAnalyticsArticle },
+  // ← add new posts here
 ];
 
 /* ── Loading fallback ───────────────────────────────────────── */
@@ -130,8 +134,7 @@ function BlogArticleRouter() {
 }
 
 /* ── All-articles list page (simple, scrollable) ────────────── */
-// import { BLOG_POSTS } from "./FlexilogicPortfolio";
-import { BLOG_POSTS } from "./components/FlexilogicPortfolio";
+import { BLOG_POSTS } from "./FlexilogicPortfolio";
 import { useNavigate } from "react-router-dom";
 
 function AllArticlesPage() {
