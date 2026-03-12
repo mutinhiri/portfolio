@@ -50,22 +50,22 @@ import FlexilogicPortfolio from "./FlexilogicPortfolio";
 
 /* ── Lazy-load each blog article for code-splitting ─────────── */
 const SchoolManagementArticle = lazy(() =>
-  import("./building-school-management-system-zimbabwe")
+  import("./blog/building-school-management-systems-zimbabwe")
 );
 const FlutterArticle = lazy(() =>
-  import("./why-african-startups-choose-flutter")
+  import("./blog/why-african-startups-choose-flutter")
 );
 const DeploymentArticle = lazy(() =>
-  import("./zero-downtime-deployments-node")
+  import("./blog/zero-downtime-deployments-node")
 );
 
 /* ── Service blog articles ───────────────────────────────────── */
-const WebPlatformsArticle  = lazy(() => import("./web-platforms-zimbabwe"));
-const MobileAppsArticle    = lazy(() => import("./mobile-apps-zimbabwe"));
-const CloudDevOpsArticle   = lazy(() => import("./cloud-devops-africa"));
-const AIAutomationArticle  = lazy(() => import("./ai-automation-africa"));
-const CybersecurityArticle = lazy(() => import("./cybersecurity-zimbabwe"));
-const DataAnalyticsArticle = lazy(() => import("./data-analytics-africa"));
+const WebPlatformsArticle  = lazy(() => import("./blog/web-platforms-zimbabwe"));
+const MobileAppsArticle    = lazy(() => import("./blog/mobile-apps-zimbabwe"));
+const CloudDevOpsArticle   = lazy(() => import("./blog/cloud-devops-africa"));
+const AIAutomationArticle  = lazy(() => import("./blog/ai-automation-africa"));
+const CybersecurityArticle = lazy(() => import("./blog/cybersecurity-zimbabwe"));
+const DataAnalyticsArticle = lazy(() => import("./blog/data-analytics-africa"));
 
 /* ── Register your posts here ───────────────────────────────── */
 const blogRoutes = [
