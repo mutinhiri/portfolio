@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 /* ─────────────────────────────────────────────
    GLOBAL STYLES
@@ -618,10 +618,10 @@ const ELearnMockup = () => (
 );
 
 const PROJECTS = [
-  { id: "sms", featured: true, title: "Eduverse School Management System", desc: "A full-featured school administration platform for Zimbabwean secondary schools. Handles student enrollment, grade tracking, fee management, attendance, timetabling, and parent communication — unified in one dashboard.", badges: [{ label: "New", cls: "bg-[#00C896]/15 text-[#00C896]" }, { label: "Live", cls: "bg-[#C8922A]/15 text-[#C8922A]" }, { label: "Web App", cls: "bg-[#7C9FFF]/15 text-[#7C9FFF]" }], tech: ["React", "Node.js", "PostgreSQL", "Redis", "AWS S3", "Twilio SMS"], mockup: <SMSMockup /> },
-  { id: "paygo", title: "PayGo Mobile", desc: "Cross-border mobile payment app for informal traders across Southern Africa.", badges: [{ label: "Mobile", cls: "bg-[#A78BFA]/15 text-[#A78BFA]" }, { label: "AI", cls: "bg-orange-400/15 text-orange-400" }], tech: ["Flutter", "Firebase", "Node.js"], mockup: <div className="w-full h-full bg-gradient-to-br from-[#0d1b2a] to-[#1a2f4a] flex flex-col items-center justify-center gap-2"><span className="text-4xl opacity-60">📲</span><span className="text-[10px] font-bold tracking-widest text-white/40 uppercase">PayGo Mobile</span></div> },
-  { id: "agrilink", title: "AgriLink Portal", desc: "Connecting smallholder farmers to markets, weather data, and financing.", badges: [{ label: "Web", cls: "bg-[#7C9FFF]/15 text-[#7C9FFF]" }], tech: ["Vue.js", "Django", "PostgreSQL"], mockup: <div className="w-full h-full bg-gradient-to-br from-[#0a1f0a] to-[#1a3a1a] flex flex-col items-center justify-center gap-2"><span className="text-4xl opacity-60">🌾</span><span className="text-[10px] font-bold tracking-widest text-white/40 uppercase">AgriLink Portal</span></div> },
-  { id: "eduvest", title: "Zim Learner Spot", featured: true, desc: "Impact investment platform connecting education-focused startups with African investors.", badges: [{ label: "Live", cls: "bg-[#C8922A]/15 text-[#C8922A]" }, { label: "Web", cls: "bg-[#7C9FFF]/15 text-[#7C9FFF]" }], tech: ["Next.js", "Stripe", "Supabase"], mockup: <ELearnMockup /> },
+  { id: "sms", featured: true, slug: "building-school-management-system-zimbabwe", title: "Eduverse School Management System", desc: "A full-featured school administration platform for Zimbabwean secondary schools. Handles student enrollment, grade tracking, fee management, attendance, timetabling, and parent communication — unified in one dashboard.", badges: [{ label: "New", cls: "bg-[#00C896]/15 text-[#00C896]" }, { label: "Live", cls: "bg-[#C8922A]/15 text-[#C8922A]" }, { label: "Web App", cls: "bg-[#7C9FFF]/15 text-[#7C9FFF]" }], tech: ["React", "Node.js", "PostgreSQL", "Redis", "AWS S3", "Twilio SMS"], mockup: <SMSMockup /> },
+  { id: "paygo", slug: "mobile-apps-zimbabwe", title: "PayGo Mobile", desc: "Cross-border mobile payment app for informal traders across Southern Africa.", badges: [{ label: "Mobile", cls: "bg-[#A78BFA]/15 text-[#A78BFA]" }, { label: "AI", cls: "bg-orange-400/15 text-orange-400" }], tech: ["Flutter", "Firebase", "Node.js"], mockup: <div className="w-full h-full bg-gradient-to-br from-[#0d1b2a] to-[#1a2f4a] flex flex-col items-center justify-center gap-2"><span className="text-4xl opacity-60">📲</span><span className="text-[10px] font-bold tracking-widest text-white/40 uppercase">PayGo Mobile</span></div> },
+  { id: "agrilink", slug: "web-platforms-zimbabwe", title: "AgriLink Portal", desc: "Connecting smallholder farmers to markets, weather data, and financing.", badges: [{ label: "Web", cls: "bg-[#7C9FFF]/15 text-[#7C9FFF]" }], tech: ["Vue.js", "Django", "PostgreSQL"], mockup: <div className="w-full h-full bg-gradient-to-br from-[#0a1f0a] to-[#1a3a1a] flex flex-col items-center justify-center gap-2"><span className="text-4xl opacity-60">🌾</span><span className="text-[10px] font-bold tracking-widest text-white/40 uppercase">AgriLink Portal</span></div> },
+  { id: "eduvest", featured: true, slug: "why-african-startups-choose-flutter", title: "Zim Learner Spot", desc: "Impact investment platform connecting education-focused startups with African investors.", badges: [{ label: "Live", cls: "bg-[#C8922A]/15 text-[#C8922A]" }, { label: "Web", cls: "bg-[#7C9FFF]/15 text-[#7C9FFF]" }], tech: ["Next.js", "Stripe", "Supabase"], mockup: <ELearnMockup /> },
 ];
 
 function ShowreelModal({ onClose }) {
@@ -700,15 +700,17 @@ function StepCard({ step, idx }) {
 
 function ProjectCard({ project }) {
   const [ref, vis] = useRev(0.1);
+  const navigate = useNavigate();
+  const go = () => { navigate(`/blog/${project.slug}`); window.scrollTo(0, 0); };
   return (
-    <div ref={ref} className={`rv ${vis ? "vis" : ""} group bg-white border border-[#E4E1D9] rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30 ${project.featured ? "col-span-2" : ""}`}>
+    <div ref={ref} onClick={go} className={`rv ${vis ? "vis" : ""} group bg-white border border-[#E4E1D9] rounded-3xl overflow-hidden transition-all duration-300 cursor-pointer hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30 ${project.featured ? "col-span-2" : ""}`}>
       <div className={`w-full overflow-hidden bg-[#0B1221] ${project.featured ? "aspect-[21/9]" : "aspect-video"}`}>{project.mockup}</div>
       <div className="p-6">
         <div className="flex gap-1.5 flex-wrap mb-3">{project.badges.map(b => <span key={b.label} className={`text-[9px] font-extrabold tracking-[.1em] px-2.5 py-0.5 rounded-full uppercase ${b.cls}`}>{b.label}</span>)}</div>
         <h3 className={`serif text-[#0B1221] mb-2 leading-tight ${project.featured ? "text-[22px]" : "text-[18px]"}`}>{project.title}</h3>
         <p className="text-[13px] leading-[1.72] text-[#6B7592] mb-4">{project.desc}</p>
         <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#E4E1D9] mb-3">{project.tech.map(t => <span key={t} className="text-[10px] font-semibold text-[#6B7592] bg-[#F8F6F1] border border-[#E4E1D9] px-2.5 py-0.5 rounded-full">{t}</span>)}</div>
-        <div className="flex items-center gap-1.5 text-[12px] font-bold text-[#C8922A] mt-2 cursor-pointer">View Case Study <Arr sz={12} /></div>
+        <div className="flex items-center gap-1.5 text-[12px] font-bold text-[#C8922A] mt-2 group-hover:gap-3 transition-all">View Case Study <Arr sz={12} /></div>
       </div>
     </div>
   );
@@ -824,12 +826,31 @@ function ContactSection() {
 export default function FlexilogicPortfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [showreel, setShowreel] = useState(false);
-   const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", h);
     return () => window.removeEventListener("scroll", h);
   }, []);
+
+  // Scroll to hash section on load or when hash changes (e.g. navigating from /blog/x to /#contact)
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    let attempts = 0;
+    const interval = setInterval(() => {
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        clearInterval(interval);
+      } else if (++attempts > 30) {
+        clearInterval(interval);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, [location.hash]);
 
   return (
     <>
@@ -851,7 +872,7 @@ export default function FlexilogicPortfolio() {
           ))}
         </div>
         <div className="flex gap-2">
-          <button className="font-semibold text-xs bg-white/[0.08] text-white border border-white/[0.14] rounded-[10px] px-4 py-2 hover:bg-white/[0.14] transition-all cursor-pointer">View Work</button>
+          <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="font-semibold text-xs bg-white/[0.08] text-white border border-white/[0.14] rounded-[10px] px-4 py-2 hover:bg-white/[0.14] transition-all cursor-pointer">View Work</button>
           <a href="#contact" className="btn-shimmer font-bold text-xs text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 no-underline">Start Project <Arr /></a>
         </div>
       </nav>
@@ -960,7 +981,7 @@ export default function FlexilogicPortfolio() {
               <div className="inline-flex items-center text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">What We Do</div>
               <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Our <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Services</span></h2>
             </div>
-            <button className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">See All Work <Arr /></button>
+            <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">See All Work <Arr /></button>
           </div>
           <div className="grid grid-cols-3 gap-4">
             {SERVICES.map((s, i) => {
@@ -1012,7 +1033,7 @@ export default function FlexilogicPortfolio() {
               <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">Our Work</div>
               <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Featured <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Projects</span></h2>
             </div>
-            <button className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">All Projects <Arr /></button>
+            <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">All Projects <Arr /></button>
           </div>
           <div className="grid grid-cols-3 gap-5">{PROJECTS.map(p => <ProjectCard key={p.id} project={p} />)}</div>
         </div>

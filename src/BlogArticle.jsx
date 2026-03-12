@@ -500,6 +500,9 @@ export default function FlexilogicBlogArticle() {
     else navigate(`/blog/${slug}`);
     window.scrollTo(0, 0);
   };
+  const goContact = () => {
+    navigate("/#contact");
+  };
 
   return (
     <>
@@ -529,9 +532,9 @@ export default function FlexilogicBlogArticle() {
         </div>
         <div className="flex items-center gap-3">
           <ShareBar title={ARTICLE.title} slug={ARTICLE.slug} />
-          <Link to="/#contact" className="btn-shimmer font-bold text-[12px] text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 no-underline ml-2">
+          <button onClick={goContact} className="btn-shimmer font-bold text-[12px] text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 ml-2">
             Start a Project <Arr sz={12} />
-          </Link>
+          </button>
         </div>
       </nav>
 
@@ -692,9 +695,9 @@ export default function FlexilogicBlogArticle() {
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">
               More Articles
             </Link>
-            <Link to="/#contact" className="btn-shimmer font-bold text-[13px] text-[#0B1221] border-none rounded-xl px-6 py-2.5 cursor-pointer flex items-center gap-2 no-underline">
+            <button onClick={goContact} className="btn-shimmer font-bold text-[13px] text-[#0B1221] border-none rounded-xl px-6 py-2.5 cursor-pointer flex items-center gap-2">
               Start a Project <Arr sz={13} />
-            </Link>
+            </button>
           </div>
         </div>
       </div>
