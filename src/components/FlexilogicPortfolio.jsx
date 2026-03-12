@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 /* ─────────────────────────────────────────────
    GLOBAL STYLES
@@ -275,16 +276,11 @@ function BlogCard({ post, idx, onNavigate }) {
 function BlogSection() {
   const [hRef, hVis] = useRev(0.08);
 
-  // ── ROUTING ──────────────────────────────────────────────────────────
-  // Replace this function body with your router:
-  //   React Router v6:  import { useNavigate } from 'react-router-dom';
-  //                     const navigate = useNavigate();
-  //                     then pass navigate to BlogCard's onNavigate prop
-  //   Simple:           window.location.href = `/blog/${slug}`;
-  // ─────────────────────────────────────────────────────────────────────
+  const navigate = useNavigate();
   const handleNavigate = (slug) => {
-    // For now shows the target route — swap with real navigation
-    alert(`Navigate to: /blog/${slug}\n\nWith React Router:\nnavigate(\`/blog/${slug}\`)\n\nOr plain JS:\nwindow.location.href = \`/blog/${slug}\``);
+    if (slug === "all") navigate("/blog");
+    else navigate(`/blog/${slug}`);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -307,7 +303,7 @@ function BlogSection() {
           </div>
           <button
             className="font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all"
-            onClick={() => handleNavigate("all")}
+            onClick={() => { navigate("/blog"); window.scrollTo(0, 0); }}
           >
             All Articles <Arr />
           </button>
