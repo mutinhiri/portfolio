@@ -751,7 +751,7 @@ function ContactSection() {
   };
   const SVCS = ["Web Platform / App", "Mobile App (iOS & Android)", "Cloud & DevOps Setup", "AI & Automation", "Cybersecurity Audit", "Data & Analytics", "School Management System", "Other / Not Sure Yet"];
   const TIMES = ["ASAP / Within a month", "1–3 months", "3–6 months", "6+ months / Ongoing"];
-  const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 000 0000" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
+  const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 255 0103" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
   return (
     <section id="contact" className="relative overflow-hidden py-24 px-12" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 60%,#1B2847 100%)" }}>
       <div className="absolute bottom-[-8%] right-[-4%] w-[320px] h-[320px] opacity-[0.05] pointer-events-none">

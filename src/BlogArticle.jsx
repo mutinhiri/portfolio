@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useSEO, useArticleJsonLd } from "./useSEO";
+import { useSEO, useArticleJsonLd, useBreadcrumb } from "./useSEO";
 
 /* ═══════════════════════════════════════════════════════════════
    FlexilogicBlogArticle.jsx
@@ -509,7 +509,7 @@ export default function FlexilogicBlogArticle() {
   useSEO({
     title:       `${ARTICLE.title} | FlexiLogic Africa`,
     description: ARTICLE.subtitle,
-    canonical:   `https://www.flexilogicafrica.com/blog/${ARTICLE.slug}`,
+    canonical:   `https://flexilogic.africa/blog/${ARTICLE.slug}`,
     type:        "article",
     publishedAt: ARTICLE.date,
     keywords:    `${ARTICLE.category}, software development Zimbabwe, FlexiLogic Africa`,
@@ -520,6 +520,11 @@ export default function FlexilogicBlogArticle() {
     slug:        ARTICLE.slug,
     publishedAt: ARTICLE.date,
   });
+  useBreadcrumb([
+    { name: "Home",            url: "https://flexilogic.africa/" },
+    { name: "Blog",            url: "https://flexilogic.africa/blog" },
+    { name: ARTICLE.title,     url: `https://flexilogic.africa/blog/${ARTICLE.slug}` },
+  ]);
 
   return (
     <>

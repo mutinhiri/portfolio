@@ -2,37 +2,38 @@
  * useSEO.js — FlexiLogic Africa
  * ─────────────────────────────────────────────────────────────
  * Dynamically updates <head> meta tags on every route change.
- * No external dependency needed — pure DOM manipulation.
  *
- * USAGE:
+ * EXPORTS:
+ *   useSEO(options)            — updates all meta tags per page
+ *   useArticleJsonLd(options)  — injects Article JSON-LD for blog posts
+ *   useBreadcrumb(crumbs)      — injects BreadcrumbList JSON-LD
  *
- *   import { useSEO } from "./useSEO";
- *
- *   // In any page component:
+ * USAGE — Homepage:
  *   useSEO({
- *     title:       "Page Title | FlexiLogic Africa",
- *     description: "Short description for Google (150–160 chars).",
- *     canonical:   "https://flexilogic.africa/blog/your-slug",
- *     ogImage:     "https://flexilogic.africa/og-blog-slug.png",
- *     type:        "article",          // "website" (default) | "article"
- *     publishedAt: "2025-02-12",       // ISO date, articles only
- *     keywords:    "tag1, tag2, tag3", // optional
+ *     title:       "FlexiLogic Africa — Software Engineering Studio",
+ *     description: "...",
+ *     canonical:   "https://flexilogic.africa/",
  *   });
+ *
+ * USAGE — Blog article:
+ *   useSEO({ title, description, canonical, type: "article", publishedAt });
+ *   useArticleJsonLd({ title, description, slug, publishedAt });
+ *   useBreadcrumb([
+ *     { name: "Home",  url: "https://flexilogic.africa/" },
+ *     { name: "Blog",  url: "https://flexilogic.africa/blog" },
+ *     { name: "Article Title", url: "https://flexilogic.africa/blog/slug" },
+ *   ]);
  * ─────────────────────────────────────────────────────────────
  */
 
 import { useEffect } from "react";
 
 const SITE_NAME   = "FlexiLogic Africa";
-const DEFAULT_IMG = "https://flexilogic.africa/og-image.png";
-const TWITTER     = "@flexilogicafrica";
+const BASE_URL    = "https://flexilogic.africa";
+const DEFAULT_IMG = `${BASE_URL}/og-image.png`;
 
-/**
- * Set or create a <meta> tag by attribute selector.
- * @param {string} attr   - The attribute to match on, e.g. "name" or "property"
- * @param {string} value  - The value of that attribute, e.g. "description"
- * @param {string} content - The content to set
- */
+// ─── Helpers ──────────────────────────────────────────────────
+
 function setMeta(attr, value, content) {
   let el = document.querySelector(`meta[${attr}="${value}"]`);
   if (!el) {
@@ -43,9 +44,6 @@ function setMeta(attr, value, content) {
   el.setAttribute("content", content);
 }
 
-/**
- * Set or create a <link rel="canonical"> tag.
- */
 function setCanonical(url) {
   let el = document.querySelector('link[rel="canonical"]');
   if (!el) {
@@ -56,17 +54,29 @@ function setCanonical(url) {
   el.setAttribute("href", url);
 }
 
+function injectJsonLd(id, data) {
+  let el = document.getElementById(id);
+  if (!el) {
+    el = document.createElement("script");
+    el.id   = id;
+    el.type = "application/ld+json";
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+  return el;
+}
+
+// ─── useSEO ───────────────────────────────────────────────────
+
 /**
- * useSEO — call at the top of any page component.
- *
  * @param {object} options
- * @param {string}  options.title        - Full page title (appears in browser tab + Google)
- * @param {string}  options.description  - Meta description (150–160 chars ideal)
- * @param {string}  options.canonical    - Canonical URL for this page
- * @param {string}  [options.ogImage]    - Open Graph image URL (1200×630px recommended)
- * @param {string}  [options.type]       - "website" | "article"  (default: "website")
- * @param {string}  [options.publishedAt]- ISO date string for articles (e.g. "2025-02-12")
- * @param {string}  [options.keywords]   - Comma-separated keywords
+ * @param {string}  options.title
+ * @param {string}  options.description
+ * @param {string}  options.canonical
+ * @param {string}  [options.ogImage]
+ * @param {string}  [options.type]        "website" | "article"
+ * @param {string}  [options.publishedAt] ISO date for articles
+ * @param {string}  [options.keywords]
  */
 export function useSEO({
   title,
@@ -78,18 +88,15 @@ export function useSEO({
   keywords,
 }) {
   useEffect(() => {
-    // ── <title> ──────────────────────────────────────────────
     document.title = title;
 
-    // ── Primary meta ────────────────────────────────────────
     setMeta("name", "description", description);
     if (keywords) setMeta("name", "keywords", keywords);
     setMeta("name", "robots", "index, follow");
 
-    // ── Canonical ────────────────────────────────────────────
     if (canonical) setCanonical(canonical);
 
-    // ── Open Graph ───────────────────────────────────────────
+    // Open Graph
     setMeta("property", "og:title",       title);
     setMeta("property", "og:description", description);
     setMeta("property", "og:url",         canonical || window.location.href);
@@ -103,14 +110,12 @@ export function useSEO({
       setMeta("property", "article:author",         SITE_NAME);
     }
 
-    // ── Twitter / X Card ─────────────────────────────────────
+    // Twitter / X
     setMeta("name", "twitter:card",        "summary_large_image");
-    setMeta("name", "twitter:site",        TWITTER);
     setMeta("name", "twitter:title",       title);
     setMeta("name", "twitter:description", description);
     setMeta("name", "twitter:image",       ogImage);
 
-    // ── Cleanup: restore defaults when component unmounts ────
     return () => {
       document.title = `${SITE_NAME} — Software Engineering Studio, Harare Zimbabwe`;
       setMeta("property", "og:type", "website");
@@ -118,23 +123,26 @@ export function useSEO({
   }, [title, description, canonical, ogImage, type, publishedAt, keywords]);
 }
 
+// ─── useArticleJsonLd ─────────────────────────────────────────
+
 /**
- * articleJsonLd — inject Article structured data for blog posts.
- * Call alongside useSEO in article pages.
- *
+ * Injects Article structured data for blog posts.
  * @param {object} options
+ * @param {string} options.title
+ * @param {string} options.description
+ * @param {string} options.slug
+ * @param {string} options.publishedAt   ISO date e.g. "2025-02-12"
+ * @param {string} [options.author]
  */
-export function useArticleJsonLd({ title, description, slug, publishedAt, author = "FlexiLogic Team" }) {
+export function useArticleJsonLd({
+  title,
+  description,
+  slug,
+  publishedAt,
+  author = "FlexiLogic Team",
+}) {
   useEffect(() => {
-    const id = "article-jsonld";
-    let el = document.getElementById(id);
-    if (!el) {
-      el = document.createElement("script");
-      el.id   = id;
-      el.type = "application/ld+json";
-      document.head.appendChild(el);
-    }
-    el.textContent = JSON.stringify({
+    const el = injectJsonLd("article-jsonld", {
       "@context":         "https://schema.org",
       "@type":            "Article",
       "headline":         title,
@@ -142,22 +150,53 @@ export function useArticleJsonLd({ title, description, slug, publishedAt, author
       "author": {
         "@type": "Organization",
         "name":  author,
-        "url":   "https://flexilogic.africa",
+        "url":   BASE_URL,
       },
       "publisher": {
         "@type": "Organization",
-        "name":  "FlexiLogic Africa",
-        "logo": {
-          "@type": "ImageObject",
-          "url":   "https://flexilogic.africa/logo.png",
-        },
+        "name":  SITE_NAME,
+        "logo":  { "@type": "ImageObject", "url": `${BASE_URL}/logo.png` },
       },
       "datePublished":    publishedAt,
       "dateModified":     publishedAt,
-      "mainEntityOfPage": `https://flexilogic.africa/blog/${slug}`,
-      "url":              `https://flexilogic.africa/blog/${slug}`,
+      "mainEntityOfPage": `${BASE_URL}/blog/${slug}`,
+      "url":              `${BASE_URL}/blog/${slug}`,
+      "image":            DEFAULT_IMG,
     });
-
-    return () => { el?.remove(); };
+    return () => el?.remove();
   }, [title, description, slug, publishedAt]);
+}
+
+// ─── useBreadcrumb ────────────────────────────────────────────
+
+/**
+ * Injects BreadcrumbList JSON-LD.
+ * Shows "Home > Blog > Article" in Google results — improves
+ * click-through rate and helps Google understand site structure.
+ *
+ * @param {Array<{name: string, url: string}>} crumbs
+ *
+ * @example
+ *   useBreadcrumb([
+ *     { name: "Home",  url: "https://flexilogic.africa/" },
+ *     { name: "Blog",  url: "https://flexilogic.africa/blog" },
+ *     { name: "Web Platforms in Zimbabwe", url: "https://flexilogic.africa/blog/web-platforms-zimbabwe" },
+ *   ]);
+ */
+export function useBreadcrumb(crumbs) {
+  useEffect(() => {
+    if (!crumbs?.length) return;
+
+    const el = injectJsonLd("breadcrumb-jsonld", {
+      "@context": "https://schema.org",
+      "@type":    "BreadcrumbList",
+      "itemListElement": crumbs.map((crumb, i) => ({
+        "@type":    "ListItem",
+        "position": i + 1,
+        "name":     crumb.name,
+        "item":     crumb.url,
+      })),
+    });
+    return () => el?.remove();
+  }, [JSON.stringify(crumbs)]);
 }
