@@ -50,22 +50,22 @@ import FlexilogicPortfolio from "./FlexilogicPortfolio";
 
 /* ── Lazy-load each blog article for code-splitting ─────────── */
 const SchoolManagementArticle = lazy(() =>
-  import("./blog/building-school-management-systems-zimbabwe")
+  import("./building-school-management-system-zimbabwe")
 );
 const FlutterArticle = lazy(() =>
-  import("./blog/why-african-startups-choose-flutter")
+  import("./why-african-startups-choose-flutter")
 );
 const DeploymentArticle = lazy(() =>
-  import("./blog/zero-downtime-deployments-node")
+  import("./zero-downtime-deployments-node")
 );
 
 /* ── Service blog articles ───────────────────────────────────── */
-const WebPlatformsArticle  = lazy(() => import("./blog/web-platforms-zimbabwe"));
-const MobileAppsArticle    = lazy(() => import("./blog/mobile-apps-zimbabwe"));
-const CloudDevOpsArticle   = lazy(() => import("./blog/cloud-devops-africa"));
-const AIAutomationArticle  = lazy(() => import("./blog/ai-automation-africa"));
-const CybersecurityArticle = lazy(() => import("./blog/cybersecurity-zimbabwe"));
-const DataAnalyticsArticle = lazy(() => import("./blog/data-analytics-africa"));
+const WebPlatformsArticle  = lazy(() => import("./web-platforms-zimbabwe"));
+const MobileAppsArticle    = lazy(() => import("./mobile-apps-zimbabwe"));
+const CloudDevOpsArticle   = lazy(() => import("./cloud-devops-africa"));
+const AIAutomationArticle  = lazy(() => import("./ai-automation-africa"));
+const CybersecurityArticle = lazy(() => import("./cybersecurity-zimbabwe"));
+const DataAnalyticsArticle = lazy(() => import("./data-analytics-africa"));
 
 /* ── Register your posts here ───────────────────────────────── */
 const blogRoutes = [
@@ -136,9 +136,17 @@ function BlogArticleRouter() {
 /* ── All-articles list page (simple, scrollable) ────────────── */
 import { BLOG_POSTS } from "./FlexilogicPortfolio";
 import { useNavigate } from "react-router-dom";
+import { useSEO } from "./useSEO";
 
 function AllArticlesPage() {
   const navigate = useNavigate();
+
+  useSEO({
+    title:       "All Articles — FlexiLogic Africa Blog",
+    description: "Engineering deep-dives, case studies, and product thinking from the FlexiLogic Africa team. Web platforms, mobile apps, cloud, AI, cybersecurity, and data analytics.",
+    canonical:   "https://www.flexilogicafrica.com/blog",
+    keywords:    "software engineering blog Zimbabwe, web development Africa, mobile apps Africa, cloud devops, AI automation, cybersecurity Africa",
+  });
 
   return (
     <div

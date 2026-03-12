@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { useSEO, useArticleJsonLd } from "./useSEO";
 
 /* ═══════════════════════════════════════════════════════════════
    FlexilogicBlogArticle.jsx
@@ -503,6 +504,22 @@ export default function FlexilogicBlogArticle() {
   const goContact = () => {
     navigate("/#contact");
   };
+
+  // ── SEO ──────────────────────────────────────────────────────
+  useSEO({
+    title:       `${ARTICLE.title} | FlexiLogic Africa`,
+    description: ARTICLE.subtitle,
+    canonical:   `https://www.flexilogicafrica.com/blog/${ARTICLE.slug}`,
+    type:        "article",
+    publishedAt: ARTICLE.date,
+    keywords:    `${ARTICLE.category}, software development Zimbabwe, FlexiLogic Africa`,
+  });
+  useArticleJsonLd({
+    title:       ARTICLE.title,
+    description: ARTICLE.subtitle,
+    slug:        ARTICLE.slug,
+    publishedAt: ARTICLE.date,
+  });
 
   return (
     <>

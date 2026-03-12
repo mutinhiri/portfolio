@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useSEO } from "./useSEO";
 
 /* ─────────────────────────────────────────────
    GLOBAL STYLES
@@ -828,6 +829,13 @@ export default function FlexilogicPortfolio() {
   const [showreel, setShowreel] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useSEO({
+    title:       "FlexiLogic Africa — Software Engineering Studio, Harare Zimbabwe",
+    description: "FlexiLogic Africa builds flexible, scalable software — web platforms, mobile apps, cloud infrastructure, AI automation, and cybersecurity for businesses across Africa.",
+    canonical:   "https://www.flexilogicafrica.com/",
+    keywords:    "software development Zimbabwe, web development Harare, mobile app development Africa, Flutter developer Zimbabwe, cloud devops Zimbabwe, AI automation Africa, cybersecurity Zimbabwe",
+  });
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);

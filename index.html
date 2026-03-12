@@ -1,12 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flexilogic Africa | Software Engineering</title>
+
+    <!-- ═══════════════════════════════════════════
+         FAVICON
+    ═══════════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- ═══════════════════════════════════════════
+         PRIMARY META — overridden per-page by useSEO
+         These are the fallback values Google sees if
+         JS hasn't hydrated yet (e.g. link previews,
+         crawlers that don't execute JS).
+    ═══════════════════════════════════════════ -->
+    <title>FlexiLogic Africa — Software Engineering Studio, Harare Zimbabwe</title>
+    <meta name="description" content="FlexiLogic Africa builds flexible, scalable software — web platforms, mobile apps, cloud infrastructure, AI automation, and cybersecurity solutions for businesses across Africa." />
+    <meta name="keywords" content="software development Zimbabwe, web development Harare, mobile app development Africa, Flutter developer Zimbabwe, React developer Africa, cloud devops Zimbabwe, AI automation Africa, cybersecurity Zimbabwe, software engineering studio" />
+    <meta name="author" content="FlexiLogic Africa" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.flexilogic.africa/" />
+
+    <!-- ═══════════════════════════════════════════
+         OPEN GRAPH — Facebook, LinkedIn, WhatsApp
+    ═══════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FlexiLogic Africa" />
+    <meta property="og:url" content="https://www.flexilogic.africa/" />
+    <meta property="og:title" content="FlexiLogic Africa — Software Engineering Studio" />
+    <meta property="og:description" content="We design and build products that matter. Web platforms, mobile apps, cloud infrastructure, AI automation, and cybersecurity — for businesses across Africa." />
+    <meta property="og:image" content="https://www.flexilogic.africa/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FlexiLogic Africa — Software Engineering Studio" />
+    <meta property="og:locale" content="en_ZW" />
+
+    <!-- ═══════════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@flexilogicafrica" />
+    <meta name="twitter:creator" content="@flexilogicafrica" />
+    <meta name="twitter:title" content="FlexiLogic Africa — Software Engineering Studio" />
+    <meta name="twitter:description" content="We design and build products that matter. Web platforms, mobile apps, cloud infrastructure, AI automation, and cybersecurity — for businesses across Africa." />
+    <meta name="twitter:image" content="https://www.flexilogic.africa/og-image.png" />
+
+    <!-- ═══════════════════════════════════════════
+         GEO / LOCAL SEO
+    ═══════════════════════════════════════════ -->
+    <meta name="geo.region" content="ZW-HA" />
+    <meta name="geo.placename" content="Harare, Zimbabwe" />
+    <meta name="geo.position" content="-17.8252;31.0335" />
+    <meta name="ICBM" content="-17.8252, 31.0335" />
+
+    <!-- ═══════════════════════════════════════════
+         STRUCTURED DATA — Organisation (JSON-LD)
+         Helps Google show your business info in
+         Knowledge Panels and rich results.
+    ═══════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FlexiLogic Africa",
+      "alternateName": "FlexiLogic Africa (Pvt) Ltd",
+      "url": "https://www.flexilogic.africa",
+      "logo": "https://www.flexilogicafrica.com/logo.png",
+      "description": "FlexiLogic Africa is a software engineering studio based in Harare, Zimbabwe, specialising in web platforms, mobile apps, cloud infrastructure, AI automation, cybersecurity, and data analytics for African businesses.",
+      "foundingDate": "2017",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Harare",
+        "addressCountry": "ZW"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+263-77-255-0103",
+        "email": "flexilogicafrica@gmail.com",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://twitter.com/flexilogicafrica",
+        "https://www.linkedin.com/company/flexilogicafrica"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "Africa"
+      },
+      "knowsAbout": [
+        "Web Development",
+        "Mobile App Development",
+        "Cloud Infrastructure",
+        "DevOps",
+        "Artificial Intelligence",
+        "Cybersecurity",
+        "Data Analytics",
+        "Software Engineering"
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         STRUCTURED DATA — WebSite (enables Sitelinks
+         search box in Google results)
+    ═══════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FlexiLogic Africa",
+      "url": "https://www.flexilogicafrica.com"
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         PERFORMANCE
+    ═══════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://formspree.io" />
   </head>
-  <!--Start of Tawk.to Script-->
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -19,8 +142,3 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
