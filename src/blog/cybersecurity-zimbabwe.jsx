@@ -27,216 +27,290 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 /* ─── Styles ─── */
 
 const ARTICLE = {
-  slug: "cybersecurity-modern-african-platforms",
+  slug: "cybersecurity-zimbabwe-why-businesses-are-vulnerable",
   category: "Cybersecurity",
   categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
-  title: "Building Secure Software Platforms for Modern African Businesses",
-  subtitle:
-    "How strong cybersecurity practices protect digital platforms, sensitive data, and customer trust in an increasingly connected world.",
-  date: "18 March 2026",
-  readTime: "7 min read",
+  title: "Cybersecurity in Zimbabwe: Why Local Businesses Are More Exposed Than They Think",
+  subtitle: "Ransomware, phishing, data breaches, and insecure code — the cyber threat landscape in Zimbabwe is maturing fast. The businesses that recognise this early will be the ones still standing when the wave hits.",
+  date: "13 March 2025",
+  readTime: "11 min read",
   author: {
-    name: "FlexiLogic Security Team",
-    role: "Security Engineering",
+    name: "FlexiLogic Team",
+    role: "Engineering & Product",
     avatar: "FL",
   },
   coverEmoji: "🔐",
-  coverBg: "linear-gradient(135deg,#0B1221 0%,#2A1A1A 100%)",
+  coverBg: "linear-gradient(135deg,#1a0a0a 0%,#2d1515 100%)",
 
   content: [
     {
       type: "paragraph",
-      text: "As businesses across Africa increasingly adopt digital platforms, cybersecurity has become a critical part of modern software development. From customer data to financial transactions, digital systems now handle sensitive information that must be protected against unauthorized access and cyber threats.",
+      text: "In 2024, a Harare-based microfinance institution discovered that a former employee had been exfiltrating customer financial records for six months before anyone noticed. The breach was not sophisticated. No zero-day exploits. No nation-state actors. Just a shared admin password that had never been changed after the employee left, and no access logging to flag the unusual activity. The institution lost customer data, regulatory goodwill, and a significant portion of its client base — all from a problem that a basic security audit would have caught in under an hour.",
     },
-
     {
       type: "paragraph",
-      text: "At FlexiLogic Africa, security is built into every layer of the systems we design. Our engineering teams integrate cybersecurity practices throughout the development lifecycle to ensure that applications remain resilient against modern threats.",
+      text: "This story is not unusual. It is, in our experience, representative. Zimbabwean businesses are digitising rapidly — processing payments online, storing student and patient records in the cloud, running government services through web portals — while the security practices underpinning those systems have not kept pace. This article explains why, what the real threat landscape looks like in 2025, and what organisations across every sector need to do about it.",
     },
-
     { type: "divider" },
-
     {
       type: "heading",
       level: 2,
-      text: "Why Cybersecurity Matters",
+      text: "The Threat Landscape Has Changed — Zimbabwean Security Postures Have Not",
     },
-
     {
       type: "paragraph",
-      text: "Cyber threats are becoming more sophisticated each year. Organizations that rely on digital systems must protect their platforms from data breaches, unauthorized access, and operational disruptions.",
+      text: "A common assumption among Zimbabwean business leaders is that cyber attackers target large Western corporations — banks in London, healthcare systems in the United States, tech companies in Silicon Valley. This assumption was broadly true a decade ago. It is dangerously false today. Modern cybercrime is automated and geographically indiscriminate. Ransomware groups use automated scanners that probe millions of IP addresses daily looking for unpatched systems, exposed databases, and weak credentials. They do not care where the server is. They care whether the door is unlocked.",
     },
-
     {
       type: "callout",
-      emoji: "🛡️",
-      title: "Security Protects Trust",
-      text: "Strong cybersecurity practices help organizations safeguard customer data and maintain trust in their digital services.",
+      emoji: "⚠️",
+      title: "The 'we're too small to be a target' myth",
+      text: "Most cyberattacks targeting African businesses are not targeted at all — they are opportunistic. Automated bots scan the entire internet continuously for known vulnerabilities. If your system has an exposed port, an outdated library, or a default admin password, it will be found. Being a small business in Harare provides no protection whatsoever.",
     },
-
+    {
+      type: "paragraph",
+      text: "The threat actors relevant to Zimbabwean organisations in 2025 fall into three broad categories: opportunistic automated attacks targeting known vulnerabilities in common software; financially motivated criminal groups running phishing campaigns and ransomware operations across African markets; and, for government and NGO targets specifically, state-adjacent actors with an interest in data collection and disruption. The first category affects virtually every organisation with an internet-connected system. The second is growing rapidly as African digital financial flows increase. The third is a specialised but real risk for institutions handling sensitive citizen or donor data.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Common Security Risks for Digital Platforms",
+      text: "Sector by Sector: Where the Vulnerabilities Are",
     },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Unauthorized access to sensitive data",
-        "Weak authentication systems",
-        "Unsecured APIs and backend services",
-        "Improper access control permissions",
-        "Software vulnerabilities in applications",
-        "Phishing and social engineering attacks",
-      ],
-    },
-
-    {
-      type: "paragraph",
-      text: "Many security incidents occur not because of advanced hacking techniques, but because systems were not designed with strong security practices from the beginning.",
-    },
-
-    {
-      type: "heading",
-      level: 2,
-      text: "Security by Design",
-    },
-
-    {
-      type: "paragraph",
-      text: "At FlexiLogic Africa, we follow a security-by-design approach where cybersecurity considerations are integrated into system architecture from the earliest stages of development. This ensures that security is not treated as an afterthought.",
-    },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Secure authentication and identity management",
-        "Role-based access control systems",
-        "Encrypted communication between services",
-        "Secure API design and validation",
-        "Data protection and encryption practices",
-      ],
-    },
-
     {
       type: "heading",
       level: 3,
-      text: "Example: Secure Password Handling",
+      text: "Fintech and Mobile Money",
     },
-
     {
       type: "paragraph",
-      text: "One of the most important security practices is ensuring that sensitive credentials such as passwords are never stored in plain text. Instead, modern applications store securely hashed versions of passwords.",
+      text: "Zimbabwe's fintech sector processes billions of dollars in mobile money transactions annually. It is also one of the most actively targeted sectors by cybercriminals, for the obvious reason that money moves through it. The attack vectors we see most frequently are API authentication weaknesses in mobile money integrations — where third-party applications connect to payment rails with insufficient credential protection — and social engineering attacks targeting customer service staff to authorise fraudulent reversals. SIM-swap fraud, where an attacker convinces a mobile operator to transfer a victim's number to an attacker-controlled SIM, is also accelerating as a vector for bypassing SMS-based two-factor authentication.",
     },
-
     {
-      type: "code",
-      lang: "js",
-      text: `// Example simplified password hashing
-
-import bcrypt from 'bcrypt'
-
-async function hashPassword(password) {
-  const salt = await bcrypt.genSalt(10)
-  return bcrypt.hash(password, salt)
-}`,
+      type: "heading",
+      level: 3,
+      text: "Schools and EdTech",
     },
-
+    {
+      type: "paragraph",
+      text: "School management systems, online learning platforms, and student information systems store significant volumes of sensitive personal data — student records, parental contact details, financial information, and in some cases medical records for boarding students. The cybersecurity posture of most Zimbabwean schools is extremely weak: shared admin passwords, no encryption at rest, no audit logging, and student portals running on unpatched content management systems. The regulatory risk here is growing as Zimbabwe's Data Protection Act matures and enforcement capacity develops.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Healthcare",
+    },
+    {
+      type: "paragraph",
+      text: "Patient health records are among the most valuable data types on criminal markets — worth significantly more per record than financial data, because they combine personal identifiers with sensitive information that can be used for insurance fraud, identity theft, and targeted extortion. Zimbabwean hospitals and clinics are increasingly digitising patient records, often using off-the-shelf software with default configurations and no security hardening. A ransomware attack on a hospital system is not just a data problem — it is a patient safety emergency.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Government and NGOs",
+    },
+    {
+      type: "paragraph",
+      text: "Government digital services and NGO data management systems present a different threat profile. The data held — citizen records, beneficiary information, donor financial flows, programme monitoring data — is of high value to state-level actors and organised criminal groups. Many NGO systems in particular were built quickly for operational purposes with minimal security consideration, and are accessed by staff across multiple countries and network environments, dramatically expanding the attack surface.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "E-Commerce and Retail",
+    },
+    {
+      type: "paragraph",
+      text: "Zimbabwean e-commerce platforms handling card payments or mobile money integrations are subject to payment card industry standards whether or not their operators are aware of them. Customer payment data intercepted in transit due to missing or misconfigured HTTPS, stored insecurely, or exposed through a vulnerable shopping cart plugin represents both a direct financial risk and a reputational one. A single publicised breach of customer payment data can permanently damage consumer trust in a platform that took years to build.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "General SMEs",
+    },
+    {
+      type: "paragraph",
+      text: "Small and medium enterprises are frequently the entry point for attacks targeting larger organisations in their supply chain. An accounting firm with weak email security becomes the vector for a business email compromise attack on their corporate clients. A logistics company with an insecure customer portal exposes the data of every retailer they serve. SME cybersecurity is not just a matter of protecting the SME itself — it is a matter of not becoming a liability for every organisation that trusts you with their data or system access.",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Protecting APIs and Backend Systems",
+      text: "The Six Most Common Attack Vectors We See in Zimbabwe",
     },
-
-    {
-      type: "paragraph",
-      text: "Most modern applications rely on APIs to connect mobile apps, web interfaces, and backend services. Securing these APIs is essential to prevent unauthorized access or malicious activity.",
-    },
-
     {
       type: "list",
-      ordered: false,
+      ordered: true,
       items: [
-        "Token-based authentication systems",
-        "Strict input validation",
-        "Rate limiting to prevent abuse",
-        "Secure API gateways",
-        "Monitoring suspicious activity",
+        "Phishing emails — convincing staff to click malicious links or enter credentials on fake login pages. Remains the single most common initial access vector in every sector. Staff training is the primary mitigation.",
+        "Unpatched software — running outdated versions of WordPress, server operating systems, database software, or application dependencies with known, publicly documented vulnerabilities. Automated scanners find these within hours of a server going online.",
+        "Weak or shared credentials — admin passwords shared across staff, never rotated after employee departures, or set to obvious values. Combined with no multi-factor authentication, this is the easiest possible attack path.",
+        "Exposed databases — MongoDB, PostgreSQL, and Redis instances left accessible on public IP addresses without authentication, often because a developer opened a port for testing and never closed it. These are found and compromised within minutes of exposure.",
+        "Insecure API endpoints — mobile and web applications with API endpoints that do not properly validate authentication tokens, allowing attackers to access or modify other users' data by manipulating request parameters.",
+        "Ransomware via remote desktop — attackers brute-forcing RDP (Windows Remote Desktop) credentials on internet-facing servers, then deploying ransomware that encrypts all data and demands payment for decryption keys.",
       ],
     },
-
+    {
+      type: "quote",
+      text: "Every penetration test we have conducted on a Zimbabwean business system in the past 12 months has identified at least one critical vulnerability that would have allowed an external attacker to access sensitive data without any prior knowledge of the organisation.",
+      author: "FlexiLogic Security Team",
+    },
     {
       type: "heading",
       level: 2,
-      text: "Monitoring and Threat Detection",
+      text: "What Good Cybersecurity Actually Looks Like",
     },
-
     {
       type: "paragraph",
-      text: "Cybersecurity does not end once an application is deployed. Continuous monitoring helps detect suspicious behavior, potential breaches, and unusual activity within systems.",
+      text: "Cybersecurity is not a product you buy once and install. It is a practice — a set of ongoing disciplines that reduce the probability and impact of a breach. The goal is not to make your systems impenetrable, which is impossible, but to make them sufficiently difficult to breach that opportunistic attackers move on, and to ensure that when a breach does occur, the damage is contained and recoverable.",
     },
-
-    {
-      type: "list",
-      ordered: false,
-      items: [
-        "Application activity monitoring",
-        "Security logging and audit trails",
-        "Automated threat detection alerts",
-        "Infrastructure vulnerability scanning",
-        "Regular security updates and patches",
-      ],
-    },
-
     {
       type: "heading",
-      level: 2,
-      text: "Security for Growing Digital Platforms",
+      level: 3,
+      text: "Security Audits and Penetration Testing",
     },
-
     {
       type: "paragraph",
-      text: "As African startups and organizations scale their digital services, cybersecurity becomes increasingly important. Strong security practices help ensure that platforms can grow safely while protecting users and operational data.",
+      text: "A security audit systematically reviews your systems, configurations, and processes against established security standards. Penetration testing goes further — our engineers attempt to breach your systems using the same techniques and tools an attacker would use, and document every vulnerability discovered with a severity rating and a remediation recommendation. The output is a prioritised remediation roadmap that tells you exactly what to fix first, and why.",
     },
-
     {
       type: "callout",
-      emoji: "🚀",
-      title: "Engineering Secure Digital Platforms",
-      text: "FlexiLogic Africa builds secure software systems that protect business data, safeguard users, and maintain the integrity of digital platforms.",
+      emoji: "🔍",
+      title: "What a penetration test covers",
+      text: "External network penetration (what can an attacker do from the internet), web application testing (authentication bypass, SQL injection, cross-site scripting, insecure direct object references), API security testing, social engineering simulation (phishing your own staff with their knowledge), and internal network testing where relevant. Every finding is documented with proof-of-concept evidence and a clear remediation path.",
     },
-
-    { type: "divider" },
-
+    {
+      type: "heading",
+      level: 3,
+      text: "Secure Code Review",
+    },
     {
       type: "paragraph",
-      text: "If your organization is building a digital platform or modernizing existing systems, integrating strong cybersecurity practices from the beginning is essential to protecting your operations and your customers.",
+      text: "Most security vulnerabilities are introduced at the code level — SQL injection, authentication bypass, insecure data storage, and broken access control are all coding errors before they are security incidents. A secure code review examines your application's source code for these classes of vulnerability before they reach production. For new software projects we offer security review as part of the development process. For existing applications we conduct a targeted review of the highest-risk components — authentication systems, payment processing logic, and data access layers.",
+    },
+    {
+      type: "code",
+      lang: "javascript",
+      text: `// ❌ Vulnerable: SQL injection via string concatenation
+const query = "SELECT * FROM users WHERE email = '" + userInput + "'";
+db.query(query);
+
+// ✅ Secure: Parameterised query — user input never touches SQL syntax
+const query = "SELECT * FROM users WHERE email = $1";
+db.query(query, [userInput]);
+
+// ❌ Vulnerable: Password stored as plain text
+user.password = req.body.password;
+
+// ✅ Secure: Password hashed with bcrypt before storage
+const saltRounds = 12;
+user.password = await bcrypt.hash(req.body.password, saltRounds);
+
+// ❌ Vulnerable: Sensitive data in JWT payload (readable by anyone)
+jwt.sign({ userId, creditCardNumber, nationalId }, secret);
+
+// ✅ Secure: Only non-sensitive identifiers in token payload
+jwt.sign({ userId, role }, secret, { expiresIn: '24h' });`,
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "SSL / HTTPS Setup and Management",
+    },
+    {
+      type: "paragraph",
+      text: "HTTPS encrypts all data in transit between a user's browser and your server, preventing interception by anyone monitoring the network — a genuine threat in environments where public Wi-Fi and shared office networks are common. Despite being a baseline security requirement, a significant proportion of Zimbabwean business websites and web applications still serve some or all content over unencrypted HTTP. We provision and manage SSL certificates, enforce HTTPS redirects, configure HTTP security headers (HSTS, CSP, X-Frame-Options), and ensure certificates are renewed automatically before expiry.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Firewall and Network Security",
+    },
+    {
+      type: "paragraph",
+      text: "A firewall is the first line of defence between your systems and the internet. A properly configured firewall allows only the specific types of traffic your application requires and blocks everything else. In practice, many cloud-hosted systems in Zimbabwe are running with permissive security group rules left open from development — SSH accessible from any IP address, database ports exposed to the public internet, admin panels reachable without VPN. We audit and harden network configurations across AWS, Google Cloud, Azure, and DigitalOcean environments, implementing the principle of least privilege at the network layer.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Data Encryption and Backup",
+    },
+    {
+      type: "paragraph",
+      text: "Encryption protects data in two states: in transit (covered by HTTPS and TLS) and at rest (data stored on disk or in a database). Sensitive data — personal identifiers, financial records, health information, authentication credentials — should be encrypted at rest such that even physical access to the storage medium yields nothing readable. We implement database-level encryption, application-level field encryption for the most sensitive data categories, and encrypted automated backup systems with tested restore procedures. An untested backup is not a backup — it is a hope.",
+    },
+    {
+      type: "heading",
+      level: 3,
+      text: "Security Training for Staff",
+    },
+    {
+      type: "paragraph",
+      text: "Technology controls alone cannot defend against an employee who clicks a phishing link, shares their password with a colleague, or connects to the corporate VPN from a compromised personal device. The human layer is consistently the most exploited attack surface in every sector. Our staff security training programme covers phishing recognition and response, password management and multi-factor authentication, safe data handling procedures, incident reporting, and social engineering awareness. Training is delivered as interactive workshops rather than compliance tick-boxes, because people retain what they engage with.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "The Regulatory Dimension: Zimbabwe's Data Protection Act",
+    },
+    {
+      type: "paragraph",
+      text: "Zimbabwe's Cyber and Data Protection Act (Chapter 12:07), gazetted in 2021, establishes legal obligations for organisations collecting, storing, and processing personal data of Zimbabwean citizens. As enforcement capacity develops and awareness of the legislation grows, organisations without documented data protection practices and security controls face increasing regulatory and legal exposure. Sectors handling sensitive personal data — healthcare, fintech, education, and government services — face the highest obligation and the highest risk.",
+    },
+    {
+      type: "callout",
+      emoji: "⚖️",
+      title: "Regulatory compliance is a floor, not a ceiling",
+      text: "Compliance with Zimbabwe's Data Protection Act is the minimum legal requirement, not an indicator of good security. Organisations that treat compliance as their security target are setting a low bar that attackers are well aware of. The organisations that protect their customers and their reputations are the ones treating compliance as the starting point for a genuine security programme.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "Where to Start: A Practical Security Roadmap",
+    },
+    {
+      type: "paragraph",
+      text: "For most Zimbabwean organisations, the most valuable first investment in cybersecurity is not expensive tooling — it is understanding what you actually have and where the real risks are. A security audit scoped to your specific systems, data assets, and threat profile gives you that understanding and a prioritised list of actions. From there, the remediation roadmap is typically structured in three phases.",
+    },
+    {
+      type: "list",
+      ordered: true,
+      items: [
+        "Immediate remediation (Week 1–2) — close the critical vulnerabilities that represent the highest probability of breach: exposed databases, default credentials, missing HTTPS, and unpatched systems with known critical CVEs.",
+        "Structural hardening (Month 1–3) — implement network security controls, establish backup and encryption practices, deploy monitoring and alerting, and conduct the first round of staff phishing simulation and training.",
+        "Ongoing programme (Month 3+) — quarterly vulnerability scanning, annual penetration testing, continuous monitoring, security review integrated into the software development lifecycle, and regular staff training refreshers.",
+      ],
+    },
+    {
+      type: "callout",
+      emoji: "🛡️",
+      title: "Start with a security audit",
+      text: "If you are not sure where your organisation stands, a FlexiLogic security audit is the right first step. We assess your external attack surface, review your cloud and network configuration, test your web applications, and deliver a clear prioritised report within two weeks. Get in touch to book yours.",
+    },
+    { type: "divider" },
+    {
+      type: "paragraph",
+      text: "The question for Zimbabwean businesses in 2025 is no longer whether a cyberattack will be attempted against your systems. Automated attacks are constant and indiscriminate. The question is whether your systems are hardened enough that those attempts fail — and whether you have the visibility to know when they are happening and the controls to limit the damage if one succeeds. That is what a serious cybersecurity programme delivers, and it is well within reach for organisations of every size.",
     },
   ],
 
   related: [
     {
-      slug: "cloud-devops-infrastructure-africa",
+      slug: "cloud-devops-africa",
       category: "DevOps",
-      categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
-      title: "Building Reliable Cloud Infrastructure for Modern African Applications",
-      date: "18 Mar 2026",
-      readTime: "7 min read",
+      categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
+      title: "Why African Startups Can No Longer Afford to Ignore DevOps",
+      date: "13 Mar 2025",
+      readTime: "9 min read",
       cover: "☁️",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#13243F 100%)",
+      coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
     },
     {
-      slug: "ai-automation-african-businesses",
-      category: "AI & Automation",
-      categoryColor: "bg-[#9B6DFF]/15 text-[#9B6DFF]",
-      title: "Using AI Automation to Transform Business Operations in Africa",
-      date: "18 Mar 2026",
-      readTime: "7 min read",
-      cover: "🤖",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#1E1A3F 100%)",
+      slug: "building-school-management-system-zimbabwe",
+      category: "Product",
+      categoryColor: "bg-[#00C896]/15 text-[#00C896]",
+      title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
+      date: "13 Mar 2025",
+      readTime: "10 min read",
+      cover: "🏫",
+      coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
     },
   ],
 };
