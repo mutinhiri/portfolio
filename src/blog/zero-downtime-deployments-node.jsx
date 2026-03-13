@@ -626,7 +626,7 @@ jobs:
 
   related: [
     {
-      slug: "why-african-startups-need-devops-cloud-infrastructure",
+      slug: "cloud-devops",
       category: "DevOps",
       categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
       title: "Why African Startups Can No Longer Afford to Ignore DevOps",

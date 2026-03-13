@@ -341,7 +341,7 @@ class _FeeStatusScreenState extends State<FeeStatusScreen> {
 
   related: [
     {
-      slug: "ai-automation-africa-opportunity-2025",
+      slug: "ai-automation-africa",
       category: "AI & Automation",
       categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
       title: "AI Automation in Africa: The Opportunity, The Reality, and What to Build First",
@@ -351,7 +351,7 @@ class _FeeStatusScreenState extends State<FeeStatusScreen> {
       coverBg: "linear-gradient(135deg,#0d0a1a 0%,#1a1035 100%)",
     },
     {
-      slug: "data-analytics-africa-turning-data-into-decisions",
+      slug: "data-analytics-africa",
       category: "Data & Analytics",
       categoryColor: "bg-[#34D399]/15 text-[#34D399]",
       title: "Data Analytics in Africa: Why Most Businesses Are Sitting on a Gold Mine They Cannot Read",

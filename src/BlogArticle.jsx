@@ -206,7 +206,7 @@ CREATE TABLE student_adjustments (
 /* ─── Styles ─── */
 const ArticleStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+
     :root { --gold: #C8922A; }
     * { box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: #F8F6F1; margin: 0; overflow-x: hidden; }
@@ -233,7 +233,7 @@ const ArticleStyles = () => (
     .afu { animation: fadeUp 0.6s ease both; }
 
     /* Article body prose */
-    .prose-body { font-size: 17px; line-height: 1.85; color: #3D4461; }
+    .prose-body { font-size: clamp(15px, 2.5vw, 17px); line-height: 1.85; color: #3D4461; }
     .prose-body p { margin: 0 0 1.6em; }
 
     /* Code block */
@@ -245,11 +245,12 @@ const ArticleStyles = () => (
       margin: 2em 0;
     }
     .code-block pre {
-      margin: 0; padding: 22px 24px;
+      margin: 0; padding: 16px;
       font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
-      font-size: 13px; line-height: 1.7; color: #E2E8F0;
-      overflow-x: auto;
+      font-size: 12px; line-height: 1.7; color: #E2E8F0;
+      overflow-x: auto; white-space: pre; word-break: normal;
     }
+    @media (min-width: 768px) { .code-block pre { padding: 22px 24px; font-size: 13px; } }
     .code-lang-badge {
       background: rgba(200,146,42,0.12);
       color: #C8922A;
@@ -534,7 +535,7 @@ export default function FlexilogicBlogArticle() {
       <div id="read-progress" style={{ width: `${progress}%` }} />
 
       {/* ── NAV ── */}
-      <nav className={`fixed top-0 left-0 right-0 z-[100] px-12 h-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-[#F8F6F1]/95 backdrop-blur-[18px] border-b border-[#E4E1D9]" : "bg-transparent"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-[100] px-4 md:px-12 h-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-[#F8F6F1]/95 backdrop-blur-[18px] border-b border-[#E4E1D9]" : "bg-transparent"}`}>
         <div className="flex items-center gap-8">
           {/* Back to portfolio */}
           <button
@@ -552,7 +553,7 @@ export default function FlexilogicBlogArticle() {
             </div>
           </Link>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3">
           <ShareBar title={ARTICLE.title} slug={ARTICLE.slug} />
           <button onClick={goContact} className="btn-shimmer font-bold text-[12px] text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 ml-2">
             Start a Project <Arr sz={12} />
@@ -561,18 +562,18 @@ export default function FlexilogicBlogArticle() {
       </nav>
 
       {/* ── HERO ── */}
-      <header className="relative overflow-hidden pt-28 pb-16 px-12" style={{ background: ARTICLE.coverBg }}>
+      <header className="relative overflow-hidden pt-24 pb-12 px-5 md:px-12" style={{ background: ARTICLE.coverBg }}>
         {/* Subtle grid overlay */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.05]" viewBox="0 0 1200 400" preserveAspectRatio="none">
           {[100,200,300,400,500,600,700,800,900,1000,1100].map(x=><line key={x} x1={x} y1="0" x2={x} y2="400" stroke="#C8922A" strokeWidth="1"/>)}
           {[50,100,150,200,250,300,350].map(y=><line key={y} x1="0" y1={y} x2="1200" y2={y} stroke="#C8922A" strokeWidth="1"/>)}
         </svg>
         {/* Big cover emoji */}
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 text-[160px] opacity-[0.08] select-none pointer-events-none leading-none">
+        <div className="absolute right-4 md:right-16 top-1/2 -translate-y-1/2 text-[80px] md:text-[160px] opacity-[0.08] select-none pointer-events-none leading-none">
           {ARTICLE.coverEmoji}
         </div>
 
-        <div className="relative z-10 max-w-[780px] mx-auto">
+        <div className="relative z-10 max-w-[780px] mx-auto w-full">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/35 text-[11px] font-semibold mb-6">
             <Link to="/" className="hover:text-white/70 transition-colors no-underline text-white/35">Home</Link>
@@ -617,16 +618,16 @@ export default function FlexilogicBlogArticle() {
       </header>
 
       {/* ── BODY ── */}
-      <main className="px-12 py-16" style={{ background: "#F8F6F1" }}>
+      <main className="px-4 md:px-12 py-10 md:py-16" style={{ background: "#F8F6F1" }}>
         <div className="max-w-[1100px] mx-auto">
-          <div className="grid gap-16" style={{ gridTemplateColumns: "1fr 220px" }}>
+          <div className="grid gap-8 md:gap-16 grid-cols-1 md:grid-cols-[1fr_220px]">
 
             {/* Article content */}
             <article>
               {ARTICLE.content.map((block, i) => <Block key={i} block={block} />)}
 
               {/* Author card */}
-              <div className="mt-14 p-6 bg-white border border-[#E4E1D9] rounded-2xl flex items-start gap-5">
+              <div className="mt-10 md:mt-14 p-5 md:p-6 bg-white border border-[#E4E1D9] rounded-2xl flex items-start gap-4 md:gap-5">
                 <div className="w-14 h-14 rounded-2xl bg-[#C8922A] flex items-center justify-center text-[18px] font-extrabold text-[#0B1221] flex-shrink-0">
                   {ARTICLE.author.avatar}
                 </div>
@@ -638,7 +639,7 @@ export default function FlexilogicBlogArticle() {
               </div>
 
               {/* Share row */}
-              <div className="mt-8 pt-8 border-t border-[#E4E1D9] flex items-center justify-between flex-wrap gap-4">
+              <div className="mt-8 pt-8 border-t border-[#E4E1D9] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <ShareBar title={ARTICLE.title} slug={ARTICLE.slug} />
                 <button
                   onClick={goBack}
@@ -650,7 +651,7 @@ export default function FlexilogicBlogArticle() {
             </article>
 
             {/* Sticky sidebar */}
-            <aside>
+            <aside className="hidden md:block">
               <TableOfContents content={ARTICLE.content} />
             </aside>
 
@@ -660,9 +661,9 @@ export default function FlexilogicBlogArticle() {
 
       {/* ── RELATED POSTS ── */}
       {ARTICLE.related?.length > 0 && (
-        <section className="px-12 py-16 bg-[#EEE9DF] border-t border-[#E4E1D9]">
+        <section className="px-5 md:px-12 py-12 md:py-16 bg-[#EEE9DF] border-t border-[#E4E1D9]">
           <div className="max-w-[1100px] mx-auto">
-            <div className="flex items-end justify-between mb-10">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8 md:mb-10">
               <div>
                 <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3">More from the Studio</div>
                 <h3 className="serif italic text-[#0B1221] text-[28px]">Keep Reading</h3>
@@ -674,7 +675,7 @@ export default function FlexilogicBlogArticle() {
                 All Articles <Arr />
               </button>
             </div>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {ARTICLE.related.map(post => (
                 <div
                   key={post.slug}
@@ -706,14 +707,14 @@ export default function FlexilogicBlogArticle() {
       )}
 
       {/* ── CTA FOOTER STRIP ── */}
-      <div className="px-12 py-12 border-t border-[#E4E1D9]" style={{ background: "linear-gradient(135deg,#0B1221 0%,#131D35 100%)" }}>
-        <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-8">
+      <div className="px-5 md:px-12 py-10 md:py-12 border-t border-[#E4E1D9]" style={{ background: "linear-gradient(135deg,#0B1221 0%,#131D35 100%)" }}>
+        <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
             <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
           </div>
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-3 md:flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">
               More Articles
             </Link>

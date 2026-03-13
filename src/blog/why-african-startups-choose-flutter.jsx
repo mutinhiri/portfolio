@@ -300,7 +300,7 @@ class StudentRepository {
 
   related: [
     {
-      slug: "mobile-app-development-africa-2025",
+      slug: "mobile-app-zimbabwe",
       category: "Mobile",
       categoryColor: "bg-[#38BDF8]/15 text-[#38BDF8]",
       title: "Mobile App Development in Africa: Why Your Next Customer Will Find You on a Phone — or Not at All",

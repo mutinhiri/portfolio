@@ -1,29 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
-/* ═══════════════════════════════════════════════════════════════
-   FlexilogicBlogArticle.jsx
-   ─────────────────────────────────────────────────────────────
-   HOW TO USE THIS TEMPLATE FOR EVERY NEW BLOG POST:
-
-   1. Copy this file (or import it as a route component).
-   2. Find the const ARTICLE = { … } object below and fill it in:
-        - slug, title, category, date, readTime, author, excerpt
-        - content: array of blocks (heading, paragraph, image,
-          quote, code, callout, list) — examples are in the
-          sample article below.
-   3. In your router, add a route like:
-        <Route path="/blog/:slug" element={<FlexilogicBlogArticle />} />
-      The component reads the :slug param and finds the right
-      article from BLOG_POSTS (imported from the portfolio file)
-      or you can keep the article data right here.
-   4. Make sure the `slug` here matches the `slug` in BLOG_POSTS
-      in FlexilogicPortfolio.jsx so the card links to this page.
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ─────────────────────────────────────────────────────────────
-   ARTICLE DATA  ← Edit everything in this object for each post
-   ───────────────────────────────────────────────────────────── */
 const ARTICLE = {
   slug: "web-development-zimbabwe-why-your-business-needs-a-professional-website",
   category: "Web Development",
@@ -388,7 +365,7 @@ export default function EnquiryForm() {
 
   related: [
     {
-      slug: "mobile-app-development-africa-2025",
+      slug: "mobile-apps-zimbabwe",
       category: "Mobile",
       categoryColor: "bg-[#38BDF8]/15 text-[#38BDF8]",
       title: "Mobile App Development in Africa: Why Your Next Customer Will Find You on a Phone — or Not at All",
@@ -398,7 +375,7 @@ export default function EnquiryForm() {
       coverBg: "linear-gradient(135deg,#0a1520 0%,#0d1f35 100%)",
     },
     {
-      slug: "cybersecurity-zimbabwe-why-businesses-are-vulnerable",
+      slug: "cybersecurity-zimbabwe",
       category: "Cybersecurity",
       categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
       title: "Cybersecurity in Zimbabwe: Why Local Businesses Are More Exposed Than They Think",

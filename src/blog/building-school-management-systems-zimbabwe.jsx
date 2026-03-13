@@ -326,14 +326,14 @@ CREATE TABLE fee_payments (
 
   related: [
     {
-      slug: "building-school-management-system-zimbabwe",
-      category: "Case Study",
-      categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-      title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
-      date: "12 Feb 2025",
-      readTime: "8 min read",
-      cover: "📊",
-      coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
+      slug: "zero-downtime-deployments-node",
+      category: "DevOps",
+      categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
+      title: "Zero-Downtime Deployments on a Budget: Our Node.js Playbook",
+      date: "10 Jan 2025",
+      readTime: "5 min read",
+      cover: "☁️",
+      coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
     },
     {
       slug: "why-african-startups-choose-flutter",

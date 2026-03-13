@@ -61,6 +61,17 @@ const GlobalStyles = () => (
     .cf-input::placeholder { color:rgba(255,255,255,0.20); }
     .cf-input:focus { border-color:#C8922A; background:rgba(200,146,42,0.06); box-shadow:0 0 0 3px rgba(200,146,42,0.10); }
     .cf-input.err { border-color:#ff7070; box-shadow:0 0 0 3px rgba(255,112,112,0.10); }
+    /* Mobile menu */
+    .mob-menu { display:none; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none; padding:6px; }
+    .mob-menu span { display:block; width:22px; height:2px; background:#fff; border-radius:2px; transition:all .25s; }
+    .nav-links-desktop { display:flex; }
+    .nav-links-mobile { display:none; }
+    @media (max-width: 768px) {
+      .mob-menu { display:flex; }
+      .nav-links-desktop { display:none !important; }
+      .nav-ctas-desktop { display:none !important; }
+      .nav-links-mobile.open { display:flex; flex-direction:column; gap:4px; position:fixed; top:64px; left:0; right:0; background:#0B1221; border-bottom:1px solid rgba(255,255,255,0.08); padding:16px 24px 24px; z-index:99; }
+    }
     /* Accessibility utilities */
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }
     .focus\:not-sr-only:focus { position:fixed; width:auto; height:auto; padding:0; margin:0; overflow:visible; clip:auto; white-space:normal; }
@@ -267,20 +278,21 @@ export const BLOG_POSTS = [
 function BlogCard({ post, idx, onNavigate }) {
   const [ref, vis] = useRev(0.1);
 
-  // Featured card — wide horizontal layout
+  // Featured card — horizontal on desktop, stacked on mobile
   if (post.featured) {
     return (
       <div
         ref={ref}
-        className={`rv ${vis ? "vis" : ""} blog-card col-span-3 bg-white border border-[#E4E1D9] rounded-3xl overflow-hidden`}
+        className={`rv ${vis ? "vis" : ""} blog-card sm:col-span-2 lg:col-span-3 bg-white border border-[#E4E1D9] rounded-3xl overflow-hidden`}
         style={{ transitionDelay: `${idx * 0.07}s` }}
         onClick={() => onNavigate(post.slug)}
       >
-        <div className="grid grid-cols-[1.1fr_1fr]">
+        {/* Mobile: stacked (cover on top, content below) */}
+        {/* Desktop: side-by-side grid */}
+        <div className="flex flex-col sm:grid sm:grid-cols-[1.1fr_1fr]">
           {/* Cover art */}
-          <div className="relative overflow-hidden min-h-[300px] flex items-center justify-center" style={{ background: post.coverBg }}>
-            <div className="blog-cover-img text-[110px] opacity-25 select-none leading-none">{post.cover}</div>
-            {/* Decorative circuit lines */}
+          <div className="relative overflow-hidden h-48 sm:h-auto sm:min-h-[300px] flex items-center justify-center" style={{ background: post.coverBg }}>
+            <div className="blog-cover-img text-[72px] sm:text-[110px] opacity-25 select-none leading-none">{post.cover}</div>
             <svg className="absolute inset-0 w-full h-full opacity-[0.07]" viewBox="0 0 400 300" preserveAspectRatio="none">
               <line x1="0" y1="150" x2="400" y2="150" stroke="#C8922A" strokeWidth="1" />
               <line x1="200" y1="0" x2="200" y2="300" stroke="#C8922A" strokeWidth="1" />
@@ -290,23 +302,23 @@ function BlogCard({ post, idx, onNavigate }) {
               ))}
             </svg>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B1221]/50 pointer-events-none" />
-            <div className="absolute top-6 left-6">
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
               <span className={`text-[9px] font-extrabold tracking-[.1em] uppercase px-3 py-1.5 rounded-full border border-current/25 ${post.categoryColor}`}>
                 {post.category}
               </span>
             </div>
           </div>
           {/* Content */}
-          <div className="p-10 flex flex-col justify-center border-l border-[#E4E1D9]">
-            <div className="flex items-center gap-3 text-[11px] text-[#6B7592] font-semibold mb-5">
+          <div className="p-6 sm:p-10 flex flex-col justify-center sm:border-l border-t sm:border-t-0 border-[#E4E1D9]">
+            <div className="flex items-center gap-3 text-[11px] text-[#6B7592] font-semibold mb-4">
               <span>{post.date}</span>
               <span className="w-1 h-1 rounded-full bg-[#C8922A] inline-block" />
               <span>{post.readTime}</span>
             </div>
-            <h3 className="serif italic text-[#0B1221] leading-tight mb-4" style={{ fontSize: "clamp(20px,2vw,26px)" }}>
+            <h3 className="serif italic text-[#0B1221] leading-tight mb-3" style={{ fontSize: "clamp(18px,2vw,26px)" }}>
               {post.title}
             </h3>
-            <p className="text-[14px] text-[#6B7592] leading-[1.78] mb-7">{post.excerpt}</p>
+            <p className="text-[13px] sm:text-[14px] text-[#6B7592] leading-[1.78] mb-6">{post.excerpt}</p>
             <div className="flex items-center gap-2 text-[#C8922A] font-bold text-[13px]">
               Read Article <Arr sz={13} />
             </div>
@@ -367,11 +379,11 @@ function BlogSection() {
   };
 
   return (
-    <section id="blog" aria-label="Blog articles" className="py-24 px-12 bg-[#F8F6F1]">
+    <section id="blog" aria-label="Blog articles" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
       <div className="max-w-[1100px] mx-auto">
 
         {/* Section header */}
-        <div ref={hRef} className={`rv ${hVis ? "vis" : ""} flex items-end justify-between mb-14`}>
+        <div ref={hRef} className={`rv ${hVis ? "vis" : ""} flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14`}>
           <div>
             <div className="inline-flex items-center gap-2 text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8922A] inline-block" />
@@ -394,7 +406,7 @@ function BlogSection() {
 
         {/* Card grid
             Featured post spans all 3 cols; remaining posts fill the row */}
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {BLOG_POSTS.map((post, i) => (
             <BlogCard key={post.slug} post={post} idx={i} onNavigate={handleNavigate} />
           ))}
@@ -402,7 +414,7 @@ function BlogSection() {
 
         {/* Newsletter strip */}
         <div className="mt-12 rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg,#0B1221 0%,#131D35 100%)" }}>
-          <div className="flex items-center justify-between gap-8 px-10 py-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 px-6 md:px-10 py-7 md:py-8">
             <div>
               <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Stay in the loop</div>
               <h4 className="serif italic text-white text-[22px] leading-tight mb-1">
@@ -410,11 +422,11 @@ function BlogSection() {
               </h4>
               <p className="text-white/40 text-[13px]">Engineering & design insights — no spam, ever.</p>
             </div>
-            <div className="flex gap-2.5 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row gap-2.5 w-full md:w-auto md:flex-shrink-0">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="bg-white/[0.06] border border-white/[0.12] rounded-xl px-4 py-2.5 text-[13px] text-white placeholder-white/25 outline-none focus:border-[#C8922A]/60 transition-colors w-52"
+                className="bg-white/[0.06] border border-white/[0.12] rounded-xl px-4 py-2.5 text-[13px] text-white placeholder-white/25 outline-none focus:border-[#C8922A]/60 transition-colors w-full sm:w-52"
               />
               <button className="btn-shimmer font-bold text-[13px] text-[#0B1221] border-none rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
                 Subscribe <Arr sz={13} />
@@ -660,7 +672,8 @@ function ShowreelModal({ onClose }) {
 function ProcessPath() {
   const d = "M400 40 C610 180 660 340 400 490 C140 640 90 800 400 950 C660 1100 710 1260 400 1410 C90 1560 70 1720 400 1870 C720 2020 730 2180 400 2330 C90 2480 100 2600 400 2700";
   return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }} viewBox="0 0 800 2800" preserveAspectRatio="none">
+    // Hidden on mobile — desktop zigzag path only
+    <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 1 }} viewBox="0 0 800 2800" preserveAspectRatio="none">
       <defs>
         <linearGradient id="pg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#C8922A" stopOpacity=".9" /><stop offset="50%" stopColor="#E5A93C" stopOpacity=".9" /><stop offset="100%" stopColor="#C8922A" stopOpacity=".9" /></linearGradient>
         <filter id="glow"><feGaussianBlur stdDeviation="4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
@@ -672,33 +685,56 @@ function ProcessPath() {
 }
 
 function StepCard({ step, idx }) {
-  const [ref, vis] = useRev(0.18);
+  const [desktopRef, desktopVis] = useRev(0.18);
   const isLeft = idx % 2 === 0;
+
+  const CardInner = () => (
+    <>
+      <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[20px] bg-gradient-to-r from-[#C8922A] to-[#E5A93C]/50" />
+      <div className="flex items-start gap-3.5 mb-3.5">
+        <div className="w-11 h-11 rounded-[11px] flex-shrink-0 bg-[#FDF3E0] text-[#C8922A] border border-[#C8922A]/20 flex items-center justify-center">{step.icon}</div>
+        <div>
+          <div className="text-[10px] font-extrabold tracking-[.1em] text-[#C8922A] mb-0.5 uppercase">Step {step.id}</div>
+          <div className="serif text-[19px] text-[#0B1221] leading-tight">{step.title}</div>
+          <div className="text-[11px] text-[#6B7592] mt-0.5 italic">{step.sub}</div>
+        </div>
+      </div>
+      <p className="text-[13px] leading-[1.78] text-[#6B7592] mb-4">{step.desc}</p>
+      <div className="flex flex-wrap gap-1.5 mb-4">{step.tags.map(t => <span key={t} className="text-[10px] font-bold tracking-[.06em] px-2.5 py-0.5 rounded-full uppercase bg-[#FDF3E0] text-[#C8922A] border border-[#C8922A]/20">{t}</span>)}</div>
+      <div className="flex items-baseline gap-1.5 pt-3.5 border-t border-[#E4E1D9]">
+        <span className="serif text-[28px] text-[#0B1221] italic">{step.metric}</span>
+        <span className="text-[12px] font-bold text-[#0B1221]">{step.mUnit}</span>
+        <span className="text-[11px] text-[#6B7592] ml-1">{step.mLabel}</span>
+      </div>
+    </>
+  );
+
   return (
-    <div className="relative flex items-center min-h-[220px] mb-14">
-      <div className={`serif absolute top-1/2 -translate-y-1/2 text-[120px] leading-none italic text-[#C8922A] opacity-[0.055] pointer-events-none select-none ${isLeft ? "right-0" : "left-0"}`}>{step.id}</div>
-      <div className="pulse-node absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[34px] h-[34px] rounded-full bg-white border-2 border-[#C8922A] flex items-center justify-center" style={{ boxShadow: "0 0 0 7px rgba(200,146,42,0.12),0 4px 14px rgba(11,18,33,0.12)" }}>
-        <div className="w-[11px] h-[11px] rounded-full bg-[#C8922A]" />
-      </div>
-      <div ref={ref} className={`rv ${isLeft ? "rl" : "rr"} ${vis ? "vis" : ""} relative overflow-hidden bg-white border border-[#E4E1D9] rounded-[20px] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30 ${isLeft ? "mr-auto" : "ml-auto"}`} style={{ width: "calc(50% - 46px)", transitionDelay: `${idx * 0.08}s` }}>
-        <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[20px] bg-gradient-to-r from-[#C8922A] to-[#E5A93C]/50" />
-        <div className="flex items-start gap-3.5 mb-3.5">
-          <div className="w-11 h-11 rounded-[11px] flex-shrink-0 bg-[#FDF3E0] text-[#C8922A] border border-[#C8922A]/20 flex items-center justify-center">{step.icon}</div>
-          <div>
-            <div className="text-[10px] font-extrabold tracking-[.1em] text-[#C8922A] mb-0.5 uppercase">Step {step.id}</div>
-            <div className="serif text-[19px] text-[#0B1221] leading-tight">{step.title}</div>
-            <div className="text-[11px] text-[#6B7592] mt-0.5 italic">{step.sub}</div>
+    <>
+      {/* MOBILE — no rv class, cards always visible (observer watches hidden element on desktop) */}
+      <div className="md:hidden flex gap-4 mb-8">
+        <div className="flex flex-col items-center flex-shrink-0">
+          <div className="pulse-node w-8 h-8 rounded-full bg-white border-2 border-[#C8922A] flex items-center justify-center" style={{ boxShadow: "0 0 0 5px rgba(200,146,42,0.12)" }}>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#C8922A]" />
           </div>
+          {idx < 5 && <div className="w-px flex-1 mt-2 bg-gradient-to-b from-[#C8922A]/40 to-transparent min-h-[32px]" />}
         </div>
-        <p className="text-[13px] leading-[1.78] text-[#6B7592] mb-4">{step.desc}</p>
-        <div className="flex flex-wrap gap-1.5 mb-4">{step.tags.map(t => <span key={t} className="text-[10px] font-bold tracking-[.06em] px-2.5 py-0.5 rounded-full uppercase bg-[#FDF3E0] text-[#C8922A] border border-[#C8922A]/20">{t}</span>)}</div>
-        <div className="flex items-baseline gap-1.5 pt-3.5 border-t border-[#E4E1D9]">
-          <span className="serif text-[28px] text-[#0B1221] italic">{step.metric}</span>
-          <span className="text-[12px] font-bold text-[#0B1221]">{step.mUnit}</span>
-          <span className="text-[11px] text-[#6B7592] ml-1">{step.mLabel}</span>
+        <div className="relative overflow-hidden bg-white border border-[#E4E1D9] rounded-[20px] p-5 flex-1">
+          <CardInner />
         </div>
       </div>
-    </div>
+
+      {/* DESKTOP — rv animation, watched by desktopRef */}
+      <div className="hidden md:flex relative items-center min-h-[220px] mb-14">
+        <div className={`serif absolute top-1/2 -translate-y-1/2 text-[120px] leading-none italic text-[#C8922A] opacity-[0.055] pointer-events-none select-none ${isLeft ? "right-0" : "left-0"}`}>{step.id}</div>
+        <div className="pulse-node absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[34px] h-[34px] rounded-full bg-white border-2 border-[#C8922A] flex items-center justify-center" style={{ boxShadow: "0 0 0 7px rgba(200,146,42,0.12),0 4px 14px rgba(11,18,33,0.12)" }}>
+          <div className="w-[11px] h-[11px] rounded-full bg-[#C8922A]" />
+        </div>
+        <div ref={desktopRef} className={`rv ${isLeft ? "rl" : "rr"} ${desktopVis ? "vis" : ""} relative overflow-hidden bg-white border border-[#E4E1D9] rounded-[20px] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30 ${isLeft ? "mr-auto" : "ml-auto"}`} style={{ width: "calc(50% - 46px)", transitionDelay: `${idx * 0.08}s` }}>
+          <CardInner />
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -756,7 +792,7 @@ function ContactSection() {
   const TIMES = ["ASAP / Within a month", "1–3 months", "3–6 months", "6+ months / Ongoing"];
   const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 000 0000" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
   return (
-    <section id="contact" aria-label="Contact us" className="relative overflow-hidden py-24 px-12" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 60%,#1B2847 100%)" }}>
+    <section id="contact" aria-label="Contact us" className="relative overflow-hidden py-16 md:py-24 px-6 md:px-12" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 60%,#1B2847 100%)" }}>
       <div className="absolute bottom-[-8%] right-[-4%] w-[320px] h-[320px] opacity-[0.05] pointer-events-none">
         <svg width="320" height="320" viewBox="0 0 320 320"><circle cx="160" cy="160" r="120" fill="none" stroke="#C8922A" strokeWidth="1" strokeDasharray="8 5" /><circle cx="160" cy="160" r="65" fill="none" stroke="#C8922A" strokeWidth="1" />{[0, 45, 90, 135, 180, 225, 270, 315].map((a, i) => <circle key={i} cx={160 + 65 * Math.cos(a * Math.PI / 180)} cy={160 + 65 * Math.sin(a * Math.PI / 180)} r="3" fill="#C8922A" />)}</svg>
       </div>
@@ -767,7 +803,7 @@ function ContactSection() {
           <h2 className="serif italic text-white leading-[.95] mb-4" style={{ fontSize: "clamp(34px,5vw,60px)" }}>Let's Make <span className="text-[#C8922A]">Something</span><br />Legendary.</h2>
           <p className="text-[15px] text-white/50 max-w-[480px] leading-[1.78]">Tell us what you're building. We review every submission personally and reply within 24 hours.</p>
         </div>
-        <div className="grid gap-8" style={{ gridTemplateColumns: "1fr 300px" }}>
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-[1fr_300px]">
           <div className="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-8 backdrop-blur-sm">
             {sent ? (
               <div className="success-pop flex flex-col items-center justify-center text-center py-14 gap-5">
@@ -777,11 +813,11 @@ function ContactSection() {
               </div>
             ) : (
               <div className="flex flex-col gap-5">
-                <div className="grid grid-cols-2 gap-4">
-                  <div><label className="cf-label">Full Name <span>*</span></label><input className={`cf-input${errs.name ? " err" : ""}`} placeholder="Tinashe Banda" value={form.name} onChange={e => set("name", e.target.value)} />{errs.name && <p className="cf-error">{errs.name}</p>}</div>
-                  <div><label className="cf-label">Company / Organisation</label><input className="cf-input" placeholder="ZimTech Holdings" value={form.company} onChange={e => set("company", e.target.value)} /></div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div><label className="cf-label">Full Name <span>*</span></label><input className={`cf-input${errs.name ? " err" : ""}`} placeholder="Your Name" value={form.name} onChange={e => set("name", e.target.value)} />{errs.name && <p className="cf-error">{errs.name}</p>}</div>
+                  <div><label className="cf-label">Company / Organisation</label><input className="cf-input" placeholder="Company / Individual" value={form.company} onChange={e => set("company", e.target.value)} /></div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div><label className="cf-label">Email Address <span>*</span></label><input type="email" className={`cf-input${errs.email ? " err" : ""}`} placeholder="you@company.co.zw" value={form.email} onChange={e => set("email", e.target.value)} />{errs.email && <p className="cf-error">{errs.email}</p>}</div>
                   <div><label className="cf-label">Phone / WhatsApp</label><input className="cf-input" placeholder="+263 77 000 0000" value={form.phone} onChange={e => set("phone", e.target.value)} /></div>
                 </div>
@@ -830,6 +866,7 @@ function ContactSection() {
 export default function FlexilogicPortfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [showreel, setShowreel] = useState(false);
+  const [mobNav, setMobNav] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -872,7 +909,7 @@ export default function FlexilogicPortfolio() {
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-[#C8922A] focus:text-[#0B1221] focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Skip to main content</a>
 
       {/* ═══ NAV ═══ */}
-      <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-[100] px-12 h-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-[#0B1221]/95 backdrop-blur-[18px] border-b border-white/[0.07]" : "bg-transparent"}`}>
+      <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-[100] px-6 md:px-12 h-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-[#0B1221]/95 backdrop-blur-[18px] border-b border-white/[0.07]" : "bg-transparent"}`}>
         <div className="flex items-center gap-2.5">
           <LogoMark size={38} />
           <div>
@@ -880,14 +917,28 @@ export default function FlexilogicPortfolio() {
             <div className="text-[8px] font-bold tracking-[.2em] text-[#C8922A]">AFRICA</div>
           </div>
         </div>
-        <div className="flex items-center gap-0.5">
+        {/* Desktop nav */}
+        <div className="nav-links-desktop items-center gap-0.5">
           {["Services", "Process", "Work", "Blog", "Contact"].map(l => (
             <a key={l} href={`#${l.toLowerCase()}`} className="text-[13px] font-semibold text-white/65 px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.08] transition-all no-underline">{l}</a>
           ))}
         </div>
-        <div className="flex gap-2">
+        <div className="nav-ctas-desktop flex gap-2">
           <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="font-semibold text-xs bg-white/[0.08] text-white border border-white/[0.14] rounded-[10px] px-4 py-2 hover:bg-white/[0.14] transition-all cursor-pointer">View Work</button>
           <a href="#contact" className="btn-shimmer font-bold text-xs text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 no-underline">Start Project <Arr /></a>
+        </div>
+        {/* Mobile hamburger */}
+        <button className="mob-menu" onClick={() => setMobNav(v => !v)} aria-label="Toggle navigation" aria-expanded={mobNav}>
+          <span style={mobNav ? {transform:"rotate(45deg) translate(4px,4px)"} : {}} />
+          <span style={mobNav ? {opacity:0} : {}} />
+          <span style={mobNav ? {transform:"rotate(-45deg) translate(4px,-4px)"} : {}} />
+        </button>
+        {/* Mobile menu dropdown */}
+        <div className={`nav-links-mobile ${mobNav ? "open" : ""}`}>
+          {["Services", "Process", "Work", "Blog", "Contact"].map(l => (
+            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setMobNav(false)} className="text-[15px] font-semibold text-white/75 px-3 py-3 rounded-lg hover:text-white hover:bg-white/[0.08] transition-all no-underline border-b border-white/[0.05]">{l}</a>
+          ))}
+          <a href="#contact" onClick={() => setMobNav(false)} className="btn-shimmer font-bold text-[14px] text-[#0B1221] border-none rounded-xl px-5 py-3 cursor-pointer flex items-center justify-center gap-1.5 no-underline mt-3">Start Project <Arr /></a>
         </div>
       </nav>
 
@@ -895,7 +946,7 @@ export default function FlexilogicPortfolio() {
       <main id="main-content">
 
       {/* ═══ HERO ═══ */}
-      <section id="hero" className="relative min-h-screen flex items-center overflow-hidden px-12 pt-24 pb-20" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 55%,#1B2847 100%)" }}>
+      <section id="hero" className="relative min-h-screen flex items-center overflow-hidden px-6 md:px-12 pt-24 pb-20" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 55%,#1B2847 100%)" }}>
         <div className="absolute top-0 right-0 w-[480px] h-[480px] opacity-[0.06] pointer-events-none">
           <svg width="480" height="480" viewBox="0 0 480 480"><line x1="240" y1="0" x2="240" y2="480" stroke="#C8922A" strokeWidth="1" /><line x1="0" y1="240" x2="480" y2="240" stroke="#C8922A" strokeWidth="1" /><circle cx="240" cy="240" r="120" fill="none" stroke="#C8922A" strokeWidth="1" /><circle cx="240" cy="240" r="200" fill="none" stroke="#C8922A" strokeWidth=".5" strokeDasharray="6 4" />{[0, 60, 120, 180, 240, 300].map((a, i) => <circle key={i} cx={240 + 120 * Math.cos(a * Math.PI / 180)} cy={240 + 120 * Math.sin(a * Math.PI / 180)} r="5" fill="#C8922A" />)}</svg>
         </div>
@@ -903,7 +954,7 @@ export default function FlexilogicPortfolio() {
         <div className="absolute pointer-events-none" style={{ bottom: "calc(10% + 28px)", left: "calc(5% + 28px)", width: 124, height: 124, border: "1px solid rgba(200,146,42,0.07)", borderRadius: "50%" }} />
         <div className="absolute top-[20%] right-[30%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,rgba(200,146,42,0.07) 0%,transparent 70%)" }} />
         <div className="relative z-10 max-w-[1200px] mx-auto w-full">
-          <div className="grid grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
             <div>
               <div className="afu inline-flex items-center gap-2 bg-[#C8922A]/12 border border-[#C8922A]/30 text-[#C8922A] text-[10px] font-bold tracking-[.12em] px-3.5 py-1.5 rounded-full mb-7 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C8922A] inline-block" />Software Engineering Studio · Africa
@@ -915,14 +966,14 @@ export default function FlexilogicPortfolio() {
               <p className="afu text-[15px] leading-[1.78] text-white/60 max-w-[430px] mb-9" style={{ animationDelay: ".18s" }}>
                 FlexiLogic Africa builds flexible, scalable software solutions that help businesses across Africa solve real problems and grow with confidence.
               </p>
-              <div className="afu flex gap-3 mb-12" style={{ animationDelay: ".26s" }}>
+              <div className="afu flex flex-col sm:flex-row gap-3 mb-12" style={{ animationDelay: ".26s" }}>
                 <a href="#contact" className="btn-shimmer font-bold text-[14px] text-[#0B1221] border-none rounded-xl px-7 py-3 cursor-pointer flex items-center gap-2 no-underline">Start a Project <Arr /></a>
                 <button onClick={() => setShowreel(true)} className="group font-semibold text-[14px] bg-transparent text-white border border-white/20 rounded-xl px-7 py-3 cursor-pointer flex items-center gap-2.5 hover:border-[#C8922A]/50 hover:bg-[#C8922A]/5 transition-all">
                   <span className="w-8 h-8 rounded-full bg-[#C8922A]/15 border border-[#C8922A]/30 flex items-center justify-center group-hover:bg-[#C8922A]/25 transition-all pl-0.5"><PlayIcon sz={14} /></span>
                   Watch Showreel
                 </button>
               </div>
-              <div className="afu flex" style={{ animationDelay: ".36s" }}>
+              <div className="afu flex flex-wrap gap-y-4" style={{ animationDelay: ".36s" }}>
                 {[["60", "+", "Projects Shipped"], ["8", "yrs", "Experience"], ["40", "+", "Clients"]].map(([v, s, l], i) => (
                   <div key={l} className={`flex-1 ${i < 2 ? "pr-7 border-r border-white/10 mr-7" : ""}`}>
                     <div className="serif text-[36px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
@@ -931,7 +982,7 @@ export default function FlexilogicPortfolio() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[500px]">
+            <div className="relative h-[500px] hidden md:block">
               <div className="afr af1 absolute top-0 left-[6%] w-[295px] bg-[#131D35] border border-white/[0.08] rounded-[18px] overflow-hidden shadow-[0_28px_70px_rgba(0,0,0,0.45)]" style={{ animationDelay: ".3s" }}>
                 <div className="bg-[#1B2847] px-4 py-2.5 flex items-center gap-1.5 border-b border-white/[0.06]">
                   {["#ff4f6b", "#C8922A", "#00C896"].map((c, i) => <div key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />)}
@@ -991,16 +1042,16 @@ export default function FlexilogicPortfolio() {
       </div>
 
       {/* ═══ SERVICES ═══ */}
-      <section id="services" aria-label="Our services" className="py-24 px-12 bg-[#F8F6F1]">
+      <section id="services" aria-label="Our services" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
         <div className="max-w-[1100px] mx-auto">
-          <div className="flex items-end justify-between mb-14">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14">
             <div className="rv">
               <div className="inline-flex items-center text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">What We Do</div>
               <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Our <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Services</span></h2>
             </div>
             <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">See All Work <Arr /></button>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {SERVICES.map((s, i) => {
               const [ref, vis] = useRev(0.2);
               return (
@@ -1017,8 +1068,8 @@ export default function FlexilogicPortfolio() {
       </section>
 
       {/* ═══ STATS ═══ */}
-      <div className="bg-[#0B1221] py-16 px-12">
-        <div className="max-w-[1100px] mx-auto grid grid-cols-4 gap-8 text-center">
+      <div className="bg-[#0B1221] py-12 md:py-16 px-6 md:px-12">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[["60", "+", "Projects Shipped"], ["8", " yrs", "Industry Experience"], ["40", "+", "Clients Active"], ["12", "", "Countries Served"]].map(([v, s, l]) => (
             <div key={l}>
               <div className="serif text-[52px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
@@ -1029,42 +1080,42 @@ export default function FlexilogicPortfolio() {
       </div>
 
       {/* ═══ PROCESS ═══ */}
-      <section id="process" className="relative py-24 px-6 bg-[#EEE9DF]">
+      <section id="process" className="relative py-16 md:py-24 px-4 md:px-6 bg-[#EEE9DF]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-1 rounded-full bg-gradient-to-r from-[#C8922A] to-[#E5A93C]" />
         <div className="text-center mb-20 relative z-10">
           <div className="rv inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">How We Work</div>
           <h2 className="rv serif italic text-[#0B1221]" style={{ fontSize: "clamp(30px,5vw,56px)" }}>The <span className="text-[#C8922A]">Journey</span></h2>
           <p className="rv text-[14px] text-[#6B7592] max-w-[420px] mx-auto mt-3.5 leading-[1.78]">A transparent, battle-tested process that turns your vision into software people actually love using.</p>
         </div>
-        <div className="relative max-w-[900px] mx-auto" style={{ minHeight: STEPS.length * 260 }}>
+        <div className="relative max-w-[900px] mx-auto md:min-h-[1560px]">
           <ProcessPath />
           <div className="relative z-10">{STEPS.map((s, i) => <StepCard key={s.id} step={s} idx={i} />)}</div>
         </div>
       </section>
 
       {/* ═══ PROJECTS ═══ */}
-      <section id="work" className="py-24 px-12 bg-[#F8F6F1]">
+      <section id="work" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
         <div className="max-w-[1100px] mx-auto">
-          <div className="flex items-end justify-between mb-14">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14">
             <div className="rv">
               <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">Our Work</div>
               <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Featured <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Projects</span></h2>
             </div>
             <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">All Projects <Arr /></button>
           </div>
-          <div className="grid grid-cols-3 gap-5">{PROJECTS.map(p => <ProjectCard key={p.id} project={p} />)}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">{PROJECTS.map(p => <ProjectCard key={p.id} project={p} />)}</div>
         </div>
       </section>
 
       {/* ═══ SHOWREEL BANNER ═══ */}
-      <div className="relative overflow-hidden py-16 px-12" style={{ background: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)" }}>
+      <div className="relative overflow-hidden py-12 md:py-16 px-6 md:px-12" style={{ background: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)" }}>
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 1200 200" preserveAspectRatio="none">
             <line x1="0" y1="100" x2="1200" y2="100" stroke="#C8922A" strokeWidth="1" />
             {[100, 300, 500, 700, 900, 1100].map(x => <g key={x}><line x1={x} y1="100" x2={x} y2="30" stroke="#C8922A" strokeWidth="1" /><circle cx={x} cy="30" r="4" fill="#C8922A" /></g>)}
           </svg>
         </div>
-        <div className="relative z-10 max-w-[1100px] mx-auto flex items-center justify-between gap-8">
+        <div className="relative z-10 max-w-[1100px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <p className="text-[10px] font-extrabold tracking-[.15em] text-[#C8922A] uppercase mb-2">FlexiLogic Studio</p>
             <h3 className="serif italic text-white text-[32px] leading-tight mb-2">See our work in motion.</h3>
@@ -1078,7 +1129,7 @@ export default function FlexilogicPortfolio() {
       </div>
 
       {/* ═══ TRUSTED BY ═══ */}
-      <div className="border-t border-b border-[#E4E1D9] py-7 px-12 bg-[#F8F6F1] flex items-center gap-12 overflow-hidden">
+      <div className="border-t border-b border-[#E4E1D9] py-6 px-6 md:px-12 bg-[#F8F6F1] flex flex-wrap items-center gap-6 md:gap-12 overflow-hidden">
         <span className="text-[10px] font-extrabold tracking-[.1em] text-[#6B7592] whitespace-nowrap uppercase">Trusted by</span>
         <div className="flex gap-12 flex-wrap">
           {["AcademyPro", "BrightMinds", "ZimTech", "PayGo", "AgriLink", "HealthBridge"].map(n => (
@@ -1096,9 +1147,9 @@ export default function FlexilogicPortfolio() {
       {/* ═══ FOOTER ═══ */}
       </main>{/* end #main-content */}
 
-      <footer aria-label="Site footer" className="border-t border-white/[0.07] pt-14 pb-8 px-12 bg-[#080F1E]">
+      <footer aria-label="Site footer" className="border-t border-white/[0.07] pt-12 md:pt-14 pb-8 px-6 md:px-12 bg-[#080F1E]">
         <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-4 gap-12 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2.5 mb-3.5"><LogoMark size={36} /><div><div className="text-[15px] font-extrabold text-white tracking-tight">FLEXILOGIC</div><div className="text-[8px] font-bold tracking-[.2em] text-[#C8922A]">AFRICA</div></div></div>
               <p className="text-[13px] text-white/55 leading-[1.75] max-w-[240px]">Building Africa's digital future, one product at a time. Globally-minded.</p>
@@ -1115,7 +1166,7 @@ export default function FlexilogicPortfolio() {
             ))}
           </div>
           <div className="h-px mb-6" style={{ background: "linear-gradient(90deg,#C8922A,rgba(200,146,42,0.1),transparent)" }} />
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <span className="text-[12px] text-white/45">© 2025 FlexiLogic Africa. All rights reserved.</span>
           </div>
         </div>
