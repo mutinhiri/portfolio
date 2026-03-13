@@ -5,6 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ═══════════════════════════════════════════
+         PERFORMANCE — Critical resource hints
+         These must be first in <head> so the browser
+         starts fetching fonts before parsing the rest.
+    ═══════════════════════════════════════════ -->
+
+    <!-- 1. Preconnect to font origins (saves ~150ms DNS+TLS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- 2. Preload the font CSS (non-blocking, highest priority) -->
+    <link rel="preload"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Fallback for browsers without JS -->
+    <noscript>
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&display=swap"
+      />
+    </noscript>
+
+    <!-- 3. Critical inline CSS — renders layout before JS loads.
+         This eliminates the flash of unstyled content and lets
+         the browser paint something immediately. -->
+    <style>
+      /* System font stack while custom fonts load — near-identical metrics */
+      :root {
+        --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+        --navy: #0B1221;
+        --gold: #C8922A;
+        --cream: #F8F6F1;
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-sans);
+        background: var(--cream);
+        color: #3D4461;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      /* Prevent layout shift while fonts load */
+      .serif { font-family: var(--font-serif); }
+
+      /* Loading skeleton shown before React mounts */
+      #root:empty::before {
+        content: '';
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: var(--navy);
+        z-index: 9999;
+      }
+      #root:empty::after {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(200,146,42,0.3);
+        border-top-color: var(--gold);
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        z-index: 10000;
+      }
+      @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+      /* Prevent Cumulative Layout Shift on nav */
+      nav { height: 64px; }
+    </style>
+
+    <!-- ═══════════════════════════════════════════
          FAVICON & PWA
     ═══════════════════════════════════════════ -->
     <link rel="icon" type="image/x-icon"  href="/icons/favicon.ico" />
@@ -20,7 +97,7 @@
     <link rel="apple-touch-icon" sizes="76x76"   href="/icons/apple-touch-icon-76x76.png" />
     <link rel="apple-touch-icon" sizes="60x60"   href="/icons/apple-touch-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="57x57"   href="/icons/apple-touch-icon-57x57.png" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
     <meta name="msapplication-TileImage"         content="/icons/mstile-144x144.png" />
     <meta name="msapplication-TileColor"         content="#0B1221" />
     <meta name="msapplication-square70x70logo"   content="/icons/mstile-70x70.png" />
@@ -87,27 +164,11 @@
       "logo": "https://flexilogic.africa/logo.png",
       "description": "FlexiLogic Africa is a software engineering studio based in Harare, Zimbabwe, specialising in web platforms, mobile apps, cloud infrastructure, AI automation, cybersecurity, and data analytics for African businesses.",
       "foundingDate": "2021",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Harare",
-        "addressCountry": "ZW"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+263-77-255-0103",
-        "email": "flexilogicafrica@gmail.com",
-        "contactType": "customer service",
-        "availableLanguage": "English"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/flexilogic-africa/",
-        "https://www.facebook.com/people/Flexilogic-Africa/61581981782184/"
-      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Harare", "addressCountry": "ZW" },
+      "contactPoint": { "@type": "ContactPoint", "telephone": "+263-77-255-0103", "email": "flexilogicafrica@gmail.com", "contactType": "customer service", "availableLanguage": "English" },
+      "sameAs": ["https://www.linkedin.com/company/flexilogic-africa/","https://www.facebook.com/people/Flexilogic-Africa/61581981782184/"],
       "areaServed": { "@type": "Place", "name": "Africa" },
-      "knowsAbout": [
-        "Web Development","Mobile App Development","Cloud Infrastructure",
-        "DevOps","Artificial Intelligence","Cybersecurity","Data Analytics","Software Engineering"
-      ]
+      "knowsAbout": ["Web Development","Mobile App Development","Cloud Infrastructure","DevOps","Artificial Intelligence","Cybersecurity","Data Analytics","Software Engineering"]
     }
     </script>
 
@@ -124,48 +185,22 @@
       "telephone": "+263772550103",
       "email": "flexilogicafrica@gmail.com",
       "description": "Software engineering studio in Harare, Zimbabwe. We build web platforms, mobile apps, cloud infrastructure, AI automation, cybersecurity, and data analytics solutions for African businesses.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Harare",
-        "addressRegion": "Harare Province",
-        "addressCountry": "ZW"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -17.8252,
-        "longitude": 31.0335
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/company/flexilogic-africa/",
-        "https://www.facebook.com/people/Flexilogic-Africa/61581981782184/"
-      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Harare", "addressRegion": "Harare Province", "addressCountry": "ZW" },
+      "geo": { "@type": "GeoCoordinates", "latitude": -17.8252, "longitude": 31.0335 },
+      "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" }],
+      "sameAs": ["https://www.linkedin.com/company/flexilogic-africa/","https://www.facebook.com/people/Flexilogic-Africa/61581981782184/"],
       "priceRange": "$$",
       "currenciesAccepted": "USD, ZWL",
       "paymentAccepted": "Cash, Bank Transfer, EcoCash",
-      "areaServed": [
-        { "@type": "Country", "name": "Zimbabwe" },
-        { "@type": "Place",   "name": "Africa"   }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Software Engineering Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Platform Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & DevOps" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data & Analytics" } }
-        ]
-      }
+      "areaServed": [{ "@type": "Country", "name": "Zimbabwe" },{ "@type": "Place", "name": "Africa" }],
+      "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Software Engineering Services", "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Platform Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & DevOps" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data & Analytics" } }
+      ]}
     }
     </script>
 
@@ -177,36 +212,12 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What software services does FlexiLogic Africa offer?",
-          "acceptedAnswer": { "@type": "Answer", "text": "FlexiLogic Africa offers web platform development, mobile app development (iOS & Android), cloud infrastructure & DevOps, AI & automation, cybersecurity, and data analytics — all tailored for businesses across Zimbabwe and Africa." }
-        },
-        {
-          "@type": "Question",
-          "name": "Where is FlexiLogic Africa based?",
-          "acceptedAnswer": { "@type": "Answer", "text": "FlexiLogic Africa is based in Harare, Zimbabwe, and serves clients across the African continent." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does FlexiLogic Africa build mobile apps?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build cross-platform mobile applications for iOS and Android using Flutter, as well as native apps. We have delivered apps for education, agriculture, fintech, and e-commerce clients across Africa." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I start a project with FlexiLogic Africa?",
-          "acceptedAnswer": { "@type": "Answer", "text": "You can reach us by emailing flexilogicafrica@gmail.com, calling +263 77 255 0103, or filling in the contact form on our website at flexilogic.africa. We will schedule a discovery call to understand your needs and put together a proposal." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can FlexiLogic Africa work with clients outside Zimbabwe?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. While we are headquartered in Harare, Zimbabwe, we work with clients across Africa and internationally. We collaborate remotely and can travel for on-site engagements when required." }
-        },
-        {
-          "@type": "Question",
-          "name": "What technologies does FlexiLogic Africa use?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Our stack includes React, Next.js, Node.js, Flutter, Python, PostgreSQL, MongoDB, AWS, Google Cloud, Docker, and Kubernetes — chosen to match each client's specific needs and scale." }
-        }
+        { "@type": "Question", "name": "What software services does FlexiLogic Africa offer?", "acceptedAnswer": { "@type": "Answer", "text": "FlexiLogic Africa offers web platform development, mobile app development (iOS & Android), cloud infrastructure & DevOps, AI & automation, cybersecurity, and data analytics — all tailored for businesses across Zimbabwe and Africa." } },
+        { "@type": "Question", "name": "Where is FlexiLogic Africa based?", "acceptedAnswer": { "@type": "Answer", "text": "FlexiLogic Africa is based in Harare, Zimbabwe, and serves clients across the African continent." } },
+        { "@type": "Question", "name": "Does FlexiLogic Africa build mobile apps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build cross-platform mobile applications for iOS and Android using Flutter. We have delivered apps for education, agriculture, fintech, and e-commerce clients across Africa." } },
+        { "@type": "Question", "name": "How do I start a project with FlexiLogic Africa?", "acceptedAnswer": { "@type": "Answer", "text": "Email flexilogicafrica@gmail.com, call +263 77 255 0103, or fill in the contact form at flexilogic.africa. We will schedule a discovery call to understand your needs." } },
+        { "@type": "Question", "name": "Can FlexiLogic Africa work with clients outside Zimbabwe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. While headquartered in Harare, Zimbabwe, we work with clients across Africa and internationally, collaborating remotely and travelling for on-site engagements when required." } },
+        { "@type": "Question", "name": "What technologies does FlexiLogic Africa use?", "acceptedAnswer": { "@type": "Answer", "text": "Our stack includes React, Node.js, Flutter, Python, PostgreSQL, AWS, and Google Cloud — chosen to match each client's specific needs and scale." } }
       ]
     }
     </script>
@@ -220,36 +231,21 @@
       "@type": "WebSite",
       "name": "FlexiLogic Africa",
       "url": "https://flexilogic.africa",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": { "@type": "EntryPoint", "urlTemplate": "https://flexilogic.africa/blog?q={search_term_string}" },
-        "query-input": "required name=search_term_string"
-      }
+      "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://flexilogic.africa/blog?q={search_term_string}" }, "query-input": "required name=search_term_string" }
     }
     </script>
 
     <!-- ═══════════════════════════════════════════
-         PERFORMANCE
+         OTHER PERF HINTS
     ═══════════════════════════════════════════ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://formspree.io" />
+    <link rel="dns-prefetch" href="https://embed.tawk.to" />
   </head>
   <body>
 
-    <!--
-    ════════════════════════════════════════════════════════
-      STATIC HTML FOR GOOGLE CRAWLER
-      ─────────────────────────────────────────────────────
-      Googlebot fetches raw HTML before JavaScript runs.
-      This content is invisible to users (React mounts over
-      it) but fully readable by crawlers.
-      DO NOT REMOVE — this is what gets indexed.
-    ════════════════════════════════════════════════════════
-    -->
+    <!-- Static HTML for Google crawler — invisible to users,
+         React mounts over this before the user sees it -->
     <div id="root">
-
-      <!-- Navbar hint for crawler -->
       <nav style="display:none" aria-hidden="true">
         <a href="/">FlexiLogic Africa</a>
         <a href="/#services">Services</a>
@@ -257,51 +253,23 @@
         <a href="/blog">Blog</a>
         <a href="/#contact">Contact</a>
       </nav>
-
-      <!-- Hero content for crawler -->
       <main style="display:none" aria-hidden="true">
         <h1>FlexiLogic Africa — Software Engineering Studio, Harare Zimbabwe</h1>
         <p>We design and build flexible, scalable software for businesses across Africa. Web platforms, mobile apps, cloud infrastructure, AI automation, cybersecurity, and data analytics — built for the African context.</p>
-
         <section>
           <h2>Our Services</h2>
-          <article>
-            <h3>Web Platform Development</h3>
-            <p>Custom web applications and platforms built with React and Node.js for businesses across Zimbabwe and Africa. We replace spreadsheets and WhatsApp workflows with purpose-built systems that scale.</p>
-            <a href="/blog/web-platforms-zimbabwe">Learn more about web platform development in Zimbabwe</a>
-          </article>
-          <article>
-            <h3>Mobile App Development</h3>
-            <p>Cross-platform mobile apps for iOS and Android using Flutter, optimised for mid-range Android devices and low-bandwidth environments common across Zimbabwe and Africa.</p>
-            <a href="/blog/mobile-apps-zimbabwe">Learn more about mobile app development in Zimbabwe</a>
-          </article>
-          <article>
-            <h3>Cloud Infrastructure and DevOps</h3>
-            <p>Cloud architecture, CI/CD pipelines, zero-downtime deployments, and ongoing DevOps support for African businesses running production software.</p>
-            <a href="/blog/cloud-devops-africa">Learn more about cloud and DevOps for African businesses</a>
-          </article>
-          <article>
-            <h3>AI and Automation</h3>
-            <p>Intelligent automation, workflow orchestration, and AI-powered tools that reduce manual work and help African businesses make better decisions from their data.</p>
-            <a href="/blog/ai-automation-africa">Learn more about AI and automation in Africa</a>
-          </article>
-          <article>
-            <h3>Cybersecurity</h3>
-            <p>Security audits, system hardening, and secure software development practices for Zimbabwean and African businesses building or managing digital systems.</p>
-            <a href="/blog/cybersecurity-zimbabwe">Learn more about cybersecurity for Zimbabwean businesses</a>
-          </article>
-          <article>
-            <h3>Data and Analytics</h3>
-            <p>Data pipelines, operational dashboards, automated reporting, and business intelligence solutions that turn raw business data into actionable decisions.</p>
-            <a href="/blog/data-analytics-africa">Learn more about data analytics for African businesses</a>
-          </article>
+          <article><h3>Web Platform Development</h3><p>Custom web applications built with React and Node.js for businesses across Zimbabwe and Africa.</p><a href="/blog/web-platforms-zimbabwe">Web platform development in Zimbabwe</a></article>
+          <article><h3>Mobile App Development</h3><p>Cross-platform mobile apps for iOS and Android using Flutter, optimised for African devices and connectivity.</p><a href="/blog/mobile-apps-zimbabwe">Mobile app development in Zimbabwe</a></article>
+          <article><h3>Cloud Infrastructure and DevOps</h3><p>Cloud architecture, CI/CD pipelines, and DevOps for African businesses running production software.</p><a href="/blog/cloud-devops-africa">Cloud and DevOps for African businesses</a></article>
+          <article><h3>AI and Automation</h3><p>Workflow automation and AI-powered tools that reduce manual work for African businesses.</p><a href="/blog/ai-automation-africa">AI and automation in Africa</a></article>
+          <article><h3>Cybersecurity</h3><p>Security audits and secure software development for Zimbabwean and African businesses.</p><a href="/blog/cybersecurity-zimbabwe">Cybersecurity for Zimbabwean businesses</a></article>
+          <article><h3>Data and Analytics</h3><p>Dashboards, automated reporting, and business intelligence for African businesses.</p><a href="/blog/data-analytics-africa">Data analytics for African businesses</a></article>
         </section>
-
         <section>
           <h2>Recent Articles</h2>
           <ul>
             <li><a href="/blog/building-school-management-system-zimbabwe">How We Built a School Management System for 1,200+ Zimbabwean Students</a></li>
-            <li><a href="/blog/web-platforms-zimbabwe">Why Zimbabwean Businesses Are Moving Off WhatsApp and Onto Proper Web Platforms</a></li>
+            <li><a href="/blog/web-platforms-zimbabwe">Why Zimbabwean Businesses Are Moving Off WhatsApp and Onto Web Platforms</a></li>
             <li><a href="/blog/mobile-apps-zimbabwe">Building Mobile Apps That Actually Work in Zimbabwe</a></li>
             <li><a href="/blog/cloud-devops-africa">Cloud Infrastructure for African Businesses: What Actually Works</a></li>
             <li><a href="/blog/ai-automation-africa">AI and Automation in African Business: What Is Real and Where to Start</a></li>
@@ -311,29 +279,29 @@
             <li><a href="/blog/zero-downtime-deployments-node">Zero-Downtime Deployments on a Budget: Our Node.js Playbook</a></li>
           </ul>
         </section>
-
         <section>
           <h2>Contact FlexiLogic Africa</h2>
           <p>Based in Harare, Zimbabwe. Email: flexilogicafrica@gmail.com | Phone: +263 77 255 0103</p>
-          <p>We work with startups, SMEs, schools, government organisations, and international companies entering the African market.</p>
         </section>
       </main>
-
     </div>
 
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Tawk.to live chat -->
-    <script type="text/javascript">
-      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-      (function(){
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = "https://embed.tawk.to/69aeb38d121cf01c355b9149/1jj96qom0";
-        s1.charset = "UTF-8";
-        s1.setAttribute("crossorigin","*");
-        s0.parentNode.insertBefore(s1, s0);
-      })();
+    <!-- Tawk.to — deferred to avoid blocking render -->
+    <script>
+      // Load Tawk only after page is interactive
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+          var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+          s1.async = true;
+          s1.src = "https://embed.tawk.to/69aeb38d121cf01c355b9149/1jj96qom0";
+          s1.charset = "UTF-8";
+          s1.setAttribute("crossorigin","*");
+          s0.parentNode.insertBefore(s1, s0);
+        }, 3000); // 3s delay — Tawk loads after user can interact with your site
+      });
     </script>
   </body>
 </html>

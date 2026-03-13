@@ -46,7 +46,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-import FlexilogicPortfolio from "./FlexilogicPortfolio";
+const FlexilogicPortfolio = lazy(() => import("./FlexilogicPortfolio"));
 
 /* ── Lazy-load each blog article for code-splitting ─────────── */
 const SchoolManagementArticle = lazy(() =>
@@ -81,39 +81,30 @@ const blogRoutes = [
   // ← add new posts here
 ];
 
-/* ── Loading fallback ───────────────────────────────────────── */
-function ArticleLoader() {
+/* ── Loading fallback ─────────────────────────────────────────
+   Dark brand screen shown while lazy chunks download.
+   Matches the navy background so there is no flash.
+───────────────────────────────────────────────────────────── */
+function PageLoader({ label = "Loading…" }) {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#F8F6F1",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        gap: 16,
-        fontFamily: "'DM Sans', sans-serif",
-      }}
-    >
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#C8922A"
-        strokeWidth="2"
-        style={{ animation: "spin .8s linear infinite" }}
-      >
-        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-      </svg>
-      <span style={{ color: "#6B7592", fontSize: 13, fontWeight: 600 }}>
-        Loading article…
-      </span>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    <div style={{
+      position: "fixed", inset: 0, background: "#0B1221",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      flexDirection: "column", gap: 16,
+      fontFamily: "'DM Sans', ui-sans-serif, sans-serif", zIndex: 9999,
+    }}>
+      <div style={{
+        width: 44, height: 44,
+        border: "3px solid rgba(200,146,42,0.25)",
+        borderTopColor: "#C8922A", borderRadius: "50%",
+        animation: "fl-spin .7s linear infinite",
+      }} />
+      <span style={{ color: "rgba(248,246,241,0.45)", fontSize: 12, fontWeight: 600, letterSpacing: ".08em", textTransform: "uppercase" }}>{label}</span>
+      <style>{"@keyframes fl-spin { to { transform: rotate(360deg); } }"}</style>
     </div>
   );
 }
+const ArticleLoader = () => <PageLoader label="Loading article…" />;
 
 /* ── Dynamic blog router — picks the right article by slug ─── */
 function BlogArticleRouter() {
@@ -157,7 +148,7 @@ function AllArticlesPage() {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&display=swap');
+    
         .serif { font-family: 'DM Serif Display', Georgia, serif; }
         .all-card { cursor:pointer; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
         .all-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(11,18,33,0.10); border-color: rgba(200,146,42,0.32) !important; }
@@ -386,10 +377,10 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         {/* Home — portfolio */}
-        <Route path="/" element={<FlexilogicPortfolio />} />
+        <Route path="/" element={<Suspense fallback={<PageLoader />}><FlexilogicPortfolio /></Suspense>} />
 
         {/* All articles list */}
-        <Route path="/blog" element={<AllArticlesPage />} />
+        <Route path="/blog" element={<Suspense fallback={<PageLoader />}><AllArticlesPage /></Suspense>} />
 
         {/* Individual article — dynamic by slug */}
         <Route path="/blog/:slug" element={<BlogArticleRouter />} />
