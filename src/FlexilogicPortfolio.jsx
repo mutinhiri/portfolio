@@ -7,7 +7,7 @@ import { useSEO } from "./useSEO";
 ───────────────────────────────────────────── */
 const GlobalStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+
     :root { --gold: #C8922A; --gold2: #E5A93C; }
     body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
     .serif { font-family: 'DM Serif Display', Georgia, serif; }
@@ -61,6 +61,9 @@ const GlobalStyles = () => (
     .cf-input::placeholder { color:rgba(255,255,255,0.20); }
     .cf-input:focus { border-color:#C8922A; background:rgba(200,146,42,0.06); box-shadow:0 0 0 3px rgba(200,146,42,0.10); }
     .cf-input.err { border-color:#ff7070; box-shadow:0 0 0 3px rgba(255,112,112,0.10); }
+    /* Accessibility utilities */
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }
+    .focus\:not-sr-only:focus { position:fixed; width:auto; height:auto; padding:0; margin:0; overflow:visible; clip:auto; white-space:normal; }
     textarea.cf-input { resize:vertical; min-height:110px; }
     select.cf-input option { background:#131D35; color:#fff; }
     .cf-error { font-size:11px; color:#ff8888; margin-top:5px; }
@@ -364,7 +367,7 @@ function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-24 px-12 bg-[#F8F6F1]">
+    <section id="blog" aria-label="Blog articles" className="py-24 px-12 bg-[#F8F6F1]">
       <div className="max-w-[1100px] mx-auto">
 
         {/* Section header */}
@@ -648,7 +651,7 @@ function ShowreelModal({ onClose }) {
             </div>
           </div>
         </div>
-        <p className="text-center text-white/25 text-xs mt-4 tracking-wide">FlexiLogic Africa · Studio Showreel · 2025 · Press Esc to close</p>
+        <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Studio Showreel · 2025 · Press Esc to close</p>
       </div>
     </div>
   );
@@ -751,9 +754,9 @@ function ContactSection() {
   };
   const SVCS = ["Web Platform / App", "Mobile App (iOS & Android)", "Cloud & DevOps Setup", "AI & Automation", "Cybersecurity Audit", "Data & Analytics", "School Management System", "Other / Not Sure Yet"];
   const TIMES = ["ASAP / Within a month", "1–3 months", "3–6 months", "6+ months / Ongoing"];
-  const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 255 0103" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
+  const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 000 0000" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
   return (
-    <section id="contact" className="relative overflow-hidden py-24 px-12" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 60%,#1B2847 100%)" }}>
+    <section id="contact" aria-label="Contact us" className="relative overflow-hidden py-24 px-12" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 60%,#1B2847 100%)" }}>
       <div className="absolute bottom-[-8%] right-[-4%] w-[320px] h-[320px] opacity-[0.05] pointer-events-none">
         <svg width="320" height="320" viewBox="0 0 320 320"><circle cx="160" cy="160" r="120" fill="none" stroke="#C8922A" strokeWidth="1" strokeDasharray="8 5" /><circle cx="160" cy="160" r="65" fill="none" stroke="#C8922A" strokeWidth="1" />{[0, 45, 90, 135, 180, 225, 270, 315].map((a, i) => <circle key={i} cx={160 + 65 * Math.cos(a * Math.PI / 180)} cy={160 + 65 * Math.sin(a * Math.PI / 180)} r="3" fill="#C8922A" />)}</svg>
       </div>
@@ -782,14 +785,14 @@ function ContactSection() {
                   <div><label className="cf-label">Email Address <span>*</span></label><input type="email" className={`cf-input${errs.email ? " err" : ""}`} placeholder="you@company.co.zw" value={form.email} onChange={e => set("email", e.target.value)} />{errs.email && <p className="cf-error">{errs.email}</p>}</div>
                   <div><label className="cf-label">Phone / WhatsApp</label><input className="cf-input" placeholder="+263 77 000 0000" value={form.phone} onChange={e => set("phone", e.target.value)} /></div>
                 </div>
-                <div><label className="cf-label">Service Needed <span>*</span></label><select className={`cf-input${errs.service ? " err" : ""}`} value={form.service} onChange={e => set("service", e.target.value)}><option value="">Select a service…</option>{SVCS.map(s => <option key={s} value={s}>{s}</option>)}</select>{errs.service && <p className="cf-error">{errs.service}</p>}</div>
-                <div><label className="cf-label">Timeline</label><select className="cf-input" value={form.timeline} onChange={e => set("timeline", e.target.value)}><option value="">When do you need it?</option>{TIMES.map(t => <option key={t} value={t}>{t}</option>)}</select></div>
+                <div><label htmlFor="cf-service" className="cf-label">Service Needed <span>*</span></label><select id="cf-service" className={`cf-input${errs.service ? " err" : ""}`} value={form.service} onChange={e => set("service", e.target.value)} aria-required="true" aria-invalid={!!errs.service} aria-describedby={errs.service ? "cf-service-err" : undefined}><option value="">Select a service…</option>{SVCS.map(s => <option key={s} value={s}>{s}</option>)}</select>{errs.service && <p id="cf-service-err" className="cf-error" role="alert">{errs.service}</p>}</div>
+                <div><label htmlFor="cf-timeline" className="cf-label">Timeline</label><select id="cf-timeline" className="cf-input" value={form.timeline} onChange={e => set("timeline", e.target.value)}><option value="">When do you need it?</option>{TIMES.map(t => <option key={t} value={t}>{t}</option>)}</select></div>
                 <div><label className="cf-label">Tell Us About Your Project <span>*</span></label><textarea className={`cf-input${errs.message ? " err" : ""}`} placeholder="Describe your idea, the problem it solves, and any technical details…" value={form.message} onChange={e => set("message", e.target.value)} />{errs.message && <p className="cf-error">{errs.message}</p>}</div>
                 {errs.submit && <p className="text-center text-[12px] text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-2">{errs.submit}</p>}
                 <button onClick={handleSubmit} disabled={loading} className="btn-shimmer w-full font-bold text-[15px] text-[#0B1221] border-none rounded-xl py-3.5 cursor-pointer flex items-center justify-center gap-2.5 disabled:opacity-60 disabled:cursor-not-allowed mt-1">
                   {loading ? (<><svg className="spin-loader" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /></svg>Sending…</>) : (<>Send Message <Arr sz={15} /></>)}
                 </button>
-                <p className="text-center text-white/20 text-[11px]">We respect your privacy — your details are never shared with third parties.</p>
+                <p className="text-center text-white/50 text-[11px]">We respect your privacy — your details are never shared with third parties.</p>
               </div>
             )}
           </div>
@@ -797,7 +800,7 @@ function ContactSection() {
             {INFO.map(c => (
               <div key={c.label} className="flex items-center gap-3.5 bg-white/[0.04] border border-white/[0.07] rounded-xl px-4 py-3.5 hover:border-[#C8922A]/30 hover:bg-[#C8922A]/[0.04] transition-all">
                 <div className="w-10 h-10 rounded-xl bg-[#C8922A]/15 flex items-center justify-center text-lg flex-shrink-0">{c.icon}</div>
-                <div><div className="text-[10px] font-bold uppercase tracking-[.08em] text-white/35 mb-0.5">{c.label}</div><div className="text-[13px] font-semibold text-white/80">{c.value}</div></div>
+                <div><div className="text-[10px] font-bold uppercase tracking-[.08em] text-white/55 mb-0.5">{c.label}</div><div className="text-[13px] font-semibold text-white/80">{c.value}</div></div>
               </div>
             ))}
             <div className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-5 mt-1">
@@ -865,8 +868,11 @@ export default function FlexilogicPortfolio() {
       <GlobalStyles />
       {showreel && <ShowreelModal onClose={() => setShowreel(false)} />}
 
+      {/* ═══ SKIP NAV (accessibility) ═══ */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-[#C8922A] focus:text-[#0B1221] focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Skip to main content</a>
+
       {/* ═══ NAV ═══ */}
-      <nav className={`fixed top-0 left-0 right-0 z-[100] px-12 h-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-[#0B1221]/95 backdrop-blur-[18px] border-b border-white/[0.07]" : "bg-transparent"}`}>
+      <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-[100] px-12 h-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "bg-[#0B1221]/95 backdrop-blur-[18px] border-b border-white/[0.07]" : "bg-transparent"}`}>
         <div className="flex items-center gap-2.5">
           <LogoMark size={38} />
           <div>
@@ -884,6 +890,9 @@ export default function FlexilogicPortfolio() {
           <a href="#contact" className="btn-shimmer font-bold text-xs text-[#0B1221] border-none rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-1.5 no-underline">Start Project <Arr /></a>
         </div>
       </nav>
+
+      {/* ═══ MAIN CONTENT ═══ */}
+      <main id="main-content">
 
       {/* ═══ HERO ═══ */}
       <section id="hero" className="relative min-h-screen flex items-center overflow-hidden px-12 pt-24 pb-20" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 55%,#1B2847 100%)" }}>
@@ -926,7 +935,7 @@ export default function FlexilogicPortfolio() {
               <div className="afr af1 absolute top-0 left-[6%] w-[295px] bg-[#131D35] border border-white/[0.08] rounded-[18px] overflow-hidden shadow-[0_28px_70px_rgba(0,0,0,0.45)]" style={{ animationDelay: ".3s" }}>
                 <div className="bg-[#1B2847] px-4 py-2.5 flex items-center gap-1.5 border-b border-white/[0.06]">
                   {["#ff4f6b", "#C8922A", "#00C896"].map((c, i) => <div key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />)}
-                  <span className="text-[10px] text-white/35 ml-2 font-semibold tracking-[.06em]">PROJECT STATUS</span>
+                  <span className="text-[10px] text-white/60 ml-2 font-semibold tracking-[.06em]">PROJECT STATUS</span>
                 </div>
                 <div className="p-5">
                   {[{ n: "Eduverse School Management", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" }, { n: "Zimlearnerspot Elearning", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" }, { n: "Farmers Hub", s: "REVIEW", col: "#C8922A", bg: "rgba(200,146,42,0.12)" }, { n: "PayGo Mobile", s: "BUILD", col: "#7C9FFF", bg: "rgba(124,159,255,0.1)" }].map(p => (
@@ -954,7 +963,7 @@ export default function FlexilogicPortfolio() {
                 <span className="text-[10px] font-bold text-[#6B7592]">— CEO, Eduverse Africa</span>
               </div>
               <div className="afr absolute bg-[#1B2847] border border-white/[0.08] rounded-[14px] p-4" style={{ top: "40%", right: "3%", width: 174, animationDelay: ".55s" }}>
-                <div className="text-[9px] font-bold tracking-[.14em] text-white/40 mb-2 uppercase">Our Stack</div>
+                <div className="text-[9px] font-bold tracking-[.14em] text-white/60 mb-2 uppercase">Our Stack</div>
                 <div className="flex gap-2 text-[19px] flex-wrap">{["⚛️", "🟢", "🐍", "📱", "☁️", "🔷"].map((e, i) => <span key={i}>{e}</span>)}</div>
               </div>
             </div>
@@ -971,7 +980,7 @@ export default function FlexilogicPortfolio() {
               <span key={rep} className="inline-flex items-center">
                 {["WEB DEVELOPMENT", "MOBILE APPS", "CLOUD & DEVOPS", "AI INTEGRATION", "CYBERSECURITY", "DATA & ANALYTICS", "UX / UI DESIGN", "AGILE DELIVERY"].map((item, i) => (
                   <span key={i} className="inline-flex items-center gap-4 px-6">
-                    <span className="text-[11px] font-bold text-white/40 tracking-[.14em] whitespace-nowrap">{item}</span>
+                    <span className="text-[11px] font-bold text-white/60 tracking-[.14em] whitespace-nowrap">{item}</span>
                     <span className="text-[#C8922A] text-xs">◆</span>
                   </span>
                 ))}
@@ -982,7 +991,7 @@ export default function FlexilogicPortfolio() {
       </div>
 
       {/* ═══ SERVICES ═══ */}
-      <section id="services" className="py-24 px-12 bg-[#F8F6F1]">
+      <section id="services" aria-label="Our services" className="py-24 px-12 bg-[#F8F6F1]">
         <div className="max-w-[1100px] mx-auto">
           <div className="flex items-end justify-between mb-14">
             <div className="rv">
@@ -1013,7 +1022,7 @@ export default function FlexilogicPortfolio() {
           {[["60", "+", "Projects Shipped"], ["8", " yrs", "Industry Experience"], ["40", "+", "Clients Active"], ["12", "", "Countries Served"]].map(([v, s, l]) => (
             <div key={l}>
               <div className="serif text-[52px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
-              <div className="text-[12px] text-white/40 mt-1.5 font-medium">{l}</div>
+              <div className="text-[12px] text-white/65 mt-1.5 font-medium">{l}</div>
             </div>
           ))}
         </div>
@@ -1073,7 +1082,7 @@ export default function FlexilogicPortfolio() {
         <span className="text-[10px] font-extrabold tracking-[.1em] text-[#6B7592] whitespace-nowrap uppercase">Trusted by</span>
         <div className="flex gap-12 flex-wrap">
           {["AcademyPro", "BrightMinds", "ZimTech", "PayGo", "AgriLink", "HealthBridge"].map(n => (
-            <span key={n} className="text-[14px] font-bold text-[#0B1221]/20 tracking-wide">{n}</span>
+            <span key={n} className="text-[14px] font-bold text-[#0B1221]/50 tracking-wide">{n}</span>
           ))}
         </div>
       </div>
@@ -1085,12 +1094,14 @@ export default function FlexilogicPortfolio() {
       <ContactSection />
 
       {/* ═══ FOOTER ═══ */}
-      <footer className="border-t border-white/[0.07] pt-14 pb-8 px-12 bg-[#080F1E]">
+      </main>{/* end #main-content */}
+
+      <footer aria-label="Site footer" className="border-t border-white/[0.07] pt-14 pb-8 px-12 bg-[#080F1E]">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2.5 mb-3.5"><LogoMark size={36} /><div><div className="text-[15px] font-extrabold text-white tracking-tight">FLEXILOGIC</div><div className="text-[8px] font-bold tracking-[.2em] text-[#C8922A]">AFRICA</div></div></div>
-              <p className="text-[13px] text-white/35 leading-[1.75] max-w-[240px]">Building Africa's digital future, one product at a time. Globally-minded.</p>
+              <p className="text-[13px] text-white/55 leading-[1.75] max-w-[240px]">Building Africa's digital future, one product at a time. Globally-minded.</p>
             </div>
             {[
               { h: "Services", ls: ["Web Development", "Mobile Apps", "Cloud & DevOps", "AI Integration", "Cybersecurity"] },
@@ -1099,13 +1110,13 @@ export default function FlexilogicPortfolio() {
             ].map(col => (
               <div key={col.h}>
                 <div className="text-[11px] font-extrabold text-white mb-4 tracking-[.08em] uppercase">{col.h}</div>
-                {col.ls.map(l => <div key={l} className="text-[13px] text-white/35 mb-2.5 cursor-pointer hover:text-[#C8922A] transition-colors">{l}</div>)}
+                {col.ls.map(l => <div key={l} className="text-[13px] text-white/55 mb-2.5 cursor-pointer hover:text-[#C8922A] transition-colors">{l}</div>)}
               </div>
             ))}
           </div>
           <div className="h-px mb-6" style={{ background: "linear-gradient(90deg,#C8922A,rgba(200,146,42,0.1),transparent)" }} />
           <div className="flex justify-between items-center">
-            <span className="text-[12px] text-white/25">© 2025 FlexiLogic Africa. All rights reserved.</span>
+            <span className="text-[12px] text-white/45">© 2025 FlexiLogic Africa. All rights reserved.</span>
           </div>
         </div>
       </footer>
