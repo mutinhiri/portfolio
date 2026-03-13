@@ -814,8 +814,8 @@ function ContactSection() {
             ) : (
               <div className="flex flex-col gap-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div><label className="cf-label">Full Name <span>*</span></label><input className={`cf-input${errs.name ? " err" : ""}`} placeholder="Tinashe Banda" value={form.name} onChange={e => set("name", e.target.value)} />{errs.name && <p className="cf-error">{errs.name}</p>}</div>
-                  <div><label className="cf-label">Company / Organisation</label><input className="cf-input" placeholder="ZimTech Holdings" value={form.company} onChange={e => set("company", e.target.value)} /></div>
+                  <div><label className="cf-label">Full Name <span>*</span></label><input className={`cf-input${errs.name ? " err" : ""}`} placeholder="Your Name" value={form.name} onChange={e => set("name", e.target.value)} />{errs.name && <p className="cf-error">{errs.name}</p>}</div>
+                  <div><label className="cf-label">Company / Organisation</label><input className="cf-input" placeholder="Company / Individual" value={form.company} onChange={e => set("company", e.target.value)} /></div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div><label className="cf-label">Email Address <span>*</span></label><input type="email" className={`cf-input${errs.email ? " err" : ""}`} placeholder="you@company.co.zw" value={form.email} onChange={e => set("email", e.target.value)} />{errs.email && <p className="cf-error">{errs.email}</p>}</div>

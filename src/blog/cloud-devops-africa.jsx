@@ -329,7 +329,7 @@ resource "aws_db_instance" "postgres" {
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
     },
     {
-      slug: "eduverse-school-management-system-zimbabwe",
+      slug: "building-school-management-system-zimbabwe",
       category: "Product",
       categoryColor: "bg-[#00C896]/15 text-[#00C896]",
       title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",

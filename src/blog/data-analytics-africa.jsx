@@ -310,7 +310,7 @@ def run_daily_sales_pipeline(target_date=None):
 
   related: [
     {
-      slug: "ai-automation-africa-opportunity-2025",
+      slug: "ai-automation-africa",
       category: "AI & Automation",
       categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
       title: "AI Automation in Africa: The Opportunity, The Reality, and What to Build First",
@@ -320,7 +320,7 @@ def run_daily_sales_pipeline(target_date=None):
       coverBg: "linear-gradient(135deg,#0d0a1a 0%,#1a1035 100%)",
     },
     {
-      slug: "why-african-startups-need-devops-cloud-infrastructure",
+      slug: "cloud-devops-africa",
       category: "DevOps",
       categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
       title: "Why African Startups Can No Longer Afford to Ignore DevOps",
