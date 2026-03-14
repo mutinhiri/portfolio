@@ -652,16 +652,16 @@ function ShowreelModal({ onClose }) {
       <div className="modal-panel relative w-full max-w-4xl" onClick={e => e.stopPropagation()}>
         <button onClick={onClose} className="absolute -top-11 right-0 flex items-center gap-2 text-white/50 hover:text-white text-[13px] font-semibold transition-colors">Close <CloseIcon /></button>
         <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
-          <div className="w-full h-full flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-[#0B1221] via-[#131D35] to-[#1B2847]">
-            <div className="relative w-24 h-24 rounded-full flex items-center justify-center bg-[#C8922A]/10 border border-[#C8922A]/30">
-              <div className="absolute inset-0 rounded-full border border-[#C8922A]/15 scale-125" />
-              <div className="video-pulse text-[#C8922A] pl-1"><PlayIcon sz={40} /></div>
-            </div>
-            <div className="text-center z-10">
-              <p className="serif italic text-white text-[22px] mb-2">Showreel Coming Soon</p>
-              <p className="text-white/40 text-[13px] max-w-sm text-center leading-relaxed">Add your video URL or file path to <code className="text-[#C8922A] text-xs bg-white/[0.06] px-1.5 py-0.5 rounded">ShowreelModal</code> inside this component to go live instantly.</p>
-            </div>
-          </div>
+        <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
+  <iframe
+    className="w-full h-full"
+    src="https://www.youtube.com/embed/8ZegHdLTWnw"
+    title="Flexilogic Demo"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  />
+</div>
         </div>
         <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Studio Showreel · 2025 · Press Esc to close</p>
       </div>
@@ -790,7 +790,7 @@ function ContactSection() {
   };
   const SVCS = ["Web Platform / App", "Mobile App (iOS & Android)", "Cloud & DevOps Setup", "AI & Automation", "Cybersecurity Audit", "Data & Analytics", "School Management System", "Other / Not Sure Yet"];
   const TIMES = ["ASAP / Within a month", "1–3 months", "3–6 months", "6+ months / Ongoing"];
-  const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 000 0000" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
+  const INFO = [{ icon: "📧", label: "Email", value: "flexilogicafrica@gmail.com" }, { icon: "📞", label: "Phone", value: "+263 77 255 0103" }, { icon: "📍", label: "Location", value: "Harare, Zimbabwe" }, { icon: "⚡", label: "Response", value: "Within 24 hours" }];
   return (
     <section id="contact" aria-label="Contact us" className="relative overflow-hidden py-16 md:py-24 px-6 md:px-12" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 60%,#1B2847 100%)" }}>
       <div className="absolute bottom-[-8%] right-[-4%] w-[320px] h-[320px] opacity-[0.05] pointer-events-none">
@@ -819,7 +819,7 @@ function ContactSection() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div><label className="cf-label">Email Address <span>*</span></label><input type="email" className={`cf-input${errs.email ? " err" : ""}`} placeholder="you@company.co.zw" value={form.email} onChange={e => set("email", e.target.value)} />{errs.email && <p className="cf-error">{errs.email}</p>}</div>
-                  <div><label className="cf-label">Phone / WhatsApp</label><input className="cf-input" placeholder="+263 77 000 0000" value={form.phone} onChange={e => set("phone", e.target.value)} /></div>
+                  <div><label className="cf-label">Phone / WhatsApp</label><input className="cf-input" placeholder="+263 77 255 0103" value={form.phone} onChange={e => set("phone", e.target.value)} /></div>
                 </div>
                 <div><label htmlFor="cf-service" className="cf-label">Service Needed <span>*</span></label><select id="cf-service" className={`cf-input${errs.service ? " err" : ""}`} value={form.service} onChange={e => set("service", e.target.value)} aria-required="true" aria-invalid={!!errs.service} aria-describedby={errs.service ? "cf-service-err" : undefined}><option value="">Select a service…</option>{SVCS.map(s => <option key={s} value={s}>{s}</option>)}</select>{errs.service && <p id="cf-service-err" className="cf-error" role="alert">{errs.service}</p>}</div>
                 <div><label htmlFor="cf-timeline" className="cf-label">Timeline</label><select id="cf-timeline" className="cf-input" value={form.timeline} onChange={e => set("timeline", e.target.value)}><option value="">When do you need it?</option>{TIMES.map(t => <option key={t} value={t}>{t}</option>)}</select></div>
