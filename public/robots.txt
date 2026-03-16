@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.flexilogicafrica.com/sitemap.xml
+Sitemap: https://www.flexilogic.africa/sitemap.xml
