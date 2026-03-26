@@ -135,7 +135,7 @@ function AllArticlesPage() {
   useSEO({
     title:       "All Articles — FlexiLogic Africa Blog",
     description: "Engineering deep-dives, case studies, and product thinking from the FlexiLogic Africa team. Web platforms, mobile apps, cloud, AI, cybersecurity, and data analytics.",
-    canonical:   "https://www.flexilogic.africa/blog",
+    canonical:   "https://flexilogic.africa/blog",
     keywords:    "software engineering blog Zimbabwe, web development Africa, mobile apps Africa, cloud devops, AI automation, cybersecurity Africa",
   });
 
