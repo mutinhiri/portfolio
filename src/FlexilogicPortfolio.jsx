@@ -873,7 +873,7 @@ export default function FlexilogicPortfolio() {
   useSEO({
     title:       "FlexiLogic Africa — Software Engineering Studio, Harare Zimbabwe",
     description: "FlexiLogic Africa builds flexible, scalable software — web platforms, mobile apps, cloud infrastructure, AI automation, and cybersecurity for businesses across Africa.",
-    canonical:   "https://www.flexilogic.africa/",
+    canonical:   "https://flexilogic.africa/",
     keywords:    "software development Zimbabwe, web development Harare, mobile app development Africa, Flutter developer Zimbabwe, cloud devops Zimbabwe, AI automation Africa, cybersecurity Zimbabwe",
   });
 
