@@ -209,11 +209,11 @@ const STEPS = [
 ];
 
 const SERVICES = [
-  { e: "⚡", t: "Web Platforms",    d: "Scalable web apps with modern frameworks, optimised for speed and conversion." },
-  { e: "📲", t: "Mobile Apps",      d: "Cross-platform iOS & Android experiences via Flutter and React Native." },
-  { e: "☁️", t: "Cloud & DevOps",   d: "AWS, GCP, Azure — infrastructure as code with zero-downtime pipelines." },
-  { e: "🤖", t: "AI & Automation",  d: "Smart features, intelligent workflows, and LLM-powered product experiences." },
-  { e: "🔐", t: "Cybersecurity",    d: "Penetration testing, security audits, and secure-by-design architecture." },
+  { e: "⚡", t: "Web Platforms", d: "Scalable web apps with modern frameworks, optimised for speed and conversion." },
+  { e: "📲", t: "Mobile Apps", d: "Cross-platform iOS & Android experiences via Flutter and React Native." },
+  { e: "☁️", t: "Cloud & DevOps", d: "AWS, GCP, Azure — infrastructure as code with zero-downtime pipelines." },
+  { e: "🤖", t: "AI & Automation", d: "Smart features, intelligent workflows, and LLM-powered product experiences." },
+  { e: "🔐", t: "Cybersecurity", d: "Penetration testing, security audits, and secure-by-design architecture." },
   { e: "📊", t: "Data & Analytics", d: "Dashboards, data pipelines, and insights that drive real business decisions." },
 ];
 
@@ -397,8 +397,8 @@ export default function FlexilogicPortfolio() {
             <line x1="0" y1="240" x2="480" y2="240" stroke="#C8922A" strokeWidth="1" />
             <circle cx="240" cy="240" r="120" fill="none" stroke="#C8922A" strokeWidth="1" />
             <circle cx="240" cy="240" r="200" fill="none" stroke="#C8922A" strokeWidth=".5" strokeDasharray="6 4" />
-            {[0,60,120,180,240,300].map((a,i)=>(
-              <circle key={i} cx={240+120*Math.cos(a*Math.PI/180)} cy={240+120*Math.sin(a*Math.PI/180)} r="5" fill="#C8922A" />
+            {[0, 60, 120, 180, 240, 300].map((a, i) => (
+              <circle key={i} cx={240 + 120 * Math.cos(a * Math.PI / 180)} cy={240 + 120 * Math.sin(a * Math.PI / 180)} r="5" fill="#C8922A" />
             ))}
           </svg>
         </div>
@@ -423,7 +423,7 @@ export default function FlexilogicPortfolio() {
                 padding: "5px 14px", borderRadius: 100, marginBottom: 28, textTransform: "uppercase",
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C8922A", display: "inline-block" }} />
-                Software Development Studio · Africa
+                Software Development Company · Africa
               </div>
 
               <h1 className="serif afu" style={{
@@ -440,7 +440,7 @@ export default function FlexilogicPortfolio() {
               </p>
 
               <p className="afu" style={{ fontSize: 15, lineHeight: 1.78, color: "rgba(255,255,255,0.6)", maxWidth: 430, marginBottom: 36, animationDelay: ".18s" }}>
-                FlexiLogic Africa is a full-spectrum software studio. We take ambitious ideas from napkin sketch to market-ready product — precise, fast, and built to last.
+                FlexiLogic Africa is a full-spectrum software company. We take ambitious ideas from napkin sketch to market-ready product — precise, fast, and built to last.
               </p>
 
               <div className="afu" style={{ display: "flex", gap: 12, marginBottom: 52, animationDelay: ".26s" }}>
@@ -495,10 +495,10 @@ export default function FlexilogicPortfolio() {
                 </div>
                 <div style={{ padding: 20 }}>
                   {[
-                    { n: "EduVest Platform",  s: "LIVE",   col: "#00C896", bg: "rgba(0,200,150,0.1)" },
-                    { n: "Zim Marketplace",   s: "REVIEW", col: "#C8922A", bg: "rgba(200,146,42,0.12)" },
-                    { n: "PayGo Mobile",      s: "BUILD",  col: "#7C9FFF", bg: "rgba(124,159,255,0.1)" },
-                    { n: "AgriLink Portal",   s: "DESIGN", col: "#A78BFA", bg: "rgba(167,139,250,0.1)" },
+                    { n: "EduVest Platform", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" },
+                    { n: "Zim Marketplace", s: "REVIEW", col: "#C8922A", bg: "rgba(200,146,42,0.12)" },
+                    { n: "PayGo Mobile", s: "BUILD", col: "#7C9FFF", bg: "rgba(124,159,255,0.1)" },
+                    { n: "AgriLink Portal", s: "DESIGN", col: "#A78BFA", bg: "rgba(167,139,250,0.1)" },
                   ].map(p => (
                     <div key={p.n} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "9px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -693,8 +693,8 @@ export default function FlexilogicPortfolio() {
           <svg width="360" height="360" viewBox="0 0 360 360">
             <circle cx="180" cy="180" r="140" fill="none" stroke="#C8922A" strokeWidth="1" strokeDasharray="8 5" />
             <circle cx="180" cy="180" r="80" fill="none" stroke="#C8922A" strokeWidth="1" />
-            {[0,45,90,135,180,225,270,315].map((a,i)=>(
-              <circle key={i} cx={180+80*Math.cos(a*Math.PI/180)} cy={180+80*Math.sin(a*Math.PI/180)} r="4" fill="#C8922A" />
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((a, i) => (
+              <circle key={i} cx={180 + 80 * Math.cos(a * Math.PI / 180)} cy={180 + 80 * Math.sin(a * Math.PI / 180)} r="4" fill="#C8922A" />
             ))}
           </svg>
         </div>
@@ -748,8 +748,8 @@ export default function FlexilogicPortfolio() {
             </div>
             {[
               { h: "Services", ls: ["Web Development", "Mobile Apps", "Cloud & DevOps", "AI Integration", "Cybersecurity"] },
-              { h: "Company",  ls: ["About Us", "Our Work", "Careers", "Blog", "Press Kit"] },
-              { h: "Contact",  ls: ["flexilogicafrica@gmail.com", "+263 77 000 0000", "Harare, Zimbabwe", "Remote · Worldwide"] },
+              { h: "Company", ls: ["About Us", "Our Work", "Careers", "Blog", "Press Kit"] },
+              { h: "Contact", ls: ["flexilogicafrica@gmail.com", "+263 77 000 0000", "Harare, Zimbabwe", "Remote · Worldwide"] },
             ].map(col => (
               <div key={col.h}>
                 <div style={{ fontSize: 11, fontWeight: 800, color: "#fff", marginBottom: 16, letterSpacing: ".08em", textTransform: "uppercase" }}>{col.h}</div>

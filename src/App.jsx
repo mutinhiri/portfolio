@@ -60,24 +60,24 @@ const DeploymentArticle = lazy(() =>
 );
 
 /* ── Service blog articles ───────────────────────────────────── */
-const WebPlatformsArticle  = lazy(() => import("./blog/web-platforms-zimbabwe"));
-const MobileAppsArticle    = lazy(() => import("./blog/mobile-apps-zimbabwe"));
-const CloudDevOpsArticle   = lazy(() => import("./blog/cloud-devops-africa"));
-const AIAutomationArticle  = lazy(() => import("./blog/ai-automation-africa"));
+const WebPlatformsArticle = lazy(() => import("./blog/web-platforms-zimbabwe"));
+const MobileAppsArticle = lazy(() => import("./blog/mobile-apps-zimbabwe"));
+const CloudDevOpsArticle = lazy(() => import("./blog/cloud-devops-africa"));
+const AIAutomationArticle = lazy(() => import("./blog/ai-automation-africa"));
 const CybersecurityArticle = lazy(() => import("./blog/cybersecurity-zimbabwe"));
 const DataAnalyticsArticle = lazy(() => import("./blog/data-analytics-africa"));
 
 /* ── Register your posts here ───────────────────────────────── */
 const blogRoutes = [
   { slug: "building-school-management-system-zimbabwe", component: SchoolManagementArticle },
-  { slug: "why-african-startups-choose-flutter",        component: FlutterArticle },
-  { slug: "zero-downtime-deployments-node",             component: DeploymentArticle },
-  { slug: "web-platforms-zimbabwe",                     component: WebPlatformsArticle },
-  { slug: "mobile-apps-zimbabwe",                       component: MobileAppsArticle },
-  { slug: "cloud-devops-africa",                        component: CloudDevOpsArticle },
-  { slug: "ai-automation-africa",                       component: AIAutomationArticle },
-  { slug: "cybersecurity-zimbabwe",                     component: CybersecurityArticle },
-  { slug: "data-analytics-africa",                      component: DataAnalyticsArticle },
+  { slug: "why-african-startups-choose-flutter", component: FlutterArticle },
+  { slug: "zero-downtime-deployments-node", component: DeploymentArticle },
+  { slug: "web-platforms-zimbabwe", component: WebPlatformsArticle },
+  { slug: "mobile-apps-zimbabwe", component: MobileAppsArticle },
+  { slug: "cloud-devops-africa", component: CloudDevOpsArticle },
+  { slug: "ai-automation-africa", component: AIAutomationArticle },
+  { slug: "cybersecurity-zimbabwe", component: CybersecurityArticle },
+  { slug: "data-analytics-africa", component: DataAnalyticsArticle },
   // ← add new posts here
 ];
 
@@ -133,10 +133,10 @@ function AllArticlesPage() {
   const navigate = useNavigate();
 
   useSEO({
-    title:       "All Articles — FlexiLogic Africa Blog",
+    title: "All Articles — FlexiLogic Africa Blog",
     description: "Engineering deep-dives, case studies, and product thinking from the FlexiLogic Africa team. Web platforms, mobile apps, cloud, AI, cybersecurity, and data analytics.",
-    canonical:   "https://flexilogic.africa/blog",
-    keywords:    "software engineering blog Zimbabwe, web development Africa, mobile apps Africa, cloud devops, AI automation, cybersecurity Africa",
+    canonical: "https://flexilogic.africa/blog",
+    keywords: "software engineering blog Zimbabwe, web development Africa, mobile apps Africa, cloud devops, AI automation, cybersecurity Africa",
   });
 
   return (
@@ -236,7 +236,7 @@ function AllArticlesPage() {
             marginBottom: 16,
           }}
         >
-          From the Studio
+          From the Company
         </div>
         <h1
           className="serif"

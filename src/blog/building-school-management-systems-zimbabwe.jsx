@@ -254,29 +254,29 @@ CREATE TABLE fee_payments (
         "Twilio SMS — parent and staff notifications with delivery status webhooks",
       ],
     },
-{
-  type: "heading",
-  level: 3,
-  text: "Single-School Deployment: One System, One School",
-},
-{
-  type: "paragraph",
-  text: "Eduverse is intentionally deployed as a dedicated instance per school. Each school gets their own hosted environment — their own database, their own subdomain, their own configuration — with no data shared across institutions. This is a deliberate product decision, not a technical limitation.",
-},
-{
-  type: "callout",
-  emoji: "🏫",
-  title: "Why single-school deployment?",
-  text: "Every school operates differently. Fee structures, grading scales, timetable formats, subject combinations, and reporting requirements vary not just by country but by individual institution. A shared multi-tenant platform forces schools into a lowest-common-denominator configuration. Dedicated deployments mean each school's Eduverse instance is configured exactly for how that school actually runs — with no compromises.",
-},
-{
-  type: "paragraph",
-  text: "In practice this means a school in Bulawayo running a Cambridge A-Level programme and a school in Mutare on the ZIMSEC curriculum can both use Eduverse without either having to work around the other's setup. Grading scales, term structures, subject naming, fee categories, and report card templates are all configured independently per deployment.",
-},
-{
-  type: "paragraph",
-  text: "From an infrastructure standpoint, each deployment is a lightweight stack — a containerised Node.js API, a PostgreSQL database, and a static React frontend served via CDN. Provisioning a new school takes under 30 minutes. Updates and patches are rolled out across all deployments centrally by the FlexiLogic team, so schools get new features without needing any IT intervention on their side.",
-},
+    {
+      type: "heading",
+      level: 3,
+      text: "Single-School Deployment: One System, One School",
+    },
+    {
+      type: "paragraph",
+      text: "Eduverse is intentionally deployed as a dedicated instance per school. Each school gets their own hosted environment — their own database, their own subdomain, their own configuration — with no data shared across institutions. This is a deliberate product decision, not a technical limitation.",
+    },
+    {
+      type: "callout",
+      emoji: "🏫",
+      title: "Why single-school deployment?",
+      text: "Every school operates differently. Fee structures, grading scales, timetable formats, subject combinations, and reporting requirements vary not just by country but by individual institution. A shared multi-tenant platform forces schools into a lowest-common-denominator configuration. Dedicated deployments mean each school's Eduverse instance is configured exactly for how that school actually runs — with no compromises.",
+    },
+    {
+      type: "paragraph",
+      text: "In practice this means a school in Bulawayo running a Cambridge A-Level programme and a school in Mutare on the ZIMSEC curriculum can both use Eduverse without either having to work around the other's setup. Grading scales, term structures, subject naming, fee categories, and report card templates are all configured independently per deployment.",
+    },
+    {
+      type: "paragraph",
+      text: "From an infrastructure standpoint, each deployment is a lightweight stack — a containerised Node.js API, a PostgreSQL database, and a static React frontend served via CDN. Provisioning a new school takes under 30 minutes. Updates and patches are rolled out across all deployments centrally by the FlexiLogic team, so schools get new features without needing any IT intervention on their side.",
+    },
     {
       type: "heading",
       level: 2,
@@ -606,17 +606,17 @@ function ShareBar({ title, slug }) {
       <span className="text-[10px] font-bold tracking-[.1em] uppercase text-[#6B7592] mr-1">Share</span>
       <a href={`https://twitter.com/intent/tweet?url=${encoded}&text=${titleEnc}`} target="_blank" rel="noreferrer"
         className="w-8 h-8 rounded-lg bg-[#0B1221] flex items-center justify-center text-white hover:bg-[#1DA1F2] transition-colors no-underline">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
       </a>
       <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`} target="_blank" rel="noreferrer"
         className="w-8 h-8 rounded-lg bg-[#0B1221] flex items-center justify-center text-white hover:bg-[#0A66C2] transition-colors no-underline">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
       </a>
       <button onClick={copy}
         className="w-8 h-8 rounded-lg bg-[#0B1221] flex items-center justify-center text-white hover:bg-[#C8922A] transition-colors cursor-pointer border-none">
         {copied
-          ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+          : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" /></svg>
         }
       </button>
     </div>
@@ -683,8 +683,8 @@ export default function FlexilogicBlogArticle() {
       <header className="relative overflow-hidden pt-28 pb-16 px-12" style={{ background: ARTICLE.coverBg }}>
         {/* Subtle grid overlay */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.05]" viewBox="0 0 1200 400" preserveAspectRatio="none">
-          {[100,200,300,400,500,600,700,800,900,1000,1100].map(x=><line key={x} x1={x} y1="0" x2={x} y2="400" stroke="#C8922A" strokeWidth="1"/>)}
-          {[50,100,150,200,250,300,350].map(y=><line key={y} x1="0" y1={y} x2="1200" y2={y} stroke="#C8922A" strokeWidth="1"/>)}
+          {[100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100].map(x => <line key={x} x1={x} y1="0" x2={x} y2="400" stroke="#C8922A" strokeWidth="1" />)}
+          {[50, 100, 150, 200, 250, 300, 350].map(y => <line key={y} x1="0" y1={y} x2="1200" y2={y} stroke="#C8922A" strokeWidth="1" />)}
         </svg>
         {/* Big cover emoji */}
         <div className="absolute right-16 top-1/2 -translate-y-1/2 text-[160px] opacity-[0.08] select-none pointer-events-none leading-none">
@@ -783,7 +783,7 @@ export default function FlexilogicBlogArticle() {
           <div className="max-w-[1100px] mx-auto">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3">More from the Studio</div>
+                <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3">More from the Company</div>
                 <h3 className="serif italic text-[#0B1221] text-[28px]">Keep Reading</h3>
               </div>
               <button

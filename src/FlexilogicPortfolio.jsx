@@ -297,8 +297,8 @@ function BlogCard({ post, idx, onNavigate }) {
               <line x1="0" y1="150" x2="400" y2="150" stroke="#C8922A" strokeWidth="1" />
               <line x1="200" y1="0" x2="200" y2="300" stroke="#C8922A" strokeWidth="1" />
               <circle cx="200" cy="150" r="50" fill="none" stroke="#C8922A" strokeWidth="1" strokeDasharray="6 4" />
-              {[0,60,120,180,240,300].map((a,i)=>(
-                <circle key={i} cx={200+50*Math.cos(a*Math.PI/180)} cy={150+50*Math.sin(a*Math.PI/180)} r="3" fill="#C8922A"/>
+              {[0, 60, 120, 180, 240, 300].map((a, i) => (
+                <circle key={i} cx={200 + 50 * Math.cos(a * Math.PI / 180)} cy={150 + 50 * Math.sin(a * Math.PI / 180)} r="3" fill="#C8922A" />
               ))}
             </svg>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B1221]/50 pointer-events-none" />
@@ -387,7 +387,7 @@ function BlogSection() {
           <div>
             <div className="inline-flex items-center gap-2 text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8922A] inline-block" />
-              From the Studio
+              From the Company
             </div>
             <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>
               Insights &amp; <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Articles</span>
@@ -450,11 +450,11 @@ const STEPS = [
   { id: "06", title: "Support & Growth", sub: "We grow as you grow", desc: "Monthly retainers, feature roadmaps, 24/7 alerting, and a dedicated technical partner who treats your product like their own.", tags: ["24/7 Monitoring", "Monthly Releases", "Roadmap Mgmt", "Priority SLA"], metric: "100", mUnit: "+", mLabel: "Long-term clients", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0" /><path d="M12 8v4l3 3" /></svg> },
 ];
 const SERVICES = [
-  { e: "⚡", t: "Web Platforms",    d: "Scalable web apps with modern frameworks, optimised for speed and conversion.", slug: "web-platforms-zimbabwe" },
-  { e: "📲", t: "Mobile Apps",      d: "Cross-platform iOS & Android experiences via Flutter and React Native.",        slug: "mobile-apps-zimbabwe" },
-  { e: "☁️", t: "Cloud & DevOps",   d: "AWS, GCP, Azure — infrastructure as code with zero-downtime pipelines.",       slug: "cloud-devops-africa" },
-  { e: "🤖", t: "AI & Automation",  d: "Smart features, intelligent workflows, and LLM-powered product experiences.",   slug: "ai-automation-africa" },
-  { e: "🔐", t: "Cybersecurity",    d: "Penetration testing, security audits, and secure-by-design architecture.",     slug: "cybersecurity-zimbabwe" },
+  { e: "⚡", t: "Web Platforms", d: "Scalable web apps with modern frameworks, optimised for speed and conversion.", slug: "web-platforms-zimbabwe" },
+  { e: "📲", t: "Mobile Apps", d: "Cross-platform iOS & Android experiences via Flutter and React Native.", slug: "mobile-apps-zimbabwe" },
+  { e: "☁️", t: "Cloud & DevOps", d: "AWS, GCP, Azure — infrastructure as code with zero-downtime pipelines.", slug: "cloud-devops-africa" },
+  { e: "🤖", t: "AI & Automation", d: "Smart features, intelligent workflows, and LLM-powered product experiences.", slug: "ai-automation-africa" },
+  { e: "🔐", t: "Cybersecurity", d: "Penetration testing, security audits, and secure-by-design architecture.", slug: "cybersecurity-zimbabwe" },
   { e: "📊", t: "Data & Analytics", d: "Dashboards, data pipelines, and insights that drive real business decisions.", slug: "data-analytics-africa" },
 ];
 
@@ -652,18 +652,18 @@ function ShowreelModal({ onClose }) {
       <div className="modal-panel relative w-full max-w-4xl" onClick={e => e.stopPropagation()}>
         <button onClick={onClose} className="absolute -top-11 right-0 flex items-center gap-2 text-white/50 hover:text-white text-[13px] font-semibold transition-colors">Close <CloseIcon /></button>
         <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
-        <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
-  <iframe
-    className="w-full h-full"
-    src="https://www.youtube.com/embed/8ZegHdLTWnw"
-    title="Flexilogic Demo"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  />
-</div>
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/8ZegHdLTWnw"
+              title="Flexilogic Demo"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
-        <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Studio Showreel · 2025 · Press Esc to close</p>
+        <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Company Showreel · 2025 · Press Esc to close</p>
       </div>
     </div>
   );
@@ -871,10 +871,10 @@ export default function FlexilogicPortfolio() {
   const navigate = useNavigate();
 
   useSEO({
-    title:       "FlexiLogic Africa — Software Engineering Studio, Harare Zimbabwe",
+    title: "FlexiLogic Africa — Software Engineering Company, Harare Zimbabwe",
     description: "FlexiLogic Africa builds flexible, scalable software — web platforms, mobile apps, cloud infrastructure, AI automation, and cybersecurity for businesses across Africa.",
-    canonical:   "https://flexilogic.africa/",
-    keywords:    "software development Zimbabwe, web development Harare, mobile app development Africa, Flutter developer Zimbabwe, cloud devops Zimbabwe, AI automation Africa, cybersecurity Zimbabwe",
+    canonical: "https://flexilogic.africa/",
+    keywords: "software development Zimbabwe, web development Harare, mobile app development Africa, Flutter developer Zimbabwe, cloud devops Zimbabwe, AI automation Africa, cybersecurity Zimbabwe",
   });
 
   useEffect(() => {
@@ -929,9 +929,9 @@ export default function FlexilogicPortfolio() {
         </div>
         {/* Mobile hamburger */}
         <button className="mob-menu" onClick={() => setMobNav(v => !v)} aria-label="Toggle navigation" aria-expanded={mobNav}>
-          <span style={mobNav ? {transform:"rotate(45deg) translate(4px,4px)"} : {}} />
-          <span style={mobNav ? {opacity:0} : {}} />
-          <span style={mobNav ? {transform:"rotate(-45deg) translate(4px,-4px)"} : {}} />
+          <span style={mobNav ? { transform: "rotate(45deg) translate(4px,4px)" } : {}} />
+          <span style={mobNav ? { opacity: 0 } : {}} />
+          <span style={mobNav ? { transform: "rotate(-45deg) translate(4px,-4px)" } : {}} />
         </button>
         {/* Mobile menu dropdown */}
         <div className={`nav-links-mobile ${mobNav ? "open" : ""}`}>
@@ -945,206 +945,206 @@ export default function FlexilogicPortfolio() {
       {/* ═══ MAIN CONTENT ═══ */}
       <main id="main-content">
 
-      {/* ═══ HERO ═══ */}
-      <section id="hero" className="relative min-h-screen flex items-center overflow-hidden px-6 md:px-12 pt-24 pb-20" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 55%,#1B2847 100%)" }}>
-        <div className="absolute top-0 right-0 w-[480px] h-[480px] opacity-[0.06] pointer-events-none">
-          <svg width="480" height="480" viewBox="0 0 480 480"><line x1="240" y1="0" x2="240" y2="480" stroke="#C8922A" strokeWidth="1" /><line x1="0" y1="240" x2="480" y2="240" stroke="#C8922A" strokeWidth="1" /><circle cx="240" cy="240" r="120" fill="none" stroke="#C8922A" strokeWidth="1" /><circle cx="240" cy="240" r="200" fill="none" stroke="#C8922A" strokeWidth=".5" strokeDasharray="6 4" />{[0, 60, 120, 180, 240, 300].map((a, i) => <circle key={i} cx={240 + 120 * Math.cos(a * Math.PI / 180)} cy={240 + 120 * Math.sin(a * Math.PI / 180)} r="5" fill="#C8922A" />)}</svg>
-        </div>
-        <div className="spin absolute bottom-[10%] left-[5%] w-44 h-44 border border-[#C8922A]/10 rounded-full pointer-events-none" />
-        <div className="absolute pointer-events-none" style={{ bottom: "calc(10% + 28px)", left: "calc(5% + 28px)", width: 124, height: 124, border: "1px solid rgba(200,146,42,0.07)", borderRadius: "50%" }} />
-        <div className="absolute top-[20%] right-[30%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,rgba(200,146,42,0.07) 0%,transparent 70%)" }} />
-        <div className="relative z-10 max-w-[1200px] mx-auto w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
-            <div>
-              <div className="afu inline-flex items-center gap-2 bg-[#C8922A]/12 border border-[#C8922A]/30 text-[#C8922A] text-[10px] font-bold tracking-[.12em] px-3.5 py-1.5 rounded-full mb-7 uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C8922A] inline-block" />Software Engineering Studio · Africa
-              </div>
-              <h1 className="serif afu text-white leading-[.95] mb-5 italic tracking-tight" style={{ fontSize: "clamp(46px,6vw,78px)", animationDelay: ".08s" }}>
-                We Design<br /><span className="text-[#C8922A]">&amp; Build</span><br />Products
-              </h1>
-              <p className="serif italic afu text-white/45 text-[15px] font-light mb-5 max-w-sm" style={{ animationDelay: ".1s" }}>that actually matter.</p>
-              <p className="afu text-[15px] leading-[1.78] text-white/60 max-w-[430px] mb-9" style={{ animationDelay: ".18s" }}>
-                FlexiLogic Africa builds flexible, scalable software solutions that help businesses across Africa solve real problems and grow with confidence.
-              </p>
-              <div className="afu flex flex-col sm:flex-row gap-3 mb-12" style={{ animationDelay: ".26s" }}>
-                <a href="#contact" className="btn-shimmer font-bold text-[14px] text-[#0B1221] border-none rounded-xl px-7 py-3 cursor-pointer flex items-center gap-2 no-underline">Start a Project <Arr /></a>
-                <button onClick={() => setShowreel(true)} className="group font-semibold text-[14px] bg-transparent text-white border border-white/20 rounded-xl px-7 py-3 cursor-pointer flex items-center gap-2.5 hover:border-[#C8922A]/50 hover:bg-[#C8922A]/5 transition-all">
-                  <span className="w-8 h-8 rounded-full bg-[#C8922A]/15 border border-[#C8922A]/30 flex items-center justify-center group-hover:bg-[#C8922A]/25 transition-all pl-0.5"><PlayIcon sz={14} /></span>
-                  Watch Showreel
-                </button>
-              </div>
-              <div className="afu flex flex-wrap gap-y-4" style={{ animationDelay: ".36s" }}>
-                {[["60", "+", "Projects Shipped"], ["8", "yrs", "Experience"], ["40", "+", "Clients"]].map(([v, s, l], i) => (
-                  <div key={l} className={`flex-1 ${i < 2 ? "pr-7 border-r border-white/10 mr-7" : ""}`}>
-                    <div className="serif text-[36px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
-                    <div className="text-[11px] text-white/45 mt-1 font-medium">{l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative h-[500px] hidden md:block">
-              <div className="afr af1 absolute top-0 left-[6%] w-[295px] bg-[#131D35] border border-white/[0.08] rounded-[18px] overflow-hidden shadow-[0_28px_70px_rgba(0,0,0,0.45)]" style={{ animationDelay: ".3s" }}>
-                <div className="bg-[#1B2847] px-4 py-2.5 flex items-center gap-1.5 border-b border-white/[0.06]">
-                  {["#ff4f6b", "#C8922A", "#00C896"].map((c, i) => <div key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />)}
-                  <span className="text-[10px] text-white/60 ml-2 font-semibold tracking-[.06em]">PROJECT STATUS</span>
+        {/* ═══ HERO ═══ */}
+        <section id="hero" className="relative min-h-screen flex items-center overflow-hidden px-6 md:px-12 pt-24 pb-20" style={{ background: "linear-gradient(160deg,#0B1221 0%,#131D35 55%,#1B2847 100%)" }}>
+          <div className="absolute top-0 right-0 w-[480px] h-[480px] opacity-[0.06] pointer-events-none">
+            <svg width="480" height="480" viewBox="0 0 480 480"><line x1="240" y1="0" x2="240" y2="480" stroke="#C8922A" strokeWidth="1" /><line x1="0" y1="240" x2="480" y2="240" stroke="#C8922A" strokeWidth="1" /><circle cx="240" cy="240" r="120" fill="none" stroke="#C8922A" strokeWidth="1" /><circle cx="240" cy="240" r="200" fill="none" stroke="#C8922A" strokeWidth=".5" strokeDasharray="6 4" />{[0, 60, 120, 180, 240, 300].map((a, i) => <circle key={i} cx={240 + 120 * Math.cos(a * Math.PI / 180)} cy={240 + 120 * Math.sin(a * Math.PI / 180)} r="5" fill="#C8922A" />)}</svg>
+          </div>
+          <div className="spin absolute bottom-[10%] left-[5%] w-44 h-44 border border-[#C8922A]/10 rounded-full pointer-events-none" />
+          <div className="absolute pointer-events-none" style={{ bottom: "calc(10% + 28px)", left: "calc(5% + 28px)", width: 124, height: 124, border: "1px solid rgba(200,146,42,0.07)", borderRadius: "50%" }} />
+          <div className="absolute top-[20%] right-[30%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle,rgba(200,146,42,0.07) 0%,transparent 70%)" }} />
+          <div className="relative z-10 max-w-[1200px] mx-auto w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
+              <div>
+                <div className="afu inline-flex items-center gap-2 bg-[#C8922A]/12 border border-[#C8922A]/30 text-[#C8922A] text-[10px] font-bold tracking-[.12em] px-3.5 py-1.5 rounded-full mb-7 uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C8922A] inline-block" />Software Engineering Company · Africa
                 </div>
-                <div className="p-5">
-                  {[{ n: "Eduverse School Management", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" }, { n: "Zimlearnerspot Elearning", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" }, { n: "Farmers Hub", s: "REVIEW", col: "#C8922A", bg: "rgba(200,146,42,0.12)" }, { n: "PayGo Mobile", s: "BUILD", col: "#7C9FFF", bg: "rgba(124,159,255,0.1)" }].map(p => (
-                    <div key={p.n} className="flex items-center justify-between py-2 border-b border-white/[0.05]">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-1.5 h-1.5 rounded-full" style={{ background: p.col, boxShadow: `0 0 6px ${p.col}` }} />
-                        <span className="text-[12px] text-white/80 font-semibold">{p.n}</span>
-                      </div>
-                      <span className="text-[9px] font-extrabold tracking-[.1em] px-2 py-0.5 rounded-full" style={{ color: p.col, background: p.bg }}>{p.s}</span>
+                <h1 className="serif afu text-white leading-[.95] mb-5 italic tracking-tight" style={{ fontSize: "clamp(46px,6vw,78px)", animationDelay: ".08s" }}>
+                  We Design<br /><span className="text-[#C8922A]">&amp; Build</span><br />Products
+                </h1>
+                <p className="serif italic afu text-white/45 text-[15px] font-light mb-5 max-w-sm" style={{ animationDelay: ".1s" }}>that actually matter.</p>
+                <p className="afu text-[15px] leading-[1.78] text-white/60 max-w-[430px] mb-9" style={{ animationDelay: ".18s" }}>
+                  FlexiLogic Africa builds flexible, scalable software solutions that help businesses across Africa solve real problems and grow with confidence.
+                </p>
+                <div className="afu flex flex-col sm:flex-row gap-3 mb-12" style={{ animationDelay: ".26s" }}>
+                  <a href="#contact" className="btn-shimmer font-bold text-[14px] text-[#0B1221] border-none rounded-xl px-7 py-3 cursor-pointer flex items-center gap-2 no-underline">Start a Project <Arr /></a>
+                  <button onClick={() => setShowreel(true)} className="group font-semibold text-[14px] bg-transparent text-white border border-white/20 rounded-xl px-7 py-3 cursor-pointer flex items-center gap-2.5 hover:border-[#C8922A]/50 hover:bg-[#C8922A]/5 transition-all">
+                    <span className="w-8 h-8 rounded-full bg-[#C8922A]/15 border border-[#C8922A]/30 flex items-center justify-center group-hover:bg-[#C8922A]/25 transition-all pl-0.5"><PlayIcon sz={14} /></span>
+                    Watch Showreel
+                  </button>
+                </div>
+                <div className="afu flex flex-wrap gap-y-4" style={{ animationDelay: ".36s" }}>
+                  {[["60", "+", "Projects Shipped"], ["8", "yrs", "Experience"], ["40", "+", "Clients"]].map(([v, s, l], i) => (
+                    <div key={l} className={`flex-1 ${i < 2 ? "pr-7 border-r border-white/10 mr-7" : ""}`}>
+                      <div className="serif text-[36px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
+                      <div className="text-[11px] text-white/45 mt-1 font-medium">{l}</div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="afr af2 absolute bottom-[5%] right-0 w-[232px] bg-[#131D35] border border-white/[0.08] rounded-[18px] p-5 shadow-[0_20px_56px_rgba(0,0,0,0.38)]" style={{ animationDelay: ".48s" }}>
-                <div className="text-[10px] font-extrabold tracking-[.1em] text-[#C8922A] mb-4 uppercase">Sprint Velocity</div>
-                {[["Frontend", 91, "#C8922A"], ["Backend", 78, "#7C9FFF"], ["QA", 95, "#00C896"]].map(([l, p, c]) => (
-                  <div key={l} className="mb-3">
-                    <div className="flex justify-between mb-1"><span className="text-[11px] text-white/50">{l}</span><span className="text-[11px] font-extrabold" style={{ color: c }}>{p}%</span></div>
-                    <div className="h-1 bg-white/[0.07] rounded-full"><div className="h-full rounded-full" style={{ width: `${p}%`, background: c, boxShadow: `0 0 8px ${c}55` }} /></div>
+              <div className="relative h-[500px] hidden md:block">
+                <div className="afr af1 absolute top-0 left-[6%] w-[295px] bg-[#131D35] border border-white/[0.08] rounded-[18px] overflow-hidden shadow-[0_28px_70px_rgba(0,0,0,0.45)]" style={{ animationDelay: ".3s" }}>
+                  <div className="bg-[#1B2847] px-4 py-2.5 flex items-center gap-1.5 border-b border-white/[0.06]">
+                    {["#ff4f6b", "#C8922A", "#00C896"].map((c, i) => <div key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />)}
+                    <span className="text-[10px] text-white/60 ml-2 font-semibold tracking-[.06em]">PROJECT STATUS</span>
                   </div>
-                ))}
-              </div>
-              <div className="afr absolute bg-white rounded-[16px] p-4 border-l-[3px] border-[#C8922A] shadow-[0_12px_40px_rgba(0,0,0,0.2)]" style={{ top: "68%", left: "4%", width: 212, animationDelay: ".6s" }}>
-                <p className="serif italic text-[13px] text-[#0B1221] leading-snug mb-2">"Delivered in 6 weeks. Exactly what we envisioned."</p>
-                <span className="text-[10px] font-bold text-[#6B7592]">— CEO, Eduverse Africa</span>
-              </div>
-              <div className="afr absolute bg-[#1B2847] border border-white/[0.08] rounded-[14px] p-4" style={{ top: "40%", right: "3%", width: 174, animationDelay: ".55s" }}>
-                <div className="text-[9px] font-bold tracking-[.14em] text-white/60 mb-2 uppercase">Our Stack</div>
-                <div className="flex gap-2 text-[19px] flex-wrap">{["⚛️", "🟢", "🐍", "📱", "☁️", "🔷"].map((e, i) => <span key={i}>{e}</span>)}</div>
+                  <div className="p-5">
+                    {[{ n: "Eduverse School Management", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" }, { n: "Zimlearnerspot Elearning", s: "LIVE", col: "#00C896", bg: "rgba(0,200,150,0.1)" }, { n: "Farmers Hub", s: "REVIEW", col: "#C8922A", bg: "rgba(200,146,42,0.12)" }, { n: "PayGo Mobile", s: "BUILD", col: "#7C9FFF", bg: "rgba(124,159,255,0.1)" }].map(p => (
+                      <div key={p.n} className="flex items-center justify-between py-2 border-b border-white/[0.05]">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-1.5 h-1.5 rounded-full" style={{ background: p.col, boxShadow: `0 0 6px ${p.col}` }} />
+                          <span className="text-[12px] text-white/80 font-semibold">{p.n}</span>
+                        </div>
+                        <span className="text-[9px] font-extrabold tracking-[.1em] px-2 py-0.5 rounded-full" style={{ color: p.col, background: p.bg }}>{p.s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="afr af2 absolute bottom-[5%] right-0 w-[232px] bg-[#131D35] border border-white/[0.08] rounded-[18px] p-5 shadow-[0_20px_56px_rgba(0,0,0,0.38)]" style={{ animationDelay: ".48s" }}>
+                  <div className="text-[10px] font-extrabold tracking-[.1em] text-[#C8922A] mb-4 uppercase">Sprint Velocity</div>
+                  {[["Frontend", 91, "#C8922A"], ["Backend", 78, "#7C9FFF"], ["QA", 95, "#00C896"]].map(([l, p, c]) => (
+                    <div key={l} className="mb-3">
+                      <div className="flex justify-between mb-1"><span className="text-[11px] text-white/50">{l}</span><span className="text-[11px] font-extrabold" style={{ color: c }}>{p}%</span></div>
+                      <div className="h-1 bg-white/[0.07] rounded-full"><div className="h-full rounded-full" style={{ width: `${p}%`, background: c, boxShadow: `0 0 8px ${c}55` }} /></div>
+                    </div>
+                  ))}
+                </div>
+                <div className="afr absolute bg-white rounded-[16px] p-4 border-l-[3px] border-[#C8922A] shadow-[0_12px_40px_rgba(0,0,0,0.2)]" style={{ top: "68%", left: "4%", width: 212, animationDelay: ".6s" }}>
+                  <p className="serif italic text-[13px] text-[#0B1221] leading-snug mb-2">"Delivered in 6 weeks. Exactly what we envisioned."</p>
+                  <span className="text-[10px] font-bold text-[#6B7592]">— CEO, Eduverse Africa</span>
+                </div>
+                <div className="afr absolute bg-[#1B2847] border border-white/[0.08] rounded-[14px] p-4" style={{ top: "40%", right: "3%", width: 174, animationDelay: ".55s" }}>
+                  <div className="text-[9px] font-bold tracking-[.14em] text-white/60 mb-2 uppercase">Our Stack</div>
+                  <div className="flex gap-2 text-[19px] flex-wrap">{["⚛️", "🟢", "🐍", "📱", "☁️", "🔷"].map((e, i) => <span key={i}>{e}</span>)}</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <svg className="absolute bottom-[-2px] left-0 right-0 w-full" viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60Z" fill="#F8F6F1" /></svg>
-      </section>
+          <svg className="absolute bottom-[-2px] left-0 right-0 w-full" viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60Z" fill="#F8F6F1" /></svg>
+        </section>
 
-      {/* ═══ TICKER ═══ */}
-      <div className="border-t border-b border-[#E4E1D9] py-3 bg-[#0B1221] overflow-hidden">
-        <div className="overflow-hidden whitespace-nowrap">
-          <div className="ticker-inner">
-            {[...Array(2)].map((_, rep) => (
-              <span key={rep} className="inline-flex items-center">
-                {["WEB DEVELOPMENT", "MOBILE APPS", "CLOUD & DEVOPS", "AI INTEGRATION", "CYBERSECURITY", "DATA & ANALYTICS", "UX / UI DESIGN", "AGILE DELIVERY"].map((item, i) => (
-                  <span key={i} className="inline-flex items-center gap-4 px-6">
-                    <span className="text-[11px] font-bold text-white/60 tracking-[.14em] whitespace-nowrap">{item}</span>
-                    <span className="text-[#C8922A] text-xs">◆</span>
-                  </span>
-                ))}
-              </span>
+        {/* ═══ TICKER ═══ */}
+        <div className="border-t border-b border-[#E4E1D9] py-3 bg-[#0B1221] overflow-hidden">
+          <div className="overflow-hidden whitespace-nowrap">
+            <div className="ticker-inner">
+              {[...Array(2)].map((_, rep) => (
+                <span key={rep} className="inline-flex items-center">
+                  {["WEB DEVELOPMENT", "MOBILE APPS", "CLOUD & DEVOPS", "AI INTEGRATION", "CYBERSECURITY", "DATA & ANALYTICS", "UX / UI DESIGN", "AGILE DELIVERY"].map((item, i) => (
+                    <span key={i} className="inline-flex items-center gap-4 px-6">
+                      <span className="text-[11px] font-bold text-white/60 tracking-[.14em] whitespace-nowrap">{item}</span>
+                      <span className="text-[#C8922A] text-xs">◆</span>
+                    </span>
+                  ))}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ═══ SERVICES ═══ */}
+        <section id="services" aria-label="Our services" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14">
+              <div className="rv">
+                <div className="inline-flex items-center text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">What We Do</div>
+                <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Our <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Services</span></h2>
+              </div>
+              <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">See All Work <Arr /></button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {SERVICES.map((s, i) => {
+                const [ref, vis] = useRev(0.2);
+                return (
+                  <div ref={ref} key={s.t} onClick={() => { navigate(`/blog/${s.slug}`); window.scrollTo(0, 0); }} className={`rv ${vis ? "vis" : ""} group bg-white border border-[#E4E1D9] rounded-[20px] p-7 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30`} style={{ transitionDelay: `${i * .06}s` }}>
+                    <div className="w-[46px] h-[46px] rounded-[13px] bg-[#FDF3E0] text-[22px] flex items-center justify-center mb-4">{s.e}</div>
+                    <div className="serif text-[20px] text-[#0B1221] mb-2">{s.t}</div>
+                    <p className="text-[13px] leading-[1.72] text-[#6B7592]">{s.d}</p>
+                    <div className="flex items-center gap-1.5 mt-4 text-[#C8922A] font-bold text-[12px] group-hover:gap-2.5 transition-all">Learn more <Arr sz={12} /></div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ STATS ═══ */}
+        <div className="bg-[#0B1221] py-12 md:py-16 px-6 md:px-12">
+          <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[["60", "+", "Projects Shipped"], ["8", " yrs", "Industry Experience"], ["40", "+", "Clients Active"], ["12", "", "Countries Served"]].map(([v, s, l]) => (
+              <div key={l}>
+                <div className="serif text-[52px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
+                <div className="text-[12px] text-white/65 mt-1.5 font-medium">{l}</div>
+              </div>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* ═══ SERVICES ═══ */}
-      <section id="services" aria-label="Our services" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14">
-            <div className="rv">
-              <div className="inline-flex items-center text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">What We Do</div>
-              <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Our <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Services</span></h2>
+        {/* ═══ PROCESS ═══ */}
+        <section id="process" className="relative py-16 md:py-24 px-4 md:px-6 bg-[#EEE9DF]">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-1 rounded-full bg-gradient-to-r from-[#C8922A] to-[#E5A93C]" />
+          <div className="text-center mb-20 relative z-10">
+            <div className="rv inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">How We Work</div>
+            <h2 className="rv serif italic text-[#0B1221]" style={{ fontSize: "clamp(30px,5vw,56px)" }}>The <span className="text-[#C8922A]">Journey</span></h2>
+            <p className="rv text-[14px] text-[#6B7592] max-w-[420px] mx-auto mt-3.5 leading-[1.78]">A transparent, battle-tested process that turns your vision into software people actually love using.</p>
+          </div>
+          <div className="relative max-w-[900px] mx-auto md:min-h-[1560px]">
+            <ProcessPath />
+            <div className="relative z-10">{STEPS.map((s, i) => <StepCard key={s.id} step={s} idx={i} />)}</div>
+          </div>
+        </section>
+
+        {/* ═══ PROJECTS ═══ */}
+        <section id="work" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14">
+              <div className="rv">
+                <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">Our Work</div>
+                <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Featured <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Projects</span></h2>
+              </div>
+              <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">All Projects <Arr /></button>
             </div>
-            <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">See All Work <Arr /></button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">{PROJECTS.map(p => <ProjectCard key={p.id} project={p} />)}</div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {SERVICES.map((s, i) => {
-              const [ref, vis] = useRev(0.2);
-              return (
-                <div ref={ref} key={s.t} onClick={() => { navigate(`/blog/${s.slug}`); window.scrollTo(0,0); }} className={`rv ${vis ? "vis" : ""} group bg-white border border-[#E4E1D9] rounded-[20px] p-7 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#C8922A]/30`} style={{ transitionDelay: `${i * .06}s` }}>
-                  <div className="w-[46px] h-[46px] rounded-[13px] bg-[#FDF3E0] text-[22px] flex items-center justify-center mb-4">{s.e}</div>
-                  <div className="serif text-[20px] text-[#0B1221] mb-2">{s.t}</div>
-                  <p className="text-[13px] leading-[1.72] text-[#6B7592]">{s.d}</p>
-                  <div className="flex items-center gap-1.5 mt-4 text-[#C8922A] font-bold text-[12px] group-hover:gap-2.5 transition-all">Learn more <Arr sz={12} /></div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ═══ STATS ═══ */}
-      <div className="bg-[#0B1221] py-12 md:py-16 px-6 md:px-12">
-        <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[["60", "+", "Projects Shipped"], ["8", " yrs", "Industry Experience"], ["40", "+", "Clients Active"], ["12", "", "Countries Served"]].map(([v, s, l]) => (
-            <div key={l}>
-              <div className="serif text-[52px] text-[#C8922A] italic leading-none"><Counter to={v} suf={s} /></div>
-              <div className="text-[12px] text-white/65 mt-1.5 font-medium">{l}</div>
+        {/* ═══ SHOWREEL BANNER ═══ */}
+        <div className="relative overflow-hidden py-12 md:py-16 px-6 md:px-12" style={{ background: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)" }}>
+          <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+            <svg width="100%" height="100%" viewBox="0 0 1200 200" preserveAspectRatio="none">
+              <line x1="0" y1="100" x2="1200" y2="100" stroke="#C8922A" strokeWidth="1" />
+              {[100, 300, 500, 700, 900, 1100].map(x => <g key={x}><line x1={x} y1="100" x2={x} y2="30" stroke="#C8922A" strokeWidth="1" /><circle cx={x} cy="30" r="4" fill="#C8922A" /></g>)}
+            </svg>
+          </div>
+          <div className="relative z-10 max-w-[1100px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+              <p className="text-[10px] font-extrabold tracking-[.15em] text-[#C8922A] uppercase mb-2">FlexiLogic Company</p>
+              <h3 className="serif italic text-white text-[32px] leading-tight mb-2">See our work in motion.</h3>
+              <p className="text-white/45 text-[14px] leading-relaxed max-w-md">Watch how we've transformed ideas into products used across Africa and beyond.</p>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ═══ PROCESS ═══ */}
-      <section id="process" className="relative py-16 md:py-24 px-4 md:px-6 bg-[#EEE9DF]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-1 rounded-full bg-gradient-to-r from-[#C8922A] to-[#E5A93C]" />
-        <div className="text-center mb-20 relative z-10">
-          <div className="rv inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">How We Work</div>
-          <h2 className="rv serif italic text-[#0B1221]" style={{ fontSize: "clamp(30px,5vw,56px)" }}>The <span className="text-[#C8922A]">Journey</span></h2>
-          <p className="rv text-[14px] text-[#6B7592] max-w-[420px] mx-auto mt-3.5 leading-[1.78]">A transparent, battle-tested process that turns your vision into software people actually love using.</p>
-        </div>
-        <div className="relative max-w-[900px] mx-auto md:min-h-[1560px]">
-          <ProcessPath />
-          <div className="relative z-10">{STEPS.map((s, i) => <StepCard key={s.id} step={s} idx={i} />)}</div>
-        </div>
-      </section>
-
-      {/* ═══ PROJECTS ═══ */}
-      <section id="work" className="py-16 md:py-24 px-6 md:px-12 bg-[#F8F6F1]">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 md:mb-14">
-            <div className="rv">
-              <div className="inline-flex text-[10px] font-extrabold tracking-[.1em] uppercase text-[#C8922A] bg-[#FDF3E0] border border-[#C8922A]/25 px-3 py-1 rounded-full mb-3.5">Our Work</div>
-              <h2 className="serif italic text-[#0B1221] leading-tight" style={{ fontSize: "clamp(30px,4vw,48px)" }}>Featured <span className="text-[#C8922A] underline decoration-[#C8922A] underline-offset-[6px]">Projects</span></h2>
-            </div>
-            <button onClick={() => { const el = document.getElementById("work"); if (el) el.scrollIntoView({ behavior: "smooth" }); }} className="rv font-bold text-[13px] bg-transparent text-[#0B1221] border border-[#E4E1D9] rounded-xl px-5 py-2.5 flex items-center gap-2 mb-2 cursor-pointer hover:border-[#C8922A]/30 transition-all">All Projects <Arr /></button>
+            <button onClick={() => setShowreel(true)} className="group flex-shrink-0 flex items-center gap-4 bg-white/[0.06] hover:bg-[#C8922A]/10 border border-white/10 hover:border-[#C8922A]/40 rounded-2xl px-8 py-5 transition-all duration-300 cursor-pointer">
+              <div className="w-14 h-14 rounded-full bg-[#C8922A] flex items-center justify-center shadow-[0_0_32px_rgba(200,146,42,0.4)] group-hover:scale-110 transition-transform pl-1"><PlayIcon sz={24} /></div>
+              <div className="text-left"><div className="text-white font-bold text-[15px]">Watch Showreel</div><div className="text-white/40 text-[12px]">2025 · Company Reel</div></div>
+            </button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">{PROJECTS.map(p => <ProjectCard key={p.id} project={p} />)}</div>
         </div>
-      </section>
 
-      {/* ═══ SHOWREEL BANNER ═══ */}
-      <div className="relative overflow-hidden py-12 md:py-16 px-6 md:px-12" style={{ background: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <svg width="100%" height="100%" viewBox="0 0 1200 200" preserveAspectRatio="none">
-            <line x1="0" y1="100" x2="1200" y2="100" stroke="#C8922A" strokeWidth="1" />
-            {[100, 300, 500, 700, 900, 1100].map(x => <g key={x}><line x1={x} y1="100" x2={x} y2="30" stroke="#C8922A" strokeWidth="1" /><circle cx={x} cy="30" r="4" fill="#C8922A" /></g>)}
-          </svg>
-        </div>
-        <div className="relative z-10 max-w-[1100px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            <p className="text-[10px] font-extrabold tracking-[.15em] text-[#C8922A] uppercase mb-2">FlexiLogic Studio</p>
-            <h3 className="serif italic text-white text-[32px] leading-tight mb-2">See our work in motion.</h3>
-            <p className="text-white/45 text-[14px] leading-relaxed max-w-md">Watch how we've transformed ideas into products used across Africa and beyond.</p>
+        {/* ═══ TRUSTED BY ═══ */}
+        <div className="border-t border-b border-[#E4E1D9] py-6 px-6 md:px-12 bg-[#F8F6F1] flex flex-wrap items-center gap-6 md:gap-12 overflow-hidden">
+          <span className="text-[10px] font-extrabold tracking-[.1em] text-[#6B7592] whitespace-nowrap uppercase">Trusted by</span>
+          <div className="flex gap-12 flex-wrap">
+            {["AcademyPro", "BrightMinds", "ZimTech", "PayGo", "AgriLink", "HealthBridge"].map(n => (
+              <span key={n} className="text-[14px] font-bold text-[#0B1221]/50 tracking-wide">{n}</span>
+            ))}
           </div>
-          <button onClick={() => setShowreel(true)} className="group flex-shrink-0 flex items-center gap-4 bg-white/[0.06] hover:bg-[#C8922A]/10 border border-white/10 hover:border-[#C8922A]/40 rounded-2xl px-8 py-5 transition-all duration-300 cursor-pointer">
-            <div className="w-14 h-14 rounded-full bg-[#C8922A] flex items-center justify-center shadow-[0_0_32px_rgba(200,146,42,0.4)] group-hover:scale-110 transition-transform pl-1"><PlayIcon sz={24} /></div>
-            <div className="text-left"><div className="text-white font-bold text-[15px]">Watch Showreel</div><div className="text-white/40 text-[12px]">2025 · Studio Reel</div></div>
-          </button>
         </div>
-      </div>
 
-      {/* ═══ TRUSTED BY ═══ */}
-      <div className="border-t border-b border-[#E4E1D9] py-6 px-6 md:px-12 bg-[#F8F6F1] flex flex-wrap items-center gap-6 md:gap-12 overflow-hidden">
-        <span className="text-[10px] font-extrabold tracking-[.1em] text-[#6B7592] whitespace-nowrap uppercase">Trusted by</span>
-        <div className="flex gap-12 flex-wrap">
-          {["AcademyPro", "BrightMinds", "ZimTech", "PayGo", "AgriLink", "HealthBridge"].map(n => (
-            <span key={n} className="text-[14px] font-bold text-[#0B1221]/50 tracking-wide">{n}</span>
-          ))}
-        </div>
-      </div>
+        {/* ═══ BLOG ═══ */}
+        <BlogSection />
 
-      {/* ═══ BLOG ═══ */}
-      <BlogSection />
+        {/* ═══ CONTACT ═══ */}
+        <ContactSection />
 
-      {/* ═══ CONTACT ═══ */}
-      <ContactSection />
-
-      {/* ═══ FOOTER ═══ */}
+        {/* ═══ FOOTER ═══ */}
       </main>{/* end #main-content */}
 
       <footer aria-label="Site footer" className="border-t border-white/[0.07] pt-12 md:pt-14 pb-8 px-6 md:px-12 bg-[#080F1E]">
