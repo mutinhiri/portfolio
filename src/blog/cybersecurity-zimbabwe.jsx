@@ -27,7 +27,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 /* ─── Styles ─── */
 
 const ARTICLE = {
-  slug: "cybersecurity-zimbabwe-why-businesses-are-vulnerable",
+  slug: "cybersecurity-zimbabwe",
   category: "Cybersecurity",
   categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
   title: "Cybersecurity in Zimbabwe: Why Local Businesses Are More Exposed Than They Think",
@@ -303,7 +303,7 @@ jwt.sign({ userId, role }, secret, { expiresIn: '24h' });`,
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
     },
     {
-      slug: "building-school-management-system-zimbabwe",
+      slug: "building-school-management-systems-zimbabwe",
       category: "Product",
       categoryColor: "bg-[#00C896]/15 text-[#00C896]",
       title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
@@ -316,7 +316,7 @@ jwt.sign({ userId, role }, secret, { expiresIn: '24h' });`,
 };
 const ArticleStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+
     :root { --gold: #C8922A; }
     * { box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: #F8F6F1; margin: 0; overflow-x: hidden; }

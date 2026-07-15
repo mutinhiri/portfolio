@@ -26,7 +26,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
    ARTICLE DATA  ← Edit everything in this object for each post
    ───────────────────────────────────────────────────────────── */
 const ARTICLE = {
-  slug: "why-african-startups-need-devops-cloud-infrastructure",
+  slug: "cloud-devops-africa",
   category: "DevOps",
   categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
   title: "Why African Startups Can No Longer Afford to Ignore DevOps",
@@ -329,7 +329,7 @@ resource "aws_db_instance" "postgres" {
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
     },
     {
-      slug: "building-school-management-system-zimbabwe",
+      slug: "building-school-management-systems-zimbabwe",
       category: "Product",
       categoryColor: "bg-[#00C896]/15 text-[#00C896]",
       title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
@@ -345,8 +345,6 @@ resource "aws_db_instance" "postgres" {
 /* ─── Styles ─── */
 const ArticleStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
-    :root { --gold: #C8922A; }
     * { box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: #F8F6F1; margin: 0; overflow-x: hidden; }
     .serif { font-family: 'DM Serif Display', Georgia, serif; }

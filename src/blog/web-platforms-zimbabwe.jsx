@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 const ARTICLE = {
-  slug: "web-development-zimbabwe-why-your-business-needs-a-professional-website",
+  slug: "web-platforms-zimbabwe",
   category: "Web Development",
   categoryColor: "bg-[#F59E0B]/15 text-[#F59E0B]",
   title: "Your Website Is Your Hardest Working Employee — Most Zimbabwean Businesses Have Not Hired It Yet",
@@ -390,7 +390,6 @@ export default function EnquiryForm() {
 /* ─── Styles ─── */
 const ArticleStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
     :root { --gold: #C8922A; }
     * { box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: #F8F6F1; margin: 0; overflow-x: hidden; }

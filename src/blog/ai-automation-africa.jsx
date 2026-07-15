@@ -28,7 +28,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 /* ─── Styles ─── */
 
 const ARTICLE = {
-  slug: "ai-automation-africa-opportunity-2025",
+  slug: "ai-automation-africa",
   category: "AI & Automation",
   categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
   title: "AI Automation in Africa: The Opportunity, The Reality, and What to Build First",
@@ -338,7 +338,6 @@ async function processLoanApplication(applicationId) {
 
 const ArticleStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
     :root { --gold: #C8922A; }
     * { box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: #F8F6F1; margin: 0; overflow-x: hidden; }

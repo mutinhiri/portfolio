@@ -26,7 +26,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 
 /* ─── Styles ─── */
 const ARTICLE = {
-  slug: "data-analytics-africa-turning-data-into-decisions",
+  slug: "data-analytics-africa",
   category: "Data & Analytics",
   categoryColor: "bg-[#34D399]/15 text-[#34D399]",
   title: "Data Analytics in Africa: Why Most Businesses Are Sitting on a Gold Mine They Cannot Read",
@@ -333,7 +333,6 @@ def run_daily_sales_pipeline(target_date=None):
 };
 const ArticleStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
     :root { --gold: #C8922A; }
     * { box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: #F8F6F1; margin: 0; overflow-x: hidden; }

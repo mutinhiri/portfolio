@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useSEO } from "./useSEO";
+import { useSEO, useOrganizationJsonLd } from "./useSEO";
+import React from "react";
 
 /* ─────────────────────────────────────────────
    GLOBAL STYLES
 ───────────────────────────────────────────── */
 const GlobalStyles = () => (
   <style>{`
-
     :root { --gold: #C8922A; --gold2: #E5A93C; }
     body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
     .serif { font-family: 'DM Serif Display', Georgia, serif; }
@@ -166,6 +166,21 @@ export const BLOG_POSTS = [
     author: "FlexiLogic Team",
     cover: "⚡",
     coverBg: "linear-gradient(135deg,#0B1221 0%,#1a2f5e 100%)",
+  },
+
+    {
+    // NEW — was missing from BLOG_POSTS entirely
+    slug: "digital-marketing-roi-zimbabwe-website-growth-engine",
+    featured: false,
+    category: "Digital Strategy",
+    categoryColor: "bg-[#10B981]/15 text-[#10B981]",
+    title: "Stop Renting Your Audience: Why a Professional Website is the Ultimate Marketing Asset",
+    excerpt: "Social media is a borrowed land. Your website is the only digital asset you truly own — here's how to turn it into a high-conversion sales machine.",
+    date: "14 Mar 2026",
+    readTime: "10 min read",
+    author: "FlexiLogic Team",
+    cover: "🚀",
+    coverBg: "linear-gradient(135deg,#001a12 0%,#002d1f 100%)",
   },
   {
     slug: "mobile-apps-zimbabwe",
@@ -877,6 +892,8 @@ export default function FlexilogicPortfolio() {
     keywords: "software development Zimbabwe, web development Harare, mobile app development Africa, Flutter developer Zimbabwe, cloud devops Zimbabwe, AI automation Africa, cybersecurity Zimbabwe",
   });
 
+  useOrganizationJsonLd()
+
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", h);
@@ -1165,6 +1182,12 @@ export default function FlexilogicPortfolio() {
               </div>
             ))}
           </div>
+          <div className="text-[12px] text-white/45 mb-6">
+  Based in Zimbabwe and looking for local delivery?{" "}
+  <a href="https://flexilogic.co.zw" className="text-[#C8922A] hover:underline font-semibold">
+    Visit FlexiLogic Zimbabwe →
+  </a>
+</div>
           <div className="h-px mb-6" style={{ background: "linear-gradient(90deg,#C8922A,rgba(200,146,42,0.1),transparent)" }} />
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <span className="text-[12px] text-white/45">© 2025 FlexiLogic Africa. All rights reserved.</span>

@@ -26,7 +26,7 @@ import { useSEO, useArticleJsonLd, useBreadcrumb } from "./useSEO";
    ARTICLE DATA  ← Edit everything in this object for each post
    ───────────────────────────────────────────────────────────── */
 const ARTICLE = {
-  slug: "building-school-management-system-zimbabwe",
+  slug: "building-school-management-systems-zimbabwe",
   category: "Case Study",
   categoryColor: "bg-[#00C896]/15 text-[#00C896]",
   title: "How We Built a School Management System for 1,200+ Zimbabwean Students",

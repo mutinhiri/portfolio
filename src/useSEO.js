@@ -200,3 +200,28 @@ export function useBreadcrumb(crumbs) {
     return () => el?.remove();
   }, [JSON.stringify(crumbs)]);
 }
+
+// Add to useSEO.js
+export function useOrganizationJsonLd() {
+  useEffect(() => {
+    const el = injectJsonLd("organization-jsonld", {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FlexiLogic Africa",
+      "url": BASE_URL,
+      "logo": DEFAULT_IMG,
+      "sameAs": [
+        "https://flexilogic.co.zw/",
+        "https://www.linkedin.com/company/flexilogic-africa/",
+        "https://www.facebook.com/people/Flexilogic-Africa/61581981782184/",
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "flexilogicafrica@gmail.com",
+        "telephone": "+263-77-255-0103",
+        "contactType": "customer service",
+      },
+    });
+    return () => el?.remove();
+  }, []);
+}
