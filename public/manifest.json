@@ -1,7 +1,7 @@
 {
   "name": "FlexiLogic Africa",
   "short_name": "FlexiLogic",
-  "description": "Software Engineering Studio — Harare, Zimbabwe. We design and build products that matter.",
+  "description": "Software Engineering Company — Harare, Zimbabwe. We design and build products that matter.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0B1221",
@@ -9,7 +9,10 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-ZW",
-  "categories": ["business", "productivity"],
+  "categories": [
+    "business",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "/icons/icon-72x72.png",

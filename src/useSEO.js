@@ -10,7 +10,7 @@
  *
  * USAGE — Homepage:
  *   useSEO({
- *     title:       "FlexiLogic Africa — Software Engineering Studio",
+ *     title:       "FlexiLogic Africa — Software Engineering Company",
  *     description: "...",
  *     canonical:   "https://flexilogic.africa/",
  *   });
@@ -28,8 +28,8 @@
 
 import { useEffect } from "react";
 
-const SITE_NAME   = "FlexiLogic Africa";
-const BASE_URL    = "https://flexilogic.africa";
+const SITE_NAME = "FlexiLogic Africa";
+const BASE_URL = "https://flexilogic.africa";
 const DEFAULT_IMG = `${BASE_URL}/og-image.png`;
 
 // ─── Helpers ──────────────────────────────────────────────────
@@ -58,7 +58,7 @@ function injectJsonLd(id, data) {
   let el = document.getElementById(id);
   if (!el) {
     el = document.createElement("script");
-    el.id   = id;
+    el.id = id;
     el.type = "application/ld+json";
     document.head.appendChild(el);
   }
@@ -97,27 +97,27 @@ export function useSEO({
     if (canonical) setCanonical(canonical);
 
     // Open Graph
-    setMeta("property", "og:title",       title);
+    setMeta("property", "og:title", title);
     setMeta("property", "og:description", description);
-    setMeta("property", "og:url",         canonical || window.location.href);
-    setMeta("property", "og:image",       ogImage);
-    setMeta("property", "og:type",        type);
-    setMeta("property", "og:site_name",   SITE_NAME);
-    setMeta("property", "og:locale",      "en_ZW");
+    setMeta("property", "og:url", canonical || window.location.href);
+    setMeta("property", "og:image", ogImage);
+    setMeta("property", "og:type", type);
+    setMeta("property", "og:site_name", SITE_NAME);
+    setMeta("property", "og:locale", "en_ZW");
 
     if (type === "article" && publishedAt) {
       setMeta("property", "article:published_time", publishedAt);
-      setMeta("property", "article:author",         SITE_NAME);
+      setMeta("property", "article:author", SITE_NAME);
     }
 
     // Twitter / X
-    setMeta("name", "twitter:card",        "summary_large_image");
-    setMeta("name", "twitter:title",       title);
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", title);
     setMeta("name", "twitter:description", description);
-    setMeta("name", "twitter:image",       ogImage);
+    setMeta("name", "twitter:image", ogImage);
 
     return () => {
-      document.title = `${SITE_NAME} — Software Engineering Studio, Harare Zimbabwe`;
+      document.title = `${SITE_NAME} — Software Engineering Company, Harare Zimbabwe`;
       setMeta("property", "og:type", "website");
     };
   }, [title, description, canonical, ogImage, type, publishedAt, keywords]);
@@ -143,25 +143,25 @@ export function useArticleJsonLd({
 }) {
   useEffect(() => {
     const el = injectJsonLd("article-jsonld", {
-      "@context":         "https://schema.org",
-      "@type":            "Article",
-      "headline":         title,
-      "description":      description,
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
       "author": {
         "@type": "Organization",
-        "name":  author,
-        "url":   BASE_URL,
+        "name": author,
+        "url": BASE_URL,
       },
       "publisher": {
         "@type": "Organization",
-        "name":  SITE_NAME,
-        "logo":  { "@type": "ImageObject", "url": `${BASE_URL}/logo.png` },
+        "name": SITE_NAME,
+        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/logo.png` },
       },
-      "datePublished":    publishedAt,
-      "dateModified":     publishedAt,
+      "datePublished": publishedAt,
+      "dateModified": publishedAt,
       "mainEntityOfPage": `${BASE_URL}/blog/${slug}`,
-      "url":              `${BASE_URL}/blog/${slug}`,
-      "image":            DEFAULT_IMG,
+      "url": `${BASE_URL}/blog/${slug}`,
+      "image": DEFAULT_IMG,
     });
     return () => el?.remove();
   }, [title, description, slug, publishedAt]);
@@ -189,14 +189,39 @@ export function useBreadcrumb(crumbs) {
 
     const el = injectJsonLd("breadcrumb-jsonld", {
       "@context": "https://schema.org",
-      "@type":    "BreadcrumbList",
+      "@type": "BreadcrumbList",
       "itemListElement": crumbs.map((crumb, i) => ({
-        "@type":    "ListItem",
+        "@type": "ListItem",
         "position": i + 1,
-        "name":     crumb.name,
-        "item":     crumb.url,
+        "name": crumb.name,
+        "item": crumb.url,
       })),
     });
     return () => el?.remove();
   }, [JSON.stringify(crumbs)]);
+}
+
+// Add to useSEO.js
+export function useOrganizationJsonLd() {
+  useEffect(() => {
+    const el = injectJsonLd("organization-jsonld", {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FlexiLogic Africa",
+      "url": BASE_URL,
+      "logo": DEFAULT_IMG,
+      "sameAs": [
+        "https://flexilogic.co.zw/",
+        "https://www.linkedin.com/company/flexilogic-africa/",
+        "https://www.facebook.com/people/Flexilogic-Africa/61581981782184/",
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "flexilogicafrica@gmail.com",
+        "telephone": "+263-77-255-0103",
+        "contactType": "customer service",
+      },
+    });
+    return () => el?.remove();
+  }, []);
 }

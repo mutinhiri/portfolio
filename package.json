@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prebuild": "tsx scripts/generate-sitemap.js"
   },
   "dependencies": {
     "motion": "^11.13.4",
@@ -31,6 +32,8 @@
     "globals": "^15.12.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
-    "vite": "^6.0.1"
+    "tsx": "^4.23.1",
+    "vite": "^6.0.1",
+    "vite-plugin-compression": "^0.5.1"
   }
 }
