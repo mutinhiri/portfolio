@@ -668,14 +668,15 @@ function ShowreelModal({ onClose }) {
         <button onClick={onClose} className="absolute -top-11 right-0 flex items-center gap-2 text-white/50 hover:text-white text-[13px] font-semibold transition-colors">Close <CloseIcon /></button>
         <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
           <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/watch?v=_f5qp6nwTb0"
-              title="Flexilogic Demo"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/_f5qp6nwTb0"
+            title="Flexilogic Demo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+         />
           </div>
         </div>
         <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Company Showreel · 2026 · Press Esc to close</p>
