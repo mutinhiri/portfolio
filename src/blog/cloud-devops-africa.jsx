@@ -31,7 +31,7 @@ const ARTICLE = {
   categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
   title: "Why African Startups Can No Longer Afford to Ignore DevOps",
   subtitle: "Shipping fast is not enough. The startups winning in Africa's competitive tech market are the ones who've invested in cloud infrastructure, automated deployments, and operational discipline — before they needed to.",
-  date: "13 March 2025",
+  date: "13 March 2026",
   readTime: "9 min read",
   author: {
     name: "FlexiLogic Team",
@@ -323,7 +323,7 @@ resource "aws_db_instance" "postgres" {
       category: "DevOps",
       categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
       title: "Zero-Downtime Deployments on a Budget: Our Node.js Playbook",
-      date: "10 Jan 2025",
+      date: "10 Jan 2026",
       readTime: "5 min read",
       cover: "☁️",
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
@@ -333,7 +333,7 @@ resource "aws_db_instance" "postgres" {
       category: "Product",
       categoryColor: "bg-[#00C896]/15 text-[#00C896]",
       title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "10 min read",
       cover: "🏫",
       coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
@@ -824,7 +824,7 @@ export default function FlexilogicBlogArticle() {
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
-            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
+            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2026.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">

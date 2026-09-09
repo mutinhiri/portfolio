@@ -32,7 +32,7 @@ const ARTICLE = {
   categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
   title: "Cybersecurity in Zimbabwe: Why Local Businesses Are More Exposed Than They Think",
   subtitle: "Ransomware, phishing, data breaches, and insecure code — the cyber threat landscape in Zimbabwe is maturing fast. The businesses that recognise this early will be the ones still standing when the wave hits.",
-  date: "13 March 2025",
+  date: "13 March 2026",
   readTime: "11 min read",
   author: {
     name: "FlexiLogic Team",
@@ -49,7 +49,7 @@ const ARTICLE = {
     },
     {
       type: "paragraph",
-      text: "This story is not unusual. It is, in our experience, representative. Zimbabwean businesses are digitising rapidly — processing payments online, storing student and patient records in the cloud, running government services through web portals — while the security practices underpinning those systems have not kept pace. This article explains why, what the real threat landscape looks like in 2025, and what organisations across every sector need to do about it.",
+      text: "This story is not unusual. It is, in our experience, representative. Zimbabwean businesses are digitising rapidly — processing payments online, storing student and patient records in the cloud, running government services through web portals — while the security practices underpinning those systems have not kept pace. This article explains why, what the real threat landscape looks like in 2026, and what organisations across every sector need to do about it.",
     },
     { type: "divider" },
     {
@@ -69,7 +69,7 @@ const ARTICLE = {
     },
     {
       type: "paragraph",
-      text: "The threat actors relevant to Zimbabwean organisations in 2025 fall into three broad categories: opportunistic automated attacks targeting known vulnerabilities in common software; financially motivated criminal groups running phishing campaigns and ransomware operations across African markets; and, for government and NGO targets specifically, state-adjacent actors with an interest in data collection and disruption. The first category affects virtually every organisation with an internet-connected system. The second is growing rapidly as African digital financial flows increase. The third is a specialised but real risk for institutions handling sensitive citizen or donor data.",
+      text: "The threat actors relevant to Zimbabwean organisations in 2026 fall into three broad categories: opportunistic automated attacks targeting known vulnerabilities in common software; financially motivated criminal groups running phishing campaigns and ransomware operations across African markets; and, for government and NGO targets specifically, state-adjacent actors with an interest in data collection and disruption. The first category affects virtually every organisation with an internet-connected system. The second is growing rapidly as African digital financial flows increase. The third is a specialised but real risk for institutions handling sensitive citizen or donor data.",
     },
     {
       type: "heading",
@@ -287,7 +287,7 @@ jwt.sign({ userId, role }, secret, { expiresIn: '24h' });`,
     { type: "divider" },
     {
       type: "paragraph",
-      text: "The question for Zimbabwean businesses in 2025 is no longer whether a cyberattack will be attempted against your systems. Automated attacks are constant and indiscriminate. The question is whether your systems are hardened enough that those attempts fail — and whether you have the visibility to know when they are happening and the controls to limit the damage if one succeeds. That is what a serious cybersecurity programme delivers, and it is well within reach for organisations of every size.",
+      text: "The question for Zimbabwean businesses in 2026 is no longer whether a cyberattack will be attempted against your systems. Automated attacks are constant and indiscriminate. The question is whether your systems are hardened enough that those attempts fail — and whether you have the visibility to know when they are happening and the controls to limit the damage if one succeeds. That is what a serious cybersecurity programme delivers, and it is well within reach for organisations of every size.",
     },
   ],
 
@@ -297,7 +297,7 @@ jwt.sign({ userId, role }, secret, { expiresIn: '24h' });`,
       category: "DevOps",
       categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
       title: "Why African Startups Can No Longer Afford to Ignore DevOps",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "9 min read",
       cover: "☁️",
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
@@ -307,7 +307,7 @@ jwt.sign({ userId, role }, secret, { expiresIn: '24h' });`,
       category: "Product",
       categoryColor: "bg-[#00C896]/15 text-[#00C896]",
       title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "10 min read",
       cover: "🏫",
       coverBg: "linear-gradient(135deg,#0B1221 0%,#1B2847 100%)",
@@ -797,7 +797,7 @@ export default function FlexilogicBlogArticle() {
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
-            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
+            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2026.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">

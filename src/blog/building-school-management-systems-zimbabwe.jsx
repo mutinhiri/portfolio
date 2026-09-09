@@ -31,8 +31,8 @@ const ARTICLE = {
   category: "Product",
   categoryColor: "bg-[#00C896]/15 text-[#00C896]",
   title: "Eduverse: How We Built a Full-Stack School Management System for African Schools",
-  subtitle: "One platform for admins, teachers, parents, and accountants — how we designed and shipped Eduverse, a school management system built for the real operational challenges facing Zimbabwean schools in 2025.",
-  date: "13 March 2025",
+  subtitle: "One platform for admins, teachers, parents, and accountants — how we designed and shipped Eduverse, a school management system built for the real operational challenges facing Zimbabwean schools in 2026.",
+  date: "13 March 2026",
   readTime: "10 min read",
   author: {
     name: "FlexiLogic Team",
@@ -330,7 +330,7 @@ CREATE TABLE fee_payments (
       category: "DevOps",
       categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
       title: "Zero-Downtime Deployments on a Budget: Our Node.js Playbook",
-      date: "10 Jan 2025",
+      date: "10 Jan 2026",
       readTime: "5 min read",
       cover: "☁️",
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
@@ -339,8 +339,8 @@ CREATE TABLE fee_payments (
       slug: "why-african-startups-choose-flutter",
       category: "Engineering",
       categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
-      title: "Why African Startups Are Choosing Flutter Over React Native in 2025",
-      date: "28 Jan 2025",
+      title: "Why African Startups Are Choosing Flutter Over React Native in 2026",
+      date: "28 Jan 2026",
       readTime: "6 min read",
       cover: "📱",
       coverBg: "linear-gradient(135deg,#0d1b2a 0%,#1a2f4a 100%)",
@@ -829,7 +829,7 @@ export default function FlexilogicBlogArticle() {
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
-            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
+            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2026.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">

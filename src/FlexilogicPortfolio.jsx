@@ -161,14 +161,14 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
     title: "How We Build Scalable Web Platforms for African Businesses",
     excerpt: "From architecture decisions to framework choices — our end-to-end approach to shipping fast, conversion-optimised web platforms that hold up under real African market conditions.",
-    date: "3 Mar 2025",
+    date: "3 Mar 2026",
     readTime: "7 min read",
     author: "FlexiLogic Team",
     cover: "⚡",
     coverBg: "linear-gradient(135deg,#0B1221 0%,#1a2f5e 100%)",
   },
 
-    {
+  {
     // NEW — was missing from BLOG_POSTS entirely
     slug: "digital-marketing-roi-zimbabwe-website-growth-engine",
     featured: false,
@@ -189,7 +189,7 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
     title: "Building Mobile Apps for Low-Bandwidth Markets: Our Flutter Playbook",
     excerpt: "Offline-first design, lightweight bundles, and graceful degradation — the exact patterns we apply when shipping iOS & Android apps for Zimbabwean and broader African users.",
-    date: "18 Feb 2025",
+    date: "18 Feb 2026",
     readTime: "6 min read",
     author: "FlexiLogic Team",
     cover: "📲",
@@ -202,7 +202,7 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
     title: "Cloud Infrastructure for African Scale: AWS, GCP & Zero-Downtime Pipelines",
     excerpt: "How we architect and deploy cloud infrastructure for African businesses — keeping costs lean, latency low, and uptime close to 100% even on constrained budgets.",
-    date: "10 Jan 2025",
+    date: "10 Jan 2026",
     readTime: "5 min read",
     author: "FlexiLogic Team",
     cover: "☁️",
@@ -213,9 +213,9 @@ export const BLOG_POSTS = [
     featured: false,
     category: "AI & Automation",
     categoryColor: "bg-[#00C896]/15 text-[#00C896]",
-    title: "Practical AI for African Businesses: What Actually Works in 2025",
+    title: "Practical AI for African Businesses: What Actually Works in 2026",
     excerpt: "Cutting through the hype — the AI and automation integrations we've shipped for real clients, what moved the needle, and what was just expensive noise.",
-    date: "25 Feb 2025",
+    date: "25 Feb 2026",
     readTime: "8 min read",
     author: "FlexiLogic Team",
     cover: "🤖",
@@ -228,7 +228,7 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
     title: "Cybersecurity in Zimbabwe: The Threats Local Businesses Are Ignoring",
     excerpt: "Social engineering, unpatched systems, and weak API design — the three vulnerabilities we find in almost every security audit we run for Zimbabwean companies.",
-    date: "14 Feb 2025",
+    date: "14 Feb 2026",
     readTime: "7 min read",
     author: "FlexiLogic Team",
     cover: "🔐",
@@ -241,7 +241,7 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#FFD700]/15 text-[#C8922A]",
     title: "From Raw Data to Real Decisions: How We Build Analytics That Get Used",
     excerpt: "Most dashboards get opened once and abandoned. Here's our framework for building data pipelines and visualisations that business owners actually rely on every day.",
-    date: "5 Feb 2025",
+    date: "5 Feb 2026",
     readTime: "6 min read",
     author: "FlexiLogic Team",
     cover: "📊",
@@ -255,7 +255,7 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#00C896]/15 text-[#00C896]",
     title: "How We Built a School Management System for 1,200+ Zimbabwean Students",
     excerpt: "From a single-school pilot in Harare to a platform handling enrolment, grades, fees and parent communication — here's exactly how we did it in 12 weeks.",
-    date: "12 Feb 2025",
+    date: "12 Feb 2026",
     readTime: "8 min read",
     author: "FlexiLogic Team",
     cover: "🏫",
@@ -266,9 +266,9 @@ export const BLOG_POSTS = [
     featured: false,
     category: "Engineering",
     categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
-    title: "Why African Startups Are Choosing Flutter Over React Native in 2025",
+    title: "Why African Startups Are Choosing Flutter Over React Native in 2026",
     excerpt: "We've shipped both. Here's our honest side-by-side — performance, community, hiring, and what actually matters when you're building for low-bandwidth markets.",
-    date: "28 Jan 2025",
+    date: "28 Jan 2026",
     readTime: "6 min read",
     author: "FlexiLogic Team",
     cover: "📱",
@@ -281,7 +281,7 @@ export const BLOG_POSTS = [
     categoryColor: "bg-[#C8922A]/15 text-[#C8922A]",
     title: "Zero-Downtime Deployments on a Budget: Our Node.js Playbook",
     excerpt: "You don't need Kubernetes to ship without interrupting users. Here's the lean pipeline we run for every FlexiLogic client launch.",
-    date: "10 Jan 2025",
+    date: "10 Jan 2026",
     readTime: "5 min read",
     author: "FlexiLogic Team",
     cover: "☁️",
@@ -670,7 +670,7 @@ function ShowreelModal({ onClose }) {
           <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080F1E]" style={{ aspectRatio: "16/9" }}>
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/8ZegHdLTWnw"
+              src="https://www.youtube.com/watch?v=_f5qp6nwTb0"
               title="Flexilogic Demo"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -678,7 +678,7 @@ function ShowreelModal({ onClose }) {
             />
           </div>
         </div>
-        <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Company Showreel · 2025 · Press Esc to close</p>
+        <p className="text-center text-white/50 text-xs mt-4 tracking-wide">FlexiLogic Africa · Company Showreel · 2026 · Press Esc to close</p>
       </div>
     </div>
   );
@@ -1140,7 +1140,7 @@ export default function FlexilogicPortfolio() {
             </div>
             <button onClick={() => setShowreel(true)} className="group flex-shrink-0 flex items-center gap-4 bg-white/[0.06] hover:bg-[#C8922A]/10 border border-white/10 hover:border-[#C8922A]/40 rounded-2xl px-8 py-5 transition-all duration-300 cursor-pointer">
               <div className="w-14 h-14 rounded-full bg-[#C8922A] flex items-center justify-center shadow-[0_0_32px_rgba(200,146,42,0.4)] group-hover:scale-110 transition-transform pl-1"><PlayIcon sz={24} /></div>
-              <div className="text-left"><div className="text-white font-bold text-[15px]">Watch Showreel</div><div className="text-white/40 text-[12px]">2025 · Company Reel</div></div>
+              <div className="text-left"><div className="text-white font-bold text-[15px]">Watch Showreel</div><div className="text-white/40 text-[12px]">2026 · Company Reel</div></div>
             </button>
           </div>
         </div>
@@ -1183,14 +1183,14 @@ export default function FlexilogicPortfolio() {
             ))}
           </div>
           <div className="text-[12px] text-white/45 mb-6">
-  Based in Zimbabwe and looking for local delivery?{" "}
-  <a href="https://flexilogic.co.zw" className="text-[#C8922A] hover:underline font-semibold">
-    Visit FlexiLogic Zimbabwe →
-  </a>
-</div>
+            Based in Zimbabwe and looking for local delivery?{" "}
+            <a href="https://flexilogic.co.zw" className="text-[#C8922A] hover:underline font-semibold">
+              Visit FlexiLogic Zimbabwe →
+            </a>
+          </div>
           <div className="h-px mb-6" style={{ background: "linear-gradient(90deg,#C8922A,rgba(200,146,42,0.1),transparent)" }} />
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-            <span className="text-[12px] text-white/45">© 2025 FlexiLogic Africa. All rights reserved.</span>
+            <span className="text-[12px] text-white/45">© 2026 FlexiLogic Africa. All rights reserved.</span>
           </div>
         </div>
       </footer>

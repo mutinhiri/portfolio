@@ -158,7 +158,7 @@ export const trackLeadConversion = (serviceType, value) => {
       category: "Web Development",
       categoryColor: "bg-[#F59E0B]/15 text-[#F59E0B]",
       title: "Your Website Is Your Hardest Working Employee — Most Zimbabwean Businesses Have Not Hired It Yet",
-      date: "13 March 2025",
+      date: "13 March 2026",
       readTime: "11 min read",
       cover: "🌐",
       coverBg: "linear-gradient(135deg,#1a1200 0%,#2d1f00 100%)",
@@ -659,7 +659,7 @@ export default function FlexilogicBlogArticle() {
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
-            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
+            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2026.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">

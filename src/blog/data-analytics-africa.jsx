@@ -31,7 +31,7 @@ const ARTICLE = {
   categoryColor: "bg-[#34D399]/15 text-[#34D399]",
   title: "Data Analytics in Africa: Why Most Businesses Are Sitting on a Gold Mine They Cannot Read",
   subtitle: "Every transaction, every customer interaction, every operational event your business generates is a data point. African organisations are collecting more data than ever before — and making fewer decisions from it than they should. That gap is the opportunity.",
-  date: "13 March 2025",
+  date: "13 March 2026",
   readTime: "12 min read",
   author: {
     name: "FlexiLogic Team",
@@ -63,7 +63,7 @@ const ARTICLE = {
     {
       type: "callout",
       emoji: "💡",
-      title: "The real data problem in 2025",
+      title: "The real data problem in 2026",
       text: "Most African businesses do not have a data shortage. They have a data fragmentation problem. Operational data lives in disconnected systems — accounting software, point-of-sale terminals, spreadsheets, CRM tools, mobile money dashboards — that have never been connected to each other. The insight that would change a business decision exists somewhere in that fragmented landscape. It just cannot be seen.",
     },
     {
@@ -259,7 +259,7 @@ def run_daily_sales_pipeline(target_date=None):
     },
     {
       type: "paragraph",
-      text: "Small and medium enterprises often believe sophisticated data analytics is out of their reach — too expensive, too complex, too dependent on data volumes they do not yet have. The reality in 2025 is that a well-designed analytics setup for an SME is neither expensive nor complex, and the minimum viable dataset for meaningful insight is smaller than most business owners assume. A single connected view of revenue, costs, customer behaviour, and operational performance — updated automatically and accessible on a phone — is transformative for a business that has been running on gut feel and end-of-month spreadsheets.",
+      text: "Small and medium enterprises often believe sophisticated data analytics is out of their reach — too expensive, too complex, too dependent on data volumes they do not yet have. The reality in 2026 is that a well-designed analytics setup for an SME is neither expensive nor complex, and the minimum viable dataset for meaningful insight is smaller than most business owners assume. A single connected view of revenue, costs, customer behaviour, and operational performance — updated automatically and accessible on a phone — is transformative for a business that has been running on gut feel and end-of-month spreadsheets.",
     },
     {
       type: "heading",
@@ -314,7 +314,7 @@ def run_daily_sales_pipeline(target_date=None):
       category: "AI & Automation",
       categoryColor: "bg-[#A78BFA]/15 text-[#A78BFA]",
       title: "AI Automation in Africa: The Opportunity, The Reality, and What to Build First",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "12 min read",
       cover: "🤖",
       coverBg: "linear-gradient(135deg,#0d0a1a 0%,#1a1035 100%)",
@@ -324,7 +324,7 @@ def run_daily_sales_pipeline(target_date=None):
       category: "DevOps",
       categoryColor: "bg-[#7C9FFF]/15 text-[#7C9FFF]",
       title: "Why African Startups Can No Longer Afford to Ignore DevOps",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "9 min read",
       cover: "☁️",
       coverBg: "linear-gradient(135deg,#0a1628 0%,#0d2137 100%)",
@@ -813,7 +813,7 @@ export default function FlexilogicBlogArticle() {
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
-            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
+            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2026.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">
