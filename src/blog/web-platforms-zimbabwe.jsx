@@ -7,7 +7,7 @@ const ARTICLE = {
   categoryColor: "bg-[#F59E0B]/15 text-[#F59E0B]",
   title: "Your Website Is Your Hardest Working Employee — Most Zimbabwean Businesses Have Not Hired It Yet",
   subtitle: "A professional website works 24 hours a day, 7 days a week, reaches customers you will never meet in person, and builds credibility before a single conversation takes place. Yet the majority of Zimbabwean businesses either have no website, or one that is actively costing them trust and revenue.",
-  date: "13 March 2025",
+  date: "13 March 2026",
   readTime: "11 min read",
   author: {
     name: "FlexiLogic Team",
@@ -369,7 +369,7 @@ export default function EnquiryForm() {
       category: "Mobile",
       categoryColor: "bg-[#38BDF8]/15 text-[#38BDF8]",
       title: "Mobile App Development in Africa: Why Your Next Customer Will Find You on a Phone — or Not at All",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "11 min read",
       cover: "📱",
       coverBg: "linear-gradient(135deg,#0a1520 0%,#0d1f35 100%)",
@@ -379,7 +379,7 @@ export default function EnquiryForm() {
       category: "Cybersecurity",
       categoryColor: "bg-[#FF6B6B]/15 text-[#FF6B6B]",
       title: "Cybersecurity in Zimbabwe: Why Local Businesses Are More Exposed Than They Think",
-      date: "13 Mar 2025",
+      date: "13 Mar 2026",
       readTime: "11 min read",
       cover: "🔐",
       coverBg: "linear-gradient(135deg,#1a0a0a 0%,#2d1515 100%)",
@@ -870,7 +870,7 @@ export default function FlexilogicBlogArticle() {
           <div>
             <div className="text-[10px] font-extrabold tracking-[.12em] text-[#C8922A] uppercase mb-1.5">Work with us</div>
             <h3 className="serif italic text-white text-[26px] leading-tight mb-1">Got a project in mind?</h3>
-            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2025.</p>
+            <p className="text-white/40 text-[13px]">We're currently taking on new clients for Q2 2026.</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link to="/blog" className="font-bold text-[13px] bg-transparent text-white border border-white/20 rounded-xl px-5 py-2.5 cursor-pointer flex items-center gap-2 no-underline hover:border-white/40 transition-colors">

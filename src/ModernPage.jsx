@@ -765,7 +765,7 @@ export default function FlexilogicPortfolio() {
           {/* Gold divider */}
           <div style={{ height: 1, background: "linear-gradient(90deg, #C8922A, rgba(200,146,42,0.1), transparent)", marginBottom: 24 }} />
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontSize: 12, color: "rgba(255,255,255,0.25)" }}>© 2025 FlexiLogic Africa. All rights reserved.</span>
+            <span style={{ fontSize: 12, color: "rgba(255,255,255,0.25)" }}>© 2026 FlexiLogic Africa. All rights reserved.</span>
             <span style={{ fontSize: 12, color: "rgba(255,255,255,0.25)" }}>Built in Zimbabwe 🇿🇼 · Serving the world 🌍</span>
           </div>
         </div>

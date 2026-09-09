@@ -131,7 +131,7 @@ export function useSEO({
  * @param {string} options.title
  * @param {string} options.description
  * @param {string} options.slug
- * @param {string} options.publishedAt   ISO date e.g. "2025-02-12"
+ * @param {string} options.publishedAt   ISO date e.g. "2026-02-12"
  * @param {string} [options.author]
  */
 export function useArticleJsonLd({
